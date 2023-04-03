@@ -1,6 +1,6 @@
 module.exports = {
-    host: "localhost",
-    user: "root",
-    password: "123456",
-    database : "WSForms"
-  };
+  host: "localhost",
+  user: "root",
+  password: "12345678",
+  database: "WSForms",
+};
