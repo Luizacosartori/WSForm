@@ -1,0 +1,11 @@
+.header {
+    padding: 20px;
+    background-color: bisque;
+}
+
+.massageform {
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    background-color: white;
+}

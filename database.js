@@ -1,8 +1,8 @@
 var dbDetails = require("./db_details");
-var mysql = require('mysql2');
+var mysql = require('./WSForms/node_modules/mysql2');
 var http = require('http');
 
-var bodyParser = require("body-parser");
+var bodyParser = require("./WSForms/node_modules/body-parser");
 
 module.exports = {
 	getconnection: ()=>{
