@@ -1,7 +1,7 @@
-var express = require("express")
+var express = require("./WSForms/node_modules/express")
 var app = express();
 var formAPI = require("./controllerAPI/api-controller")
-var bodyParser= require("body-parser");
+var bodyParser= require("./WSForms/node_modules/body-parser");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
