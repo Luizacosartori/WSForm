@@ -1,11 +1,34 @@
+/* header {
+  --primary-colour: #c9bba7;
+  --secondary-colour: #6a4b88;
+  --primary-bg-colour: #ffffff;
+  --secondary-bg-colour: #f1f1f1;
+  --alternative-bg-colour: #5b4a88;
+  --highlight-colour: #303030;
+  --light-blue-colour: #7098b2;
+  --medium-blue-colour: #4d86ac;
+  --dark-blue-colour: #3c5692;
+} */
+
 .header {
-    padding: 20px;
-    background-color: bisque;
+  height: 112px;
+  padding: 0;
+  background-color: #c9bba7;
 }
 
+.logo img {
+  padding: 8px;
+  width: 96px;
+  margin-left: 268px;
+}
+
+.wrapper {
+  max-width: 1196px;
+  margin: 0 auto;
+}
 .massageform {
-    width: 80%;
-    height: 100vh;
-    margin: auto;
-    background-color: white;
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+  background-color: white;
 }
