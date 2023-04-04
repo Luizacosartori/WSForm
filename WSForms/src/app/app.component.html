@@ -1,69 +1,126 @@
-<header class="header">
-  <img src="./assets/logo.png" alt="logo">
-</header>
-<div class="massageform">
-  <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
-    <section id="personalInformation">
-      <div>
-        <h2>Personal Information</h2>
-      </div>
-      <div>
-        <input id="fullName" placeholder="Full Name" type="text" formControlName="fullName">
-        <label for="DOB">DOB </label>
-        <input id="DOB" type="date" formControlName="DOB">
-      </div>
-      <div>
-        <input id="address" placeholder="Address" type="text" formControlName="state">
-        <input id="postCode" placeholder="Post Code" type="text" formControlName="postCode">
-      </div>
-      <div>
-        <input id="occupation" placeholder="Occupation" type="text" formControlName="occupation">
-        <input id="employer" placeholder="Employer" type="text" formControlName="employer">
-      </div>
-      <div>
-        <input id="email" placeholder="Email" type="email" formControlName="email">
-        <input id="phone" placeholder="Phone" type="text" formControlName="phone">
-      </div>
-      <div>
-        <input id="emergencyContact" placeholder="Emergency Contact" type="text" formControlName="emergencyContact">
-        <input id="relationship" placeholder="Relationship" type="text" formControlName="relationship">
-        <input id="emergencyPhone" placeholder="Phone" type="text" formControlName="emergencyPhone">
-      </div>
-      <div>
-        <input type="checkbox" id="onlineSearch" name="hearAboutUs">
-        <label for="onlineSearch">Online Search</label>
-        <input type="checkbox" id="facebook" name="hearAboutUs">
-        <label for="facebook">Facebook</label>
-        <input type="checkbox" id="instagram" name="hearAboutUs">
-        <label for="hearAboutUs">Instagram</label>
-        <input type="checkbox" id="onlienAdver" name="hearAboutUs">
-        <label for="onlienAdver">Online Advertisement</label>
-        <input type="checkbox" id="wom" name="hearAboutUs">
-        <label for="wom">Word of Mouth</label>
-        <input type="checkbox" id="referralFamily" name="hearAboutUs">
-        <label for="referralFamily">Referral from friend/family</label>
-        <input type="checkbox" id="referralProvider" name="hearAboutUs">
-        <label for="referralProvider">Referral from Healthcare Porvider</label>
-        <input type="checkbox" id="walkedBy" name="hearAboutUs">
-        <label for="walkedBy">Walked by</label>
-        <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
-      </div>
-    </section>
-    <section id="medicalInformation">
-      <div>
-        <h2>Medical Information</h2>
-      </div>
-
-    </section>
-    <section id="massageInformation">
-      <div>
-        <h2>Massage Information</h2>
-      </div>
-    </section>
-  </form>
+<div class="wrapper">
+  <header class="header">
+    <div class="logo">
+      <img src="./assets/logo.png" alt="White Stone logo" />
+    </div>
+  </header>
+</div>
+<div class="wrapper">
+  <div class="massageform">
+    <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
+      <section id="personalInformation">
+        <div>
+          <h2>Personal Information</h2>
+        </div>
+        <div>
+          <input
+            id="fullName"
+            placeholder="Full Name"
+            type="text"
+            formControlName="fullName"
+          />
+          <label for="DOB">DOB </label>
+          <input id="DOB" type="date" formControlName="DOB" />
+        </div>
+        <div>
+          <input
+            id="address"
+            placeholder="Address"
+            type="text"
+            formControlName="state"
+          />
+          <input
+            id="postCode"
+            placeholder="Post Code"
+            type="text"
+            formControlName="postCode"
+          />
+        </div>
+        <div>
+          <input
+            id="occupation"
+            placeholder="Occupation"
+            type="text"
+            formControlName="occupation"
+          />
+          <input
+            id="employer"
+            placeholder="Employer"
+            type="text"
+            formControlName="employer"
+          />
+        </div>
+        <div>
+          <input
+            id="email"
+            placeholder="Email"
+            type="email"
+            formControlName="email"
+          />
+          <input
+            id="phone"
+            placeholder="Phone"
+            type="text"
+            formControlName="phone"
+          />
+        </div>
+        <div>
+          <input
+            id="emergencyContact"
+            placeholder="Emergency Contact"
+            type="text"
+            formControlName="emergencyContact"
+          />
+          <input
+            id="relationship"
+            placeholder="Relationship"
+            type="text"
+            formControlName="relationship"
+          />
+          <input
+            id="emergencyPhone"
+            placeholder="Phone"
+            type="text"
+            formControlName="emergencyPhone"
+          />
+        </div>
+        <div>
+          <input type="checkbox" id="onlineSearch" name="hearAboutUs" />
+          <label for="onlineSearch">Online Search</label>
+          <input type="checkbox" id="facebook" name="hearAboutUs" />
+          <label for="facebook">Facebook</label>
+          <input type="checkbox" id="instagram" name="hearAboutUs" />
+          <label for="hearAboutUs">Instagram</label>
+          <input type="checkbox" id="onlienAdver" name="hearAboutUs" />
+          <label for="onlienAdver">Online Advertisement</label>
+          <input type="checkbox" id="wom" name="hearAboutUs" />
+          <label for="wom">Word of Mouth</label>
+          <input type="checkbox" id="referralFamily" name="hearAboutUs" />
+          <label for="referralFamily">Referral from friend/family</label>
+          <input type="checkbox" id="referralProvider" name="hearAboutUs" />
+          <label for="referralProvider"
+            >Referral from Healthcare Porvider</label
+          >
+          <input type="checkbox" id="walkedBy" name="hearAboutUs" />
+          <label for="walkedBy">Walked by</label>
+          <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
+        </div>
+      </section>
+      <section id="medicalInformation">
+        <div>
+          <h2>Medical Information</h2>
+        </div>
+      </section>
+      <section id="massageInformation">
+        <div>
+          <h2>Massage Information</h2>
+        </div>
+      </section>
+    </form>
+  </div>
 </div>
 
-<!-- 
+<!--
 <form>
   <h1>Just to Showdatabase connection</h1>
   <button style="padding:3px 30px " (click)="getData()">Click me </button>
