@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
-import { formsData } from './formsData';
+import { therapistData, clientData, treatmentData } from './formsData';
 import { dataService } from './dataService';
 
 @Component({
@@ -10,7 +10,9 @@ import { dataService } from './dataService';
 })
 export class AppComponent {
   title = 'WSForms';
-  therapists: formsData[] = new Array();
+  therapists: therapistData[] = new Array();
+  clients: clientData[] = new Array();
+  treatments: treatmentData[] = new Array();
   massageForm = new FormGroup({
     fullName: new FormControl(''), //must have space caracter
     state: new FormControl(''), //Must have more than 2 caractrers
@@ -27,9 +29,23 @@ export class AppComponent {
 
   }
   getData() {
-    this.dataService.getPacientData().subscribe(
+    this.dataService.getTeraphistData().subscribe(
       (d: any) => {
         this.therapists = d;
+      },
+      (err: any) => {
+
+      });
+    this.dataService.getClientData().subscribe(
+      (d: any) => {
+        this.clients = d;
+      },
+      (err: any) => {
+
+      });
+    this.dataService.getTreatmentData().subscribe(
+      (d: any) => {
+        this.treatments = d;
       },
       (err: any) => {
 
