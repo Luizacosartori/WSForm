@@ -337,10 +337,11 @@
   </div>
 </div>
 
-<!--
+
 <form>
-  <h1>Just to Showdatabase connection</h1>
-  <button style="padding:3px 30px " (click)="getData()">Click me </button>
-  <p *ngFor="let therapist of therapists">Name: {{therapist.name}}, ID: {{therapist.therapis_id}}, Treatment:
-    {{therapist.treatment}}</p>
-</form> -->
+  <h1>Testing database</h1>
+  <button style="padding:3px 30px " (click)="getData()">Bring data </button>
+  <p *ngFor="let therapist of therapists">Therapist-> Name: {{therapist.fullName}}, ID: {{therapist.therapist_id}}</p>
+  <p *ngFor="let client of clients">Client-> Name: {{client.firstName + " " + client.lastName}}, Phone: {{client.mobile_phone}}</p>
+  <p *ngFor="let treatment of treatments">Treatment-> ID: {{treatment.treatment_id}}, Client: {{treatment.clientName}}, Therapist: {{treatment.therapistName}}, Notes ID: {{treatment.treatment_notes_id}}, Date: {{treatment.treatment_date}}, Notes: {{treatment.treatment_notes}}</p>
+</form> 

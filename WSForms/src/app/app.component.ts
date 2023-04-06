@@ -1,11 +1,21 @@
 import { Component } from '@angular/core';
+// <<<<<<< HEAD
+// import {
+//   FormsModule,
+//   ReactiveFormsModule,
+//   FormControl,
+//   FormGroup,
+// } from '@angular/forms';
+// import { formsData } from './formsData';
+// =======
 import {
   FormsModule,
   ReactiveFormsModule,
   FormControl,
   FormGroup,
 } from '@angular/forms';
-import { formsData } from './formsData';
+import { therapistData, clientData, treatmentData } from './formsData';
+// >>>>>>> 56f02d4675c1076f9656f6555827bbaa5737d82d
 import { dataService } from './dataService';
 
 @Component({
@@ -15,7 +25,9 @@ import { dataService } from './dataService';
 })
 export class AppComponent {
   title = 'WSForms';
-  therapists: formsData[] = new Array();
+  therapists: therapistData[] = new Array();
+  clients: clientData[] = new Array();
+  treatments: treatmentData[] = new Array();
   massageForm = new FormGroup({
     fullName: new FormControl(''), //must have space caracter
     dob: new FormControl(''), //date of birthday
@@ -33,13 +45,31 @@ export class AppComponent {
   constructor(private dataService: dataService) {}
 
   getData() {
-    this.dataService.getPacientData().subscribe(
+    this.dataService.getTeraphistData().subscribe(
       (d: any) => {
         this.therapists = d;
+      },
+      // <<<<<<< HEAD
+      //       (err: any) => {}
+      //     );
+      // =======
+      (err: any) => {}
+    );
+    this.dataService.getClientData().subscribe(
+      (d: any) => {
+        this.clients = d;
+      },
+      (err: any) => {}
+    );
+    this.dataService.getTreatmentData().subscribe(
+      (d: any) => {
+        this.treatments = d;
       },
       (err: any) => {}
     );
   }
 
-  onSubmit() {}
+  onSubmit() {
+    // >>>>>>> 56f02d4675c1076f9656f6555827bbaa5737d82d
+  }
 }

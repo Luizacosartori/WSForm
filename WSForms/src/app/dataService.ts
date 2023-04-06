@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"
 import { Observable } from "rxjs";
-import { formsData } from "./formsData";
+import { therapistData, clientData, treatmentData } from "./formsData";
 
 @Injectable()
 export class dataService{
@@ -11,7 +11,17 @@ export class dataService{
     }
 
     //Send a GET request to the server
-    public getPacientData():Observable<formsData>{
-       return this.http.get<formsData>(this.url); 
+    public getClientData():Observable<clientData>{
+        return this.http.get<clientData>(this.url+"/client/"); 
+    }
+
+    //Send a GET request to the server
+    public getTreatmentData():Observable<treatmentData>{
+        return this.http.get<treatmentData>(this.url+"/treatment/"); 
+    
+    }
+    //Send a GET request to the server
+    public getTeraphistData():Observable<therapistData>{
+        return this.http.get<therapistData>(this.url+"/therapist/"); 
     }
 }
