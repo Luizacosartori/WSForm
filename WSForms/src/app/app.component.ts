@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+// <<<<<<< HEAD
+// import {
+//   FormsModule,
+//   ReactiveFormsModule,
+//   FormControl,
+//   FormGroup,
+// } from '@angular/forms';
+// import { formsData } from './formsData';
+// =======
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 import { therapistData, clientData, treatmentData } from './formsData';
+// >>>>>>> 56f02d4675c1076f9656f6555827bbaa5737d82d
 import { dataService } from './dataService';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'WSForms';
@@ -15,6 +30,8 @@ export class AppComponent {
   treatments: treatmentData[] = new Array();
   massageForm = new FormGroup({
     fullName: new FormControl(''), //must have space caracter
+    dob: new FormControl(''), //date of birthday
+    city: new FormControl(''),
     state: new FormControl(''), //Must have more than 2 caractrers
     postCode: new FormControl(''), //must be onlye number
     occupation: new FormControl(''), //Must have more than 2 caractrers
@@ -24,36 +41,35 @@ export class AppComponent {
     emergencyPhone: new FormControl(''), //must only bu numbers
     emergencyContact: new FormControl(''), //Must have space
     relationship: new FormControl(''), //Must have more than 2 caractrers
-  })
-  constructor(private dataService: dataService) {
+  });
+  constructor(private dataService: dataService) {}
 
-  }
   getData() {
     this.dataService.getTeraphistData().subscribe(
       (d: any) => {
         this.therapists = d;
       },
-      (err: any) => {
-
-      });
+      // <<<<<<< HEAD
+      //       (err: any) => {}
+      //     );
+      // =======
+      (err: any) => {}
+    );
     this.dataService.getClientData().subscribe(
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => {
-
-      });
+      (err: any) => {}
+    );
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatments = d;
       },
-      (err: any) => {
-
-      });
+      (err: any) => {}
+    );
   }
 
-  onSubmit(){
-
+  onSubmit() {
+    // >>>>>>> 56f02d4675c1076f9656f6555827bbaa5737d82d
   }
-
 }

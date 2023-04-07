@@ -1,34 +1,84 @@
-/* header {
-  --primary-colour: #c9bba7;
-  --secondary-colour: #6a4b88;
-  --primary-bg-colour: #ffffff;
-  --secondary-bg-colour: #f1f1f1;
-  --alternative-bg-colour: #5b4a88;
-  --highlight-colour: #303030;
-  --light-blue-colour: #7098b2;
-  --medium-blue-colour: #4d86ac;
-  --dark-blue-colour: #3c5692;
-} */
+body {
+  background-color: #fafafa;
+}
 
-.header {
-  height: 112px;
-  padding: 0;
+header {
+  /* background: linear-gradient(180deg, #6f7dfb 0%, #26308c 100%); */
   background-color: #c9bba7;
+  height: 112px;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1196px;
+  padding: 12px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo img {
-  padding: 8px;
   width: 96px;
-  margin-left: 268px;
+  margin-left: 68px;
 }
 
 .wrapper {
-  max-width: 1196px;
+  max-width: 1040px;
   margin: 0 auto;
+  padding: 0;
+  /* background-color: rgb(202, 202, 255); */
 }
+
 .massageform {
   width: 80%;
   height: 100vh;
   margin: auto;
   background-color: white;
+}
+
+.personalInformation {
+  margin-top: 40px;
+}
+
+.personal-information-card-header {
+  margin-left: 88px;
+  padding: 24px 0;
+}
+
+.personal-information-card-content {
+  margin-left: 88px;
+  padding: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.top-padding {
+  padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child) {
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 80%;
+}
+.form-container mat-form-field {
+  width: 424px;
+}
+.form-container mat-form-field + mat-form-field {
+  margin-left: 16px;
+  /* gap: 16px; */
 }
