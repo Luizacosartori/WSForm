@@ -1,3 +1,6 @@
+.header {
+    padding: 20px;
+    background-color: bisque;
 body {
   background-color: #fafafa;
 }
@@ -28,57 +31,9 @@ nav {
   margin-left: 68px;
 }
 
-.wrapper {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0;
-  /* background-color: rgb(202, 202, 255); */
-}
-
 .massageform {
-  width: 80%;
-  height: 100vh;
-  margin: auto;
-  background-color: white;
-}
-
-.personalInformation {
-  margin-top: 40px;
-}
-
-.personal-information-card-header {
-  margin-left: 88px;
-  padding: 24px 0;
-}
-
-.personal-information-card-content {
-  margin-left: 88px;
-  padding: 0;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.top-padding {
-  padding-top: 3px;
-}
-
-.margin-left mat-radio-button:not(:first-child) {
-  margin-left: 10px;
-}
-
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 80%;
-}
-.form-container mat-form-field {
-  width: 424px;
-}
-.form-container mat-form-field + mat-form-field {
-  margin-left: 16px;
-  /* gap: 16px; */
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    background-color: white;
 }
