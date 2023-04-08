@@ -5,3 +5,6 @@ package.json
 package-lock.json
 db_details.js
 
+node_modules
+package-lock.json
+package.json
