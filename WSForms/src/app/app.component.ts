@@ -1,13 +1,4 @@
 import { Component } from '@angular/core';
-// <<<<<<< HEAD
-// import {
-//   FormsModule,
-//   ReactiveFormsModule,
-//   FormControl,
-//   FormGroup,
-// } from '@angular/forms';
-// import { formsData } from './formsData';
-// =======
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -15,7 +6,6 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { therapistData, clientData, treatmentData } from './formsData';
-// >>>>>>> 56f02d4675c1076f9656f6555827bbaa5737d82d
 import { dataService } from './dataService';
 
 @Component({
@@ -49,10 +39,6 @@ export class AppComponent {
       (d: any) => {
         this.therapists = d;
       },
-      // <<<<<<< HEAD
-      //       (err: any) => {}
-      //     );
-      // =======
       (err: any) => {}
     );
     this.dataService.getClientData().subscribe(
@@ -70,6 +56,9 @@ export class AppComponent {
   }
 
   onSubmit() {
-    // >>>>>>> 56f02d4675c1076f9656f6555827bbaa5737d82d
+  }
+
+  formatDate(date: Date): string{
+    return new Date(date).toLocaleDateString();
   }
 }

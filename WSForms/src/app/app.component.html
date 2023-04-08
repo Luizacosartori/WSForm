@@ -343,5 +343,5 @@
   <button style="padding:3px 30px " (click)="getData()">Bring data </button>
   <p *ngFor="let therapist of therapists">Therapist-> Name: {{therapist.fullName}}, ID: {{therapist.therapist_id}}</p>
   <p *ngFor="let client of clients">Client-> Name: {{client.firstName + " " + client.lastName}}, Phone: {{client.mobile_phone}}</p>
-  <p *ngFor="let treatment of treatments">Treatment-> ID: {{treatment.treatment_id}}, Client: {{treatment.clientName}}, Therapist: {{treatment.therapistName}}, Notes ID: {{treatment.treatment_notes_id}}, Date: {{treatment.treatment_date}}, Notes: {{treatment.treatment_notes}}</p>
+  <p *ngFor="let treatment of treatments">Treatment-> ID: {{treatment.treatment_id}}, Client: {{treatment.clientName}}, Therapist: {{treatment.therapistName}}, Notes ID: {{treatment.treatment_notes_id}}, Date: {{formatDate(treatment.treatment_date)}}, Notes: {{treatment.treatment_notes}}</p>
 </form> 
