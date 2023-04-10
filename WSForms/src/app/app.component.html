@@ -19,96 +19,126 @@
 <!-- Section - Personal Information -->
 <section>
   <div class="wrapper">
-    <form class="form-container-personalInformation">
-      <mat-card class="personalInformation">
-        <mat-card-header class="personal-information-card-header">
-          <mat-card-title>
-            <h1>Personal Information</h1>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="personal-information-card-content">
-          <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
-            <div>
-              <!-- <mat-form-field class="full-width">
+    <mat-card class="personalInformation">
+      <mat-card-header class="personal-information-card-header">
+        <mat-card-title>
+          <h1>Personal Information</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="personal-information-card-content">
+        <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
+          <div>
+            <!-- Full Width input field -->
+            <!-- <mat-form-field class="full-width">
                 <input matInput placeholder="Full name" />
               </mat-form-field> -->
-              <div class="form-container">
+            <div class="form-container">
+              <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput id="fullName" placeholder="Full Name" type="text" formControlName="fullName" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>DOB</mat-label>
+                <!-- id="DOB" type="date" formControlName="DOB" -->
+                <input formControlName="dob" matInput [matDatepicker]="picker" id="DOB" placeholder="DOB" />
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="form-container">
+              <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput id="address" placeholder="Address" type="text" formControlName="address" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput id="city" placeholder="City" type="text" formControlName="city" />
+              </mat-form-field>
+              <div>
                 <mat-form-field appearance="fill">
-                  <mat-label>Full Name</mat-label>
-                  <input matInput id="fullName" placeholder="Full Name" type="text" formControlName="fullName" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>DOB</mat-label>
-                  <!-- id="DOB" type="date" formControlName="DOB" -->
-                  <input formControlName="dob" matInput [matDatepicker]="picker" id="DOB" placeholder="DOB" />
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-              </div>
-              <div class="form-container">
-                <mat-form-field appearance="fill">
-                  <mat-label>Address</mat-label>
-                  <input matInput id="address" placeholder="Address" type="text" formControlName="address" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>City</mat-label>
-                  <input matInput id="city" placeholder="City" type="text" formControlName="city" />
-                </mat-form-field>
-
-                <!-- <mat-form-field appearance="fill">
-                  <mat-label>Select me</mat-label>
-                  <mat-select>
-                    <mat-option value="option">Option</mat-option>
+                  <mat-label>State</mat-label>
+                  <mat-select formControlName="state">
+                    <mat-option value="n/a">Not Australia</mat-option>
+                    <mat-option value="qld">QLD</mat-option>
+                    <mat-option value="nsw">NSW</mat-option>
+                    <mat-option value="vic">VIC</mat-option>
+                    <mat-option value="tas">TAS</mat-option>
+                    <mat-option value="act">ACT</mat-option>
+                    <mat-option value="nt">NT</mat-option>
+                    <mat-option value="ws">WA</mat-option>
                   </mat-select>
-                  <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-                </mat-form-field> -->
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Postal Code</mat-label>
+                  <input matInput id="postal-code" placeholder="Postal Code" type="text" formControlName="postCode" />
+                </mat-form-field>
               </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Ocuppation</mat-label>
+                  <input matInput id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Employer</mat-label>
+                  <input matInput id="employer" placeholder="Employer" type="text" formControlName="employer" />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
+                </mat-form-field>
+              </div>
+            </div>
 
-              <input matInput id="fullName" placeholder="Full Name" type="text" formControlName="fullName" />
-              <label for="DOB">DOB </label>
-              <input id="DOB" type="date" formControlName="DOB" />
-            </div>
-            <div>
-              <input id="address" placeholder="Address" type="text" formControlName="state" />
-              <input id="postCode" placeholder="Post Code" type="text" formControlName="postCode" />
-            </div>
-            <div>
-              <input id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
-              <input id="employer" placeholder="Employer" type="text" formControlName="employer" />
-            </div>
-            <div>
-              <input id="email" placeholder="Email" type="email" formControlName="email" />
-              <input id="phone" placeholder="Phone" type="text" formControlName="phone" />
-            </div>
-            <div>
-              <input id="emergencyContact" placeholder="Emergency Contact" type="text"
-                formControlName="emergencyContact" />
-              <input id="relationship" placeholder="Relationship" type="text" formControlName="relationship" />
-              <input id="emergencyPhone" placeholder="Phone" type="text" formControlName="emergencyPhone" />
-            </div>
-            <div>
-              <input type="checkbox" id="onlineSearch" name="hearAboutUs" />
-              <label for="onlineSearch">Online Search</label>
-              <input type="checkbox" id="facebook" name="hearAboutUs" />
-              <label for="facebook">Facebook</label>
-              <input type="checkbox" id="instagram" name="hearAboutUs" />
-              <label for="hearAboutUs">Instagram</label>
-              <input type="checkbox" id="onlienAdver" name="hearAboutUs" />
-              <label for="onlienAdver">Online Advertisement</label>
-              <input type="checkbox" id="wom" name="hearAboutUs" />
-              <label for="wom">Word of Mouth</label>
-              <input type="checkbox" id="referralFamily" name="hearAboutUs" />
-              <label for="referralFamily">Referral from friend/family</label>
-              <input type="checkbox" id="referralProvider" name="hearAboutUs" />
-              <label for="referralProvider">Referral from Healthcare Porvider</label>
-              <input type="checkbox" id="walkedBy" name="hearAboutUs" />
-              <label for="walkedBy">Walked by</label>
-              <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
-            </div>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </form>
+            <input matInput id="fullName" placeholder="Full Name" type="text" formControlName="fullName" />
+            <label for="DOB">DOB </label>
+            <input id="DOB" type="date" formControlName="DOB" />
+          </div>
+          <div>
+            <input id="address" placeholder="Address" type="text" formControlName="state" />
+            <input id="postCode" placeholder="Post Code" type="text" formControlName="postCode" />
+          </div>
+          <div>
+            <input id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
+            <input id="employer" placeholder="Employer" type="text" formControlName="employer" />
+          </div>
+          <div>
+            <input id="email" placeholder="Email" type="email" formControlName="email" />
+            <input id="phone" placeholder="Phone" type="text" formControlName="phone" />
+          </div>
+          <div>
+            <input id="emergencyContact" placeholder="Emergency Contact" type="text"
+              formControlName="emergencyContact" />
+            <input id="relationship" placeholder="Relationship" type="text" formControlName="relationship" />
+            <input id="emergencyPhone" placeholder="Phone" type="text" formControlName="emergencyPhone" />
+          </div>
+          <div>
+            <input type="checkbox" id="onlineSearch" name="hearAboutUs" />
+            <label for="onlineSearch">Online Search</label>
+            <input type="checkbox" id="facebook" name="hearAboutUs" />
+            <label for="facebook">Facebook</label>
+            <input type="checkbox" id="instagram" name="hearAboutUs" />
+            <label for="hearAboutUs">Instagram</label>
+            <input type="checkbox" id="onlienAdver" name="hearAboutUs" />
+            <label for="onlienAdver">Online Advertisement</label>
+            <input type="checkbox" id="wom" name="hearAboutUs" />
+            <label for="wom">Word of Mouth</label>
+            <input type="checkbox" id="referralFamily" name="hearAboutUs" />
+            <label for="referralFamily">Referral from friend/family</label>
+            <input type="checkbox" id="referralProvider" name="hearAboutUs" />
+            <label for="referralProvider">Referral from Healthcare Porvider</label>
+            <input type="checkbox" id="walkedBy" name="hearAboutUs" />
+            <label for="walkedBy">Walked by</label>
+            <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
 </section>
 
