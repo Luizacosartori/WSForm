@@ -1,6 +1,6 @@
 .father-div {
   background-color: #fafafa;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   margin-bottom: 50px;
 }
 
@@ -49,7 +49,7 @@ nav {
   margin-top: 40px;
 }
 
-.personal-information:hover{
+.personal-information:hover {
   border: solid 1px blue;
 }
 
@@ -67,11 +67,17 @@ nav {
 .full-width {
   width: 100% !important;
 }
-.full{
+
+.full {
   display: flex;
   margin: auto;
 }
 
+.three-collums {
+  columns: 3;
+  display: flex;
+  margin: auto;
+}
 
 .top-padding {
   padding-top: 3px;
@@ -88,14 +94,17 @@ nav {
 .column {
   flex: 80%;
 }
+
 .form-container mat-form-field {
   position: relative;
   width: 45%;
 }
-.form-container mat-form-field + mat-form-field {
+
+.form-container mat-form-field+mat-form-field {
   margin-left: 16px;
 }
-.lines{
+
+.lines {
   columns: 2;
   display: flex;
   margin: auto;
