@@ -7,7 +7,7 @@
 header {
   /* background: linear-gradient(180deg, #6f7dfb 0%, #26308c 100%); */
   background-color: #c9bba7;
-  height: 15vh;
+  height: 115px;
   width: 100vw;
 }
 
@@ -31,7 +31,7 @@ nav {
 }
 
 .wrapper {
-  max-width: 60vw;
+  max-width: 70vw;
   margin: 0 auto;
   margin-bottom: 60px;
   padding: 0;
@@ -45,8 +45,12 @@ nav {
   background-color: white;
 }
 
-.personalInformation {
+.personal-information {
   margin-top: 40px;
+}
+
+.personal-information:hover{
+  border: solid 1px blue;
 }
 
 .personal-information-card-header {
