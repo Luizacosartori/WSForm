@@ -67,7 +67,29 @@
                 </mat-form-field>
               </div>
 
-              <div class="full">
+              <div class="lines">
+                <h4>  Do you have health insurance?   </h4>
+                <mat-radio-group aria-label="Select an option" class="lines">
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="lines">
+                <mat-form-field>
+                  <mat-label>If yes, what is your Health Insurance?</mat-label>
+                  <mat-select>
+                    <!-- <mat-option *ngFor="let insurance of insurance" [value]="insurance.value">
+                      {{ insurance.viewValue }}
+                    </mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Other</mat-label>
+                  <input matInput id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
+                </mat-form-field>
+              </div>
+
+              <div >
                 <mat-form-field class="full-width" appearance="fill">
                   <mat-label>Ocuppation</mat-label>
                   <input matInput id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
@@ -84,9 +106,7 @@
                   <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
                 </mat-form-field>
               </div>
-              <div>
-                <p>Do you have health Insurance?</p>
-              </div>
+             
               <div class="three-collums">
                 <mat-form-field appearance="fill">
                   <mat-label>Emergency Contact Name</mat-label>
