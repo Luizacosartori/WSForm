@@ -1,6 +1,7 @@
 .father-div {
   background-color: #fafafa;
   overflow-x: hidden; 
+  margin-bottom: 50px;
 }
 
 header {
@@ -32,6 +33,7 @@ nav {
 .wrapper {
   max-width: 60vw;
   margin: 0 auto;
+  margin-bottom: 60px;
   padding: 0;
   /* background-color: rgb(202, 202, 255); */
 }
@@ -59,8 +61,13 @@ nav {
 }
 
 .full-width {
-  width: 100%;
+  width: 100% !important;
 }
+.full{
+  display: flex;
+  margin: auto;
+}
+
 
 .top-padding {
   padding-top: 3px;
