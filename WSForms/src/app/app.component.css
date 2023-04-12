@@ -131,7 +131,6 @@ mat-radio-group {
 }
 
 .checkbox-container {
-  margin: 8px 0;
   columns: 2;
   display: flex;
 }
