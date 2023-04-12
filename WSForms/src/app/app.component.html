@@ -1,215 +1,511 @@
-<!-- <header class="header">
-  <div class="wrapper">
-    <div class="logo">
-      <img src="./assets/logo.png" alt="White Stone logo" />
+<div class="father-div">
+  <header>
+    <div class="wrapper">
+      <nav>
+        <div class="logo">
+          <img src="./assets/logo.png" alt="White Stone logo" />
+        </div>
+      </nav>
     </div>
-  </div>
-</header> -->
+  </header>
 
-<header>
-  <div class="wrapper">
-    <nav>
-      <div class="logo">
-        <img src="./assets/logo.png" alt="White Stone logo" />
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- Section - Personal Information -->
-<section>
-  <div class="wrapper">
-    <form class="form-container-personalInformation">
-      <mat-card class="personalInformation">
+  <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
+    <!-- PERSONAL INFORMATION SECTION -->
+    <section class="wrapper">
+      <mat-card class="personal-information">
         <mat-card-header class="personal-information-card-header">
           <mat-card-title>
             <h1>Personal Information</h1>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="personal-information-card-content">
-          <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
-            <div>
-              <!-- <mat-form-field class="full-width">
-                <input matInput placeholder="Full name" />
-              </mat-form-field> -->
-              <div class="form-container">
+          <div>
+            <div class="form-container">
+              <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Full Name</mat-label>
-                  <input matInput id="fullName" placeholder="Full Name" type="text" formControlName="fullName" />
+                  <input
+                    matInput
+                    id="fullName"
+                    placeholder="Full Name"
+                    type="text"
+                    formControlName="fullName"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>DOB</mat-label>
                   <!-- id="DOB" type="date" formControlName="DOB" -->
-                  <input formControlName="dob" matInput [matDatepicker]="picker" id="DOB" placeholder="DOB" />
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <input
+                    formControlName="dob"
+                    matInput
+                    [matDatepicker]="picker"
+                    id="DOB"
+                    placeholder="DOB"
+                  />
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
-              <div class="form-container">
+
+              <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Address</mat-label>
-                  <input matInput id="address" placeholder="Address" type="text" formControlName="address" />
+                  <input
+                    matInput
+                    id="address"
+                    placeholder="Address"
+                    type="text"
+                    formControlName="address"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
-                  <mat-label>City</mat-label>
-                  <input matInput id="city" placeholder="City" type="text" formControlName="city" />
+                  <mat-label>Suburb</mat-label>
+                  <input
+                    matInput
+                    id="suburb"
+                    placeholder="Suburb"
+                    type="text"
+                    formControlName="suburb"
+                  />
                 </mat-form-field>
-
-                <!-- <mat-form-field appearance="fill">
-                  <mat-label>Select me</mat-label>
-                  <mat-select>
-                    <mat-option value="option">Option</mat-option>
-                  </mat-select>
-                  <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-                </mat-form-field> -->
               </div>
 
-              <input matInput id="fullName" placeholder="Full Name" type="text" formControlName="fullName" />
-              <label for="DOB">DOB </label>
-              <input id="DOB" type="date" formControlName="DOB" />
-            </div>
-            <div>
-              <input id="address" placeholder="Address" type="text" formControlName="state" />
-              <input id="postCode" placeholder="Post Code" type="text" formControlName="postCode" />
-            </div>
-            <div>
-              <input id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
-              <input id="employer" placeholder="Employer" type="text" formControlName="employer" />
-            </div>
-            <div>
-              <input id="email" placeholder="Email" type="email" formControlName="email" />
-              <input id="phone" placeholder="Phone" type="text" formControlName="phone" />
-            </div>
-            <div>
-              <input id="emergencyContact" placeholder="Emergency Contact" type="text"
-                formControlName="emergencyContact" />
-              <input id="relationship" placeholder="Relationship" type="text" formControlName="relationship" />
-              <input id="emergencyPhone" placeholder="Phone" type="text" formControlName="emergencyPhone" />
-            </div>
-            <div>
-              <input type="checkbox" id="onlineSearch" name="hearAboutUs" />
-              <label for="onlineSearch">Online Search</label>
-              <input type="checkbox" id="facebook" name="hearAboutUs" />
-              <label for="facebook">Facebook</label>
-              <input type="checkbox" id="instagram" name="hearAboutUs" />
-              <label for="hearAboutUs">Instagram</label>
-              <input type="checkbox" id="onlienAdver" name="hearAboutUs" />
-              <label for="onlienAdver">Online Advertisement</label>
-              <input type="checkbox" id="wom" name="hearAboutUs" />
-              <label for="wom">Word of Mouth</label>
-              <input type="checkbox" id="referralFamily" name="hearAboutUs" />
-              <label for="referralFamily">Referral from friend/family</label>
-              <input type="checkbox" id="referralProvider" name="hearAboutUs" />
-              <label for="referralProvider">Referral from Healthcare Porvider</label>
-              <input type="checkbox" id="walkedBy" name="hearAboutUs" />
-              <label for="walkedBy">Walked by</label>
-              <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
-            </div>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </form>
-  </div>
-</section>
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>State</mat-label>
+                  <mat-select formControlName="state">
+                    <mat-option value="n/a">Not Australia</mat-option>
+                    <mat-option value="qld">QLD</mat-option>
+                    <mat-option value="nsw">NSW</mat-option>
+                    <mat-option value="vic">VIC</mat-option>
+                    <mat-option value="tas">TAS</mat-option>
+                    <mat-option value="act">ACT</mat-option>
+                    <mat-option value="nt">NT</mat-option>
+                    <mat-option value="ws">WA</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Postal Code</mat-label>
+                  <input
+                    matInput
+                    id="postal-code"
+                    placeholder="Postal Code"
+                    type="text"
+                    formControlName="postCode"
+                  />
+                </mat-form-field>
+              </div>
 
-<section>
-  <div class="wrapper">
-    <form class="form-container-personal-information">
-      <mat-card class="personal-information">
-        <mat-card-header class="personal-information-card-header">
-          <mat-card-title>
-            <h1>Information</h1>
-          </mat-card-title>
-        </mat-card-header>
-        <!-- <mat-card-content class="personal-information-card-content"> -->
-        <mat-card-content class="personal-information-card-content">
-          <div class="row">
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input matInput placeholder="Full name" />
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input matInput placeholder="Last name" />
-              </mat-form-field>
+              <!-- Occupation -->
+              <div>
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Ocuppation</mat-label>
+                  <input
+                    matInput
+                    id="occupation"
+                    placeholder="Occupation"
+                    type="text"
+                    formControlName="occupation"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input
+                    matInput
+                    id="email"
+                    placeholder="Email"
+                    type="email"
+                    formControlName="email"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input
+                    matInput
+                    id="phone"
+                    placeholder="Phone"
+                    type="text"
+                    formControlName="phone"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="radiobox-lines">
+                <h4>Do you have health insurance?</h4>
+                <mat-radio-group aria-label="Select an option" class="lines">
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="lines">
+                <mat-form-field>
+                  <mat-label>If yes, what is your Health Insurance?</mat-label>
+                  <mat-select>
+                    <!-- <mat-option *ngFor="let insurance of insurance" [value]="insurance.value">
+                      {{ insurance.viewValue }}
+                    </mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Other</mat-label>
+                  <input
+                    matInput
+                    id="occupation"
+                    placeholder="Occupation"
+                    type="text"
+                    formControlName="occupation"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="three-collums">
+                <mat-form-field appearance="fill">
+                  <mat-label>Emergency Contact Name</mat-label>
+                  <input
+                    matInput
+                    id="emergencyName"
+                    placeholder="Emergency Contact Name"
+                    type="text"
+                    formControlName=""
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Relationship</mat-label>
+                  <input
+                    matInput
+                    id="relationship"
+                    placeholder="Relationship"
+                    type="text"
+                    formControlName=""
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input
+                    matInput
+                    id="phone"
+                    placeholder="Phone"
+                    type="text"
+                    formControlName=""
+                  />
+                </mat-form-field>
+              </div>
+              <!-- HEar about us -->
+
+              <div class="checkbox-container ">
+                <mat-checkbox class="checkbox-margin" type="checkbox" id="onlineSearch" name="hearAboutUs" />
+                <label for="onlineSearch">Online Search</label>
+                <mat-checkbox type="checkbox" id="facebook" name="hearAboutUs" />
+                <label for="facebook">Facebook</label>
+                <mat-checkbox type="checkbox" id="instagram" name="hearAboutUs" />
+                <label for="hearAboutUs">Instagram</label>
+                <mat-checkbox type="checkbox" id="onlienAdver" name="hearAboutUs" />
+                <label for="onlienAdver">Online Advertisement</label>
+                <mat-checkbox type="checkbox" id="wom" name="hearAboutUs" />
+                <label for="wom">Word of Mouth</label>
+                <mat-checkbox type="checkbox" id="referralFamily" name="hearAboutUs" />
+                <label for="referralFamily">Referral from friend/family</label>
+                <mat-checkbox
+                  type="checkbox"
+                  id="referralProvider"
+                  name="hearAboutUs"
+                />
+                <label for="referralProvider"
+                  >Referral from Healthcare Porvider</label
+                >
+                <mat-checkbox type="checkbox" id="walkedBy" name="hearAboutUs" />
+                <label for="walkedBy">Walked by</label>
+                <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
+              </div>
             </div>
           </div>
         </mat-card-content>
       </mat-card>
-    </form>
-  </div>
-</section>
+    </section>
 
-<div class="wrapper">
-  <div class="massage-form">
-    <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
-      <section id="personal-information">
-        <div>
-          <h2>Personal Information</h2>
-        </div>
-        <div>
-          <!-- <input id="fullName" placeholder="Full Name" type="text" formControlName="fullName" /> -->
-          <label for="DOB">DOB </label>
-          <input id="DOB" type="date" formControlName="DOB" />
-        </div>
-        <div>
-          <input id="address" placeholder="Address" type="text" formControlName="state" />
-          <input id="postCode" placeholder="Post Code" type="text" formControlName="postCode" />
-        </div>
-        <div>
-          <input id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
-          <input id="employer" placeholder="Employer" type="text" formControlName="employer" />
-        </div>
-        <div>
-          <input id="email" placeholder="Email" type="email" formControlName="email" />
-          <input id="phone" placeholder="Phone" type="text" formControlName="phone" />
-        </div>
-        <div>
-          <input id="emergencyContact" placeholder="Emergency Contact" type="text" formControlName="emergencyContact" />
-          <input id="relationship" placeholder="Relationship" type="text" formControlName="relationship" />
-          <input id="emergencyPhone" placeholder="Phone" type="text" formControlName="emergencyPhone" />
-        </div>
-        <div>
-          <input type="checkbox" id="onlineSearch" name="hearAboutUs" />
-          <label for="onlineSearch">Online Search</label>
-          <input type="checkbox" id="facebook" name="hearAboutUs" />
-          <label for="facebook">Facebook</label>
-          <input type="checkbox" id="instagram" name="hearAboutUs" />
-          <label for="hearAboutUs">Instagram</label>
-          <input type="checkbox" id="onlienAdver" name="hearAboutUs" />
-          <label for="onlienAdver">Online Advertisement</label>
-          <input type="checkbox" id="wom" name="hearAboutUs" />
-          <label for="wom">Word of Mouth</label>
-          <input type="checkbox" id="referralFamily" name="hearAboutUs" />
-          <label for="referralFamily">Referral from friend/family</label>
-          <input type="checkbox" id="referralProvider" name="hearAboutUs" />
-          <label for="referralProvider">Referral from Healthcare Porvider</label>
-          <input type="checkbox" id="walkedBy" name="hearAboutUs" />
-          <label for="walkedBy">Walked by</label>
-          <!-- Needs to device if it will be better do divide this on more DIV's or Sections -->
-        </div>
-      </section>
-      <section id="medicalInformation">
-        <div>
-          <h2>Medical Information</h2>
-        </div>
-      </section>
-      <section id="massageInformation">
-        <div>
-          <h2>Massage Information</h2>
-        </div>
-      </section>
-      <section id="submitButton">
-        <div>
-          <button mat-raised-button color="accent">Submit</button>
-        </div>
-      </section>
-    </form>
-  </div>
+    <!-- MEDICAL INFORMATION SECTION -->
+    <section class="wrapper">
+      <mat-card class="personal-information">
+        <mat-card-header class="personal-information-card-header">
+          <mat-card-title>
+            <h1>Medical Information</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="personal-information-card-content">
+          <div>
+            <div class="form-container">
+              <div class="lines">
+                <mat-radio-group aria-label="Select an option">
+                  Are you taking any medications?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>If yes, please list name and use</mat-label>
+                  <input
+                    matInput
+                    id="medications"
+                    placeholder="Please type the name and use"
+                    type="text"
+                    formControlName="medications"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="">
+                <mat-radio-group aria-label="Select an option">
+                  Are you currently pregnant?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>If yes, how far along?</mat-label>
+                  <input
+                    matInput
+                    id="howfar-pregnant"
+                    placeholder="How far"
+                    type="text"
+                    formControlName="howfar-pregnant"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Any high risk factors?</mat-label>
+                  <input
+                    matInput
+                    id="oi-pregnant"
+                    placeholder="How far"
+                    type="text"
+                    formControlName="oi-pregnant"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="lines">
+                <mat-radio-group aria-label="Select an option">
+                  Have you had any orthopedic injuries?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div>
+                <h4>Do you suffer from chronic pain?</h4>
+                <mat-radio-group aria-label="Select an option">
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>If yes, please explain</mat-label>
+                  <input
+                    matInput
+                    id="medications"
+                    placeholder="Please type the name and use"
+                    type="text"
+                    formControlName="medications"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="form-container-checkbox">
+                <h4>Please indicate any of the following that apply to you:</h4>
+              </div>
+              <div>
+                <div class="lines">
+                  <div>
+                    <mat-checkbox color="primary"> Cancer </mat-checkbox>
+                    <mat-checkbox color="primary"> Fibromyalgia </mat-checkbox>
+                    <mat-checkbox color="primary">
+                      Headaches / Migraines
+                    </mat-checkbox>
+                    <mat-checkbox color="primary"> Stroke </mat-checkbox>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary"> Arthritis </mat-checkbox>
+                    <mat-checkbox color="primary"> Heart Attack </mat-checkbox>
+                    <mat-checkbox color="primary"> Diabetes </mat-checkbox>
+                    <mat-checkbox color="primary">
+                      Kidney Dysfunction
+                    </mat-checkbox>
+                    <mat-checkbox color="primary"> Numbness </mat-checkbox>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary">
+                      Joint Replacement(s)
+                    </mat-checkbox>
+                    <mat-checkbox color="primary"> Blood Clots </mat-checkbox>
+                    <mat-checkbox color="primary"
+                      >High / Low Blood Pressure</mat-checkbox
+                    >
+                    <mat-checkbox color="primary"> Neuropathy </mat-checkbox>
+                    <mat-checkbox color="primary">
+                      Sprains or Strains</mat-checkbox
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- MASSAGE INFORMATION SECTION -->
+    <section class="wrapper">
+      <mat-card class="personal-information">
+        <mat-card-header class="personal-information-card-header">
+          <mat-card-title>
+            <h1>Massage Information</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="personal-information-card-content">
+          <div>
+            <div class="form-container">
+              <div class="lines">
+                <mat-radio-group aria-label="Select an option">
+                  Have you had a professional massage before?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label
+                    >What type of massage are you interested in?</mat-label
+                  >
+                  <mat-select formControlName="" multiple>
+                    <mat-option value="n/a">Remedial Massage</mat-option>
+                    <mat-option value="qld"
+                      >Deep Tissue/Sports Massage</mat-option
+                    >
+                    <mat-option value="nsw">Swedish/Relaxation</mat-option>
+                    <mat-option value="vic">Lymphatic Drainage</mat-option>
+                    <mat-option value="tas">Foot Reflexology</mat-option>
+                    <mat-option value="act">Indian Head Massage</mat-option>
+                    <mat-option value="nt">Dry Needling</mat-option>
+                    <mat-option value="ws">Cupping Treatment</mat-option>
+                    <mat-option value="ws">Pregnancy Massage</mat-option>
+                    <mat-option value="ws">Post Natal Massage</mat-option>
+                    <mat-option value="ws">Energy Healing Massage</mat-option>
+                    <mat-option value="ws">Devine Shape</mat-option>
+                    <mat-option value="ws">Lomi Lomi</mat-option>
+                    <mat-option value="ws">Recover and Disconnect</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Other</mat-label>
+                  <input
+                    matInput
+                    id="other"
+                    placeholder="Other"
+                    type="text"
+                    formControlName=""
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-radio-group aria-label="Select an option">
+                  What pressure do you prefer?
+                  <mat-radio-button value="1">Light</mat-radio-button>
+                  <mat-radio-button value="2">Medium</mat-radio-button>
+                  <mat-radio-button value="2">Hard</mat-radio-button>
+                  <mat-radio-button value="2">Deep</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <div>
+                <mat-radio-group aria-label="Select an option">
+                  Do you have any allergies or sensitivities?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Please Explain</mat-label>
+                  <input
+                    matInput
+                    id=""
+                    placeholder="Please Explain"
+                    type="text"
+                    formControlName=""
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input
+                    matInput
+                    id="email"
+                    placeholder="Email"
+                    type="email"
+                    formControlName="email"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input
+                    matInput
+                    id="phone"
+                    placeholder="Phone"
+                    type="text"
+                    formControlName="phone"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <button mat-fab extended>Submit</button>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </form>
 </div>
 
-<!-- 
+<!-- <section>
+    <div class="wrapper">
+      <form class="form-container-personal-information">
+        <mat-card class="personal-information">
+          <mat-card-header class="personal-information-card-header">
+            <mat-card-title>
+              <h1>Health Information</h1>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="personal-information-card-content">
+          <mat-card-content class="personal-information-card-content">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Full name" />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Last name" />
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </div>
+  </section> -->
+
+<!--
 <form>
   <h1>Testing database</h1>
   <button style="padding:3px 30px " (click)="getData()">Bring data </button>
