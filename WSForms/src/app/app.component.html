@@ -336,132 +336,136 @@
       </mat-card>
     </section>
 
-    <!-- MASSAGE INFORMATION SECTION -->
-    <section class="wrapper">
+   <!-- MASSAGE INFORMATION SECTION -->
+   <section class="wrapper">
+    <mat-card class="personal-information">
+      <mat-card-header class="personal-information-card-header">
+        <mat-card-title>
+          <h1>Massage Information</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="personal-information-card-content">
+        <div>
+          <div class="form-container">
+            <div class="lines">
+              <div class="radiobox-lines">
+                <h4> Have you had a professional massage before?</h4>
+                <mat-radio-group aria-label="Select an option" class="lines" formControlName="hasHealth_ensurance">
+                  <mat-radio-button value="Yes" (click)="activateRadioButton()">Yes</mat-radio-button>
+                  <mat-radio-button value="No" [checked]="true">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <div class="lines">
+              <mat-form-field appearance="fill">
+                <mat-label>What type of massage are you interested in?</mat-label>
+                <mat-select formControlName="" multiple>
+                  <mat-option value="n/a">Remedial Massage</mat-option>
+                  <mat-option value="qld">Deep Tissue/Sports Massage</mat-option>
+                  <mat-option value="nsw">Swedish/Relaxation</mat-option>
+                  <mat-option value="vic">Lymphatic Drainage</mat-option>
+                  <mat-option value="tas">Foot Reflexology</mat-option>
+                  <mat-option value="act">Indian Head Massage</mat-option>
+                  <mat-option value="nt">Dry Needling</mat-option>
+                  <mat-option value="ws">Cupping Treatment</mat-option>
+                  <mat-option value="ws">Pregnancy Massage</mat-option>
+                  <mat-option value="ws">Post Natal Massage</mat-option>
+                  <mat-option value="ws">Energy Healing Massage</mat-option>
+                  <mat-option value="ws">Devine Shape</mat-option>
+                  <mat-option value="ws">Lomi Lomi</mat-option>
+                  <mat-option value="ws">Recover and Disconnect</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Other</mat-label>
+                <input matInput id="other" placeholder="Other" type="text" formControlName="" />
+              </mat-form-field>
+            </div>
+            <div class="radiobox-lines">
+              <h4> What pressure do you prefer?</h4>
+
+              <mat-radio-group aria-label="What pressure do you prefer?">
+                <mat-radio-button value="1">Light</mat-radio-button>
+                <mat-radio-button value="2">Medium</mat-radio-button>
+                <mat-radio-button value="2">Hard</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div class="radiobox-lines">
+              <h4> Do you have any allergies or sensitivities?</h4>
+
+              <mat-radio-group aria-label="Do you have any allergies or sensitivities?">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div>
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Please Explain</mat-label>
+                <input matInput id="" placeholder="Please Explain" type="text" formControlName="" />
+              </mat-form-field>
+            </div>
+
+            <div class="lines">
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
+              </mat-form-field>
+            </div>
+
+            <div>
+              <button mat-fab extended>Submit</button>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</form>
+</div>
+
+<!-- <section>
+  <div class="wrapper">
+    <form class="form-container-personal-information">
       <mat-card class="personal-information">
         <mat-card-header class="personal-information-card-header">
           <mat-card-title>
-            <h1>Massage Information</h1>
+            <h1>Health Information</h1>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="personal-information-card-content">
-          <div>
-            <div class="form-container">
-              <div class="lines">
-                <mat-radio-group aria-label="Select an option">
-                  Have you had a professional massage before?
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
-              </div>
-              <div class="lines">
-                <mat-form-field appearance="fill">
-                  <mat-label>What type of massage are you interested in?</mat-label>
-                  <mat-select formControlName="" multiple>
-                    <mat-option value="n/a">Remedial Massage</mat-option>
-                    <mat-option value="qld">Deep Tissue/Sports Massage</mat-option>
-                    <mat-option value="nsw">Swedish/Relaxation</mat-option>
-                    <mat-option value="vic">Lymphatic Drainage</mat-option>
-                    <mat-option value="tas">Foot Reflexology</mat-option>
-                    <mat-option value="act">Indian Head Massage</mat-option>
-                    <mat-option value="nt">Dry Needling</mat-option>
-                    <mat-option value="ws">Cupping Treatment</mat-option>
-                    <mat-option value="ws">Pregnancy Massage</mat-option>
-                    <mat-option value="ws">Post Natal Massage</mat-option>
-                    <mat-option value="ws">Energy Healing Massage</mat-option>
-                    <mat-option value="ws">Devine Shape</mat-option>
-                    <mat-option value="ws">Lomi Lomi</mat-option>
-                    <mat-option value="ws">Recover and Disconnect</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>Other</mat-label>
-                  <input matInput id="other" placeholder="Other" type="text" formControlName="" />
-                </mat-form-field>
-              </div>
-              <div>
-                <mat-radio-group aria-label="Select an option">
-                  What pressure do you prefer?
-                  <mat-radio-button value="1">Light</mat-radio-button>
-                  <mat-radio-button value="2">Medium</mat-radio-button>
-                  <mat-radio-button value="2">Hard</mat-radio-button>
-                  <mat-radio-button value="2">Deep</mat-radio-button>
-                </mat-radio-group>
-              </div>
-
-              <div>
-                <mat-radio-group aria-label="Select an option">
-                  Do you have any allergies or sensitivities?
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
-              </div>
-              <div>
-                <mat-form-field appearance="fill">
-                  <mat-label>Please Explain</mat-label>
-                  <input matInput id="" placeholder="Please Explain" type="text" formControlName="" />
-                </mat-form-field>
-              </div>
-
-              <div class="lines">
-                <mat-form-field appearance="fill">
-                  <mat-label>Email</mat-label>
-                  <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>Phone</mat-label>
-                  <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
-                </mat-form-field>
-              </div>
-
-              <div>
-                <button mat-fab extended>Submit</button>
-              </div>
+        <mat-card-content class="personal-information-card-content">
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Full name" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Last name" />
+              </mat-form-field>
             </div>
           </div>
         </mat-card-content>
       </mat-card>
-    </section>
-  </form>
-</div>
-
-<!-- <section>
-    <div class="wrapper">
-      <form class="form-container-personal-information">
-        <mat-card class="personal-information">
-          <mat-card-header class="personal-information-card-header">
-            <mat-card-title>
-              <h1>Health Information</h1>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="personal-information-card-content">
-          <mat-card-content class="personal-information-card-content">
-            <div class="row">
-              <div class="col-md-6">
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Full name" />
-                </mat-form-field>
-              </div>
-              <div class="col-md-6">
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Last name" />
-                </mat-form-field>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </form>
-    </div>
-  </section> -->
+    </form>
+  </div>
+</section> -->
 
 <!--
 <form>
-  <h1>Testing database</h1>
-  <button style="padding:3px 30px " (click)="getData()">Bring data </button>
-  <p *ngFor="let therapist of therapists">Therapist-> Name: {{therapist.fullName}}, ID: {{therapist.therapist_id}}</p>
-  <p *ngFor="let client of clients">Client-> Name: {{client.firstName + " " + client.lastName}}, Phone:
-    {{client.mobile_phone}}</p>
-  <p *ngFor="let treatment of treatments">Treatment-> ID: {{treatment.treatment_id}}, Client: {{treatment.clientName}},
-    Therapist: {{treatment.therapistName}}, Notes ID: {{treatment.treatment_notes_id}}, Date:
-    {{formatDate(treatment.treatment_date)}}, Notes: {{treatment.treatment_notes}}</p>
+<h1>Testing database</h1>
+<button style="padding:3px 30px " (click)="getData()">Bring data </button>
+<p *ngFor="let therapist of therapists">Therapist-> Name: {{therapist.fullName}}, ID: {{therapist.therapist_id}}</p>
+<p *ngFor="let client of clients">Client-> Name: {{client.firstName + " " + client.lastName}}, Phone:
+  {{client.mobile_phone}}</p>
+<p *ngFor="let treatment of treatments">Treatment-> ID: {{treatment.treatment_id}}, Client: {{treatment.clientName}},
+  Therapist: {{treatment.therapistName}}, Notes ID: {{treatment.treatment_notes_id}}, Date:
+  {{formatDate(treatment.treatment_date)}}, Notes: {{treatment.treatment_notes}}</p>
 </form> -->
