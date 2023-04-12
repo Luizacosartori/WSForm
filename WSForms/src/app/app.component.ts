@@ -44,23 +44,29 @@ export class AppComponent {
     ],
   }
 
-
   massageForm = new FormGroup({
-    fullName: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
-    dob: new FormControl('', Validators.required),
-    city: new FormControl('', Validators.required),
+    date_of_birth: new FormControl('', Validators.required),
+    suburb: new FormControl('', Validators.required),
+    postal_code: new FormControl('', Validators.required),
     state: new FormControl('', Validators.required),
     postCode: new FormControl('', Validators.required),
     occupation: new FormControl('', Validators.required),
+    medications: new FormControl('', Validators.required),
     employer: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', Validators.required),
-    emergencyPhone: new FormControl('', Validators.required),
-    emergencyContact: new FormControl('', Validators.required),
-    relationship: new FormControl('', Validators.required),
+    emergencycontactphone: new FormControl('', Validators.required),
+    emergency_contact_name: new FormControl('', Validators.required),
+    emergency_contact_relationship: new FormControl('', Validators.required),
+    hasHealth_ensurance: new FormControl('', Validators.required),
+    health_ensurance: new FormControl('')
   });
-  constructor(private dataService: dataService) { }
+  constructor(private dataService: dataService) {
+    // console.log(this.massageForm.value.hasHealth_ensurance)
+
+  }
 
   getData() {
     this.dataService.getTeraphistData().subscribe(
@@ -84,9 +90,19 @@ export class AppComponent {
   }
 
   onSubmit() {
+    console.log(this.massageForm.value.hasHealth_ensurance)
   }
 
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
+  }
+
+  activateRadioButton() {
+    var optionChoosed = this.massageForm.value.hasHealth_ensurance;
+
+    if (optionChoosed == "Yes") {
+      this.massageForm.value.health_ensurance?.valueOf;
+      console.log('Yes inside IF')
+    }
   }
 }
