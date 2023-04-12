@@ -120,11 +120,11 @@ nav {
   width: 100%;
 }
 
-.radiobox-lines h4 {
+.radiobox-lines p {
   margin: 0;
-  width: 100%;
-  /* margin-right: 20vw; */
-  /* min-width: 424px; */
+  min-width: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .mat-mdc-radio-button {
@@ -134,6 +134,7 @@ nav {
 mat-radio-group {
   margin: 0;
   width: 100%;
+  display: flex;
 }
 
 .checkbox-container {

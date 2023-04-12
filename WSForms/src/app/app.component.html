@@ -87,10 +87,12 @@
               </div>
 
               <div class="radiobox-lines">
-                <h4>Do you have health insurance?</h4>
-                <mat-radio-group aria-label="Select an option" class="lines" formControlName="hasHealth_ensurance">
-                  <mat-radio-button value="Yes" (click)="activateRadioButton()">Yes</mat-radio-button>
-                  <mat-radio-button value="No" [checked]="true">No</mat-radio-button>
+                <mat-radio-group aria-label="Select an option">
+                  <p>Do you have a health insurance?</p>
+
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+
                 </mat-radio-group>
               </div>
               <div class="lines">
@@ -194,7 +196,7 @@
               <div class="lines">
                 <div class="radiobox-lines">
                   <mat-radio-group aria-label="Select an option">
-                    Are you taking any medications?
+                    <p>Are you taking any medications?</p>
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
                   </mat-radio-group>
@@ -210,7 +212,7 @@
               <div class="lines">
                 <div class="radiobox-lines">
                   <mat-radio-group aria-label="Select an option">
-                    Are you currently pregnant?
+                    <p>Are you currently pregnant?</p>
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
                   </mat-radio-group>
@@ -229,7 +231,7 @@
               <div class="lines">
                 <div class="radiobox-lines">
                   <mat-radio-group aria-label="Select an option">
-                    Do you suffer from chronic pain?
+                    <p>Do you suffer from chronic pain?</p>
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
                   </mat-radio-group>
@@ -245,7 +247,7 @@
               <div class="lines">
                 <div class="radiobox-lines">
                   <mat-radio-group aria-label="Select an option">
-                    Have you had any orthopedic injuries?
+                    <p>Have you had any orthopedic injuries?</p>
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
                   </mat-radio-group>
@@ -345,14 +347,16 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="personal-information-card-content">
-          <div>
+
             <div class="form-container">
               <div class="lines">
-                <mat-radio-group aria-label="Select an option">
-                  Have you had a professional massage before?
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
+                <div class="radiobox-lines">
+                  <mat-radio-group aria-label="Select an option">
+                    <p>Have you had a professional massage before?</p>
+                    <mat-radio-button value="1">Yes</mat-radio-button>
+                    <mat-radio-button value="2">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
               </div>
               <div class="lines">
                 <mat-form-field appearance="fill">
@@ -380,22 +384,24 @@
                 </mat-form-field>
               </div>
               <div>
+                <div class="radiobox-lines">
                 <mat-radio-group aria-label="Select an option">
-                  What pressure do you prefer?
+                  <p>What pressure do you prefer?</p>
                   <mat-radio-button value="1">Light</mat-radio-button>
                   <mat-radio-button value="2">Medium</mat-radio-button>
                   <mat-radio-button value="2">Hard</mat-radio-button>
                   <mat-radio-button value="2">Deep</mat-radio-button>
                 </mat-radio-group>
               </div>
+            </div>
 
-              <div>
-                <mat-radio-group aria-label="Select an option">
-                  Do you have any allergies or sensitivities?
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
-              </div>
+                <div class="radiobox-lines">
+                  <mat-radio-group aria-label="Select an option">
+                    <p>Do you have any allergies or sensitivities?</p>
+                    <mat-radio-button value="1">Yes</mat-radio-button>
+                    <mat-radio-button value="2">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
               <div>
                 <mat-form-field appearance="fill">
                   <mat-label>Please Explain</mat-label>
@@ -403,14 +409,75 @@
                 </mat-form-field>
               </div>
 
+              <h4>What are your goals for this treatment?</h4>
+              <div class="lines">
+
+                <div style="width: 50%;">
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="goals-pain" name="goals-pain" />
+                    <label for="goals-pain">Pain relief</label>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="goals-stress" name="goals-stress" />
+                    <label for="goals-stress">Stress reduction</label>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="goals-flexibility" name="goals-flexibility" />
+                    <label for="goals-flexibility">Increase flexibility and range of motion</label>
+                  </div>
+                </div>
+                <div style="width: 50%;">
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="goals-injury" name="goals-injury" />
+                    <label for="goals-injury">Injury rehabilitation</label>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="goals-sleep" name="goals-sleep" />
+                    <label for="goals-sleep">Improve sleep</label>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="goals-energy" name="goals-energy" />
+                    <label for="goals-energy">Increase energy</label>
+                  </div>
+                </div>
+
+              </div>
               <div class="lines">
                 <mat-form-field appearance="fill">
-                  <mat-label>Email</mat-label>
-                  <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
+                  <mat-label>Other</mat-label>
+                  <input matInput id="" placeholder="Other goals" type="text" formControlName="" />
                 </mat-form-field>
+              </div>
+
+              <h4>How often do you have a massage?</h4>
+              <div class="lines">
+
+                <div style="width: 50%;">
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="massage-often-weekly" name="massage-often-weekly" />
+                    <label for="massage-often-weekly">Weekly</label>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="massage-often-fortnight" name="massage-often-fortnight" />
+                    <label for="massage-often-fortnight">Fortnight</label>
+                  </div>
+                </div>
+                <div style="width: 50%;">
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="massage-often-monthly" name="massage-often-monthly" />
+                    <label for="massage-often-monthly">Monthly</label>
+                  </div>
+                  <div>
+                    <mat-checkbox color="primary" type="checkbox" id="massage-often-ramdomly" name="massage-often-ramdomly" />
+                    <label for="massage-often-ramdomly">Randomly</label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="lines">
                 <mat-form-field appearance="fill">
-                  <mat-label>Phone</mat-label>
-                  <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
+                  <mat-label>Other</mat-label>
+                  <input matInput id="" placeholder="How often" type="text" formControlName="" />
                 </mat-form-field>
               </div>
 
@@ -418,7 +485,7 @@
                 <button mat-fab extended>Submit</button>
               </div>
             </div>
-          </div>
+
         </mat-card-content>
       </mat-card>
     </section>
