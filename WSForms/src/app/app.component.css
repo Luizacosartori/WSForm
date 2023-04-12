@@ -14,7 +14,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  /* width: 100vw; */
   padding: 12px 0;
 }
 
@@ -30,11 +30,10 @@ nav {
 }
 
 .wrapper {
-  max-width: 70vw;
+  max-width: 90vw;
   margin: 0 auto;
   margin-bottom: 60px;
   padding: 0;
-  max-width: 1040px;
 }
 
 .massageform {
@@ -53,14 +52,13 @@ nav {
 }
 
 .personal-information-card-header {
-  margin-left: 88px;
-  margin-right: 88px;
+  margin: auto;
   padding: 24px 0;
 }
 
 .personal-information-card-content {
   padding: 0;
-  margin: 0 88px;
+  margin: 0px 80px;
 }
 
 .full-width {
@@ -76,6 +74,8 @@ nav {
   columns: 3;
   display: flex;
   margin: auto;
+  gap: 16px;
+  align-items: center;
 }
 
 .top-padding {
@@ -96,18 +96,18 @@ nav {
 
 .form-container mat-form-field {
   position: relative;
-  width: 50%;
+  width: 100%;
 }
 
-.form-container mat-form-field + mat-form-field {
+/* .form-container mat-form-field + mat-form-field {
   margin-left: 16px;
-}
+} */
 
 .lines {
   columns: 2;
   display: flex;
-  /* margin: auto; */
   align-content: center;
+  gap: 16px;
 }
 
 .radiobox-lines {
@@ -117,10 +117,14 @@ nav {
   margin: 0;
   margin-bottom: 16px;
   gap: 16px;
+  width: 100%;
 }
+
 .radiobox-lines h4 {
   margin: 0;
-  min-width: 424px;
+  width: 100%;
+  /* margin-right: 20vw; */
+  /* min-width: 424px; */
 }
 
 .mat-mdc-radio-button {
@@ -129,12 +133,33 @@ nav {
 
 mat-radio-group {
   margin: 0;
+  width: 100%;
 }
 
 .checkbox-container {
   margin: 8px 0;
   columns: 2;
+  display: flex;
 }
+
 .checkbox-margin {
   margin: 0 12px;
+}
+
+@media only screen and (max-width: 600px) {
+  .lines {
+    columns: 1;
+    display: block;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .personal-information-card-header {
+    padding: 24px 0;
+  }
+
+  mat-form-field {
+    width: 100% !important;
+  }
 }
