@@ -88,15 +88,16 @@
 
               <div class="radiobox-lines">
                 <h4>Do you have health insurance?</h4>
-                <mat-radio-group aria-label="Select an option" class="lines" formControlName="hasHealth_ensurance">
-                  <mat-radio-button value="Yes" (click)="activateRadioButton()">Yes</mat-radio-button>
-                  <mat-radio-button value="No" [checked]="true">No</mat-radio-button>
+                <mat-radio-group aria-label="Select an option" class="lines" formControlName="hasHealth_insurance">
+                  <mat-radio-button value="Yes">Yes</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
               </div>
               <div class="lines">
                 <mat-form-field>
                   <mat-label>If yes, what is your Health Insurance?</mat-label>
-                  <mat-select id="health_ensurance" formControlName="health_ensurance">
+                  <mat-select id="health_insurance" formControlName="health_insurance">
+                    <mat-option value="N/A">N/A</mat-option>
                     <mat-option value="Medibank">Medibank</mat-option>
                     <mat-option value="Bupa">Bupa</mat-option>
                     <mat-option value="HCF">HCF</mat-option>
@@ -111,8 +112,8 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Other</mat-label>
-                  <input matInput id="health_ensurance_other" placeholder="Other" type="text"
-                    formControlName="health_ensurance" />
+                  <input matInput id="health_insurance_other" placeholder="Other" type="text"
+                    formControlName="health_insurance" />
                 </mat-form-field>
               </div>
 
@@ -137,37 +138,39 @@
               <div class="lines">
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox type="checkbox" id="onlineSearch" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="onlineSearch" name="hearAboutUs" formControlName="hearAboutUs" />
                     <label for="onlineSearch">Online Search</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="facebook" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="facebook" name="hearAboutUs" formControlName="hearAboutUs" />
                     <label for="facebook">Facebook</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="instagram" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="instagram" name="hearAboutUs" formControlName="hearAboutUs" />
                     <label for="hearAboutUs">Instagram</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="onlienAdver" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="onlienAdver" name="hearAboutUs" formControlName="hearAboutUs" />
                     <label for="onlienAdver">Online Advertisement</label>
                   </div>
                 </div>
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox type="checkbox" id="wom" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="wom" name="hearAboutUs" formControlName="hearAboutUs" />
                     <label for="wom">Word of Mouth</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="referralFamily" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="referralFamily" name="hearAboutUs"
+                      formControlName="hearAboutUs" />
                     <label for="referralFamily">Friend/family</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="referralProvider" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="referralProvider" name="hearAboutUs"
+                      formControlName="hearAboutUs" />
                     <label for="referralProvider">Healthcare Provider</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="walkedBy" name="hearAboutUs" />
+                    <mat-checkbox type="checkbox" id="walkedBy" name="hearAboutUs" formControlName="hearAboutUs" />
                     <label for="walkedBy">Walked by</label>
                   </div>
 
@@ -190,128 +193,129 @@
         <mat-card-content class="personal-information-card-content">
 
 
-            <div class="form-container">
-              <div class="lines">
-                <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
-                    Are you taking any medications?
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
-                  </mat-radio-group>
-                </div>
-
-                <mat-form-field appearance="fill">
-                  <mat-label>If yes, please list name and use</mat-label>
-                  <input matInput id="medications" placeholder="Please type the name and use" type="text"
-                    formControlName="medications" />
-                </mat-form-field>
+          <div class="form-container">
+            <div class="lines">
+              <div class="radiobox-lines">
+                <mat-radio-group aria-label="Select an option" formControlName="">
+                  Are you taking any medications?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
               </div>
 
-              <div class="lines">
-                <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
-                    Are you currently pregnant?
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
-                  </mat-radio-group>
-                </div>
+              <mat-form-field appearance="fill">
+                <mat-label>If yes, please list name and use</mat-label>
+                <input matInput id="medications" placeholder="Please type the name and use" type="text"
+                  formControlName="medications" />
+              </mat-form-field>
+            </div>
 
-                <mat-form-field appearance="fill">
-                  <mat-label>If yes, how far along?</mat-label>
-                  <input matInput id="howfar-pregnant" placeholder="How far" type="text" formControlName="" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>Any high risk factors?</mat-label>
-                  <input matInput id="risks-pregnant" placeholder="Any risk" type="text" formControlName="" />
-                </mat-form-field>
+            <div class="lines">
+              <div class="radiobox-lines">
+                <mat-radio-group aria-label="Select an option">
+                  Are you currently pregnant?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
               </div>
 
-              <div class="lines">
-                <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
-                    Do you suffer from chronic pain?
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
-                  </mat-radio-group>
-                </div>
+              <mat-form-field appearance="fill">
+                <mat-label>If yes, how far along?</mat-label>
+                <input matInput id="howfar-pregnant" placeholder="How far" type="text" formControlName="" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Any high risk factors?</mat-label>
+                <input matInput id="risks-pregnant" placeholder="Any risk" type="text" formControlName="" />
+              </mat-form-field>
+            </div>
 
-                <mat-form-field appearance="fill">
-                  <mat-label>If yes, please explain</mat-label>
-                  <input matInput id="chronic-pain" placeholder="Please type the name and use" type="text"
-                    formControlName="" />
-                </mat-form-field>
+            <div class="lines">
+              <div class="radiobox-lines">
+                <mat-radio-group aria-label="Select an option">
+                  Do you suffer from chronic pain?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
               </div>
 
-              <div class="lines">
-                <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
-                    Have you had any orthopedic injuries?
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
-                  </mat-radio-group>
-                </div>
+              <mat-form-field appearance="fill">
+                <mat-label>If yes, please explain</mat-label>
+                <input matInput id="chronic-pain" placeholder="Please type the name and use" type="text"
+                  formControlName="" />
+              </mat-form-field>
+            </div>
 
-                <mat-form-field appearance="fill">
-                  <mat-label>If yes, please list</mat-label>
-                  <input matInput id="orthopedic-injuries" placeholder="Please type the name and use" type="text"
-                    formControlName="" />
-                </mat-form-field>
+            <div class="lines">
+              <div class="radiobox-lines">
+                <mat-radio-group aria-label="Select an option">
+                  Have you had any orthopedic injuries?
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
               </div>
 
-              <h4>Please indicate any of the following that apply to you:</h4>
-              <div class="lines">
+              <mat-form-field appearance="fill">
+                <mat-label>If yes, please list</mat-label>
+                <input matInput id="orthopedic-injuries" placeholder="Please type the name and use" type="text"
+                  formControlName="" />
+              </mat-form-field>
+            </div>
 
-                <div style="width: 50%;">
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-cancer" name="medical-cancer" />
-                    <label for="medical-cancer">Cancer</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-headaches" name="medical-headaches" />
-                    <label for="medical-headaches">Headaches / Migraines</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-arthritis" name="medical-arthritis" />
-                    <label for="medical-arthritis">Arthritis</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-diabetes" name="medical-diabetes" />
-                    <label for="medical-diabetes">Diabetes</label>
-                  </div>
-                  <div>
+            <h4>Please indicate any of the following that apply to you:</h4>
+            <div class="lines">
+
+              <div style="width: 50%;">
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-cancer" name="medical-cancer" />
+                  <label for="medical-cancer">Cancer</label>
+                </div>
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-headaches" name="medical-headaches" />
+                  <label for="medical-headaches">Headaches / Migraines</label>
+                </div>
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-arthritis" name="medical-arthritis" />
+                  <label for="medical-arthritis">Arthritis</label>
+                </div>
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-diabetes" name="medical-diabetes" />
+                  <label for="medical-diabetes">Diabetes</label>
+                </div>
+                <div>
                   <mat-checkbox color="primary" type="checkbox" id="medical-joint" name="medical-joint" />
                   <label for="medical-joint">Joint Replacement(s)</label>
-                  </div>
+                </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-bloodPressure" name="medical-bloodPressure" />
+                  <mat-checkbox color="primary" type="checkbox" id="medical-bloodPressure"
+                    name="medical-bloodPressure" />
                   <label for="medical-bloodPressure">High / Low Blood Pressure</label>
                 </div>
                 <div>
                   <mat-checkbox color="primary" type="checkbox" id="medical-neuropathy" name="medical-neuropathy" />
                   <label for="medical-neuropathy">Neuropathy</label>
                 </div>
+              </div>
+              <div style="width: 50%;">
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-fibromyalgia" name="medical-fibromyalgia" />
+                  <label for="medical-fibromyalgia">Fibromyalgia</label>
                 </div>
-                <div style="width: 50%;">
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-fibromyalgia" name="medical-fibromyalgia" />
-                    <label for="medical-fibromyalgia">Fibromyalgia</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-stroke" name="medical-stroke" />
-                    <label for="medical-stroke">Stroke</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-heartAttack" name="medical-heartAttack" />
-                    <label for="medical-heartAttack">Heart Attack</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="medical-kidney" name="medical-kidney" />
-                    <label for="medical-kidney">Kidney Dysfunction</label>
-                  </div>
-                  <div>
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-stroke" name="medical-stroke" />
+                  <label for="medical-stroke">Stroke</label>
+                </div>
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-heartAttack" name="medical-heartAttack" />
+                  <label for="medical-heartAttack">Heart Attack</label>
+                </div>
+                <div>
+                  <mat-checkbox color="primary" type="checkbox" id="medical-kidney" name="medical-kidney" />
+                  <label for="medical-kidney">Kidney Dysfunction</label>
+                </div>
+                <div>
                   <mat-checkbox color="primary" type="checkbox" id="medical-bloodClots" name="medical-bloodClots" />
                   <label for="medical-bloodClots">Blood Clots</label>
-                  </div>
+                </div>
                 <div>
                   <mat-checkbox color="primary" type="checkbox" id="medical-numbness" name="medical-numbness" />
                   <label for="medical-numbness">Numbness</label>
@@ -320,113 +324,149 @@
                   <mat-checkbox color="primary" type="checkbox" id="medical-sprains" name="medical-sprains" />
                   <label for="medical-sprains">Sprains or Strains</label>
                 </div>
-                </div>
-              </div>
-             <br />
-              <div class="lines">
-                <mat-form-field>
-                  <mat-label
-                    >Explain any conditions you have marked above</mat-label
-                  >
-                  <textarea matInput placeholder="Any conditions"></textarea>
-                </mat-form-field>
               </div>
             </div>
+            <br />
+            <div class="lines">
+              <mat-form-field>
+                <mat-label>Explain any conditions you have marked above</mat-label>
+                <textarea matInput placeholder="Any conditions"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
         </mat-card-content>
       </mat-card>
     </section>
 
-   <!-- MASSAGE INFORMATION SECTION -->
-   <section class="wrapper">
-    <mat-card class="personal-information">
-      <mat-card-header class="personal-information-card-header">
-        <mat-card-title>
-          <h1>Massage Information</h1>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="personal-information-card-content">
-        <div>
-          <div class="form-container">
-            <div class="lines">
+    <!-- MASSAGE INFORMATION SECTION -->
+    <section class="wrapper">
+      <mat-card class="personal-information">
+        <mat-card-header class="personal-information-card-header">
+          <mat-card-title>
+            <h1>Massage Information</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="personal-information-card-content">
+          <div>
+            <div class="form-container">
+              <div class="lines">
+                <div class="radiobox-lines">
+                  <h4> Have you had a professional massage before?</h4>
+                  <mat-radio-group aria-label="Select an option" class="lines" formControlName="">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>What type of massage are you interested in?</mat-label>
+                  <mat-select formControlName="" multiple>
+                    <mat-option value="n/a">Remedial Massage</mat-option>
+                    <mat-option value="qld">Deep Tissue/Sports Massage</mat-option>
+                    <mat-option value="nsw">Swedish/Relaxation</mat-option>
+                    <mat-option value="vic">Lymphatic Drainage</mat-option>
+                    <mat-option value="tas">Foot Reflexology</mat-option>
+                    <mat-option value="act">Indian Head Massage</mat-option>
+                    <mat-option value="nt">Dry Needling</mat-option>
+                    <mat-option value="ws">Cupping Treatment</mat-option>
+                    <mat-option value="ws">Pregnancy Massage</mat-option>
+                    <mat-option value="ws">Post Natal Massage</mat-option>
+                    <mat-option value="ws">Energy Healing Massage</mat-option>
+                    <mat-option value="ws">Devine Shape</mat-option>
+                    <mat-option value="ws">Lomi Lomi</mat-option>
+                    <mat-option value="ws">Recover and Disconnect</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Other</mat-label>
+                  <input matInput id="other" placeholder="Other" type="text" formControlName="" />
+                </mat-form-field>
+              </div>
               <div class="radiobox-lines">
-                <h4> Have you had a professional massage before?</h4>
-                <mat-radio-group aria-label="Select an option" class="lines" formControlName="hasHealth_ensurance">
-                  <mat-radio-button value="Yes" (click)="activateRadioButton()">Yes</mat-radio-button>
-                  <mat-radio-button value="No" [checked]="true">No</mat-radio-button>
+                <h4> What pressure do you prefer?</h4>
+
+                <mat-radio-group aria-label="What pressure do you prefer?">
+                  <mat-radio-button value="1">Light</mat-radio-button>
+                  <mat-radio-button value="2">Medium</mat-radio-button>
+                  <mat-radio-button value="2">Hard</mat-radio-button>
                 </mat-radio-group>
               </div>
-            </div>
-            <div class="lines">
-              <mat-form-field appearance="fill">
-                <mat-label>What type of massage are you interested in?</mat-label>
-                <mat-select formControlName="" multiple>
-                  <mat-option value="n/a">Remedial Massage</mat-option>
-                  <mat-option value="qld">Deep Tissue/Sports Massage</mat-option>
-                  <mat-option value="nsw">Swedish/Relaxation</mat-option>
-                  <mat-option value="vic">Lymphatic Drainage</mat-option>
-                  <mat-option value="tas">Foot Reflexology</mat-option>
-                  <mat-option value="act">Indian Head Massage</mat-option>
-                  <mat-option value="nt">Dry Needling</mat-option>
-                  <mat-option value="ws">Cupping Treatment</mat-option>
-                  <mat-option value="ws">Pregnancy Massage</mat-option>
-                  <mat-option value="ws">Post Natal Massage</mat-option>
-                  <mat-option value="ws">Energy Healing Massage</mat-option>
-                  <mat-option value="ws">Devine Shape</mat-option>
-                  <mat-option value="ws">Lomi Lomi</mat-option>
-                  <mat-option value="ws">Recover and Disconnect</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Other</mat-label>
-                <input matInput id="other" placeholder="Other" type="text" formControlName="" />
-              </mat-form-field>
-            </div>
-            <div class="radiobox-lines">
-              <h4> What pressure do you prefer?</h4>
 
-              <mat-radio-group aria-label="What pressure do you prefer?">
-                <mat-radio-button value="1">Light</mat-radio-button>
-                <mat-radio-button value="2">Medium</mat-radio-button>
-                <mat-radio-button value="2">Hard</mat-radio-button>
-              </mat-radio-group>
-            </div>
+              <div class="radiobox-lines">
+                <h4> Do you have any allergies or sensitivities?</h4>
 
-            <div class="radiobox-lines">
-              <h4> Do you have any allergies or sensitivities?</h4>
+                <mat-radio-group aria-label="Do you have any allergies or sensitivities?">
+                  <mat-radio-button value="Yes">Yes</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
 
-              <mat-radio-group aria-label="Do you have any allergies or sensitivities?">
-                <mat-radio-button value="Yes">Yes</mat-radio-button>
-                <mat-radio-button value="No">No</mat-radio-button>
-              </mat-radio-group>
-            </div>
+              <div>
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Please Explain</mat-label>
+                  <input matInput id="" placeholder="Please Explain" type="text" formControlName="" />
+                </mat-form-field>
+              </div>
 
-            <div>
-              <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Please Explain</mat-label>
-                <input matInput id="" placeholder="Please Explain" type="text" formControlName="" />
-              </mat-form-field>
-            </div>
+              <h4>What are your goals for this session?</h4>
+              <div class="lines">
+                <div style="width: 50%;">
+                  <div>
+                    <mat-checkbox type="checkbox" id="onlineSearch" name="hearAboutUs" />
+                    <label for="onlineSearch">Pain Relief</label>
+                  </div>
+                  <div>
+                    <mat-checkbox type="checkbox" id="facebook" name="hearAboutUs" />
+                    <label for="facebook">Stress Reduction</label>
+                  </div>
+                  <div>
+                    <mat-checkbox type="checkbox" id="instagram" name="hearAboutUs" />
+                    <label for="hearAboutUs">Increase range of motion</label>
+                  </div>
 
-            <div class="lines">
-              <mat-form-field appearance="fill">
-                <mat-label>Email</mat-label>
-                <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Phone</mat-label>
-                <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
-              </mat-form-field>
-            </div>
+                </div>
+                <div style="width: 50%;">
 
-            <div>
-              <button mat-fab extended>Submit</button>
+                  <div>
+                    <mat-checkbox type="checkbox" id="referralFamily" name="hearAboutUs" />
+                    <label for="referralFamily">Injury Rehabilitation</label>
+                  </div>
+                  <div>
+                    <mat-checkbox type="checkbox" id="referralProvider" name="hearAboutUs" />
+                    <label for="referralProvider">Improve Sleep</label>
+                  </div>
+                  <div>
+                    <mat-checkbox type="checkbox" id="walkedBy" name="hearAboutUs" />
+                    <label for="walkedBy">Increase Energy</label>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <h4>By signing below, you agree to the following.</h4>
+              <h4> I have completed this form to the best of my ability and
+                knowledge and agree to inform my therapist if any of the above information changes at any time.
+              </h4>
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>Client Signature</mat-label>
+                  <input matInput id="" placeholder="Client Signature" type="text" formControlName="" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Date</mat-label>
+                  <input matInput id="date" placeholder="Other" type="text" formControlName="" />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <button mat-fab extended>Submit</button>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </section>
-</form>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </form>
 </div>
 
 <!-- <section>
