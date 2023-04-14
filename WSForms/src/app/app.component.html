@@ -410,67 +410,17 @@
                 </mat-form-field>
               </div>
 
-              <h4>What are your goals for this session?</h4>
-              <div class="lines">
-                <div style="width: 50%;">
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="onlineSearch" name="hearAboutUs" />
-                    <label for="onlineSearch">Pain Relief</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="facebook" name="hearAboutUs" />
-                    <label for="facebook">Stress Reduction</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="instagram" name="hearAboutUs" />
-                    <label for="hearAboutUs">Increase range of motion</label>
-                  </div>
-
-                </div>
-                <div style="width: 50%;">
-
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="referralFamily" name="hearAboutUs" />
-                    <label for="referralFamily">Injury Rehabilitation</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="referralProvider" name="hearAboutUs" />
-                    <label for="referralProvider">Improve Sleep</label>
-                  </div>
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="walkedBy" name="hearAboutUs" />
-                    <label for="walkedBy">Increase Energy</label>
-                  </div>
-                </div>
-              </div>
-              <br><br><br><br><br>
-              <h4>By signing below, you agree to the following.</h4>
-              <h4> I have completed this form to the best of my ability and
-                knowledge and agree to inform my therapist if any of the above information changes at any time.
-              </h4>
-
-              <div class="lines">
-                <mat-form-field appearance="fill">
-                  <mat-label>Client Signature</mat-label>
-                  <input matInput id="" placeholder="Client Signature" type="text" formControlName="" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>Date</mat-label>
-                  <input matInput id="date" placeholder="Other" type="text" formControlName="" />
-                </mat-form-field>
-              </div>
-
-              <h4>What are your goals for this treatment?</h4>
+              <h4>What are your goals for this treatment session?</h4>
               <div class="lines">
 
                 <div style="width: 50%;">
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-pain" name="goals-pain" />
-                    <label for="goals-pain">Pain relief</label>
+                    <label for="goals-pain">Pain Relief</label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-stress" name="goals-stress" />
-                    <label for="goals-stress">Stress reduction</label>
+                    <label for="goals-stress">Stress Reduction</label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-flexibility" name="goals-flexibility" />
@@ -480,15 +430,15 @@
                 <div style="width: 50%;">
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-injury" name="goals-injury" />
-                    <label for="goals-injury">Injury rehabilitation</label>
+                    <label for="goals-injury">Injury Rehabilitation</label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-sleep" name="goals-sleep" />
-                    <label for="goals-sleep">Improve sleep</label>
+                    <label for="goals-sleep">Improve Sleep</label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-energy" name="goals-energy" />
-                    <label for="goals-energy">Increase energy</label>
+                    <label for="goals-energy">Increase Energy</label>
                   </div>
                 </div>
 
@@ -530,6 +480,31 @@
                   <mat-label>Other</mat-label>
                   <input matInput id="" placeholder="How often" type="text" formControlName="" />
                 </mat-form-field>
+              </div>
+
+              <h4>Please select any areas of discomfort</h4>
+
+              <br><br><br><br><br><br><br><br><br><br>
+
+              <h4>By signing below, you agree to the following.</h4>
+              <h4> I have completed this form to the best of my ability and
+                knowledge and agree to inform my therapist if any of the above information changes at any time.
+              </h4>
+
+              <div class="lines">
+                <mat-form-field appearance="fill">
+                  <mat-label>Client Signature</mat-label>
+                  <input matInput id="" placeholder="Client Signature" type="text" formControlName="" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Signature Date</mat-label>
+                  <input formControlName="signature_date" matInput [matDatepicker]="picker" id="signature_date"
+                    placeholder="Signature date" />
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
               </div>
 
               <div>
