@@ -24,4 +24,9 @@ export class dataService{
     public getTeraphistData():Observable<therapistData>{
         return this.http.get<therapistData>(this.url+"/therapist/"); 
     }
+
+    //Send a POST request to the server
+    public setClientMassageForm(data:any):Observable<any>{ 
+        return this.http.post(this.url+"/NewClientMassageForm/", data);
+    } 
 }

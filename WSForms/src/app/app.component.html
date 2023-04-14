@@ -24,12 +24,11 @@
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Full Name</mat-label>
-                  <input matInput id="name" placeholder="Full Name" type="text" formControlName="name" />
+                  <input matInput id="full_name" placeholder="Full Name" type="text" formControlName="full_name" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>DOB</mat-label>
-                  <input formControlName="date_of_birth" matInput [matDatepicker]="picker" id="date_of_birth"
-                    placeholder="date_of_birth" />
+                  <input formControlName="date_of_birth" matInput [matDatepicker]="picker" id="date_of_birth" placeholder="date_of_birth" />
                   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -96,9 +95,9 @@
               </div>
               <div class="lines">
                 <mat-form-field>
-                  <mat-label>If yes, what is your Health Insurance?</mat-label>
+                  <mat-label>Do you have Health Insurance?</mat-label>
                   <mat-select id="health_insurance" formControlName="health_insurance">
-                    <mat-option value="N/A">N/A</mat-option>
+                    <mat-option value="No Insurance">I don't have health insurance</mat-option>
                     <mat-option value="Medibank">Medibank</mat-option>
                     <mat-option value="Bupa">Bupa</mat-option>
                     <mat-option value="HCF">HCF</mat-option>
@@ -113,68 +112,62 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Other</mat-label>
-                  <input matInput id="health_insurance_other" placeholder="Other" type="text"
-                    formControlName="health_insurance" />
+                  <input matInput id="health_insurance_other" placeholder="Other" type="text" formControlName="health_insurance_other" />
                 </mat-form-field>
               </div>
 
               <div class="three-collums">
                 <mat-form-field appearance="fill">
                   <mat-label>Emergency Contact Name</mat-label>
-                  <input matInput id="emergencyName" placeholder="Emergency Contact Name" type="text"
-                    formControlName="emergency_contact_name" />
+                  <input matInput id="emergency_contact_name" placeholder="Emergency Contact Name" type="text" formControlName="emergency_contact_name" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Relationship</mat-label>
-                  <input matInput id="relationship" placeholder="Relationship" type="text"
-                    formControlName="emergency_contact_relationship" />
+                  <input matInput id="emergency_contact_relationship" placeholder="Relationship" type="text" formControlName="emergency_contact_relationship" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Phone</mat-label>
-                  <input matInput id="phone" placeholder="Phone" type="text" formControlName="emergencycontactphone" />
+                  <input matInput id="emergency_contact_phone" placeholder="Phone" type="text" formControlName="emergency_contact_phone" />
                 </mat-form-field>
               </div>
-              <!-- HEar about us -->
+              <!-- Hear about us -->
               <h4>How did you hear about us?</h4>
               <div class="lines">
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox type="checkbox" id="onlineSearch" name="hearAboutUs" formControlName="hearAboutUs" />
-                    <label for="onlineSearch">Online Search</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_online_search" name="hear_about_us_online_search" formControlName="hear_about_us_online_search" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_online_search">Online Search</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="facebook" name="hearAboutUs" formControlName="hearAboutUs" />
-                    <label for="facebook">Facebook</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_facebook" name="hear_about_us_facebook" formControlName="hear_about_us_facebook" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_facebook">Facebook</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="instagram" name="hearAboutUs" formControlName="hearAboutUs" />
-                    <label for="hearAboutUs">Instagram</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_instagram" name="hear_about_us_instagram" formControlName="hear_about_us_instagram" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_instagram">Instagram</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="onlienAdver" name="hearAboutUs" formControlName="hearAboutUs" />
-                    <label for="onlienAdver">Online Advertisement</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_online_advertisement" name="hear_about_us_online_advertisement" formControlName="hear_about_us_online_advertisement" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_online_advertisement">Online Advertisement</label>
                   </div>
                 </div>
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox type="checkbox" id="wom" name="hearAboutUs" formControlName="hearAboutUs" />
-                    <label for="wom">Word of Mouth</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_word_of_mouth" name="hear_about_us_word_of_mouth" formControlName="hear_about_us_word_of_mouth" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_word_of_mouth">Word of Mouth</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="referralFamily" name="hearAboutUs"
-                      formControlName="hearAboutUs" />
-                    <label for="referralFamily">Friend/family</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_friend_family" name="hear_about_us_friend_family" formControlName="hear_about_us_friend_family" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_friend_family">Friend/family</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="referralProvider" name="hearAboutUs"
-                      formControlName="hearAboutUs" />
-                    <label for="referralProvider">Healthcare Provider</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_healthcare_provider" name="hear_about_us_healthcare_provider" formControlName="hear_about_us_healthcare_provider" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_healthcare_provider">Healthcare Provider</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="walkedBy" name="hearAboutUs" formControlName="hearAboutUs" />
-                    <label for="walkedBy">Walked by</label>
+                    <mat-checkbox type="checkbox" id="hear_about_us_walked_by" name="hear_about_us_walked_by" formControlName="hear_about_us_walked_by" [ngModel]="notChecked"/>
+                    <label for="hear_about_us_walked_by">Walked by</label>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -197,68 +190,68 @@
             <div class="form-container">
               <div class="lines">
                 <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option" formControlName="">
+                  <mat-radio-group aria-label="Select an option" formControlName="taking_medication">
                     <p>Are you taking any medications?</p>
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please list name and use</mat-label>
                 <input matInput id="medications" placeholder="Please type the name and use" type="text"
-                  formControlName="medications" />
+                  formControlName="taking_medication_list" />
               </mat-form-field>
             </div>
 
               <div class="lines">
                 <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option" formControlName="pregnant">
                     <p>Are you currently pregnant?</p>
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, how far along?</mat-label>
-                <input matInput id="howfar-pregnant" placeholder="How far" type="text" formControlName="" />
+                <input matInput id="pregnant_how_far" placeholder="How far" type="text" formControlName="pregnant_how_far" />
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Any high risk factors?</mat-label>
-                <input matInput id="risks-pregnant" placeholder="Any risk" type="text" formControlName="" />
+                <input matInput id="risks-pregnant" placeholder="Any risk" type="text" formControlName="pregnant_high_risk" />
               </mat-form-field>
             </div>
 
               <div class="lines">
                 <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option" formControlName="chronic_pain" >
                     <p>Do you suffer from chronic pain?</p>
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please explain</mat-label>
-                <input matInput id="chronic-pain" placeholder="Please type the name and use" type="text"
-                  formControlName="" />
+                <input matInput id="chronic_pain_explanation" placeholder="Please type the name and use" type="text"
+                  formControlName="chronic_pain_explanation" />
               </mat-form-field>
             </div>
 
               <div class="lines">
                 <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option" formControlName="orthopedic_injuries" >
                     <p>Have you had any orthopedic injuries?</p>
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please list</mat-label>
-                <input matInput id="orthopedic-injuries" placeholder="Please type the name and use" type="text"
-                  formControlName="" />
+                <input matInput id="orthopedic_injuries" placeholder="Please type the name and use" type="text"
+                formControlName="orthopedic_injuries_list" />
               </mat-form-field>
             </div>
 
@@ -267,63 +260,62 @@
 
               <div style="width: 50%;">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-cancer" name="medical-cancer" />
-                  <label for="medical-cancer">Cancer</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasCancer" name="hasCancer" formControlName="hasCancer" [ngModel]="notChecked"/>
+                  <label for="hasCancer">Cancer</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-headaches" name="medical-headaches" />
-                  <label for="medical-headaches">Headaches / Migraines</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasHeadaches_migraines" name="hasHeadaches_migraines" formControlName="hasHeadaches_migraines" [ngModel]="notChecked"/>
+                  <label for="hasHeadaches_migraines">Headaches / Migraines</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-arthritis" name="medical-arthritis" />
-                  <label for="medical-arthritis">Arthritis</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasArthritis" name="hasArthritis" formControlName="hasArthritis" [ngModel]="notChecked"/>
+                  <label for="hasArthritis">Arthritis</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-diabetes" name="medical-diabetes" />
-                  <label for="medical-diabetes">Diabetes</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasDiabetes" name="hasDiabetes" formControlName="hasDiabetes" [ngModel]="notChecked"/>
+                  <label for="hasDiabetes">Diabetes</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-joint" name="medical-joint" />
-                  <label for="medical-joint">Joint Replacement(s)</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasJoint_replacement" name="hasJoint_replacement" formControlName="hasJoint_replacement" [ngModel]="notChecked"/>
+                  <label for="hasJoint_replacement">Joint Replacement(s)</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-bloodPressure"
-                    name="medical-bloodPressure" />
-                  <label for="medical-bloodPressure">High / Low Blood Pressure</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasHigh_low_pressure" name="hasHigh_low_pressure" formControlName="hasHigh_low_pressure" [ngModel]="notChecked"/>
+                  <label for="hasHigh_low_pressure">High / Low Blood Pressure</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-neuropathy" name="medical-neuropathy" />
-                  <label for="medical-neuropathy">Neuropathy</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasNeuropathy" name="hasNeuropathy" formControlName="hasNeuropathy" [ngModel]="notChecked"/>
+                  <label for="hasNeuropathy">Neuropathy</label>
                 </div>
               </div>
               <div style="width: 50%;">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-fibromyalgia" name="medical-fibromyalgia" />
-                  <label for="medical-fibromyalgia">Fibromyalgia</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasFibromyalgia" name="hasFibromyalgia" formControlName="hasFibromyalgia" [ngModel]="notChecked"/>
+                  <label for="hasFibromyalgia">Fibromyalgia</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-stroke" name="medical-stroke" />
-                  <label for="medical-stroke">Stroke</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasStroke" name="hasStroke" formControlName="hasStroke" [ngModel]="notChecked"/>
+                  <label for="hasStroke">Stroke</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-heartAttack" name="medical-heartAttack" />
-                  <label for="medical-heartAttack">Heart Attack</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasHeart_attack" name="hasHeart_attack" formControlName="hasHeart_attack" [ngModel]="notChecked"/>
+                  <label for="hasHeart_attack">Heart Attack</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-kidney" name="medical-kidney" />
-                  <label for="medical-kidney">Kidney Dysfunction</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasKidney_dysfunction" name="hasKidney_dysfunction" formControlName="hasKidney_dysfunction" [ngModel]="notChecked"/>
+                  <label for="hasKidney_dysfunction">Kidney Dysfunction</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-bloodClots" name="medical-bloodClots" />
-                  <label for="medical-bloodClots">Blood Clots</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasBlood_clots" name="hasBlood_clots" formControlName="hasBlood_clots" [ngModel]="notChecked"/>
+                  <label for="hasBlood_clots">Blood Clots</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-numbness" name="medical-numbness" />
-                  <label for="medical-numbness">Numbness</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasNumbness" name="hasNumbness" formControlName="hasNumbness" [ngModel]="notChecked"/>
+                  <label for="hasNumbness">Numbness</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="medical-sprains" name="medical-sprains" />
-                  <label for="medical-sprains">Sprains or Strains</label>
+                  <mat-checkbox color="primary" type="checkbox" id="hasSprains_strains" name="hasSprains_strains" formControlName="hasSprains_strains" [ngModel]="notChecked"/>
+                  <label for="hasSprains_strains">Sprains or Strains</label>
                 </div>
               </div>
             </div>
@@ -331,7 +323,7 @@
             <div class="lines">
               <mat-form-field>
                 <mat-label>Explain any conditions you have marked above</mat-label>
-                <textarea matInput placeholder="Any conditions"></textarea>
+                <textarea matInput placeholder="Any conditions" formControlName="conditions_explanation"></textarea>
               </mat-form-field>
             </div>
           </div>
@@ -352,7 +344,7 @@
             <div class="form-container">
               <div class="lines">
                 <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option"  id="had_professional_massage" formControlName="had_professional_massage">
                     <p>Have you had a professional massage before?</p>
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
@@ -362,7 +354,7 @@
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>What type of massage are you interested in?</mat-label>
-                  <mat-select formControlName="" multiple>
+                  <mat-select formControlName="professional_massage_type" multiple>
                     <mat-option value="n/a">Remedial Massage</mat-option>
                     <mat-option value="qld">Deep Tissue/Sports Massage</mat-option>
                     <mat-option value="nsw">Swedish/Relaxation</mat-option>
@@ -381,23 +373,23 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Other</mat-label>
-                  <input matInput id="other" placeholder="Other" type="text" formControlName="" />
+                  <input matInput id="professional_massage_other" placeholder="Other" type="text" formControlName="professional_massage_other" />
                 </mat-form-field>
               </div>
               <div>
                 <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option">
+                <mat-radio-group id="pressure_preference" aria-label="Select an option" formControlName="pressure_preference">
                   <p>What pressure do you prefer?</p>
-                  <mat-radio-button value="1">Light</mat-radio-button>
-                  <mat-radio-button value="2">Medium</mat-radio-button>
-                  <mat-radio-button value="3">Hard</mat-radio-button>
-                  <mat-radio-button value="4">Deep</mat-radio-button>
+                  <mat-radio-button value="Light">Light</mat-radio-button>
+                  <mat-radio-button value="Medium">Medium</mat-radio-button>
+                  <mat-radio-button value="Hard">Hard</mat-radio-button>
+                  <mat-radio-button value="Deep">Deep</mat-radio-button>
                 </mat-radio-group>
               </div>
             </div>
 
                 <div class="radiobox-lines">
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group id="allergies_sensitivities" aria-label="Select an option" formControlName="allergies_sensitivities">
                     <p>Do you have any allergies or sensitivities?</p>
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
@@ -406,7 +398,7 @@
               <div>
                 <mat-form-field class="full-width" appearance="fill">
                   <mat-label>Please Explain</mat-label>
-                  <input matInput id="" placeholder="Please Explain" type="text" formControlName="" />
+                  <input matInput id="allergies_sensitivities_explanation" placeholder="Please Explain" type="text" formControlName="allergies_sensitivities_explanation" />
                 </mat-form-field>
               </div>
 
@@ -415,22 +407,22 @@
 
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="goals-pain" name="goals-pain" />
-                    <label for="goals-pain">Pain Relief</label>
+                    <mat-checkboxx color="primary" type="checkbox" id="goal_pain_relief" name="goal_pain_relief" formControlName="goal_pain_relief" [ngModel]="notChecked"/>
+                    <label for="goal_pain_relief">Pain Relief</label>
                   </div>
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="goals-stress" name="goals-stress" />
-                    <label for="goals-stress">Stress Reduction</label>
+                    <mat-checkboxx color="primary" type="checkbox" id="goal_stress_reduction" name="goal_stress_reduction" formControlName="goal_stress_reduction" [ngModel]="notChecked"/>
+                    <label for="goal_stress_reduction">Stress Reduction</label>
                   </div>
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="goals-flexibility" name="goals-flexibility" />
-                    <label for="goals-flexibility">Increase flexibility and range of motion</label>
+                    <mat-checkboxx color="primary" type="checkbox" id="goal_increase_range_of_motion" name="goal_increase_range_of_motion" formControlName="goal_increase_range_of_motion" [ngModel]="notChecked"/>
+                    <label for="goal_increase_range_of_motion">Increase range of motion</label>
                   </div>
                 </div>
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="goals-injury" name="goals-injury" />
-                    <label for="goals-injury">Injury Rehabilitation</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation" name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation" [ngModel]="notChecked"/>
+                    <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goals-sleep" name="goals-sleep" />
@@ -455,22 +447,16 @@
 
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="massage-often-weekly" name="massage-often-weekly" />
-                    <label for="massage-often-weekly">Weekly</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation" name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation" [ngModel]="notChecked"/>
+                    <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
                   </div>
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="massage-often-fortnight" name="massage-often-fortnight" />
-                    <label for="massage-often-fortnight">Fortnight</label>
-                  </div>
-                </div>
-                <div style="width: 50%;">
-                  <div>
-                    <mat-checkbox color="primary" type="checkbox" id="massage-often-monthly" name="massage-often-monthly" />
-                    <label for="massage-often-monthly">Monthly</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_improve_sleep" name="goal_improve_sleep" formControlName="goal_improve_sleep" [ngModel]="notChecked"/>
+                    <label for="goal_improve_sleep">Improve Sleep</label>
                   </div>
                   <div>
-                    <mat-checkbox color="primary" type="checkbox" id="massage-often-ramdomly" name="massage-often-ramdomly" />
-                    <label for="massage-often-ramdomly">Randomly</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_increase_energy" name="goal_increase_energy" formControlName="goal_increase_energy" [ngModel]="notChecked"/>
+                    <label for="goal_increase_energy">Increase Energy</label>
                   </div>
                 </div>
 
@@ -494,12 +480,12 @@
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Client Signature</mat-label>
-                  <input matInput id="" placeholder="Client Signature" type="text" formControlName="" />
+                  <input matInput id="client_signature" placeholder="Client Signature" type="text" formControlName="client_signature" />
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                   <mat-label>Signature Date</mat-label>
-                  <input formControlName="signature_date" matInput [matDatepicker]="picker" id="signature_date"
+                  <input formControlName="client_signature_date" matInput [matDatepicker]="picker" id="client_signature_date"
                     placeholder="Signature date" />
                   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
