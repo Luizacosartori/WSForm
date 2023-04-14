@@ -20,30 +20,6 @@ export class AppComponent {
   clients: clientData[] = new Array();
   treatments: treatmentData[] = new Array();
 
-  account_validation_messages = {
-    'fullname': [
-      { type: 'required', message: 'Username is required' },
-      { type: 'minlength', message: 'Username must be at least 5 characters long' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
-      { type: 'validUsername', message: 'Your username has already been taken' }
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required' },
-      { type: 'pattern', message: 'Enter a valid email' }
-    ],
-    'DOB': [
-      { type: 'required', message: 'Date of Birt is required' },
-      { type: 'pattern', message: 'Phone must be numbers only' }
-    ],
-    'adress': [
-      { type: 'required', message: 'Address is required' },
-    ],
-    'City': [
-      { type: 'required', message: 'City is required' }
-    ],
-  }
-
   massageForm = new FormGroup({
     name: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
@@ -60,11 +36,14 @@ export class AppComponent {
     emergencycontactphone: new FormControl('', Validators.required),
     emergency_contact_name: new FormControl('', Validators.required),
     emergency_contact_relationship: new FormControl('', Validators.required),
-    hasHealth_ensurance: new FormControl('', Validators.required),
-    health_ensurance: new FormControl('')
+    hasHealth_insurance: new FormControl('', Validators.required),
+    health_insurance: new FormControl('')
+    
+  
   });
+
   constructor(private dataService: dataService) {
-    // console.log(this.massageForm.value.hasHealth_ensurance)
+    console.log(this.massageForm.value)
 
   }
 
@@ -90,19 +69,13 @@ export class AppComponent {
   }
 
   onSubmit() {
-    console.log(this.massageForm.value.hasHealth_ensurance)
+    console.log(this.massageForm.value)
+
   }
 
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
   }
 
-  activateRadioButton() {
-    var optionChoosed = this.massageForm.value.hasHealth_ensurance;
-
-    if (optionChoosed == "Yes") {
-      this.massageForm.value.health_ensurance?.valueOf;
-      console.log('Yes inside IF')
-    }
-  }
+  
 }
