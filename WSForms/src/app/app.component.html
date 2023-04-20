@@ -485,10 +485,10 @@
 
                 <mat-form-field appearance="fill">
                   <mat-label>Signature Date</mat-label>
-                  <input formControlName="client_signature_date" matInput [matDatepicker]="picker" id="client_signature_date"
+                  <input formControlName="client_signature_date" matInput [matDatepicker]="picker_signature" id="client_signature_date"
                     placeholder="Signature date" />
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker_signature"></mat-datepicker-toggle>
+                  <mat-datepicker #picker_signature></mat-datepicker>
                 </mat-form-field>
 
               </div>
