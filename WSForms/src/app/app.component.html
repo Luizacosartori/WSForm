@@ -407,16 +407,16 @@
 
                 <div style="width: 50%;">
                   <div>
-                    <mat-checkboxx color="primary" type="checkbox" id="goal_pain_relief" name="goal_pain_relief" formControlName="goal_pain_relief" [ngModel]="notChecked"/>
-                    <label for="goal_pain_relief">Pain Relief</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation" name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation" [ngModel]="notChecked"/>
+                    <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
                   </div>
                   <div>
-                    <mat-checkboxx color="primary" type="checkbox" id="goal_stress_reduction" name="goal_stress_reduction" formControlName="goal_stress_reduction" [ngModel]="notChecked"/>
-                    <label for="goal_stress_reduction">Stress Reduction</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_improve_sleep" name="goal_improve_sleep" formControlName="goal_improve_sleep" [ngModel]="notChecked"/>
+                    <label for="goal_improve_sleep">Improve Sleep</label>
                   </div>
                   <div>
-                    <mat-checkboxx color="primary" type="checkbox" id="goal_increase_range_of_motion" name="goal_increase_range_of_motion" formControlName="goal_increase_range_of_motion" [ngModel]="notChecked"/>
-                    <label for="goal_increase_range_of_motion">Increase range of motion</label>
+                    <mat-checkbox color="primary" type="checkbox" id="goal_increase_energy" name="goal_increase_energy" formControlName="goal_increase_energy" [ngModel]="notChecked"/>
+                    <label for="goal_increase_energy">Increase Energy</label>
                   </div>
                 </div>
                 <div style="width: 50%;">
@@ -448,15 +448,15 @@
                 <div style="width: 50%;">
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation" name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation" [ngModel]="notChecked"/>
-                    <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
+                    <label for="goal_injury_rehabilitation">Weekly </label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goal_improve_sleep" name="goal_improve_sleep" formControlName="goal_improve_sleep" [ngModel]="notChecked"/>
-                    <label for="goal_improve_sleep">Improve Sleep</label>
+                    <label for="goal_improve_sleep">Monthly</label>
                   </div>
                   <div>
                     <mat-checkbox color="primary" type="checkbox" id="goal_increase_energy" name="goal_increase_energy" formControlName="goal_increase_energy" [ngModel]="notChecked"/>
-                    <label for="goal_increase_energy">Increase Energy</label>
+                    <label for="goal_increase_energy">Random</label>
                   </div>
                 </div>
 
@@ -504,43 +504,8 @@
   </form>
 </div>
 
-<!-- <section>
-  <div class="wrapper">
-    <form class="form-container-personal-information">
-      <mat-card class="personal-information">
-        <mat-card-header class="personal-information-card-header">
-          <mat-card-title>
-            <h1>Health Information</h1>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="personal-information-card-content">
-        <mat-card-content class="personal-information-card-content">
-          <div class="row">
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input matInput placeholder="Full name" />
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input matInput placeholder="Last name" />
-              </mat-form-field>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </form>
-  </div>
-</section> -->
 
-<!--
-<form>
-<h1>Testing database</h1>
-<button style="padding:3px 30px " (click)="getData()">Bring data </button>
-<p *ngFor="let therapist of therapists">Therapist-> Name: {{therapist.fullName}}, ID: {{therapist.therapist_id}}</p>
-<p *ngFor="let client of clients">Client-> Name: {{client.firstName + " " + client.lastName}}, Phone:
-  {{client.mobile_phone}}</p>
-<p *ngFor="let treatment of treatments">Treatment-> ID: {{treatment.treatment_id}}, Client: {{treatment.clientName}},
-  Therapist: {{treatment.therapistName}}, Notes ID: {{treatment.treatment_notes_id}}, Date:
-  {{formatDate(treatment.treatment_date)}}, Notes: {{treatment.treatment_notes}}</p>
-</form> -->
+
+
+
+
