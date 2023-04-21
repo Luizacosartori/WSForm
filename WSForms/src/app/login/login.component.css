@@ -1,0 +1,49 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(to top, rgb(146, 213, 235), rgb(189, 2, 241));
+
+}
+
+.wrapper {
+    position: relative;
+    width: 60vw;
+    height: 70vh;
+    background-color: white;
+    margin: 100px auto;
+    border-radius: 5px;
+}
+
+.wrapper h1 {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.container {
+    position: relative;
+}
+
+.container mat-form-field {
+    display: block;
+    width: 50vw;
+    margin: auto;
+}
+
+.button {
+    display: block;
+    margin: auto;
+}
+
+.links {
+    position: relative;
+    display: inline;
+    margin: auto;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+}

@@ -16,9 +16,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HomeComponent } from './home/home.component';
+import { NotesFormComponent } from './notes-form/notes-form.component';
+import { MassageFormComponent } from './massage-form/massage-form.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, NotesFormComponent, MassageFormComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
