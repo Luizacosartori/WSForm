@@ -3,11 +3,20 @@
     font-size: 1.2em;
 }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 400px;
-    padding: 16px;
-    margin: 24px 0px;
-    background-color: whitesmoke;
-    font-family: sans-serif;
+.container{
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.side-bar {
+    flex: 0 1 auto;
+}
+
+.side-bar-content {
+    flex: 1 1 auto;
+}
+
+.main-content {
+    height: 100vh;
 }

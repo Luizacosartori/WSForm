@@ -21,10 +21,22 @@ import { NotesFormComponent } from './notes-form/notes-form.component';
 import { MassageFormComponent } from './massage-form/massage-form.component';
 import { LoginComponent } from './login/login.component';
 
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotesFormComponent, MassageFormComponent, LoginComponent],
   imports: [
     BrowserModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatExpansionModule,
     AppRoutingModule,
     MatCheckboxModule,
     FormsModule,

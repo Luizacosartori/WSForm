@@ -1,5 +1,55 @@
-<div class="content">
-    <h2> Dashboard </h2>
-    <p> this page will have the therapist view and reception view</p>
-    <a routerLink="/login"> Login Page</a>
+<div class="container">
+    <mat-toolbar class="side-bar" color="accent">
+        <mat-toolbar-row>
+            <button (click)="button.toggle()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>
+                Menu&nbsp;
+            </span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container class="side-bar-content">
+        <mat-sidenav style="min-width: 300px;" #button mode="side" opened>
+            <mat-nav-list>
+                <a mat-list-item href="/home">
+                    <mat-icon color="accent">home</mat-icon>
+                    Home
+                </a>
+                <a mat-list-item href="/login">
+                    <mat-icon color="accent">login</mat-icon>
+                    Login
+                </a>
+                <a mat-list-item href='/massageForm'>
+                    <mat-icon color="accent">add</mat-icon>
+                    Massage Form
+                </a>
+                <a mat-list-item href='/notes'>
+                    <mat-icon color="accent">add</mat-icon>
+                    Notes Form
+                </a>
+            </mat-nav-list>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Más
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <mat-nav-list>
+                        <a mat-list-item href='#'>
+                            Acerca de
+                        </a>
+                        <a mat-list-item href='#'>
+                            Ayuda
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-sidenav>
+        <mat-sidenav-content class="main-content">
+            <h1>On this area we add the content</h1>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
