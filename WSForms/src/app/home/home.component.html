@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-toolbar class="side-bar" color="accent">
+    <mat-toolbar class="side-bar" class="header">
         <mat-toolbar-row>
             <button (click)="button.toggle()" mat-icon-button>
                 <mat-icon>menu</mat-icon>
@@ -33,7 +33,7 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            More 
+                            More
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -49,15 +49,26 @@
             </mat-accordion>
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
-            <h1>On this area we add the content</h1>
-            <div>
-                <h3>This is how we show the data to the massage therapists</h3> 
-                <div  *ngFor="let data of formsData"> 
+            <!-- <h1>On this area we add the content</h1> -->
+            <!-- <div>
+                <h3>This is how we show the data to the massage therapists</h3>
+                <div *ngFor="let data of formsData">
                     Name: {{data.full_name}},
                     Phone: {{data.phone}}, Email:
                     {{data.email}}, Client ID: {{data.client_id}}
-                  </div> <br>
+                </div> <br>
+            </div> -->
+            <div *ngFor="let data of formsData">
+                <mat-card class="cards">
+                    <mat-card-content class="card">
+                        <h4>8am - {{data.full_name}}</h4>
+                        <h4> Therapist Name</h4>
+                        <h4> See massage form</h4>
+                        <h4> Add notes</h4>
+                    </mat-card-content>
+                </mat-card>
             </div>
+
 
         </mat-sidenav-content>
     </mat-sidenav-container>
