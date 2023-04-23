@@ -33,16 +33,16 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Más
+                            More 
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
                     <mat-nav-list>
                         <a mat-list-item href='#'>
-                            Acerca de
+                            Information
                         </a>
                         <a mat-list-item href='#'>
-                            Ayuda
+                            Help
                         </a>
                     </mat-nav-list>
                 </mat-expansion-panel>
@@ -50,6 +50,15 @@
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
             <h1>On this area we add the content</h1>
+            <div>
+                <h3>This is how we show the data to the massage therapists</h3> 
+                <div  *ngFor="let data of formsData"> 
+                    Name: {{data.full_name}},
+                    Phone: {{data.phone}}, Email:
+                    {{data.email}}, Client ID: {{data.client_id}}
+                  </div> <br>
+            </div>
+
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

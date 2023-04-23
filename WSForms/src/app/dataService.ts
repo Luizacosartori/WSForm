@@ -15,6 +15,10 @@ export class dataService{
         return this.http.get<clientData>(this.url+"/client/"); 
     }
 
+    public getMassageFormData():Observable<any>{
+        return this.http.get<any>(this.url+"/massageForm/"); 
+    }
+
     //Send a GET request to the server
     public getTreatmentData():Observable<treatmentData>{
         return this.http.get<treatmentData>(this.url+"/treatment/"); 
