@@ -34,7 +34,7 @@
 }
 
 .card:hover {
-    border: 1px solid blueviolet;
+    border: solid 1px blue;
 }
 
 .card {

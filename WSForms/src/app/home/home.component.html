@@ -13,40 +13,22 @@
         <mat-sidenav style="min-width: 300px;" #button mode="side" opened>
             <mat-nav-list>
                 <a mat-list-item href="/home">
-                    <mat-icon color="accent">home</mat-icon>
+                    <mat-icon >home</mat-icon>
                     Home
                 </a>
                 <a mat-list-item href="/login">
-                    <mat-icon color="accent">login</mat-icon>
+                    <mat-icon >login</mat-icon>
                     Login
                 </a>
                 <a mat-list-item href='/massageForm'>
-                    <mat-icon color="accent">add</mat-icon>
+                    <mat-icon >add</mat-icon>
                     Massage Form
                 </a>
                 <a mat-list-item href='/notes'>
-                    <mat-icon color="accent">add</mat-icon>
+                    <mat-icon >add</mat-icon>
                     Notes Form
                 </a>
             </mat-nav-list>
-            <mat-accordion>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            More
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <mat-nav-list>
-                        <a mat-list-item href='#'>
-                            Information
-                        </a>
-                        <a mat-list-item href='#'>
-                            Help
-                        </a>
-                    </mat-nav-list>
-                </mat-expansion-panel>
-            </mat-accordion>
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
             <h1>Dashboard</h1>
@@ -54,9 +36,9 @@
                 <mat-card class="cards">
                     <mat-card-content class="card">
                         <h4>8am - {{data.full_name}}</h4>
-                        <h4> Therapist Name</h4>
-                        <h4> Add notes</h4>
-                        <button mat-button (click)="openDialog()">Client Information</button>
+                        <button mat-button style="display: block;" routerLink="/massageForm">Massage Form</button>
+                        <button mat-button style="display: block;" (click)="openClientInfo()">Client Information</button>
+                        <button mat-button style="display: block;" (click)="openNotesInfo()" >Add Notes</button>
                     </mat-card-content>
                 </mat-card>
             </div>

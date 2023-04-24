@@ -1,7 +1,13 @@
 <h2 mat-dialog-title>Client Name <h2>
 <mat-dialog-content class="mat-typography">
-  <p>Date of Birth: 07/08/1998</p>
-  <p>Injuries: No</p>
+  <div *ngFor="let data of formsData">
+    <mat-card class="cards">
+        <mat-card-content class="card">
+            <h4>8am - {{data.full_name}}</h4>
+
+        </mat-card-content>
+    </mat-card>
+</div>
  
 </mat-dialog-content>
 <mat-dialog-actions align="end">
