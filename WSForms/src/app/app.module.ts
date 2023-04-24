@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { HomeComponent } from './home/home.component';
+import { MassageFormInfo, HomeComponent } from './home/home.component';
 import { NotesFormComponent } from './notes-form/notes-form.component';
 import { MassageFormComponent } from './massage-form/massage-form.component';
 import { LoginComponent } from './login/login.component';
@@ -26,12 +26,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotesFormComponent, MassageFormComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, NotesFormComponent, MassageFormComponent, LoginComponent, MassageFormInfo],
   imports: [
     BrowserModule,
+    MatDialogModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -54,5 +56,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ],
   providers: [dataService],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

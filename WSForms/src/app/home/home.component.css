@@ -1,12 +1,13 @@
-.header{
+.header {
     background-color: #c9bba7;
 }
+
 .content {
     line-height: 2rem;
     font-size: 1.2em;
 }
 
-.container{
+.container {
     display: flex;
     flex-flow: column;
     height: 100%;
@@ -24,12 +25,18 @@
     height: 100vh;
 }
 
-.cards{
+.main-content h1 {
+    padding: 40px 50px 20px 50px;
+}
+
+.cards {
     margin: 20px 50px;
 }
-.card:hover{
-    border: 1px solid blueviolet ;
+
+.card:hover {
+    border: 1px solid blueviolet;
 }
-.card{
+
+.card {
     columns: 4;
 }
