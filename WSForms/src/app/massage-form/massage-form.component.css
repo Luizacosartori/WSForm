@@ -1,167 +1,176 @@
 .father-div {
-    background-color: #fafafa;
-    overflow-x: hidden;
-    margin-bottom: 50px;
-  }
-  
-  header {
-    background-color: #c9bba7;
-    height: 115px;
-    width: 100vw;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* width: 100vw; */
-    padding: 12px 0;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .logo img {
-    width: 96px;
-    margin-left: 68px;
-  }
-  
-  .wrapper {
-    max-width: 90vw;
-    margin: 0 auto;
-    margin-bottom: 60px;
-    padding: 0;
-  }
-  
-  .massageform {
-    width: 80%;
-    height: 100vh;
-    margin: 0 auto;
-    background-color: white;
-  }
-  
-  .personal-information {
-    margin-top: 40px;
-  }
-  
-  .personal-information:hover {
-    border: solid 1px blue;
-  }
-  
-  .personal-information-card-header {
-    margin: auto;
-    padding: 24px 0;
-  }
-  
-  .personal-information-card-content {
-    padding: 0;
-    margin: 0px 80px;
-  }
-  
-  .full-width {
-    width: 100% !important;
-  }
-  
-  .full {
-    display: flex;
-    margin: auto;
-  }
-  
-  .three-collums {
-    columns: 3;
-    display: flex;
-    margin: auto;
-    gap: 16px;
-    align-items: center;
-  }
-  
-  .top-padding {
-    padding-top: 3px;
-  }
-  
-  .margin-left mat-radio-button:not(:first-child) {
-    margin-left: 10px;
-  }
-  
-  .row {
-    display: flex;
-  }
-  
-  .column {
-    flex: 80%;
-  }
-  
-  .form-container mat-form-field {
-    position: relative;
-    width: 100%;
-  }
-  
-  /* .form-container mat-form-field + mat-form-field {
+  background-color: #fafafa;
+  overflow: hidden;
+  margin-bottom: 50px;
+  min-height: 100vh;
+  position: absolute;
+}
+
+header {
+  background-color: #c9bba7;
+  height: 115px;
+  width: 100vw;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 12px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 96px;
+  margin-left: 68px;
+}
+
+
+
+.wrapper {
+  max-width: 90vw;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  padding: 0;
+}
+
+.panel{
+  max-width: 90vw;
+  margin: auto;
+}
+
+
+.massageform {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.personal-information {
+  margin-top: 40px;
+}
+
+.personal-information:hover {
+  border: solid 1px blue;
+}
+
+.personal-information-card-header {
+  margin: auto;
+  padding: 24px 0;
+}
+
+.personal-information-card-content {
+  padding: 0;
+  margin: 0px 80px;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.full {
+  display: flex;
+  margin: auto;
+}
+
+.three-collums {
+  columns: 3;
+  display: flex;
+  margin: auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.top-padding {
+  padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child) {
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 80%;
+}
+
+.form-container mat-form-field {
+  position: relative;
+  width: 100%;
+}
+
+/* .form-container mat-form-field + mat-form-field {
     margin-left: 16px;
   } */
-  
+
+.lines {
+  columns: 2;
+  display: flex;
+  align-content: center;
+  gap: 16px;
+}
+
+.radiobox-lines {
+  display: flex;
+  columns: 2;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 16px;
+  gap: 16px;
+  width: 100%;
+}
+
+.radiobox-lines p {
+  margin: 0;
+  min-width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.mat-mdc-radio-button {
+  padding-right: 8px;
+}
+
+mat-radio-group {
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.checkbox-container {
+  margin: 8px 0;
+  columns: 2;
+  display: flex;
+}
+
+.checkbox-margin {
+  margin: 0 12px;
+}
+
+@media only screen and (max-width: 600px) {
   .lines {
-    columns: 2;
-    display: flex;
+    columns: 1;
+    display: block;
     align-content: center;
-    gap: 16px;
-  }
-  
-  .radiobox-lines {
-    display: flex;
-    columns: 2;
     align-items: center;
-    margin: 0;
-    margin-bottom: 16px;
-    gap: 16px;
-    width: 100%;
+    margin: auto;
   }
-  
-  .radiobox-lines p {
-    margin: 0;
-    min-width: 50%;
-    display: flex;
-    align-items: center;
+
+  .personal-information-card-header {
+    padding: 24px 0;
   }
-  
-  .mat-mdc-radio-button {
-    padding-right: 8px;
+
+  mat-form-field {
+    width: 100% !important;
   }
-  
-  mat-radio-group {
-    margin: 0;
-    width: 100%;
-    display: flex;
-  }
-  
-  .checkbox-container {
-    margin: 8px 0;
-    columns: 2;
-    display: flex;
-  }
-  
-  .checkbox-margin {
-    margin: 0 12px;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .lines {
-      columns: 1;
-      display: block;
-      align-content: center;
-      align-items: center;
-      margin: auto;
-    }
-  
-    .personal-information-card-header {
-      padding: 24px 0;
-    }
-  
-    mat-form-field {
-      width: 100% !important;
-    }
-  }
-  
+}

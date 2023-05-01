@@ -19,6 +19,7 @@ export class MassageFormComponent {
   therapists: therapistData[] = new Array();
   clients: clientData[] = new Array();
   treatments: treatmentData[] = new Array();
+  step = 0;
 
   massageForm = new FormGroup({
     full_name: new FormControl('', Validators.required),
@@ -125,6 +126,18 @@ export class MassageFormComponent {
 
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
+  }
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 
 
