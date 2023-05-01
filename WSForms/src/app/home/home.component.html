@@ -10,35 +10,43 @@
         </mat-toolbar-row>
     </mat-toolbar>
     <mat-sidenav-container class="side-bar-content">
-        <mat-sidenav style="min-width: 300px;" #button mode="side" opened>
+        <mat-sidenav class="side-nav-container" #button mode="side" closed>
             <mat-nav-list>
-                <a mat-list-item href="/home">
-                    <mat-icon >home</mat-icon>
+                <a mat-list-item href="/home" class="link active">
+                    <i class="fa fas fa-home"></i>
                     Home
                 </a>
-                <a mat-list-item href="/login">
-                    <mat-icon >login</mat-icon>
+                <a mat-list-item href="/login" class="link">
                     Login
                 </a>
-                <a mat-list-item href='/massageForm'>
-                    <mat-icon >add</mat-icon>
+                <a mat-list-item href='/massageForm' class="link">
                     Massage Form
                 </a>
-                <a mat-list-item href='/notes'>
-                    <mat-icon >add</mat-icon>
+                <a mat-list-item href='/notes' class="link">
                     Notes Form
                 </a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
             <h1>Dashboard</h1>
+                <div class="cards explanation">
+                    <mat-card-content class="explanation-title">
+                        <h3>Appt Time - Client Name</h3>
+                        <h3>Therapist Name</h3>
+                        <h3>Massage Form</h3> 
+                        <h3>Massage Form Information </h3> 
+                        <h3>Add Treatment Notes</h3>
+                    </mat-card-content>
+                </div> 
             <div *ngFor="let data of formsData">
                 <mat-card class="cards">
                     <mat-card-content class="card">
-                        <h4>8am - {{data.full_name}}</h4>
+                        <h3>8am - {{data.full_name}}</h3>
+                        <h3>Thelma Dias</h3>
                         <button mat-button style="display: block;" routerLink="/massageForm">Massage Form</button>
-                        <button mat-button style="display: block;" (click)="openClientInfo()">Client Information</button>
-                        <button mat-button style="display: block;" (click)="openNotesInfo()" >Add Notes</button>
+                        <button mat-button style="display: block;" (click)="openClientInfo()">Client
+                            Information</button>
+                        <button mat-button style="display: block;" (click)="openNotesInfo()">Add Notes</button>
                     </mat-card-content>
                 </mat-card>
             </div>
