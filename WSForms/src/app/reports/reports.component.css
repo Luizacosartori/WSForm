@@ -1,0 +1,43 @@
+.main-content {
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.link {
+    padding-left: 20px;
+}
+
+.link:hover {
+    border-left: solid 6px #c9bba7;
+    background-color: #F5F5F5 !important;
+}
+
+.active {
+    border-left: solid 6px #c9bba7;
+    background-color: #F5F5F5 !important;
+}
+
+.side-nav-container{
+    min-width: 300px;
+}
+.side-bar-content {
+    flex: 1 1 auto;
+}
+
+.side-bar {
+    flex: 0 1 auto;
+}
+.header {
+    background-color: #c9bba7;
+}
+
+.content {
+    line-height: 2rem;
+    font-size: 1.2em;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}

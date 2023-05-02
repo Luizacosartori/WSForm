@@ -25,6 +25,9 @@
                 <a mat-list-item href='/notes' class="link">
                     Notes Form
                 </a>
+                <a mat-list-item href='/reports' class="link">
+                    Reports
+                </a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
@@ -44,7 +47,7 @@
                         <h3>8am - {{data.full_name}}</h3>
                         <h3>Thelma Dias</h3>
                         <button mat-button style="display: block;" routerLink="/massageForm">Massage Form</button>
-                        <button mat-button style="display: block;" (click)="openClientInfo()">Client
+                        <button mat-button style="display: block;" (click)="openClientInfo(data.client_massage_form_id)">Client
                             Information</button>
                         <button mat-button style="display: block;" (click)="openNotesInfo()">Add Notes</button>
                     </mat-card-content>

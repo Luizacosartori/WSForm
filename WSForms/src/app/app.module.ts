@@ -27,10 +27,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from "@angular/material/dialog";
-
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotesFormComponent, MassageFormComponent, LoginComponent, MassageFormInfo, NotesInfo],
+  declarations: [AppComponent, HomeComponent, NotesFormComponent, MassageFormComponent, LoginComponent, MassageFormInfo, NotesInfo, ReportsComponent],
   imports: [
     BrowserModule,
     MatDialogModule,

@@ -17,7 +17,7 @@ export class HomeComponent {
   constructor(private dataService: dataService, public dialog: MatDialog) {
   }
 
-  openClientInfo() {
+  openClientInfo(data:any) {
     const dialogRef = this.dialog.open(MassageFormInfo);
 
     dialogRef.afterClosed().subscribe(result => {
