@@ -46,7 +46,7 @@ export class massageForm {
     client_id: number;
     client_massage_form_id: number;
     full_name: string;
-    date_of_birth: number;
+    date_of_birth: Date;
     address: string;
     suburb: string;
     state: string;
@@ -108,7 +108,7 @@ export class massageForm {
     client_signature_date: Date;
     expiry_date: Date;
 
-    constructor(full_name: string, date_of_birth: number, address: string, suburb: string, state: string,
+    constructor(full_name: string, date_of_birth: Date, address: string, suburb: string, state: string,
         postal_code: number, occupation: string, email: string, phone: number, health_insurance: string, health_insurance_other: string,
         emergency_contact_name: string, emergency_contact_relationship: string, emergency_contact_phone: number,
         hear_about_us_online_search: string, hear_about_us_word_of_mouth: string, hear_about_us_facebook: string, hear_about_us_friend_family: string,

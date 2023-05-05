@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -14,7 +14,7 @@ import { dataService } from '../dataService';
   templateUrl: './massage-form.component.html',
   styleUrls: ['./massage-form.component.css']
 })
-export class MassageFormComponent {
+export class MassageFormComponent implements OnInit {
   title = 'WSForms';
   therapists: therapistData[] = new Array();
   clients: clientData[] = new Array();
@@ -91,6 +91,9 @@ export class MassageFormComponent {
   constructor(private dataService: dataService) {
     console.log(this.massageForm.value)
   }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   getData() {
     this.dataService.getTeraphistData().subscribe(
@@ -105,6 +108,7 @@ export class MassageFormComponent {
       },
       (err: any) => { }
     );
+    
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatments = d;

@@ -1,15 +1,51 @@
-<h2 mat-dialog-title>Client Name <h2>
-<mat-dialog-content class="mat-typography">
-  <div *ngFor="let data of formsData">
-    <mat-card class="cards">
-        <mat-card-content class="card">
-            <h4>8am - {{data.full_name}}</h4>
+<div *ngFor="let data of clientById">
+  <mat-dialog-content class="mat-typography">
+    <div *ngFor="let data of clientById">
+      <h1> {{data.full_name}} </h1>
 
-        </mat-card-content>
-    </mat-card>
-</div>
- 
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Close</button>
-</mat-dialog-actions>
+      <p>DOB: {{formatDate(data.date_of_birth)}}</p>
+      <p>Occupation: {{data.occupation}}</p>
+      <h2> Health Information</h2>
+      <p>Taking Medication: {{data.taking_medication}}</p>
+      <p>Medciation List: {{data.taking_medication_list}}</p>
+      <p>Pregnancy: {{data.pregnant}} {{data.pregnant_how_far}} weeks {{data.pregnant_high_risk}}</p>
+      <p>Chronic Pain: {{data.chronic_pain}}</p>
+      <p>Injuries: {{data.orthopedic_injuries}}</p>
+      <ul>
+        <li *ngIf="data.hasCancer == '1'">Cancer: Yes</li>
+        <li *ngIf="data.hasHeadaches_migraines == '1'">Migranaines: Yes</li>
+        <li *ngIf="data.hasFibromyalgia == '1'">Fibromyalgia: Yes</li>
+        <li *ngIf="data.hasStroke == '1'">Stroke: Yes</li>
+        <li *ngIf="data.hasArthritis == '1'">Arthritis: Yes</li>
+        <li *ngIf="data.hasHeart_attack == '1'">Heart Attack: Yes</li>
+        <li *ngIf="data.hasDiabetes == '1'">Diabetes: Yes</li>
+        <li *ngIf="data.hasJoint_replacement == '1'">Joint Replacement: Yes</li>
+        <li *ngIf="data.hasBlood_clots == '1'">Blood Clots: Yes</li>
+        <li *ngIf="data.hasHigh_low_pressure == '1'">Low/High Blood Pressure: Yes</li>
+        <li *ngIf="data.hasNumbness == '1'">Numbness: Yes</li>
+        <li *ngIf="data.hasNeuropathy == '1'">Neuropathy: Yes</li>
+        <li *ngIf="data.hasSprains_strains == '1'">Sprais/Strains: Yes</li>
+        <li *ngIf="data.hasDiabetes == '1'">Diabetes: Yes</li>
+        <li>Need a fall back if nothing is filled out</li>
+      </ul>
+
+      <h2>Massage Information</h2>
+      <p *ngIf="data.had_professional_massage == '1'"> This is the client's first massage ever!</p>
+      <p>Pressure: {{data.pressure_preference}}</p>
+      <p>Allergies: {{data.allergies_sensitivities}}</p>
+      <p>Explanation {{data.allergies_sensitivities_explanation}}</p>
+      <p>Treatment Goals</p>
+      <ul>
+        <li *ngIf="data.goal_stress_reduction == '1'">Stress Reduction</li>
+        <li *ngIf="data.goal_pain_relief == '1'">Pain relief</li>
+        <li *ngIf="data.goal_increase_range_of_motion == '1'">Increase range of motion</li>
+        <li *ngIf="data.goal_injury_rehabilitation == '1'">Increase range of motion</li>
+        <li *ngIf="data.goal_improve_sleep == '1'">Improve Sleep</li>
+        <li *ngIf="data.goal_increase_energy == '1'">Increase Energy</li>
+
+      </ul>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>

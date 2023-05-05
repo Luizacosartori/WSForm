@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"
 import { Observable } from "rxjs";
-import { therapistData, clientData, treatmentData } from "./formsData";
+import { therapistData, clientData, treatmentData, massageForm } from "./formsData";
 
 @Injectable()
 export class dataService{
@@ -15,8 +15,13 @@ export class dataService{
         return this.http.get<clientData>(this.url+"/client/"); 
     }
 
-    public getMassageFormData():Observable<any>{
-        return this.http.get<any>(this.url+"/massageForm/"); 
+    public getMassageFormById(client_massage_form_id:number):Observable<any>{ 
+        return this.http.get<any>(this.url+ '/' + client_massage_form_id);
+    }
+
+
+    public getMassageFormData():Observable<massageForm>{
+        return this.http.get<massageForm>(this.url+"/massageForm/"); 
     }
 
     //Send a GET request to the server

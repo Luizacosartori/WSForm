@@ -1,1 +1,53 @@
-<h1>Notes Form will be here</h1>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+        <h3>Focused Areas</h3>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Front of the body</mat-label>
+            <mat-select formControlName="front_of_body" multiple>
+                <mat-option value="Whole Front">Whole Front</mat-option>
+                <mat-option value="Head">Head</mat-option>
+                <mat-option value="Neck">Neck</mat-option>
+                <mat-option value="Chest">Chest</mat-option>
+                <mat-option value="Arms">Arms</mat-option>
+                <mat-option value="Stomach">Stomach</mat-option>
+                <mat-option value="Legs">Front of Legs</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Back of the body</mat-label>
+            <mat-select  formControlName="back_of_body" multiple>
+                <mat-option value="Whole Back">Whole Back</mat-option>
+                <mat-option value="Right Shoulder">Right Shoulder</mat-option>
+                <mat-option value="Left Shoulder">Left Shoulder</mat-option>
+                <mat-option value="Upper Back">Upper back</mat-option>
+                <mat-option value="middle Back">Middle Back</mat-option>
+                <mat-option value="Lower Back">Lower Back</mat-option>
+                <mat-option value="Hips">Hips</mat-option>
+                <mat-option value="Hamstrings">Hamstrings</mat-option>
+                <mat-option value="Calves">Calves</mat-option>
+                <mat-option value="Feet">Feet</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <h3>Pressure Used</h3>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Pressure</mat-label>
+            <mat-select  formControlName="pressure">
+                <mat-option value="Light">Light</mat-option>
+                <mat-option value="Medium">Medium</mat-option>
+                <mat-option value="Hard">Hard</mat-option>
+                <mat-option value="Deep Tissue">Deep Tissue</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Treatment Notes</mat-label>
+            <input matInput id="" placeholder="Treatment Notes" type="text"  formControlName="otherNotes" />
+        </mat-form-field>
+        <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+
+    </form>
+
+
+</mat-dialog-content>

@@ -47,6 +47,16 @@ router.get("/massageForm/", (request, response) => {
         })
 })
 
+router.get("/:id", (req, res)=>{
+	connection.query("SELECT * FROM client_massage_form WHERE client_massage_form_id=" + req.params.id, (err, records,fields)=> {
+		 if (err){
+			 console.error("Error while retrieve the data");
+		 }else{
+			 res.send(records);
+		 }
+	})
+})
+
 router.post("/NewClientMassageForm/", (req, res) => {
     var full_name = req.body.full_name;
     var date_of_birth = req.body.date_of_birth;

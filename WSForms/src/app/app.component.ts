@@ -88,7 +88,6 @@ export class AppComponent {
   notChecked = false;
 
   constructor(private dataService: dataService) {
-    console.log(this.massageForm.value)
   }
 
   getData() {
