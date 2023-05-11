@@ -32,21 +32,23 @@
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
             <h1>Dashboard</h1>
-              
-            <div *ngFor="let data of formsData">
+
+            <div *ngFor="let data of treatment">
                 <mat-card class="cards">
                     <mat-card-content class="card">
                         <div class="phoneView">
-                            <h3>8am - {{data.full_name}}</h3>
+                                <h3>{{formatDate(data.treatment_date)}}</h3>
+
                             <h3>Thelma Dias</h3>
                         </div>
                         <div>
                             <button mat-button style="display: block;" routerLink="/massageForm">Massage Form</button>
-                            <button mat-button style="display: block;" (click)="openClientInfo(data.client_massage_form_id)">Client
+                            <button mat-button style="display: block;"
+                                (click)="openClientInfo(data.client_id)">Client
                                 Information</button>
                             <button mat-button style="display: block;" (click)="openNotesInfo()">Add Notes</button>
                         </div>
-                       
+
                     </mat-card-content>
                 </mat-card>
             </div>
