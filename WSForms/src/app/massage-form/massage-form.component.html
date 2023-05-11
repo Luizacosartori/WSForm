@@ -11,12 +11,15 @@
 
   <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
     <mat-accordion>
-      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" class="panel" style="margin-top: 50px;"
-        hideToggle>
+      <mat-expansion-panel
+        [expanded]="step === 0"
+        (opened)="setStep(0)"
+        class="panel"
+        style="margin-top: 50px"
+        hideToggle
+      >
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            Personal Information
-          </mat-panel-title>
+          <mat-panel-title> Personal Information </mat-panel-title>
         </mat-expansion-panel-header>
 
         <mat-card-content class="personal-information-card-content">
@@ -25,13 +28,27 @@
               <div class="lines">
                 <mat-form-field id="myinput" appearance="fill">
                   <mat-label>Full Name</mat-label>
-                  <input matInput id="full_name" placeholder="Full Name" type="text" formControlName="full_name" />
+                  <input
+                    matInput
+                    id="full_name"
+                    placeholder="Full Name"
+                    type="text"
+                    formControlName="full_name"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>DOB</mat-label>
-                  <input formControlName="date_of_birth" matInput [matDatepicker]="picker" id="date_of_birth"
-                    placeholder="Date of Birth" />
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <input
+                    formControlName="date_of_birth"
+                    matInput
+                    [matDatepicker]="picker"
+                    id="date_of_birth"
+                    placeholder="Date of Birth"
+                  />
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
@@ -39,11 +56,23 @@
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Address</mat-label>
-                  <input matInput id="address" placeholder="Address" type="text" formControlName="address" />
+                  <input
+                    matInput
+                    id="address"
+                    placeholder="Address"
+                    type="text"
+                    formControlName="address"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Suburb</mat-label>
-                  <input matInput id="suburb" placeholder="Suburb" type="text" formControlName="suburb" />
+                  <input
+                    matInput
+                    id="suburb"
+                    placeholder="Suburb"
+                    type="text"
+                    formControlName="suburb"
+                  />
                 </mat-form-field>
               </div>
 
@@ -63,8 +92,13 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Postal Code</mat-label>
-                  <input matInput id="postal_code" placeholder="Postal Code" type="text"
-                    formControlName="postal_code" />
+                  <input
+                    matInput
+                    id="postal_code"
+                    placeholder="Postal Code"
+                    type="text"
+                    formControlName="postal_code"
+                  />
                 </mat-form-field>
               </div>
 
@@ -72,23 +106,44 @@
               <div>
                 <mat-form-field class="full-width" appearance="fill">
                   <mat-label>Ocuppation</mat-label>
-                  <input matInput id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
+                  <input
+                    matInput
+                    id="occupation"
+                    placeholder="Occupation"
+                    type="text"
+                    formControlName="occupation"
+                  />
                 </mat-form-field>
               </div>
 
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Email</mat-label>
-                  <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
+                  <input
+                    matInput
+                    id="email"
+                    placeholder="Email"
+                    type="email"
+                    formControlName="email"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Phone</mat-label>
-                  <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
+                  <input
+                    matInput
+                    id="phone"
+                    placeholder="Phone"
+                    type="text"
+                    formControlName="phone"
+                  />
                 </mat-form-field>
               </div>
 
               <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option" formControlName="hasHealth_insurance">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  formControlName="hasHealth_insurance"
+                >
                   <p>Do you have a health insurance?</p>
 
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
@@ -98,90 +153,171 @@
               <div class="lines">
                 <mat-form-field>
                   <mat-label>Do you have Health Insurance?</mat-label>
-                  <mat-select id="health_insurance" formControlName="health_insurance">
-                    <mat-option value="No Insurance">I don't have health insurance</mat-option>
+                  <mat-select
+                    id="health_insurance"
+                    formControlName="health_insurance"
+                  >
+                    <mat-option value="No Insurance"
+                      >I don't have health insurance</mat-option
+                    >
                     <mat-option value="Medibank">Medibank</mat-option>
                     <mat-option value="Bupa">Bupa</mat-option>
                     <mat-option value="HCF">HCF</mat-option>
                     <mat-option value="Nib">Nib</mat-option>
                     <mat-option value="HBF">HBF</mat-option>
-                    <mat-option value="Australian Unity">Australian Unity</mat-option>
-                    <mat-option value="Teachers Health">Teachers Health</mat-option>
-                    <mat-option value="Quantas Health">Quantas Health</mat-option>
-                    <mat-option value="Defence Health">Defence Health</mat-option>
+                    <mat-option value="Australian Unity"
+                      >Australian Unity</mat-option
+                    >
+                    <mat-option value="Teachers Health"
+                      >Teachers Health</mat-option
+                    >
+                    <mat-option value="Quantas Health"
+                      >Quantas Health</mat-option
+                    >
+                    <mat-option value="Defence Health"
+                      >Defence Health</mat-option
+                    >
                     <mat-option value="CBHS">CBHS</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Other</mat-label>
-                  <input matInput id="health_insurance_other" placeholder="Other" type="text"
-                    formControlName="health_insurance_other" />
+                  <input
+                    matInput
+                    id="health_insurance_other"
+                    placeholder="Other"
+                    type="text"
+                    formControlName="health_insurance_other"
+                  />
                 </mat-form-field>
               </div>
 
               <div class="three-collums">
                 <mat-form-field appearance="fill">
                   <mat-label>Emergency Contact Name</mat-label>
-                  <input matInput id="emergency_contact_name" placeholder="Emergency Contact Name" type="text"
-                    formControlName="emergency_contact_name" />
+                  <input
+                    matInput
+                    id="emergency_contact_name"
+                    placeholder="Emergency Contact Name"
+                    type="text"
+                    formControlName="emergency_contact_name"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Relationship</mat-label>
-                  <input matInput id="emergency_contact_relationship" placeholder="Relationship" type="text"
-                    formControlName="emergency_contact_relationship" />
+                  <input
+                    matInput
+                    id="emergency_contact_relationship"
+                    placeholder="Relationship"
+                    type="text"
+                    formControlName="emergency_contact_relationship"
+                  />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Phone</mat-label>
-                  <input matInput id="emergency_contact_phone" placeholder="Phone" type="text"
-                    formControlName="emergency_contact_phone" />
+                  <input
+                    matInput
+                    id="emergency_contact_phone"
+                    placeholder="Phone"
+                    type="text"
+                    formControlName="emergency_contact_phone"
+                  />
                 </mat-form-field>
               </div>
               <!-- Hear about us -->
               <h4>How did you hear about us?</h4>
               <div class="lines">
-                <div style="width: 50%;">
+                <div style="width: 50%">
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_online_search" name="hear_about_us_online_search"
-                      formControlName="hear_about_us_online_search" [ngModel]="notChecked" />
-                    <label for="hear_about_us_online_search">Online Search</label>
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_online_search"
+                      name="hear_about_us_online_search"
+                      formControlName="hear_about_us_online_search"
+                      [ngModel]="notChecked"
+                    />
+                    <label for="hear_about_us_online_search"
+                      >Online Search</label
+                    >
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_facebook" name="hear_about_us_facebook"
-                      formControlName="hear_about_us_facebook" [ngModel]="notChecked" />
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_facebook"
+                      name="hear_about_us_facebook"
+                      formControlName="hear_about_us_facebook"
+                      [ngModel]="notChecked"
+                    />
                     <label for="hear_about_us_facebook">Facebook</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_instagram" name="hear_about_us_instagram"
-                      formControlName="hear_about_us_instagram" [ngModel]="notChecked" />
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_instagram"
+                      name="hear_about_us_instagram"
+                      formControlName="hear_about_us_instagram"
+                      [ngModel]="notChecked"
+                    />
                     <label for="hear_about_us_instagram">Instagram</label>
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_online_advertisement"
-                      name="hear_about_us_online_advertisement" formControlName="hear_about_us_online_advertisement"
-                      [ngModel]="notChecked" />
-                    <label for="hear_about_us_online_advertisement">Online Advertisement</label>
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_online_advertisement"
+                      name="hear_about_us_online_advertisement"
+                      formControlName="hear_about_us_online_advertisement"
+                      [ngModel]="notChecked"
+                    />
+                    <label for="hear_about_us_online_advertisement"
+                      >Online Advertisement</label
+                    >
                   </div>
                 </div>
-                <div style="width: 50%;">
+                <div style="width: 50%">
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_word_of_mouth" name="hear_about_us_word_of_mouth"
-                      formControlName="hear_about_us_word_of_mouth" [ngModel]="notChecked" />
-                    <label for="hear_about_us_word_of_mouth">Word of Mouth</label>
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_word_of_mouth"
+                      name="hear_about_us_word_of_mouth"
+                      formControlName="hear_about_us_word_of_mouth"
+                      [ngModel]="notChecked"
+                    />
+                    <label for="hear_about_us_word_of_mouth"
+                      >Word of Mouth</label
+                    >
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_friend_family" name="hear_about_us_friend_family"
-                      formControlName="hear_about_us_friend_family" [ngModel]="notChecked" />
-                    <label for="hear_about_us_friend_family">Friend/family</label>
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_friend_family"
+                      name="hear_about_us_friend_family"
+                      formControlName="hear_about_us_friend_family"
+                      [ngModel]="notChecked"
+                    />
+                    <label for="hear_about_us_friend_family"
+                      >Friend/family</label
+                    >
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_healthcare_provider"
-                      name="hear_about_us_healthcare_provider" formControlName="hear_about_us_healthcare_provider"
-                      [ngModel]="notChecked" />
-                    <label for="hear_about_us_healthcare_provider">Healthcare Provider</label>
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_healthcare_provider"
+                      name="hear_about_us_healthcare_provider"
+                      formControlName="hear_about_us_healthcare_provider"
+                      [ngModel]="notChecked"
+                    />
+                    <label for="hear_about_us_healthcare_provider"
+                      >Healthcare Provider</label
+                    >
                   </div>
                   <div>
-                    <mat-checkbox type="checkbox" id="hear_about_us_walked_by" name="hear_about_us_walked_by"
-                      formControlName="hear_about_us_walked_by" [ngModel]="notChecked" />
+                    <mat-checkbox
+                      type="checkbox"
+                      id="hear_about_us_walked_by"
+                      name="hear_about_us_walked_by"
+                      formControlName="hear_about_us_walked_by"
+                      [ngModel]="notChecked"
+                    />
                     <label for="hear_about_us_walked_by">Walked by</label>
                   </div>
                 </div>
@@ -194,20 +330,24 @@
         </mat-action-row>
       </mat-expansion-panel>
 
-      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" class="panel" hideToggle>
+      <mat-expansion-panel
+        [expanded]="step === 1"
+        (opened)="setStep(1)"
+        class="panel"
+        hideToggle
+      >
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            Health Information
-          </mat-panel-title>
+          <mat-panel-title> Health Information </mat-panel-title>
         </mat-expansion-panel-header>
 
         <mat-card-content class="personal-information-card-content">
-
-
           <div class="form-container">
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option" formControlName="taking_medication">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  formControlName="taking_medication"
+                >
                   <p>Are you taking any medications?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
@@ -216,14 +356,22 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please list name and use</mat-label>
-                <input matInput id="medications" placeholder="Please type the name and use" type="text"
-                  formControlName="taking_medication_list" />
+                <input
+                  matInput
+                  id="medications"
+                  placeholder="Please type the name and use"
+                  type="text"
+                  formControlName="taking_medication_list"
+                />
               </mat-form-field>
             </div>
 
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option" formControlName="pregnant">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  formControlName="pregnant"
+                >
                   <p>Are you currently pregnant?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
@@ -232,19 +380,32 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, how far along?</mat-label>
-                <input matInput id="pregnant_how_far" placeholder="How far" type="text"
-                  formControlName="pregnant_how_far" />
+                <input
+                  matInput
+                  id="pregnant_how_far"
+                  placeholder="How far"
+                  type="text"
+                  formControlName="pregnant_how_far"
+                />
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Any high risk factors?</mat-label>
-                <input matInput id="risks-pregnant" placeholder="Any risk" type="text"
-                  formControlName="pregnant_high_risk" />
+                <input
+                  matInput
+                  id="risks-pregnant"
+                  placeholder="Any risk"
+                  type="text"
+                  formControlName="pregnant_high_risk"
+                />
               </mat-form-field>
             </div>
 
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option" formControlName="chronic_pain">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  formControlName="chronic_pain"
+                >
                   <p>Do you suffer from chronic pain?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
@@ -253,14 +414,22 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please explain</mat-label>
-                <input matInput id="chronic_pain_explanation" placeholder="Please type the name and use" type="text"
-                  formControlName="chronic_pain_explanation" />
+                <input
+                  matInput
+                  id="chronic_pain_explanation"
+                  placeholder="Please type the name and use"
+                  type="text"
+                  formControlName="chronic_pain_explanation"
+                />
               </mat-form-field>
             </div>
 
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option" formControlName="orthopedic_injuries">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  formControlName="orthopedic_injuries"
+                >
                   <p>Have you had any orthopedic injuries?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
@@ -269,85 +438,177 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please list</mat-label>
-                <input matInput id="orthopedic_injuries" placeholder="Please type the name and use" type="text"
-                  formControlName="orthopedic_injuries_list" />
+                <input
+                  matInput
+                  id="orthopedic_injuries"
+                  placeholder="Please type the name and use"
+                  type="text"
+                  formControlName="orthopedic_injuries_list"
+                />
               </mat-form-field>
             </div>
 
             <h4>Please indicate any of the following that apply to you:</h4>
             <div class="lines">
-
-              <div style="width: 50%;">
+              <div style="width: 50%">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasCancer" name="hasCancer"
-                    formControlName="hasCancer" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasCancer"
+                    name="hasCancer"
+                    formControlName="hasCancer"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasCancer">Cancer</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasHeadaches_migraines"
-                    name="hasHeadaches_migraines" formControlName="hasHeadaches_migraines" [ngModel]="notChecked" />
-                  <label for="hasHeadaches_migraines">Headaches / Migraines</label>
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasHeadaches_migraines"
+                    name="hasHeadaches_migraines"
+                    formControlName="hasHeadaches_migraines"
+                    [ngModel]="notChecked"
+                  />
+                  <label for="hasHeadaches_migraines"
+                    >Headaches / Migraines</label
+                  >
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasArthritis" name="hasArthritis"
-                    formControlName="hasArthritis" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasArthritis"
+                    name="hasArthritis"
+                    formControlName="hasArthritis"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasArthritis">Arthritis</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasDiabetes" name="hasDiabetes"
-                    formControlName="hasDiabetes" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasDiabetes"
+                    name="hasDiabetes"
+                    formControlName="hasDiabetes"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasDiabetes">Diabetes</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasJoint_replacement" name="hasJoint_replacement"
-                    formControlName="hasJoint_replacement" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasJoint_replacement"
+                    name="hasJoint_replacement"
+                    formControlName="hasJoint_replacement"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasJoint_replacement">Joint Replacement(s)</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasHigh_low_pressure" name="hasHigh_low_pressure"
-                    formControlName="hasHigh_low_pressure" [ngModel]="notChecked" />
-                  <label for="hasHigh_low_pressure">High / Low Blood Pressure</label>
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasHigh_low_pressure"
+                    name="hasHigh_low_pressure"
+                    formControlName="hasHigh_low_pressure"
+                    [ngModel]="notChecked"
+                  />
+                  <label for="hasHigh_low_pressure"
+                    >High / Low Blood Pressure</label
+                  >
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasNeuropathy" name="hasNeuropathy"
-                    formControlName="hasNeuropathy" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasNeuropathy"
+                    name="hasNeuropathy"
+                    formControlName="hasNeuropathy"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasNeuropathy">Neuropathy</label>
                 </div>
               </div>
-              <div style="width: 50%;">
+              <div style="width: 50%">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasFibromyalgia" name="hasFibromyalgia"
-                    formControlName="hasFibromyalgia" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasFibromyalgia"
+                    name="hasFibromyalgia"
+                    formControlName="hasFibromyalgia"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasFibromyalgia">Fibromyalgia</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasStroke" name="hasStroke"
-                    formControlName="hasStroke" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasStroke"
+                    name="hasStroke"
+                    formControlName="hasStroke"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasStroke">Stroke</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasHeart_attack" name="hasHeart_attack"
-                    formControlName="hasHeart_attack" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasHeart_attack"
+                    name="hasHeart_attack"
+                    formControlName="hasHeart_attack"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasHeart_attack">Heart Attack</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasKidney_dysfunction" name="hasKidney_dysfunction"
-                    formControlName="hasKidney_dysfunction" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasKidney_dysfunction"
+                    name="hasKidney_dysfunction"
+                    formControlName="hasKidney_dysfunction"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasKidney_dysfunction">Kidney Dysfunction</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasBlood_clots" name="hasBlood_clots"
-                    formControlName="hasBlood_clots" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasBlood_clots"
+                    name="hasBlood_clots"
+                    formControlName="hasBlood_clots"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasBlood_clots">Blood Clots</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasNumbness" name="hasNumbness"
-                    formControlName="hasNumbness" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasNumbness"
+                    name="hasNumbness"
+                    formControlName="hasNumbness"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasNumbness">Numbness</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="hasSprains_strains" name="hasSprains_strains"
-                    formControlName="hasSprains_strains" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="hasSprains_strains"
+                    name="hasSprains_strains"
+                    formControlName="hasSprains_strains"
+                    [ngModel]="notChecked"
+                  />
                   <label for="hasSprains_strains">Sprains or Strains</label>
                 </div>
               </div>
@@ -355,8 +616,14 @@
             <br />
             <div class="lines">
               <mat-form-field>
-                <mat-label>Explain any conditions you have marked above</mat-label>
-                <textarea matInput placeholder="Any conditions" formControlName="conditions_explanation"></textarea>
+                <mat-label
+                  >Explain any conditions you have marked above</mat-label
+                >
+                <textarea
+                  matInput
+                  placeholder="Any conditions"
+                  formControlName="conditions_explanation"
+                ></textarea>
               </mat-form-field>
             </div>
           </div>
@@ -368,21 +635,26 @@
         </mat-action-row>
       </mat-expansion-panel>
 
-      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" class="panel" style="margin-bottom: 50px;"
-        hideToggle>
+      <mat-expansion-panel
+        [expanded]="step === 2"
+        (opened)="setStep(2)"
+        class="panel"
+        style="margin-bottom: 50px"
+        hideToggle
+      >
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            Massage Information
-          </mat-panel-title>
+          <mat-panel-title> Massage Information </mat-panel-title>
         </mat-expansion-panel-header>
 
         <mat-card-content class="personal-information-card-content">
-
           <div class="form-container">
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group aria-label="Select an option" id="had_professional_massage"
-                  formControlName="had_professional_massage">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  id="had_professional_massage"
+                  formControlName="had_professional_massage"
+                >
                   <p>Have you had a professional massage before?</p>
                   <mat-radio-button value="1">Yes</mat-radio-button>
                   <mat-radio-button value="2">No</mat-radio-button>
@@ -391,34 +663,67 @@
             </div>
             <div class="lines">
               <mat-form-field appearance="fill">
-                <mat-label>What type of massage are you interested in?</mat-label>
-                <mat-select formControlName="professional_massage_type" multiple>
-                  <mat-option value="Remedial Massage">Remedial Massage</mat-option>
-                  <mat-option value="Deep Tissue/Sports Massage">Deep Tissue/Sports Massage</mat-option>
+                <mat-label
+                  >What type of massage are you interested in?</mat-label
+                >
+                <mat-select
+                  formControlName="professional_massage_type"
+                  multiple
+                >
+                  <mat-option value="Remedial Massage"
+                    >Remedial Massage</mat-option
+                  >
+                  <mat-option value="Deep Tissue/Sports Massage"
+                    >Deep Tissue/Sports Massage</mat-option
+                  >
                   <mat-option value="Relaxation">Swedish/Relaxation</mat-option>
-                  <mat-option value="Lymphatic Drainage">Lymphatic Drainage</mat-option>
-                  <mat-option value="Foot Reflexology">Foot Reflexology</mat-option>
-                  <mat-option value="Indian Head Massage">Indian Head Massage</mat-option>
+                  <mat-option value="Lymphatic Drainage"
+                    >Lymphatic Drainage</mat-option
+                  >
+                  <mat-option value="Foot Reflexology"
+                    >Foot Reflexology</mat-option
+                  >
+                  <mat-option value="Indian Head Massage"
+                    >Indian Head Massage</mat-option
+                  >
                   <mat-option value="Dry Needling">Dry Needling</mat-option>
-                  <mat-option value="Cupping Treatment">Cupping Treatment</mat-option>
-                  <mat-option value="Pregnancy Massage">Pregnancy Massage</mat-option>
-                  <mat-option value="Post Natal Massage">Post Natal Massage</mat-option>
-                  <mat-option value="Energy Healing Massage">Energy Healing Massage</mat-option>
+                  <mat-option value="Cupping Treatment"
+                    >Cupping Treatment</mat-option
+                  >
+                  <mat-option value="Pregnancy Massage"
+                    >Pregnancy Massage</mat-option
+                  >
+                  <mat-option value="Post Natal Massage"
+                    >Post Natal Massage</mat-option
+                  >
+                  <mat-option value="Energy Healing Massage"
+                    >Energy Healing Massage</mat-option
+                  >
                   <mat-option value="Devine Shape">Devine Shape</mat-option>
                   <mat-option value="Lomi Lomi">Lomi Lomi</mat-option>
-                  <mat-option value="Recover and Disconnect">Recover and Disconnect</mat-option>
+                  <mat-option value="Recover and Disconnect"
+                    >Recover and Disconnect</mat-option
+                  >
                 </mat-select>
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Other</mat-label>
-                <input matInput id="professional_massage_other" placeholder="Other" type="text"
-                  formControlName="professional_massage_other" />
+                <input
+                  matInput
+                  id="professional_massage_other"
+                  placeholder="Other"
+                  type="text"
+                  formControlName="professional_massage_other"
+                />
               </mat-form-field>
             </div>
             <div>
               <div class="radiobox-lines">
-                <mat-radio-group id="pressure_preference" aria-label="Select an option"
-                  formControlName="pressure_preference">
+                <mat-radio-group
+                  id="pressure_preference"
+                  aria-label="Select an option"
+                  formControlName="pressure_preference"
+                >
                   <p>What pressure do you prefer?</p>
                   <mat-radio-button value="Light">Light</mat-radio-button>
                   <mat-radio-button value="Medium">Medium</mat-radio-button>
@@ -429,8 +734,11 @@
             </div>
 
             <div class="radiobox-lines">
-              <mat-radio-group id="allergies_sensitivities" aria-label="Select an option"
-                formControlName="allergies_sensitivities">
+              <mat-radio-group
+                id="allergies_sensitivities"
+                aria-label="Select an option"
+                formControlName="allergies_sensitivities"
+              >
                 <p>Do you have any allergies or sensitivities?</p>
                 <mat-radio-button value="1">Yes</mat-radio-button>
                 <mat-radio-button value="2">No</mat-radio-button>
@@ -439,273 +747,568 @@
             <div>
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Please Explain</mat-label>
-                <input matInput id="allergies_sensitivities_explanation" placeholder="Please Explain" type="text"
-                  formControlName="allergies_sensitivities_explanation" />
+                <input
+                  matInput
+                  id="allergies_sensitivities_explanation"
+                  placeholder="Please Explain"
+                  type="text"
+                  formControlName="allergies_sensitivities_explanation"
+                />
               </mat-form-field>
             </div>
 
             <h4>What are your goals for this treatment session?</h4>
             <div class="lines">
-
-              <div style="width: 50%;">
+              <div style="width: 50%">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation"
-                    [ngModel]="notChecked" />
-                  <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_injury_rehabilitation"
+                    name="goal_injury_rehabilitation"
+                    formControlName="goal_pain_relief"
+                    [ngModel]="notChecked"
+                  />
+                  <label for="goal_injury_rehabilitation">Pain Relief</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_improve_sleep" name="goal_improve_sleep"
-                    formControlName="goal_improve_sleep" [ngModel]="notChecked" />
-                  <label for="goal_improve_sleep">Improve Sleep</label>
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_improve_sleep"
+                    name="goal_improve_sleep"
+                    formControlName="goal_stress_reduction"
+                    [ngModel]="notChecked"
+                  />
+                  <label for="goal_improve_sleep">Stress Reduction</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_increase_energy" name="goal_increase_energy"
-                    formControlName="goal_increase_energy" [ngModel]="notChecked" />
-                  <label for="goal_increase_energy">Increase Energy</label>
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_increase_energy"
+                    name="goal_increase_energy"
+                    formControlName="goal_increase_range_of_motion"
+                    [ngModel]="notChecked"
+                  />
+                  <label for="goal_increase_energy"
+                    >Increase Flexibility and Range of motion</label
+                  >
                 </div>
               </div>
-              <div style="width: 50%;">
+              <div style="width: 50%">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation"
-                    [ngModel]="notChecked" />
-                  <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_injury_rehabilitation"
+                    name="goal_injury_rehabilitation"
+                    formControlName="goal_injury_rehabilitation"
+                    [ngModel]="notChecked"
+                  />
+                  <label for="goal_injury_rehabilitation"
+                    >Injury Rehabilitation</label
+                  >
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goals-sleep" name="goals-sleep" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goals-sleep"
+                    name="goal_improve_sleep"
+                  />
                   <label for="goals-sleep">Improve Sleep</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goals-energy" name="goals-energy" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goals-energy"
+                    name="goal_increase_energy"
+                  />
                   <label for="goals-energy">Increase Energy</label>
                 </div>
               </div>
-
             </div>
             <div class="lines">
               <mat-form-field appearance="fill">
                 <mat-label>Other</mat-label>
-                <input matInput id="" placeholder="Other goals" type="text" formControlName="" />
+                <input
+                  matInput
+                  id=""
+                  placeholder="Other goals"
+                  type="text"
+                  formControlName="goal_other"
+                />
               </mat-form-field>
             </div>
 
             <h4>How often do you have a massage?</h4>
             <div class="lines">
-
-              <div style="width: 50%;">
+              <div style="width: 50%">
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation"
-                    [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_injury_rehabilitation"
+                    name="goal_injury_rehabilitation"
+                    formControlName="massage_frequency_weekly"
+                    [ngModel]="notChecked"
+                  />
                   <label for="goal_injury_rehabilitation">Weekly </label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_improve_sleep" name="goal_improve_sleep"
-                    formControlName="goal_improve_sleep" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_improve_sleep"
+                    name="goal_improve_sleep"
+                    formControlName="massage_frequency_monthly"
+                    [ngModel]="notChecked"
+                  />
                   <label for="goal_improve_sleep">Monthly</label>
                 </div>
                 <div>
-                  <mat-checkbox color="primary" type="checkbox" id="goal_increase_energy" name="goal_increase_energy"
-                    formControlName="goal_increase_energy" [ngModel]="notChecked" />
+                  <mat-checkbox
+                    color="primary"
+                    type="checkbox"
+                    id="goal_increase_energy"
+                    name="goal_increase_energy"
+                    formControlName="massage_frequency_random"
+                    [ngModel]="notChecked"
+                  />
                   <label for="goal_increase_energy">Random</label>
                 </div>
               </div>
-
             </div>
             <div class="lines">
               <mat-form-field appearance="fill">
                 <mat-label>Other</mat-label>
-                <input matInput id="" placeholder="How often" type="text" formControlName="" />
+                <input
+                  matInput
+                  id=""
+                  placeholder="How often"
+                  type="text"
+                  formControlName="massage_frequency_other"
+                />
               </mat-form-field>
             </div>
 
             <h4>Please select any areas of discomfort</h4>
 
             <section>
-              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="160px" height="400px" version="1.1"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xml:space="preserve"
+                width="160px"
+                height="400px"
+                version="1.1"
                 style="
                   shape-rendering: geometricPrecision;
                   text-rendering: geometricPrecision;
                   image-rendering: optimizeQuality;
                   fill-rule: evenodd;
                   clip-rule: evenodd;
-                " viewBox="0 0 160 400" xmlns:xlink="http://www.w3.org/1999/xlink"
-                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
-      
+                "
+                viewBox="0 0 160 400"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
+              >
                 <g id="Layer_x0020_1">
                   <metadata id="CorelCorpID_0Corel-Layer" />
 
-                  <a xlink:title="Right Arm" xlink:href="" target="_blank" id="front_right_arm">
-                    <path id="front_right_arm" class="fil0"
-                      d="M118.59 102.45c4.6,-3.94 8.97,-6.95 13.58,-10.89 -0.02,9.8 -1.19,14.69 3.85,29.11 1.17,16.38 -1.66,9.68 1.69,39.8 0.84,22.82 -0.28,32.98 -2.09,45.05l-9.74 -4.13c-1.35,-6.59 -2.71,-13.17 -4.07,-19.76 -1.61,-8.39 -1.91,-14.25 -1.74,-19.25 0.12,-10.26 -0.27,-19.32 -1.86,-26.12 -1.42,-10.72 -1.11,-23.1 0.38,-33.81z" />
+                  <a
+                    xlink:title="Right Arm"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_right_arm"
+                  >
+                    <path
+                      id="front_right_arm"
+                      class="fil0"
+                      d="M118.59 102.45c4.6,-3.94 8.97,-6.95 13.58,-10.89 -0.02,9.8 -1.19,14.69 3.85,29.11 1.17,16.38 -1.66,9.68 1.69,39.8 0.84,22.82 -0.28,32.98 -2.09,45.05l-9.74 -4.13c-1.35,-6.59 -2.71,-13.17 -4.07,-19.76 -1.61,-8.39 -1.91,-14.25 -1.74,-19.25 0.12,-10.26 -0.27,-19.32 -1.86,-26.12 -1.42,-10.72 -1.11,-23.1 0.38,-33.81z"
+                    />
                   </a>
 
-                  <a xlink:title="Right Hand" xlink:href="" target="_blank" id="front_right_hand">
-                    <path id="front_right_hand" class="fil0"
-                      d="M125.88 201.39c1.42,4 0.03,7.49 -2.49,10.76 -1.21,1.71 -2.43,3.42 -3.64,5.13 -1.19,2.19 -4.53,14.07 0.88,11.69 -0.62,1.81 -1.24,3.61 -1.87,5.41 -0.76,1.73 0.3,2.9 2.31,3.78 0.96,0.44 1.9,0.88 2.86,1.32 1.54,0.86 3.23,1.24 5.87,-1.43 1.39,-1.96 2.79,-3.91 4.18,-5.87 2.15,-3.84 1.78,-6.89 0.09,-9.52 -1.82,-4.8 -0.63,-10.78 1.55,-17.14 -3.24,-1.38 -6.49,-2.76 -9.74,-4.13z" />
+                  <a
+                    xlink:title="Right Hand"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_right_hand"
+                  >
+                    <path
+                      id="front_right_hand"
+                      class="fil0"
+                      d="M125.88 201.39c1.42,4 0.03,7.49 -2.49,10.76 -1.21,1.71 -2.43,3.42 -3.64,5.13 -1.19,2.19 -4.53,14.07 0.88,11.69 -0.62,1.81 -1.24,3.61 -1.87,5.41 -0.76,1.73 0.3,2.9 2.31,3.78 0.96,0.44 1.9,0.88 2.86,1.32 1.54,0.86 3.23,1.24 5.87,-1.43 1.39,-1.96 2.79,-3.91 4.18,-5.87 2.15,-3.84 1.78,-6.89 0.09,-9.52 -1.82,-4.8 -0.63,-10.78 1.55,-17.14 -3.24,-1.38 -6.49,-2.76 -9.74,-4.13z"
+                    />
                   </a>
 
-                  <a xlink:title="Right Foot" xlink:href="" target="_blank" id="front_right_foot">
-                    <path id="front_right_foot" class="fil0"
-                      d="M82.66 369.72c-3.95,7.12 0.35,8.41 -0.89,14.66 -0.9,4.45 1.17,5.4 4.48,4.87 4.4,0 8.8,0 13.2,0 4.9,-0.17 8.87,-0.78 3.79,-5.65 -2.82,-3.69 -10.46,-9.77 -9.41,-13.92 -3.79,-0.31 -7.52,-0.35 -11.17,0.04z" />
+                  <a
+                    xlink:title="Right Foot"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_right_foot"
+                  >
+                    <path
+                      id="front_right_foot"
+                      class="fil0"
+                      d="M82.66 369.72c-3.95,7.12 0.35,8.41 -0.89,14.66 -0.9,4.45 1.17,5.4 4.48,4.87 4.4,0 8.8,0 13.2,0 4.9,-0.17 8.87,-0.78 3.79,-5.65 -2.82,-3.69 -10.46,-9.77 -9.41,-13.92 -3.79,-0.31 -7.52,-0.35 -11.17,0.04z"
+                    />
                   </a>
 
-                  <a xlink:title="Right Calf" xlink:href="" target="_blank" id="front_right_calf">
-                    <path id="front_right_calf" class="fil0"
-                      d="M83.59 317.94c-3.43,8.81 6.64,25.1 -0.93,51.78 3.73,-0.01 7.45,-0.02 11.17,-0.04 -0.38,-4.32 10.97,-24.57 11.21,-51.18 -7.36,0.08 -14.39,-0.22 -21.45,-0.56z" />
+                  <a
+                    xlink:title="Right Calf"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_right_calf"
+                  >
+                    <path
+                      id="front_right_calf"
+                      class="fil0"
+                      d="M83.59 317.94c-3.43,8.81 6.64,25.1 -0.93,51.78 3.73,-0.01 7.45,-0.02 11.17,-0.04 -0.38,-4.32 10.97,-24.57 11.21,-51.18 -7.36,0.08 -14.39,-0.22 -21.45,-0.56z"
+                    />
                   </a>
 
-                  <a xlink:title="Right Knee" xlink:href="" target="_blank" id="front_right_knee">
-                    <path id="front_right_knee" class="fil0"
-                      d="M81.73 280.59c-3.01,18.82 5.52,22.18 1.74,38.17 7.19,0.17 14.37,0.33 21.56,0.5 0.78,-12.55 -3.33,-29.67 -1.57,-40.25 -7.24,0.52 -14.48,1.05 -21.73,1.58z" />
+                  <a
+                    xlink:title="Right Knee"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_right_knee"
+                  >
+                    <path
+                      id="front_right_knee"
+                      class="fil0"
+                      d="M81.73 280.59c-3.01,18.82 5.52,22.18 1.74,38.17 7.19,0.17 14.37,0.33 21.56,0.5 0.78,-12.55 -3.33,-29.67 -1.57,-40.25 -7.24,0.52 -14.48,1.05 -21.73,1.58z"
+                    />
                   </a>
 
-                  <a xlink:title="Right Thigh" xlink:href="" target="_blank" id="front_right_thigh">
-                    <path id="front_right_thigh" class="fil0"
-                      d="M81.63 214.7c1.32,-11.07 15.75,-28.59 30.8,-40.07 0.66,11.74 1.13,23.16 1.43,34.3 -0.41,18.24 -2.12,30.21 -5.13,45.19 -1.79,8.61 -4.87,16.72 -5.35,25.82 -7.21,0.22 -14.43,0.43 -21.65,0.65 1.41,-14.58 2.5,-26.75 1.31,-41.96 -0.47,-7.98 -0.94,-15.95 -1.41,-23.93z" />
+                  <a
+                    xlink:title="Right Thigh"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_right_thigh"
+                  >
+                    <path
+                      id="front_right_thigh"
+                      class="fil0"
+                      d="M81.63 214.7c1.32,-11.07 15.75,-28.59 30.8,-40.07 0.66,11.74 1.13,23.16 1.43,34.3 -0.41,18.24 -2.12,30.21 -5.13,45.19 -1.79,8.61 -4.87,16.72 -5.35,25.82 -7.21,0.22 -14.43,0.43 -21.65,0.65 1.41,-14.58 2.5,-26.75 1.31,-41.96 -0.47,-7.98 -0.94,-15.95 -1.41,-23.93z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Foot" xlink:href="" target="_blank" id="front_left_foot">
-                    <path id="front_left_foot" class="fil0"
-                      d="M65.83 369.04c0.89,5.37 -4.79,10.02 -9.72,15.5 -2.94,3.44 -2.67,5.16 1.39,4.86 4.04,-0.07 8.08,-0.14 12.12,-0.21 6.57,0.14 8.88,-1.09 8.24,-8.28 0.09,-3.69 -0.2,-7.64 -0.95,-11.43 -3.76,-0.21 -7.32,-0.04 -11.08,-0.44z" />
+                  <a
+                    xlink:title="Left Foot"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_left_foot"
+                  >
+                    <path
+                      id="front_left_foot"
+                      class="fil0"
+                      d="M65.83 369.04c0.89,5.37 -4.79,10.02 -9.72,15.5 -2.94,3.44 -2.67,5.16 1.39,4.86 4.04,-0.07 8.08,-0.14 12.12,-0.21 6.57,0.14 8.88,-1.09 8.24,-8.28 0.09,-3.69 -0.2,-7.64 -0.95,-11.43 -3.76,-0.21 -7.32,-0.04 -11.08,-0.44z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Calf" xlink:href="" target="_blank" id="front_left_calf">
-                    <path id="front_left_calf" class="fil0"
-                      d="M54.24 318.76c-1,20.09 12.9,47.5 11.62,51.34 3.75,0.05 7.5,0.1 11.25,0.14 -7.28,-27.06 1.49,-41.25 -0.34,-52.27 -7.51,0.21 -15.02,0.58 -22.53,0.79z" />
+                  <a
+                    xlink:title="Left Calf"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_left_calf"
+                  >
+                    <path
+                      id="front_left_calf"
+                      class="fil0"
+                      d="M54.24 318.76c-1,20.09 12.9,47.5 11.62,51.34 3.75,0.05 7.5,0.1 11.25,0.14 -7.28,-27.06 1.49,-41.25 -0.34,-52.27 -7.51,0.21 -15.02,0.58 -22.53,0.79z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Knee" xlink:href="" target="_blank" id="front_left_knee">
-                    <path id="front_left_knee" class="fil0"
-                      d="M56.67 280.97c1.19,13.73 -4.27,26.04 -2.32,38.57 7.51,-0.21 14.91,-1.36 22.42,-1.57 -4.33,-11.99 4.43,-16.86 1.15,-38.94 -7.09,0.65 -14.17,1.29 -21.25,1.94z" />
+                  <a
+                    xlink:title="Left Knee"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_left_knee"
+                  >
+                    <path
+                      id="front_left_knee"
+                      class="fil0"
+                      d="M56.67 280.97c1.19,13.73 -4.27,26.04 -2.32,38.57 7.51,-0.21 14.91,-1.36 22.42,-1.57 -4.33,-11.99 4.43,-16.86 1.15,-38.94 -7.09,0.65 -14.17,1.29 -21.25,1.94z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Thigh" xlink:href="" target="_blank" id="front_left_thigh">
-                    <path id="front_left_thigh" class="fil0"
-                      d="M46.83 178.18c-0.47,8.62 -0.93,17.25 -1.4,25.88 0.35,22.44 2.43,40.29 6.72,55.82 1.5,7.03 4.37,12.99 4.52,21.09 7.11,-0.4 14.21,-0.79 21.32,-1.18 -0.53,-5.92 -1.17,-8.28 -1.59,-17.76 -1.18,-19.88 -0.5,-34.29 0.72,-47.14 -6.75,-18.39 -17.31,-29.98 -30.29,-36.71z" />
+                  <a
+                    xlink:title="Left Thigh"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_left_thigh"
+                  >
+                    <path
+                      id="front_left_thigh"
+                      class="fil0"
+                      d="M46.83 178.18c-0.47,8.62 -0.93,17.25 -1.4,25.88 0.35,22.44 2.43,40.29 6.72,55.82 1.5,7.03 4.37,12.99 4.52,21.09 7.11,-0.4 14.21,-0.79 21.32,-1.18 -0.53,-5.92 -1.17,-8.28 -1.59,-17.76 -1.18,-19.88 -0.5,-34.29 0.72,-47.14 -6.75,-18.39 -17.31,-29.98 -30.29,-36.71z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Hand" xlink:href="" target="_blank" id="front_left_hand">
-                    <path id="front_left_hand" class="fil0"
-                      d="M24.79 207.44c1.45,5.8 2.17,11.37 0.38,16.18 -1.58,5.24 -0.58,8.83 1.96,11.43 1.05,1.26 2.11,2.51 3.17,3.77 1.72,2.03 3.75,2.66 6.28,1.02 0.79,-0.47 1.58,-0.94 2.38,-1.42 3.21,-2.53 1.84,-5.49 0.33,-8.47 2.52,0.9 3.4,-1.04 1.85,-7.17 -0.87,-6.37 -2.68,-8.02 -4.56,-9.32 -2.36,-3.17 -3.13,-5.56 -3.24,-7.62 -2.85,0.53 -5.7,1.07 -8.55,1.6z" />
+                  <a
+                    xlink:title="Left Hand"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_left_hand"
+                  >
+                    <path
+                      id="front_left_hand"
+                      class="fil0"
+                      d="M24.79 207.44c1.45,5.8 2.17,11.37 0.38,16.18 -1.58,5.24 -0.58,8.83 1.96,11.43 1.05,1.26 2.11,2.51 3.17,3.77 1.72,2.03 3.75,2.66 6.28,1.02 0.79,-0.47 1.58,-0.94 2.38,-1.42 3.21,-2.53 1.84,-5.49 0.33,-8.47 2.52,0.9 3.4,-1.04 1.85,-7.17 -0.87,-6.37 -2.68,-8.02 -4.56,-9.32 -2.36,-3.17 -3.13,-5.56 -3.24,-7.62 -2.85,0.53 -5.7,1.07 -8.55,1.6z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Arm" xlink:href="" target="_blank" id="front_left_arm">
-                    <path id="front_left_arm" class="fil0"
-                      d="M27.1 95.93c-0.23,4.86 0.23,14.1 -1.19,19.37 -3.09,5.06 -3,12.91 -2.04,18.22 -2.79,27.17 -2.48,50.15 0.92,73.92 2.87,-0.35 5.73,-0.7 8.6,-1.05 1.5,-7.1 2.99,-14.19 4.48,-21.29 1.33,-7 3.19,-12.11 1.24,-30.79 1.39,-10.51 2.79,-21.01 4.18,-31.52 -0.77,-6.17 -1.6,-13.3 -2.37,-19.47 -5.98,-3.66 -9.7,-5.14 -13.82,-7.39z" />
+                  <a
+                    xlink:title="Left Arm"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_left_arm"
+                  >
+                    <path
+                      id="front_left_arm"
+                      class="fil0"
+                      d="M27.1 95.93c-0.23,4.86 0.23,14.1 -1.19,19.37 -3.09,5.06 -3,12.91 -2.04,18.22 -2.79,27.17 -2.48,50.15 0.92,73.92 2.87,-0.35 5.73,-0.7 8.6,-1.05 1.5,-7.1 2.99,-14.19 4.48,-21.29 1.33,-7 3.19,-12.11 1.24,-30.79 1.39,-10.51 2.79,-21.01 4.18,-31.52 -0.77,-6.17 -1.6,-13.3 -2.37,-19.47 -5.98,-3.66 -9.7,-5.14 -13.82,-7.39z"
+                    />
                   </a>
 
-                  <a xlink:title="Abdomen" xlink:href="" target="_blank" id="front_abdomen">
-                    <path id="front_abdomen" class="fil0"
-                      d="M45.56 130.08c3.52,7.16 6.34,11.84 4.84,21.65 -0.57,3.75 0.08,7.85 -0.35,11.62 -0.53,4.52 -2.21,10.56 -3.22,14.83 11.05,9.06 21.25,19.31 27.1,31.67 5.16,9.91 8.78,3.49 9.83,0.63 5.93,-16.2 20.1,-22.57 28.78,-36 -4.92,-11.45 -5.43,-33.62 1.49,-44.43 -22.7,-0.07 -45.77,0.1 -68.47,0.03z" />
+                  <a
+                    xlink:title="Abdomen"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_abdomen"
+                  >
+                    <path
+                      id="front_abdomen"
+                      class="fil0"
+                      d="M45.56 130.08c3.52,7.16 6.34,11.84 4.84,21.65 -0.57,3.75 0.08,7.85 -0.35,11.62 -0.53,4.52 -2.21,10.56 -3.22,14.83 11.05,9.06 21.25,19.31 27.1,31.67 5.16,9.91 8.78,3.49 9.83,0.63 5.93,-16.2 20.1,-22.57 28.78,-36 -4.92,-11.45 -5.43,-33.62 1.49,-44.43 -22.7,-0.07 -45.77,0.1 -68.47,0.03z"
+                    />
                   </a>
-                  <a xlink:title="Chest" xlink:href="" target="_blank" id="front_chest">
-                    <path id="front_chest" class="fil0"
-                      d="M69.49 59.87c-8,9.61 -15.98,13.53 -23.96,15.31 -14.4,1.75 -15.81,11.87 -18.48,21.17 4.65,2.65 9.29,5.3 13.93,7.94 0.87,9.11 1.33,18.43 4.77,26.24 22.7,0.07 45.39,0.13 68.09,0.19 2.17,-7.66 3.62,-16.81 4.75,-26.6 4.6,-3.94 9.2,-7.88 13.81,-11.82 -2.2,-11.17 -8.77,-17.05 -20.12,-17.16 -9.95,-1.96 -18.14,-6.34 -22.77,-15.61 -6.52,3.81 -13.2,3.72 -20.02,0.34z" />
+                  <a
+                    xlink:title="Chest"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_chest"
+                  >
+                    <path
+                      id="front_chest"
+                      class="fil0"
+                      d="M69.49 59.87c-8,9.61 -15.98,13.53 -23.96,15.31 -14.4,1.75 -15.81,11.87 -18.48,21.17 4.65,2.65 9.29,5.3 13.93,7.94 0.87,9.11 1.33,18.43 4.77,26.24 22.7,0.07 45.39,0.13 68.09,0.19 2.17,-7.66 3.62,-16.81 4.75,-26.6 4.6,-3.94 9.2,-7.88 13.81,-11.82 -2.2,-11.17 -8.77,-17.05 -20.12,-17.16 -9.95,-1.96 -18.14,-6.34 -22.77,-15.61 -6.52,3.81 -13.2,3.72 -20.02,0.34z"
+                    />
                   </a>
 
-                  <a xlink:title="Head" xlink:href="" target="_blank" id="front_head">
-                    <path id="front_head" class="fil0"
-                      d="M63.04 34.32c0.07,-3.76 0.35,-7.12 0.38,-9.96 0.25,-18.22 31.67,-16.51 32.42,0.27 0.01,3.21 0.02,6.43 0.03,9.65 3.67,-0.53 3.57,1.21 2.91,5.31 -0.5,3.12 -3.27,7.37 -6.36,9.61 3.59,19.75 -29.65,19.19 -25.66,0.7 -3.63,-1.39 -11.37,-17.82 -3.72,-15.58z" />
+                  <a
+                    xlink:title="Head"
+                    xlink:href=""
+                    target="_blank"
+                    id="front_head"
+                  >
+                    <path
+                      id="front_head"
+                      class="fil0"
+                      d="M63.04 34.32c0.07,-3.76 0.35,-7.12 0.38,-9.96 0.25,-18.22 31.67,-16.51 32.42,0.27 0.01,3.21 0.02,6.43 0.03,9.65 3.67,-0.53 3.57,1.21 2.91,5.31 -0.5,3.12 -3.27,7.37 -6.36,9.61 3.59,19.75 -29.65,19.19 -25.66,0.7 -3.63,-1.39 -11.37,-17.82 -3.72,-15.58z"
+                    />
                   </a>
-
-                  
                 </g>
               </svg>
 
-              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="160px" height="400px" version="1.1"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xml:space="preserve"
+                width="160px"
+                height="400px"
+                version="1.1"
                 style="
                   shape-rendering: geometricPrecision;
                   text-rendering: geometricPrecision;
                   image-rendering: optimizeQuality;
                   fill-rule: evenodd;
                   clip-rule: evenodd;
-                " viewBox="0 0 160 400" xmlns:xlink="http://www.w3.org/1999/xlink"
-                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
-                
+                "
+                viewBox="0 0 160 400"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
+              >
                 <g id="Layer_x0020_2">
                   <metadata id="CorelCorpID_0Corel-Layer" />
 
-                  <a xlink:title="Righ Arm" xlink:href="" target="_blank" id="back_right_arm">
-                    <path id="back_right_arm" class="fil0"
-                      d="M114.26 123.64c3.99,-10.71 6.83,-21.38 12.58,-32.6 3.82,4.64 3.2,20.77 2.63,28.4 5.48,14.41 9.4,57.73 1.04,87.72 -0.08,3.45 -3.23,6.69 0.67,17.04 1.48,6.79 -3.42,10.58 -5.48,12.9 -1.49,3.84 -6.82,1.78 -9.74,-0.53 -2.61,-1.96 0.58,-4.52 -0.38,-10.17 -1.41,-8.28 1.04,-11.56 4.01,-14.14 3.19,-3.57 3.57,-9.23 1.56,-16.65 -4.56,-19.6 -0.78,-47.88 -2.39,-49.32 -4.36,-7.41 -5.8,-13.68 -4.5,-22.65z" />
+                  <a
+                    xlink:title="Righ Arm"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_right_arm"
+                  >
+                    <path
+                      id="back_right_arm"
+                      class="fil0"
+                      d="M114.26 123.64c3.99,-10.71 6.83,-21.38 12.58,-32.6 3.82,4.64 3.2,20.77 2.63,28.4 5.48,14.41 9.4,57.73 1.04,87.72 -0.08,3.45 -3.23,6.69 0.67,17.04 1.48,6.79 -3.42,10.58 -5.48,12.9 -1.49,3.84 -6.82,1.78 -9.74,-0.53 -2.61,-1.96 0.58,-4.52 -0.38,-10.17 -1.41,-8.28 1.04,-11.56 4.01,-14.14 3.19,-3.57 3.57,-9.23 1.56,-16.65 -4.56,-19.6 -0.78,-47.88 -2.39,-49.32 -4.36,-7.41 -5.8,-13.68 -4.5,-22.65z"
+                    />
                   </a>
 
-                  <a xlink:title="Right Leg" xlink:href="" target="_blank" id="back_right_leg">
-                    <path id="back_right_leg" class="fil0"
-                      d="M80.21 214.68c13.51,1.54 24.24,-2.87 32.9,-13.7 0.41,56.9 -11.79,43.73 -10.19,78.84 -0.24,10.09 0.24,19.95 2.66,29.15 2.22,14.28 -5.83,36.25 -10.36,55.58 -1.13,3.22 -1,6.25 0.75,9.03 1.79,2.96 3.59,5.91 5.38,8.87 2.08,2.48 1.46,3.81 -2.65,3.64 -4.64,0.03 -9.28,0.06 -13.92,0.08 -2.43,0.45 -4.06,-0.29 -2.73,-5.38 0.77,-4.14 1.55,-8.28 2.32,-12.43 0.64,-15.84 -0.28,-31.58 -2.73,-47.21 -0.48,-7.13 4.18,-21.06 1.24,-31.56 -2.99,-28.18 1.8,-58.81 -2.67,-74.91z" />
+                  <a
+                    xlink:title="Right Leg"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_right_leg"
+                  >
+                    <path
+                      id="back_right_leg"
+                      class="fil0"
+                      d="M80.21 214.68c13.51,1.54 24.24,-2.87 32.9,-13.7 0.41,56.9 -11.79,43.73 -10.19,78.84 -0.24,10.09 0.24,19.95 2.66,29.15 2.22,14.28 -5.83,36.25 -10.36,55.58 -1.13,3.22 -1,6.25 0.75,9.03 1.79,2.96 3.59,5.91 5.38,8.87 2.08,2.48 1.46,3.81 -2.65,3.64 -4.64,0.03 -9.28,0.06 -13.92,0.08 -2.43,0.45 -4.06,-0.29 -2.73,-5.38 0.77,-4.14 1.55,-8.28 2.32,-12.43 0.64,-15.84 -0.28,-31.58 -2.73,-47.21 -0.48,-7.13 4.18,-21.06 1.24,-31.56 -2.99,-28.18 1.8,-58.81 -2.67,-74.91z"
+                    />
                   </a>
-                  <a xlink:title="Right Hip" xlink:href="" target="_blank" id="back_right_hip">
-                    <path id="back_right_hip" class="fil0"
-                      d="M80.21 214.68c-0.11,-17.8 -0.34,-35.54 -0.02,-53.59 8.5,0 16.99,0 25.48,0 5.95,12.32 5.44,14.01 5.13,20.77 -0.45,9.45 1.83,11.12 2.31,19.48 -10.01,11.73 -21.13,14.94 -32.9,13.34z" />
-                  </a>
-
-                  <a xlink:title="Right Shoulder" xlink:href="" target="_blank" id="back_right_shoulder">
-                    <path id="back_right_shoulder" class="fil0"
-                      d="M80.01 65.06c-0.12,19.64 -0.64,39.77 -0.76,59.4l34.97 -0.61c4.57,-10.9 8.15,-21.79 12.72,-32.68 -8.75,-25.05 -12.38,-3.34 -35.37,-25.99 -3.85,-0.04 -7.71,-0.08 -11.56,-0.12z" />
-                  </a>
-                  <a xlink:title="Left Leg" xlink:href="" target="_blank" id="back_left_leg">
-                    <path id="back_left_leg" class="fil0"
-                      d="M47.82 201.96c-1.67,48.99 12.54,53.68 9.22,78.36 0.62,20.39 -2.49,24.3 -2.61,37.32 -0.81,9.35 4.78,27.52 11.07,46.64 0.98,4.68 0.14,7.52 -1.31,9.77 -1.59,2.24 -3.18,4.48 -4.77,6.72 -3.15,4.19 -2.18,5.66 1.74,5.21 4.27,0 8.53,0 12.8,0 5.04,0.39 5.93,-1.83 3.9,-5.86 -0.28,-2.7 -0.42,-3.65 -1.67,-7.87 -2.34,-7.89 -0.86,-13.92 -0.93,-20.77 0.81,-10.85 2.59,-21.43 3.17,-31.99 0.58,-10.54 -4.33,-13.69 -1.36,-27.34 4.35,-32.35 -2.36,-70.07 3.14,-77.47 -14.69,-0.64 -24.51,-6.62 -32.39,-12.72z" />
-                  </a>
-
-                  <a xlink:title="Left Arm" xlink:href="" target="_blank" id="back_left_arm">
-                    <path id="back_left_arm" class="fil0"
-                      d="M32.85 91.81c-3.82,4.95 0.36,27.23 -4.9,38.09 -0.77,14.45 -4.78,27.24 -2.7,44.45 1.72,12.48 3.44,24.96 5.15,37.44 0.95,2.9 0.69,6.88 -1.17,12.28 -0.86,3.6 -1.41,7 3.28,11.46 3.12,3.28 4.72,4.68 9.36,2.11 2.69,-1.71 4.13,0.6 2.69,-10.18 1.03,-6.58 0.49,-10.62 -3.86,-15.56 -3.16,-3.05 -3.63,-8.61 -2.11,-16.02 2.09,-12.78 3.14,-26.38 2.11,-41.65 0.4,-12.17 8.04,-16.62 5.77,-30.19 -4.4,-10.66 -7.36,-22.34 -13.62,-32.23z" />
-                  </a>
-
-                  <a xlink:title="Left Hip" xlink:href="" target="_blank" id="back_left_hip">
-                    <path id="back_left_hip" class="fil0"
-                      d="M80.52 214.71c0,-17.86 -0.32,-35.76 -0.33,-53.62 -8.49,0 -16.98,0 -25.48,0 -2.68,6.03 -6.53,10.3 -5.31,22.48 0.54,5.38 -3.04,9.46 -1.58,18.39 9.6,8.05 20.98,12.62 32.7,12.75z" />
+                  <a
+                    xlink:title="Right Hip"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_right_hip"
+                  >
+                    <path
+                      id="back_right_hip"
+                      class="fil0"
+                      d="M80.21 214.68c-0.11,-17.8 -0.34,-35.54 -0.02,-53.59 8.5,0 16.99,0 25.48,0 5.95,12.32 5.44,14.01 5.13,20.77 -0.45,9.45 1.83,11.12 2.31,19.48 -10.01,11.73 -21.13,14.94 -32.9,13.34z"
+                    />
                   </a>
 
-                  <a xlink:title="Left Shoulder" xlink:href="" target="_blank" id="back_left_shoulder">
-                    <path id="back_left_shoulder" class="fil0"
-                      d="M80.01 65.06c0.12,19.64 0.23,39.37 0.35,59.01l-33.82 0.52c-4.57,-10.9 -9.13,-21.89 -13.69,-32.78 8.74,-25.05 10.88,-4.25 35.59,-26.63 3.85,-0.04 7.71,-0.08 11.57,-0.12z" />
+                  <a
+                    xlink:title="Right Shoulder"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_right_shoulder"
+                  >
+                    <path
+                      id="back_right_shoulder"
+                      class="fil0"
+                      d="M80.01 65.06c-0.12,19.64 -0.64,39.77 -0.76,59.4l34.97 -0.61c4.57,-10.9 8.15,-21.79 12.72,-32.68 -8.75,-25.05 -12.38,-3.34 -35.37,-25.99 -3.85,-0.04 -7.71,-0.08 -11.56,-0.12z"
+                    />
+                  </a>
+                  <a
+                    xlink:title="Left Leg"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_left_leg"
+                  >
+                    <path
+                      id="back_left_leg"
+                      class="fil0"
+                      d="M47.82 201.96c-1.67,48.99 12.54,53.68 9.22,78.36 0.62,20.39 -2.49,24.3 -2.61,37.32 -0.81,9.35 4.78,27.52 11.07,46.64 0.98,4.68 0.14,7.52 -1.31,9.77 -1.59,2.24 -3.18,4.48 -4.77,6.72 -3.15,4.19 -2.18,5.66 1.74,5.21 4.27,0 8.53,0 12.8,0 5.04,0.39 5.93,-1.83 3.9,-5.86 -0.28,-2.7 -0.42,-3.65 -1.67,-7.87 -2.34,-7.89 -0.86,-13.92 -0.93,-20.77 0.81,-10.85 2.59,-21.43 3.17,-31.99 0.58,-10.54 -4.33,-13.69 -1.36,-27.34 4.35,-32.35 -2.36,-70.07 3.14,-77.47 -14.69,-0.64 -24.51,-6.62 -32.39,-12.72z"
+                    />
                   </a>
 
-                  <a xlink:title="Lower Back" xlink:href="" target="_blank" id="back_lower_back">
-                    <path id="back_lower_back" class="fil0"
-                      d="M46.47 124.17c22.6,-0.13 45.19,-0.26 67.79,-0.4 -4.21,10.49 -9.79,18.61 -8.59,37.45 -16.98,0 -33.97,0 -50.96,0 0.86,-21.31 -6.45,-28.82 -8.24,-37.05z" />
+                  <a
+                    xlink:title="Left Arm"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_left_arm"
+                  >
+                    <path
+                      id="back_left_arm"
+                      class="fil0"
+                      d="M32.85 91.81c-3.82,4.95 0.36,27.23 -4.9,38.09 -0.77,14.45 -4.78,27.24 -2.7,44.45 1.72,12.48 3.44,24.96 5.15,37.44 0.95,2.9 0.69,6.88 -1.17,12.28 -0.86,3.6 -1.41,7 3.28,11.46 3.12,3.28 4.72,4.68 9.36,2.11 2.69,-1.71 4.13,0.6 2.69,-10.18 1.03,-6.58 0.49,-10.62 -3.86,-15.56 -3.16,-3.05 -3.63,-8.61 -2.11,-16.02 2.09,-12.78 3.14,-26.38 2.11,-41.65 0.4,-12.17 8.04,-16.62 5.77,-30.19 -4.4,-10.66 -7.36,-22.34 -13.62,-32.23z"
+                    />
                   </a>
 
-                  <a xlink:title="Head" xlink:href="" target="_blank" id="back_head">
-                    <path id="back_head" class="fil0"
-                      d="M68.09 65.49c0.37,1.16 24.2,1.33 23.8,0 -0.4,-1.34 -0.32,-6.08 -0.33,-9.02 0.4,-5.94 3.35,-1.34 4.34,-6.8 0.47,-2.69 1,-4.91 1.27,-7.19 0.86,-7.25 -2.78,0.91 -1.57,-6.64 3.18,-27.62 -33.05,-30.82 -31.14,-0.65 0.15,1.14 1.21,5.64 0.37,4.74 -2.82,-3 -1,7.69 -0.77,8.95 0.2,4.67 4.44,1.25 4.44,8.38 -0.02,2.67 -0.39,5.56 -0.41,8.23z" />
+                  <a
+                    xlink:title="Left Hip"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_left_hip"
+                  >
+                    <path
+                      id="back_left_hip"
+                      class="fil0"
+                      d="M80.52 214.71c0,-17.86 -0.32,-35.76 -0.33,-53.62 -8.49,0 -16.98,0 -25.48,0 -2.68,6.03 -6.53,10.3 -5.31,22.48 0.54,5.38 -3.04,9.46 -1.58,18.39 9.6,8.05 20.98,12.62 32.7,12.75z"
+                    />
+                  </a>
+
+                  <a
+                    xlink:title="Left Shoulder"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_left_shoulder"
+                  >
+                    <path
+                      id="back_left_shoulder"
+                      class="fil0"
+                      d="M80.01 65.06c0.12,19.64 0.23,39.37 0.35,59.01l-33.82 0.52c-4.57,-10.9 -9.13,-21.89 -13.69,-32.78 8.74,-25.05 10.88,-4.25 35.59,-26.63 3.85,-0.04 7.71,-0.08 11.57,-0.12z"
+                    />
+                  </a>
+
+                  <a
+                    xlink:title="Lower Back"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_lower_back"
+                  >
+                    <path
+                      id="back_lower_back"
+                      class="fil0"
+                      d="M46.47 124.17c22.6,-0.13 45.19,-0.26 67.79,-0.4 -4.21,10.49 -9.79,18.61 -8.59,37.45 -16.98,0 -33.97,0 -50.96,0 0.86,-21.31 -6.45,-28.82 -8.24,-37.05z"
+                    />
+                  </a>
+
+                  <a
+                    xlink:title="Head"
+                    xlink:href=""
+                    target="_blank"
+                    id="back_head"
+                  >
+                    <path
+                      id="back_head"
+                      class="fil0"
+                      d="M68.09 65.49c0.37,1.16 24.2,1.33 23.8,0 -0.4,-1.34 -0.32,-6.08 -0.33,-9.02 0.4,-5.94 3.35,-1.34 4.34,-6.8 0.47,-2.69 1,-4.91 1.27,-7.19 0.86,-7.25 -2.78,0.91 -1.57,-6.64 3.18,-27.62 -33.05,-30.82 -31.14,-0.65 0.15,1.14 1.21,5.64 0.37,4.74 -2.82,-3 -1,7.69 -0.77,8.95 0.2,4.67 4.44,1.25 4.44,8.38 -0.02,2.67 -0.39,5.56 -0.41,8.23z"
+                    />
                   </a>
                 </g>
               </svg>
             </section>
 
             <h4>By signing below, you agree to the following.</h4>
-            <h4> I have completed this form to the best of my ability and
-              knowledge and agree to inform my therapist if any of the above information changes at any time.
+            <h4>
+              I have completed this form to the best of my ability and knowledge
+              and agree to inform my therapist if any of the above information
+              changes at any time.
             </h4>
 
             <div class="lines">
               <mat-form-field appearance="fill">
                 <mat-label>Client Signature</mat-label>
-                <input matInput id="client_signature" placeholder="Client Signature" type="text"
-                  formControlName="client_signature" />
+                <input
+                  matInput
+                  id="client_signature"
+                  placeholder="Client Signature"
+                  type="text"
+                  formControlName="client_signature"
+                />
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Signature Date</mat-label>
-                <input formControlName="client_signature_date" matInput [matDatepicker]="picker_signature"
-                  id="client_signature_date" placeholder="Signature date" />
-                <mat-datepicker-toggle matIconSuffix [for]="picker_signature"></mat-datepicker-toggle>
+                <input
+                  formControlName="client_signature_date"
+                  matInput
+                  [matDatepicker]="picker_signature"
+                  id="client_signature_date"
+                  placeholder="Signature date"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker_signature"
+                ></mat-datepicker-toggle>
                 <mat-datepicker #picker_signature></mat-datepicker>
               </mat-form-field>
-
             </div>
           </div>
         </mat-card-content>
 
         <mat-action-row>
           <button mat-button color="warn" (click)="prevStep()">Previous</button>
-          <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+          <button mat-button color="primary" (click)="onSubmit()">
+            Submit
+          </button>
         </mat-action-row>
       </mat-expansion-panel>
-
     </mat-accordion>
+  </form>
+</div>

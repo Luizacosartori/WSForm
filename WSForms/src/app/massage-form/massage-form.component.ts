@@ -12,7 +12,7 @@ import { dataService } from '../dataService';
 @Component({
   selector: 'app-massage-form',
   templateUrl: './massage-form.component.html',
-  styleUrls: ['./massage-form.component.css']
+  styleUrls: ['./massage-form.component.css'],
 })
 export class MassageFormComponent implements OnInit {
   title = 'WSForms';
@@ -34,6 +34,7 @@ export class MassageFormComponent implements OnInit {
     employer: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', Validators.required),
+    hasHealth_insurance: new FormControl('', Validators.required),
     health_insurance: new FormControl('', Validators.required),
     health_insurance_other: new FormControl(''),
     emergency_contact_name: new FormControl('', Validators.required),
@@ -76,22 +77,33 @@ export class MassageFormComponent implements OnInit {
     professional_massage_other: new FormControl('', Validators.required),
     pressure_preference: new FormControl('', Validators.required),
     allergies_sensitivities: new FormControl('', Validators.required),
-    allergies_sensitivities_explanation: new FormControl('', Validators.required),
+    allergies_sensitivities_explanation: new FormControl(
+      '',
+      Validators.required
+    ),
     goal_pain_relief: new FormControl(),
     goal_stress_reduction: new FormControl(),
     goal_increase_range_of_motion: new FormControl(),
     goal_injury_rehabilitation: new FormControl(),
     goal_improve_sleep: new FormControl(),
     goal_increase_energy: new FormControl(),
+    goal_other: new FormControl(),
+
+    massage_frequency_weekly: new FormControl(),
+    massage_frequency_monthly: new FormControl(),
+    massage_frequency_random: new FormControl(),
+    massage_frequency_other: new FormControl(),
+
     client_signature: new FormControl('', Validators.required),
-    client_signature_date: new FormControl('', Validators.required)
+    client_signature_date: new FormControl('', Validators.required),
   });
   notChecked = false;
 
   constructor(private dataService: dataService) {
-    console.log(this.massageForm.value)
+    console.log(this.massageForm.value);
   }
   ngOnInit(): void {
+    // this.setStep(0);
     throw new Error('Method not implemented.');
   }
 
@@ -100,29 +112,31 @@ export class MassageFormComponent implements OnInit {
       (d: any) => {
         this.therapists = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
     this.dataService.getClientData().subscribe(
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
-    
+
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatments = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
   }
 
   onSubmit() {
     // if(this.massageForm.valid){
-    this.dataService.setClientMassageForm(this.massageForm.value).subscribe((res) => {
-      this.massageForm.reset();
-      alert("The Client Form has been added.");
-    });
+    this.dataService
+      .setClientMassageForm(this.massageForm.value)
+      .subscribe((res) => {
+        this.massageForm.reset();
+        alert('The Client Form has been added.');
+      });
     // }else{
     //   alert("fix it");
     // }
@@ -143,12 +157,4 @@ export class MassageFormComponent implements OnInit {
   prevStep() {
     this.step--;
   }
-
-
 }
-
-
-
-
-
-
