@@ -850,34 +850,34 @@
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation"
+                    id="massage_frequency_weekly"
+                    name="massage_frequency_weekly"
                     formControlName="massage_frequency_weekly"
                     [ngModel]="notChecked"
                   />
-                  <label for="goal_injury_rehabilitation">Weekly </label>
+                  <label for="massage_frequency_weekly">Weekly </label>
                 </div>
                 <div>
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goal_improve_sleep"
-                    name="goal_improve_sleep"
+                    id="massage_frequency_monthly"
+                    name="massage_frequency_monthly"
                     formControlName="massage_frequency_monthly"
                     [ngModel]="notChecked"
                   />
-                  <label for="goal_improve_sleep">Monthly</label>
+                  <label for="massage_frequency_monthly">Monthly</label>
                 </div>
                 <div>
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goal_increase_energy"
-                    name="goal_increase_energy"
+                    id="massage_frequency_random"
+                    name="massage_frequency_random"
                     formControlName="massage_frequency_random"
                     [ngModel]="notChecked"
                   />
-                  <label for="goal_increase_energy">Random</label>
+                  <label for="massage_frequency_random">Random</label>
                 </div>
               </div>
             </div>
@@ -887,8 +887,8 @@
                 <input
                   matInput
                   id=""
-                  placeholder="How often"
-                  type="text"
+                  placeholder="massage_frequency_other"
+                  type="massage_frequency_other"
                   formControlName="massage_frequency_other"
                 />
               </mat-form-field>
@@ -897,221 +897,288 @@
             <h4>Please select any areas of discomfort</h4>
 
             <section>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xml:space="preserve"
-                width="160px"
-                height="400px"
-                version="1.1"
-                style="
-                  shape-rendering: geometricPrecision;
-                  text-rendering: geometricPrecision;
-                  image-rendering: optimizeQuality;
-                  fill-rule: evenodd;
-                  clip-rule: evenodd;
-                "
-                viewBox="0 0 160 400"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
-              >
-                <g id="Layer_x0020_1">
-                  <metadata id="CorelCorpID_0Corel-Layer" />
-
-                  <a
-                    xlink:title="Right Arm"
-                    xlink:href=""
-                    target="_blank"
+              <label for="human_body_front_checkbox">
+                <label for="front_right_arm">
+                  <input
+                    type="checkbox"
                     id="front_right_arm"
+                    name="front_right_arm"
+                    value="front_right_arm"
+                  />
+                  <svg
+                    class="human_body_front_checkbox"
+                    width="160px"
+                    height="400px"
+                    viewBox="0 0 160 400"
                   >
                     <path
                       id="front_right_arm"
                       class="fil0"
                       d="M118.59 102.45c4.6,-3.94 8.97,-6.95 13.58,-10.89 -0.02,9.8 -1.19,14.69 3.85,29.11 1.17,16.38 -1.66,9.68 1.69,39.8 0.84,22.82 -0.28,32.98 -2.09,45.05l-9.74 -4.13c-1.35,-6.59 -2.71,-13.17 -4.07,-19.76 -1.61,-8.39 -1.91,-14.25 -1.74,-19.25 0.12,-10.26 -0.27,-19.32 -1.86,-26.12 -1.42,-10.72 -1.11,-23.1 0.38,-33.81z"
                     />
-                  </a>
-
-                  <a
-                    xlink:title="Right Hand"
-                    xlink:href=""
-                    target="_blank"
+                  </svg>
+                </label>
+                <label for="front_right_hand">
+                  <input
+                    type="checkbox"
                     id="front_right_hand"
+                    name="front_right_hand"
+                    value="front_right_hand"
+                  />
+                  <svg
+                    class="human_body_front_checkbox"
+                    width="160px"
+                    height="400px"
+                    viewBox="0 0 160 400"
                   >
                     <path
                       id="front_right_hand"
                       class="fil0"
                       d="M125.88 201.39c1.42,4 0.03,7.49 -2.49,10.76 -1.21,1.71 -2.43,3.42 -3.64,5.13 -1.19,2.19 -4.53,14.07 0.88,11.69 -0.62,1.81 -1.24,3.61 -1.87,5.41 -0.76,1.73 0.3,2.9 2.31,3.78 0.96,0.44 1.9,0.88 2.86,1.32 1.54,0.86 3.23,1.24 5.87,-1.43 1.39,-1.96 2.79,-3.91 4.18,-5.87 2.15,-3.84 1.78,-6.89 0.09,-9.52 -1.82,-4.8 -0.63,-10.78 1.55,-17.14 -3.24,-1.38 -6.49,-2.76 -9.74,-4.13z"
                     />
-                  </a>
-
-                  <a
-                    xlink:title="Right Foot"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_right_foot"
+                  </svg>
+                </label>
+              </label>
+            </section>
+            <!-- Funciona partes -->
+            <!-- <section>
+              <label for="human_body_front_checkbox">
+                <label for="front_right_arm">
+                  <input
+                    type="checkbox"
+                    id="front_right_arm"
+                    name="front_right_arm"
+                    value="front_right_arm"
+                  />
+                  <svg
+                    class="human_body_front_checkbox"
+                    width="160px"
+                    height="400px"
+                    viewBox="0 0 160 400"
                   >
                     <path
+                      id="front_right_arm"
+                      class="fil0"
+                      d="M118.59 102.45c4.6,-3.94 8.97,-6.95 13.58,-10.89 -0.02,9.8 -1.19,14.69 3.85,29.11 1.17,16.38 -1.66,9.68 1.69,39.8 0.84,22.82 -0.28,32.98 -2.09,45.05l-9.74 -4.13c-1.35,-6.59 -2.71,-13.17 -4.07,-19.76 -1.61,-8.39 -1.91,-14.25 -1.74,-19.25 0.12,-10.26 -0.27,-19.32 -1.86,-26.12 -1.42,-10.72 -1.11,-23.1 0.38,-33.81z"
+                    />
+                  </svg>
+                </label>
+                <label for="front_right_hand">
+                  <input
+                    type="checkbox"
+                    id="front_right_hand"
+                    name="front_right_hand"
+                    value="front_right_hand"
+                  />
+                  <svg
+                    class="human_body_front_checkbox"
+                    width="160px"
+                    height="400px"
+                    viewBox="0 0 160 400"
+                  >
+                    <path
+                      id="front_right_hand"
+                      class="fil0"
+                      d="M125.88 201.39c1.42,4 0.03,7.49 -2.49,10.76 -1.21,1.71 -2.43,3.42 -3.64,5.13 -1.19,2.19 -4.53,14.07 0.88,11.69 -0.62,1.81 -1.24,3.61 -1.87,5.41 -0.76,1.73 0.3,2.9 2.31,3.78 0.96,0.44 1.9,0.88 2.86,1.32 1.54,0.86 3.23,1.24 5.87,-1.43 1.39,-1.96 2.79,-3.91 4.18,-5.87 2.15,-3.84 1.78,-6.89 0.09,-9.52 -1.82,-4.8 -0.63,-10.78 1.55,-17.14 -3.24,-1.38 -6.49,-2.76 -9.74,-4.13z"
+                    />
+                  </svg>
+                </label>
+              </label>
+            </section> -->
+
+            <section>
+              <input type="checkbox" id="front_right_arm" name="" value="" />
+              <label for="human_body_front_checkbox">
+                <svg
+                  input="checkbox"
+                  class="human_body_front_checkbox"
+                  width="160px"
+                  height="400px"
+                  viewBox="0 0 160 400"
+                >
+                  <g id="Layer_x0020_1">
+                    <path
+                      id="front_right_arm"
+                      class="fil0"
+                      d="M118.59 102.45c4.6,-3.94 8.97,-6.95 13.58,-10.89 -0.02,9.8 -1.19,14.69 3.85,29.11 1.17,16.38 -1.66,9.68 1.69,39.8 0.84,22.82 -0.28,32.98 -2.09,45.05l-9.74 -4.13c-1.35,-6.59 -2.71,-13.17 -4.07,-19.76 -1.61,-8.39 -1.91,-14.25 -1.74,-19.25 0.12,-10.26 -0.27,-19.32 -1.86,-26.12 -1.42,-10.72 -1.11,-23.1 0.38,-33.81z"
+                    />
+
+                    <path
+                      id="front_right_hand"
+                      class="fil0"
+                      d="M125.88 201.39c1.42,4 0.03,7.49 -2.49,10.76 -1.21,1.71 -2.43,3.42 -3.64,5.13 -1.19,2.19 -4.53,14.07 0.88,11.69 -0.62,1.81 -1.24,3.61 -1.87,5.41 -0.76,1.73 0.3,2.9 2.31,3.78 0.96,0.44 1.9,0.88 2.86,1.32 1.54,0.86 3.23,1.24 5.87,-1.43 1.39,-1.96 2.79,-3.91 4.18,-5.87 2.15,-3.84 1.78,-6.89 0.09,-9.52 -1.82,-4.8 -0.63,-10.78 1.55,-17.14 -3.24,-1.38 -6.49,-2.76 -9.74,-4.13z"
+                    />
+
+                    <a
+                      xlink:title="Right Foot"
+                      xlink:href=""
+                      target="_blank"
                       id="front_right_foot"
-                      class="fil0"
-                      d="M82.66 369.72c-3.95,7.12 0.35,8.41 -0.89,14.66 -0.9,4.45 1.17,5.4 4.48,4.87 4.4,0 8.8,0 13.2,0 4.9,-0.17 8.87,-0.78 3.79,-5.65 -2.82,-3.69 -10.46,-9.77 -9.41,-13.92 -3.79,-0.31 -7.52,-0.35 -11.17,0.04z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_right_foot"
+                        class="fil0"
+                        d="M82.66 369.72c-3.95,7.12 0.35,8.41 -0.89,14.66 -0.9,4.45 1.17,5.4 4.48,4.87 4.4,0 8.8,0 13.2,0 4.9,-0.17 8.87,-0.78 3.79,-5.65 -2.82,-3.69 -10.46,-9.77 -9.41,-13.92 -3.79,-0.31 -7.52,-0.35 -11.17,0.04z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Right Calf"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_right_calf"
-                  >
-                    <path
+                    <a
+                      xlink:title="Right Calf"
+                      xlink:href=""
+                      target="_blank"
                       id="front_right_calf"
-                      class="fil0"
-                      d="M83.59 317.94c-3.43,8.81 6.64,25.1 -0.93,51.78 3.73,-0.01 7.45,-0.02 11.17,-0.04 -0.38,-4.32 10.97,-24.57 11.21,-51.18 -7.36,0.08 -14.39,-0.22 -21.45,-0.56z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_right_calf"
+                        class="fil0"
+                        d="M83.59 317.94c-3.43,8.81 6.64,25.1 -0.93,51.78 3.73,-0.01 7.45,-0.02 11.17,-0.04 -0.38,-4.32 10.97,-24.57 11.21,-51.18 -7.36,0.08 -14.39,-0.22 -21.45,-0.56z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Right Knee"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_right_knee"
-                  >
-                    <path
+                    <a
+                      xlink:title="Right Knee"
+                      xlink:href=""
+                      target="_blank"
                       id="front_right_knee"
-                      class="fil0"
-                      d="M81.73 280.59c-3.01,18.82 5.52,22.18 1.74,38.17 7.19,0.17 14.37,0.33 21.56,0.5 0.78,-12.55 -3.33,-29.67 -1.57,-40.25 -7.24,0.52 -14.48,1.05 -21.73,1.58z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_right_knee"
+                        class="fil0"
+                        d="M81.73 280.59c-3.01,18.82 5.52,22.18 1.74,38.17 7.19,0.17 14.37,0.33 21.56,0.5 0.78,-12.55 -3.33,-29.67 -1.57,-40.25 -7.24,0.52 -14.48,1.05 -21.73,1.58z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Right Thigh"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_right_thigh"
-                  >
-                    <path
+                    <a
+                      xlink:title="Right Thigh"
+                      xlink:href=""
+                      target="_blank"
                       id="front_right_thigh"
-                      class="fil0"
-                      d="M81.63 214.7c1.32,-11.07 15.75,-28.59 30.8,-40.07 0.66,11.74 1.13,23.16 1.43,34.3 -0.41,18.24 -2.12,30.21 -5.13,45.19 -1.79,8.61 -4.87,16.72 -5.35,25.82 -7.21,0.22 -14.43,0.43 -21.65,0.65 1.41,-14.58 2.5,-26.75 1.31,-41.96 -0.47,-7.98 -0.94,-15.95 -1.41,-23.93z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_right_thigh"
+                        class="fil0"
+                        d="M81.63 214.7c1.32,-11.07 15.75,-28.59 30.8,-40.07 0.66,11.74 1.13,23.16 1.43,34.3 -0.41,18.24 -2.12,30.21 -5.13,45.19 -1.79,8.61 -4.87,16.72 -5.35,25.82 -7.21,0.22 -14.43,0.43 -21.65,0.65 1.41,-14.58 2.5,-26.75 1.31,-41.96 -0.47,-7.98 -0.94,-15.95 -1.41,-23.93z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Left Foot"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_left_foot"
-                  >
-                    <path
+                    <a
+                      xlink:title="Left Foot"
+                      xlink:href=""
+                      target="_blank"
                       id="front_left_foot"
-                      class="fil0"
-                      d="M65.83 369.04c0.89,5.37 -4.79,10.02 -9.72,15.5 -2.94,3.44 -2.67,5.16 1.39,4.86 4.04,-0.07 8.08,-0.14 12.12,-0.21 6.57,0.14 8.88,-1.09 8.24,-8.28 0.09,-3.69 -0.2,-7.64 -0.95,-11.43 -3.76,-0.21 -7.32,-0.04 -11.08,-0.44z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_left_foot"
+                        class="fil0"
+                        d="M65.83 369.04c0.89,5.37 -4.79,10.02 -9.72,15.5 -2.94,3.44 -2.67,5.16 1.39,4.86 4.04,-0.07 8.08,-0.14 12.12,-0.21 6.57,0.14 8.88,-1.09 8.24,-8.28 0.09,-3.69 -0.2,-7.64 -0.95,-11.43 -3.76,-0.21 -7.32,-0.04 -11.08,-0.44z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Left Calf"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_left_calf"
-                  >
-                    <path
+                    <a
+                      xlink:title="Left Calf"
+                      xlink:href=""
+                      target="_blank"
                       id="front_left_calf"
-                      class="fil0"
-                      d="M54.24 318.76c-1,20.09 12.9,47.5 11.62,51.34 3.75,0.05 7.5,0.1 11.25,0.14 -7.28,-27.06 1.49,-41.25 -0.34,-52.27 -7.51,0.21 -15.02,0.58 -22.53,0.79z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_left_calf"
+                        class="fil0"
+                        d="M54.24 318.76c-1,20.09 12.9,47.5 11.62,51.34 3.75,0.05 7.5,0.1 11.25,0.14 -7.28,-27.06 1.49,-41.25 -0.34,-52.27 -7.51,0.21 -15.02,0.58 -22.53,0.79z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Left Knee"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_left_knee"
-                  >
-                    <path
+                    <a
+                      xlink:title="Left Knee"
+                      xlink:href=""
+                      target="_blank"
                       id="front_left_knee"
-                      class="fil0"
-                      d="M56.67 280.97c1.19,13.73 -4.27,26.04 -2.32,38.57 7.51,-0.21 14.91,-1.36 22.42,-1.57 -4.33,-11.99 4.43,-16.86 1.15,-38.94 -7.09,0.65 -14.17,1.29 -21.25,1.94z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_left_knee"
+                        class="fil0"
+                        d="M56.67 280.97c1.19,13.73 -4.27,26.04 -2.32,38.57 7.51,-0.21 14.91,-1.36 22.42,-1.57 -4.33,-11.99 4.43,-16.86 1.15,-38.94 -7.09,0.65 -14.17,1.29 -21.25,1.94z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Left Thigh"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_left_thigh"
-                  >
-                    <path
+                    <a
+                      xlink:title="Left Thigh"
+                      xlink:href=""
+                      target="_blank"
                       id="front_left_thigh"
-                      class="fil0"
-                      d="M46.83 178.18c-0.47,8.62 -0.93,17.25 -1.4,25.88 0.35,22.44 2.43,40.29 6.72,55.82 1.5,7.03 4.37,12.99 4.52,21.09 7.11,-0.4 14.21,-0.79 21.32,-1.18 -0.53,-5.92 -1.17,-8.28 -1.59,-17.76 -1.18,-19.88 -0.5,-34.29 0.72,-47.14 -6.75,-18.39 -17.31,-29.98 -30.29,-36.71z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_left_thigh"
+                        class="fil0"
+                        d="M46.83 178.18c-0.47,8.62 -0.93,17.25 -1.4,25.88 0.35,22.44 2.43,40.29 6.72,55.82 1.5,7.03 4.37,12.99 4.52,21.09 7.11,-0.4 14.21,-0.79 21.32,-1.18 -0.53,-5.92 -1.17,-8.28 -1.59,-17.76 -1.18,-19.88 -0.5,-34.29 0.72,-47.14 -6.75,-18.39 -17.31,-29.98 -30.29,-36.71z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Left Hand"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_left_hand"
-                  >
-                    <path
+                    <a
+                      xlink:title="Left Hand"
+                      xlink:href=""
+                      target="_blank"
                       id="front_left_hand"
-                      class="fil0"
-                      d="M24.79 207.44c1.45,5.8 2.17,11.37 0.38,16.18 -1.58,5.24 -0.58,8.83 1.96,11.43 1.05,1.26 2.11,2.51 3.17,3.77 1.72,2.03 3.75,2.66 6.28,1.02 0.79,-0.47 1.58,-0.94 2.38,-1.42 3.21,-2.53 1.84,-5.49 0.33,-8.47 2.52,0.9 3.4,-1.04 1.85,-7.17 -0.87,-6.37 -2.68,-8.02 -4.56,-9.32 -2.36,-3.17 -3.13,-5.56 -3.24,-7.62 -2.85,0.53 -5.7,1.07 -8.55,1.6z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_left_hand"
+                        class="fil0"
+                        d="M24.79 207.44c1.45,5.8 2.17,11.37 0.38,16.18 -1.58,5.24 -0.58,8.83 1.96,11.43 1.05,1.26 2.11,2.51 3.17,3.77 1.72,2.03 3.75,2.66 6.28,1.02 0.79,-0.47 1.58,-0.94 2.38,-1.42 3.21,-2.53 1.84,-5.49 0.33,-8.47 2.52,0.9 3.4,-1.04 1.85,-7.17 -0.87,-6.37 -2.68,-8.02 -4.56,-9.32 -2.36,-3.17 -3.13,-5.56 -3.24,-7.62 -2.85,0.53 -5.7,1.07 -8.55,1.6z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Left Arm"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_left_arm"
-                  >
-                    <path
+                    <a
+                      xlink:title="Left Arm"
+                      xlink:href=""
+                      target="_blank"
                       id="front_left_arm"
-                      class="fil0"
-                      d="M27.1 95.93c-0.23,4.86 0.23,14.1 -1.19,19.37 -3.09,5.06 -3,12.91 -2.04,18.22 -2.79,27.17 -2.48,50.15 0.92,73.92 2.87,-0.35 5.73,-0.7 8.6,-1.05 1.5,-7.1 2.99,-14.19 4.48,-21.29 1.33,-7 3.19,-12.11 1.24,-30.79 1.39,-10.51 2.79,-21.01 4.18,-31.52 -0.77,-6.17 -1.6,-13.3 -2.37,-19.47 -5.98,-3.66 -9.7,-5.14 -13.82,-7.39z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_left_arm"
+                        class="fil0"
+                        d="M27.1 95.93c-0.23,4.86 0.23,14.1 -1.19,19.37 -3.09,5.06 -3,12.91 -2.04,18.22 -2.79,27.17 -2.48,50.15 0.92,73.92 2.87,-0.35 5.73,-0.7 8.6,-1.05 1.5,-7.1 2.99,-14.19 4.48,-21.29 1.33,-7 3.19,-12.11 1.24,-30.79 1.39,-10.51 2.79,-21.01 4.18,-31.52 -0.77,-6.17 -1.6,-13.3 -2.37,-19.47 -5.98,-3.66 -9.7,-5.14 -13.82,-7.39z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Abdomen"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_abdomen"
-                  >
-                    <path
+                    <a
+                      xlink:title="Abdomen"
+                      xlink:href=""
+                      target="_blank"
                       id="front_abdomen"
-                      class="fil0"
-                      d="M45.56 130.08c3.52,7.16 6.34,11.84 4.84,21.65 -0.57,3.75 0.08,7.85 -0.35,11.62 -0.53,4.52 -2.21,10.56 -3.22,14.83 11.05,9.06 21.25,19.31 27.1,31.67 5.16,9.91 8.78,3.49 9.83,0.63 5.93,-16.2 20.1,-22.57 28.78,-36 -4.92,-11.45 -5.43,-33.62 1.49,-44.43 -22.7,-0.07 -45.77,0.1 -68.47,0.03z"
-                    />
-                  </a>
-                  <a
-                    xlink:title="Chest"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_chest"
-                  >
-                    <path
+                    >
+                      <path
+                        id="front_abdomen"
+                        class="fil0"
+                        d="M45.56 130.08c3.52,7.16 6.34,11.84 4.84,21.65 -0.57,3.75 0.08,7.85 -0.35,11.62 -0.53,4.52 -2.21,10.56 -3.22,14.83 11.05,9.06 21.25,19.31 27.1,31.67 5.16,9.91 8.78,3.49 9.83,0.63 5.93,-16.2 20.1,-22.57 28.78,-36 -4.92,-11.45 -5.43,-33.62 1.49,-44.43 -22.7,-0.07 -45.77,0.1 -68.47,0.03z"
+                      />
+                    </a>
+                    <a
+                      xlink:title="Chest"
+                      xlink:href=""
+                      target="_blank"
                       id="front_chest"
-                      class="fil0"
-                      d="M69.49 59.87c-8,9.61 -15.98,13.53 -23.96,15.31 -14.4,1.75 -15.81,11.87 -18.48,21.17 4.65,2.65 9.29,5.3 13.93,7.94 0.87,9.11 1.33,18.43 4.77,26.24 22.7,0.07 45.39,0.13 68.09,0.19 2.17,-7.66 3.62,-16.81 4.75,-26.6 4.6,-3.94 9.2,-7.88 13.81,-11.82 -2.2,-11.17 -8.77,-17.05 -20.12,-17.16 -9.95,-1.96 -18.14,-6.34 -22.77,-15.61 -6.52,3.81 -13.2,3.72 -20.02,0.34z"
-                    />
-                  </a>
+                    >
+                      <path
+                        id="front_chest"
+                        class="fil0"
+                        d="M69.49 59.87c-8,9.61 -15.98,13.53 -23.96,15.31 -14.4,1.75 -15.81,11.87 -18.48,21.17 4.65,2.65 9.29,5.3 13.93,7.94 0.87,9.11 1.33,18.43 4.77,26.24 22.7,0.07 45.39,0.13 68.09,0.19 2.17,-7.66 3.62,-16.81 4.75,-26.6 4.6,-3.94 9.2,-7.88 13.81,-11.82 -2.2,-11.17 -8.77,-17.05 -20.12,-17.16 -9.95,-1.96 -18.14,-6.34 -22.77,-15.61 -6.52,3.81 -13.2,3.72 -20.02,0.34z"
+                      />
+                    </a>
 
-                  <a
-                    xlink:title="Head"
-                    xlink:href=""
-                    target="_blank"
-                    id="front_head"
-                  >
-                    <path
+                    <a
+                      xlink:title="Head"
+                      xlink:href=""
+                      target="_blank"
                       id="front_head"
-                      class="fil0"
-                      d="M63.04 34.32c0.07,-3.76 0.35,-7.12 0.38,-9.96 0.25,-18.22 31.67,-16.51 32.42,0.27 0.01,3.21 0.02,6.43 0.03,9.65 3.67,-0.53 3.57,1.21 2.91,5.31 -0.5,3.12 -3.27,7.37 -6.36,9.61 3.59,19.75 -29.65,19.19 -25.66,0.7 -3.63,-1.39 -11.37,-17.82 -3.72,-15.58z"
-                    />
-                  </a>
-                </g>
-              </svg>
+                    >
+                      <path
+                        id="front_head"
+                        class="fil0"
+                        d="M63.04 34.32c0.07,-3.76 0.35,-7.12 0.38,-9.96 0.25,-18.22 31.67,-16.51 32.42,0.27 0.01,3.21 0.02,6.43 0.03,9.65 3.67,-0.53 3.57,1.21 2.91,5.31 -0.5,3.12 -3.27,7.37 -6.36,9.61 3.59,19.75 -29.65,19.19 -25.66,0.7 -3.63,-1.39 -11.37,-17.82 -3.72,-15.58z"
+                      />
+                    </a>
+                  </g>
+                </svg>
+              </label>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"

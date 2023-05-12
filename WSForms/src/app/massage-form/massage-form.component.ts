@@ -104,7 +104,7 @@ export class MassageFormComponent implements OnInit {
   }
   ngOnInit(): void {
     // this.setStep(0);
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   getData() {
