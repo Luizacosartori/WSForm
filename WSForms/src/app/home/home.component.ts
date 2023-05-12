@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { dataService } from '../dataService';
 import { massageForm } from '../formsData'
-
+import { therapistData, clientData, treatmentData } from '../formsData';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -12,6 +12,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent {
   formsData: massageForm[] = new Array();
+  therapists: therapistData[] = new Array();
+  clients: clientData[] = new Array();
+  treatment: treatmentData[] = new Array();
+  public now: Date = new Date();
+
   popup = false
   static storeData: any;
 
@@ -44,6 +49,27 @@ export class HomeComponent {
       (err: any) => {
         console.log(err)
       });
+
+    this.dataService.getClientData().subscribe(
+      (d: any) => {
+        this.clients = d;
+      },
+      (err: any) => { }
+    );
+
+    this.dataService.getTreatmentData().subscribe(
+      (d: any) => {
+        this.treatment = d;
+      },
+      (err: any) => { }
+    );
+  }
+
+  formatDate(date: Date): string {
+    let day = new Date(date).toLocaleDateString()
+    let hours = String(new Date(date).getHours())
+    let minutes = new Date(date).getMinutes()
+    return day + "  " +hours+ ':'+ minutes
   }
 
   ngOnInit(): void {

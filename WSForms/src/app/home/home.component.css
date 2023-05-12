@@ -11,6 +11,7 @@
     display: flex;
     flex-flow: column;
     height: 100vh;
+    overflow: auto;
 }
 
 .side-bar {
@@ -22,7 +23,6 @@
 }
 
 .main-content {
-    height: 100vh;
     background-color: #F5F5F5;
 }
 
