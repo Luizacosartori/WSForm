@@ -29,13 +29,13 @@ export class treatmentData{
     therapist_id: number;
     client_id: number;
     treatment_notes_id: number;
-    treatment_date: Date;
+    treatment_StartDateTime: Date;
 
-    constructor(treatment_id: number, client_id: number, therapist_id: number, treatment_date: Date, treatment_notes_id: number){
+    constructor(treatment_id: number, client_id: number, therapist_id: number, treatment_StartDateTime: Date, treatment_notes_id: number){
         this.treatment_id = treatment_id;
         this.therapist_id = therapist_id;
         this.treatment_notes_id = treatment_notes_id;
-        this.treatment_date = treatment_date;
+        this.treatment_StartDateTime = treatment_StartDateTime;
         this.client_id = client_id;
     }
 }

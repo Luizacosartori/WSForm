@@ -37,16 +37,15 @@
                 <mat-card class="cards">
                     <mat-card-content class="card">
                         <div class="phoneView">
-                                <h3>{{formatDate(data.treatment_date)}}</h3>
-
-                            <h3>Thelma Dias</h3>
+                            <h3>{{formatDate(data.treatment_StartDateTime)}}</h3>
+                            <h3>{{data.therapist_id}}</h3>
+                            
                         </div>
                         <div>
                             <button mat-button style="display: block;" routerLink="/massageForm">Massage Form</button>
-                            <button mat-button style="display: block;"
-                                (click)="openClientInfo(data.client_id)">Client
+                            <button mat-button style="display: block;" (click)="openClientInfo(data.client_id)">Client
                                 Information</button>
-                            <button mat-button style="display: block;" (click)="openNotesInfo()">Add Notes</button>
+                            <button mat-button style="display: block;" (click)="openNotesInfo(data.treatment_id)">Add Notes</button>
                         </div>
 
                     </mat-card-content>
