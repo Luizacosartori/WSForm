@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
 import { massageForm } from '../formsData'
 import { therapistData, clientData, treatmentData } from '../formsData';
@@ -19,6 +19,7 @@ export class HomeComponent {
   popup = false
   static storeClientId: any;
   static storeTreatmentId: any;
+  @ViewChild('syncbutton') syncButton: any;
 
 
   constructor(private dataService: dataService, public dialog: MatDialog) {
@@ -72,13 +73,18 @@ export class HomeComponent {
     let day = new Date(date).toLocaleDateString()
     let hours = String(new Date(date).getHours())
     let minutes = new Date(date).getMinutes()
-    return day + "  " + hours + ':' + minutes
+    return day + "  " + hours + ':' + minutes + '0 am' 
     //Needs to add a 0 if does have 2
   }
 
-  getTherapistName(therapist_id: number){
-      return
-  }
+    enableDisableButton(){
+      this.syncButton.disabled = "true";
+      setTimeout(() =>{
+        this.syncButton.disabled = "false";
+        window.location.reload();
+        //Not sure if we need to reload the page after calling the API
+      },3000);
+    }
 
   ngOnInit(): void {
     this.getData();
@@ -94,6 +100,7 @@ export class HomeComponent {
 export class MassageFormInfo {
   clickedClientId = HomeComponent.storeClientId;
   clientById: massageForm[] = new Array();
+  clientNotesById: treatmentData[] = new Array();
   public now: Date = new Date();
 
   constructor(private dataService: dataService) {
@@ -107,6 +114,14 @@ export class MassageFormInfo {
       (err: any) => {
         console.log(err)
       });
+
+      this.dataService.getTreatmentDataById(this.clickedClientId).subscribe(
+        (d: any) => {
+          this.clientNotesById = d;
+        },
+        (err: any) => {
+          console.log(err)
+        });
   }
 
   formatDate(date: Date): string {
@@ -144,12 +159,16 @@ export class NotesInfo {
         this.notesForm.reset();
         alert("The  treatment note has been added.");
         const dialogRef = this.dialog.closeAll();
+        window.location.reload();
+
       });
     } else {
       alert("All red fields must be filled out!");
     }
   }
-
+  formatDate(date: Date): string {
+    return new Date(date).toLocaleDateString();
+  }
 
 
 }

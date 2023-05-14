@@ -28,15 +28,22 @@ export class treatmentData{
     treatment_id: number;
     therapist_id: number;
     client_id: number;
-    treatment_notes_id: number;
     treatment_StartDateTime: Date;
+    treatment_notes: string;
+    pressure: string;
+    back_of_body: string;
+    front_of_body: string;
 
-    constructor(treatment_id: number, client_id: number, therapist_id: number, treatment_StartDateTime: Date, treatment_notes_id: number){
+
+    constructor(pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, therapist_id: number, treatment_StartDateTime: Date, treatment_notes: string){
         this.treatment_id = treatment_id;
         this.therapist_id = therapist_id;
-        this.treatment_notes_id = treatment_notes_id;
+        this.treatment_notes = treatment_notes;
         this.treatment_StartDateTime = treatment_StartDateTime;
         this.client_id = client_id;
+        this.pressure = pressure;
+        this.back_of_body = back_of_body;
+        this.front_of_body = front_of_body;
     }
 }
 

@@ -31,7 +31,9 @@
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
-            <h1>Dashboard</h1>
+            <h1 style="display: inline-block;">Dashboard</h1>
+            <button #syncbutton mat-button style="display: inline-block; background-color: lightpink; " disabled="false" (click)="enableDisableButton()">Synch with Mindbody</button>
+
 
             <div *ngFor="let data of treatment">
                 <mat-card class="cards">
@@ -39,13 +41,25 @@
                         <div class="phoneView">
                             <h3>{{formatDate(data.treatment_StartDateTime)}}</h3>
                             <h3>{{data.therapist_id}}</h3>
-                            
+
                         </div>
                         <div>
                             <button mat-button style="display: block;" routerLink="/massageForm">Massage Form</button>
                             <button mat-button style="display: block;" (click)="openClientInfo(data.client_id)">Client
                                 Information</button>
-                            <button mat-button style="display: block;" (click)="openNotesInfo(data.treatment_id)">Add Notes</button>
+                            <div *ngIf="data.pressure==null;then thenBlock else elseBlock"></div>
+                            <ng-template #thenBlock>
+                                <button mat-button style="display: block; background-color: rgb(244, 96, 96);"
+                                    (click)="openNotesInfo(data.treatment_id)">Add
+                                    Notes</button>
+                            </ng-template>
+                            <ng-template #elseBlock>
+                                <button mat-button style="display: block; background-color: rgb(116, 216, 116);"
+                                    (click)="openNotesInfo(data.treatment_id)">Add
+                                    Notes</button>
+                            </ng-template>
+
+
                         </div>
 
                     </mat-card-content>

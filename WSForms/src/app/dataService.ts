@@ -29,6 +29,12 @@ export class dataService {
         return this.http.get<treatmentData>(this.url + "/treatment/");
 
     }
+
+    //Send a GET request to the server
+    public getTreatmentDataById(client_id: any): Observable<treatmentData> {
+        return this.http.get<treatmentData>(this.url + "/treatment/" + client_id);
+    }
+    
     //Send a GET request to the server
     public getTeraphistData(): Observable<therapistData> {
         return this.http.get<therapistData>(this.url + "/therapist/");
