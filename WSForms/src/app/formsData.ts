@@ -48,6 +48,9 @@ export class treatmentData{
 }
 
 export class massageForm {
+    toLowerCase() {
+      throw new Error('Method not implemented.');
+    }
     client_id: number;
     client_massage_form_id: number;
     full_name: string;

@@ -1,4 +1,37 @@
+.header {
+    background-color: #c9bba7;
+}
+
 .content {
     line-height: 2rem;
     font-size: 1.2em;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    overflow: auto;
+}
+
+.side-bar {
+    flex: 0 1 auto;
+}
+
+.side-bar-content {
+    flex: 1 1 auto;
+}
+
+.main-content {
+    background-color: #F5F5F5;
+}
+
+
+.side-nav-container {
+    min-width: 150px;
+}
+.full-width{
+    position: relative;
+    width: 80vw;
+    margin: auto;
 }

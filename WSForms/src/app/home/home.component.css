@@ -77,20 +77,30 @@
 
     }
 
-    .phoneView{
+    .phoneView {
         display: flexbox;
-    background-color: #909090;
+        background-color: #909090;
     }
 }
 
 /* Mobile View */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 430px) {
     .side-nav-container {
         min-width: 150px;
+    }
 
+    .synch-button{
+        display: none !important;
     }
 }
 
 .full-width {
     width: 100%;
+}
+
+.synch-button {
+    display: inline-block;
+    background-color: #c9bba7;
+    margin-left: 61vw;
+
 }

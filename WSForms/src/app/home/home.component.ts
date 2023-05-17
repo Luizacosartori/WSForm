@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
-import { massageForm } from '../formsData'
-import { therapistData, clientData, treatmentData } from '../formsData';
+import { therapistData, clientData, treatmentData, massageForm } from '../formsData';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
