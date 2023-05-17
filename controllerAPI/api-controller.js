@@ -52,9 +52,7 @@ router.post("/getClientTreatment/",(request,response)=>{
                     })
                 });
                 treatments.Appointments.forEach(t => {
-                    var query = "INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES ("+t.Id+","+t.ClientId+","+t.StaffId+",'"+t.StartDateTime+"','"+t.EndDateTime+"') ON DUPLICATE KEY UPDATE client_id = "+t.ClientId+",staff_id = "+t.StaffId+",treatment_StartDateTime = '"+t.StartDateTime+"',treatment_EndDateTime = '"+t.EndDateTime+"'";
-                    console.log("query: ", query);
-                    connection.query(query,(err) =>{
+                    connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES ("+t.Id+","+t.ClientId+","+t.StaffId+",'"+t.StartDateTime+"','"+t.EndDateTime+"') ON DUPLICATE KEY UPDATE client_id = "+t.ClientId+",staff_id = "+t.StaffId+",treatment_StartDateTime = '"+t.StartDateTime+"',treatment_EndDateTime = '"+t.EndDateTime+"'",(err) =>{
                         if(err){
                             console.log("Error when inserting the treatment data", err);
                         }
