@@ -10,6 +10,19 @@ export class dataService {
     constructor(private http: HttpClient) {
     }
 
+    //Gets from Mindbody
+    public getUserToken(data:any):Observable<clientData>{
+        return this.http.post<clientData>(this.url+"/login/", data);
+    }
+
+    public getClientTreatment(data:any):Observable<clientData>{
+        return this.http.post<clientData>(this.url+"/getClientTreatment/", data);
+    }
+
+    public getStaff(data:any):Observable<clientData>{
+        return this.http.post<clientData>(this.url+"/getStaff/", data);
+    }
+
     //Send a GET request to the server
     public getClientData(): Observable<clientData> {
         return this.http.get<clientData>(this.url + "/client/");
