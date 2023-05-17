@@ -28,8 +28,20 @@ router.get("/client/", (request, response) => {
 
 router.get("/treatment/", (request, response) => {
     var newDate = new Date().toLocaleDateString('sv-SE');
+    //This sv-SE is to return the correct date format YYYY-MM-DD, it might be changed in the future 
+    connection.query('SELECT * from `treatment` where date(`treatment_StartDateTime`) ="' + newDate + '" ORDER BY treatment_StartDateTime ASC',
+        (err, records, fields) => {
+            if (err) {
+                console.log(err);
+                console.log(newDate)
+            } else {
+                response.send(records);
+            }
+        })
+})
 
-    connection.query('SELECT * from `treatment` where date(`treatment_date`) ="' + newDate +'" ORDER BY treatment_date ASC',
+router.get("/treatment/:id", (request, response) => {
+    connection.query("SELECT * from `treatment` where client_id =" + request.params.id,
         (err, records, fields) => {
             if (err) {
                 console.log(err);
@@ -51,14 +63,14 @@ router.get("/massageForm/", (request, response) => {
         })
 })
 
-router.get("/:id", (req, res)=>{
-	connection.query("SELECT * FROM client_massage_form  WHERE client_id=" + req.params.id , (err, records,fields)=> {
-		 if (err){
-			 console.error("Error while retrieve the data");
-		 }else{
-			 res.send(records);
-		 }
-	})
+router.get("/:id", (req, res) => {
+    connection.query("SELECT * FROM client_massage_form  WHERE client_id=" + req.params.id, (err, records, fields) => {
+        if (err) {
+            console.error("Error while retrieve the data");
+        } else {
+            res.send(records);
+        }
+    })
 })
 
 router.post("/NewClientMassageForm/", (req, res) => {
@@ -270,5 +282,21 @@ router.post("/NewClientMassageForm/", (req, res) => {
 // router.delete("/", (request, response) => {
 //     this.connect.query()
 // })
+
+router.post("/NewNotesForm/:id", (req, res) => {
+    var front_of_body = req.body.front_of_body;
+    var back_of_body = req.body.back_of_body;
+    var pressure = req.body.pressure;
+    var treatment_notes = req.body.treatment_notes;
+
+    connection.query("UPDATE treatment SET pressure='" + pressure + "', front_of_body='" + front_of_body + "', back_of_body='" + back_of_body + "',treatment_notes='" + treatment_notes + "' WHERE treatment_id=" + req.params.id,
+        (err, result) => {
+            if (err) {
+                console.error("Error while Updating the data" + err);
+            } else {
+                res.send({ update: "success" });
+            }
+        })
+})
 
 module.exports = router;

@@ -1,5 +1,5 @@
 <mat-dialog-content class="mat-typography">
-    <form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="notesForm">
         <h3>Focused Areas</h3>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Front of the body</mat-label>
@@ -43,7 +43,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Treatment Notes</mat-label>
-            <input matInput id="" placeholder="Treatment Notes" type="text"  formControlName="otherNotes" />
+            <input matInput  placeholder="Treatment Notes" type="text"  formControlName="treatment_notes" />
         </mat-form-field>
         <button mat-button color="primary" (click)="onSubmit()">Submit</button>
 

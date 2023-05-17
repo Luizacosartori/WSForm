@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
 import { massageForm } from '../formsData'
 import { therapistData, clientData, treatmentData } from '../formsData';
@@ -16,15 +16,17 @@ export class HomeComponent {
   clients: clientData[] = new Array();
   treatment: treatmentData[] = new Array();
   public now: Date = new Date();
-
   popup = false
-  static storeData: any;
+  static storeClientId: any;
+  static storeTreatmentId: any;
+  @ViewChild('syncbutton') syncButton: any;
+
 
   constructor(private dataService: dataService, public dialog: MatDialog) {
   }
 
   openClientInfo(data: any) {
-    HomeComponent.storeData = data
+    HomeComponent.storeClientId = data
     const dialogRef = this.dialog.open(MassageFormInfo);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -33,7 +35,9 @@ export class HomeComponent {
     return data;
   }
 
-  openNotesInfo() {
+  openNotesInfo(data: any) {
+    HomeComponent.storeTreatmentId = data
+
     const dialogRef = this.dialog.open(NotesInfo);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -69,8 +73,18 @@ export class HomeComponent {
     let day = new Date(date).toLocaleDateString()
     let hours = String(new Date(date).getHours())
     let minutes = new Date(date).getMinutes()
-    return day + "  " +hours+ ':'+ minutes
+    return day + "  " + hours + ':' + minutes + '0 am' 
+    //Needs to add a 0 if does have 2
   }
+
+    enableDisableButton(){
+      this.syncButton.disabled = "true";
+      setTimeout(() =>{
+        this.syncButton.disabled = "false";
+        window.location.reload();
+        //Not sure if we need to reload the page after calling the API
+      },3000);
+    }
 
   ngOnInit(): void {
     this.getData();
@@ -84,8 +98,9 @@ export class HomeComponent {
 })
 
 export class MassageFormInfo {
-  clickedClientId = HomeComponent.storeData;
+  clickedClientId = HomeComponent.storeClientId;
   clientById: massageForm[] = new Array();
+  clientNotesById: treatmentData[] = new Array();
   public now: Date = new Date();
 
   constructor(private dataService: dataService) {
@@ -99,6 +114,14 @@ export class MassageFormInfo {
       (err: any) => {
         console.log(err)
       });
+
+      this.dataService.getTreatmentDataById(this.clickedClientId).subscribe(
+        (d: any) => {
+          this.clientNotesById = d;
+        },
+        (err: any) => {
+          console.log(err)
+        });
   }
 
   formatDate(date: Date): string {
@@ -114,28 +137,38 @@ export class MassageFormInfo {
   styleUrls: ['./home.component.css']
 
 })
+
+
 export class NotesInfo {
   notChecked = false;
+  clickedCTreatmentId = HomeComponent.storeTreatmentId;
+
   notesForm = new FormGroup({
-    otherNotes: new FormControl('', Validators.required),
-    pressure: new FormControl('', Validators.required),
-    back_of_body: new FormControl('', Validators.required),
     front_of_body: new FormControl('', Validators.required),
+    back_of_body: new FormControl('', Validators.required),
+    pressure: new FormControl('', Validators.required),
+    treatment_notes: new FormControl('', Validators.required)
+  });
 
-  })
-
-
-  onSubmit() {
-    // if(this.massageForm.valid){
-    // this.dataService.setClientMassageForm(this.massageForm.value).subscribe((res) => {
-    //   this.massageForm.reset();
-    //   alert("The Client Form has been added.");
-    // });
-    // }else{
-    //   alert("fix it");
-    // }
+  constructor(private dataService: dataService, public dialog: MatDialog) {
   }
 
+  onSubmit() {
+    if (this.notesForm.valid) {
+      this.dataService.setMassageNotes(this.clickedCTreatmentId, this.notesForm.value).subscribe((res) => {
+        this.notesForm.reset();
+        alert("The  treatment note has been added.");
+        const dialogRef = this.dialog.closeAll();
+        window.location.reload();
+
+      });
+    } else {
+      alert("All red fields must be filled out!");
+    }
+  }
+  formatDate(date: Date): string {
+    return new Date(date).toLocaleDateString();
+  }
 
 
 }
