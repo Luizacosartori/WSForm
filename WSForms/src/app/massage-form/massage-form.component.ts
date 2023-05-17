@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -99,7 +99,7 @@ export class MassageFormComponent implements OnInit {
   });
   notChecked = false;
 
-  constructor(private dataService: dataService) {
+  constructor(private dataService: dataService, private render: Renderer2) {
     console.log(this.massageForm.value);
   }
   ngOnInit(): void {
@@ -156,5 +156,13 @@ export class MassageFormComponent implements OnInit {
 
   prevStep() {
     this.step--;
+  }
+
+  selectBodyPart(event: any) {
+    if (event.target.classList.contains('human_body_part_selected')) {
+      this.render.removeClass(event.target, 'human_body_part_selected');
+    } else {
+      this.render.addClass(event.target, 'human_body_part_selected');
+    }
   }
 }

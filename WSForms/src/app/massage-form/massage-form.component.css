@@ -171,88 +171,18 @@ mat-radio-group {
     width: 100% !important;
   }
 }
+/* SVG  */
 
-/* path {
-  fill: #b3b3b3;
-} */
-/* path:hover {
-  fill: rgb(110, 0, 0);
-  stroke: rgb(0, 0, 0);
-  stroke-width: 3px;
-  transition: fill 0.4s;
-} */
-/* input[type="checkbox"]:checked + .front_right_arm {
-  fill: rgb(183, 255, 0);
-}
-
-svg input:checked {
-  fill: yellow;
-} */
-
-/* svg path {
+.human_body_front_checkbox {
   fill: #b3b3b3;
 }
-
-svg path:hover {
-  fill: #570000;
-} */
-
-/* input[type="checkbox"]:checked + .fil0 {
-  fill: blue;
-} */
-
-/* .human_body_front_checkbox:checked {
-  fill: #130074;
-} */
-
-/* input[type="checkbox"]:checked + .front_right_arm {
-  fill: rgb(183, 255, 0);
-} */
-
-input[type="checkbox"] {
-  /* display: none; */
-}
-
-/* input[type="checkbox"]:checked + .front_right_arm {
-  fill: blue;
-} */
-
-/* .front_righ_arm:checked ~ svg #front_right_arm {
-  display: block;
-} */
-
-svg input:checked {
-  fill: yellow;
-}
-
-.my-image {
-  fill: grey;
-}
-
-.my-image:hover {
-  fill: #570000;
-}
-
-/* input[type="checkbox"]:checked + .my-image {
-  fill: blue;
-} */
-
-input[type="checkbox"] {
-  /* display: none; */
-}
-
-/* Testes */
-
 .human_body_front_checkbox path:hover {
   fill: #570000;
 }
-/* input[type="checkbox"]:checked + .human_body_front_checkbox {
-  fill: blue;
-} */
-input[type="checkbox"]:checked + .human_body_front_checkbox {
-  fill: rgb(255, 0, 0);
-}
 
-/* label .human_body_front_checkbox {
-  display: flex;
-} */
+.human_body_part_selected {
+  fill: rgb(200, 0, 0);
+}
+input[type="checkbox"] {
+  display: none;
+}
