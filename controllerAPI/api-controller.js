@@ -1,4 +1,6 @@
 var dbcon = require("../database");
+var mindbodyAPI = require("../mindbody");
+
 var connection = dbcon.getconnection();
 connection.connect();
 
@@ -6,6 +8,62 @@ var express = require("../WSForms/node_modules/express");
 var router = express.Router();
 
 
+// Mindbody API
+router.post("/login/",(request, response) =>{
+    mindbodyAPI.login(request.body.username,request.body.password,function (AccessToken) {
+        connection.query("INSERT INTO currentuser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '"+AccessToken+"'");
+        response.send(request.body);
+    });
+});
+
+router.post("/getStaff/",(request,response)=>{
+    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'",(err,records,fields) =>{
+        if(err){
+            console.log("Error when retriving the data", err)
+        } else {
+            mindbodyAPI.getStaff(records[0].accesstoken,function (staff){
+                staff.StaffMembers.forEach(s => {
+                    if(s.AppointmentInstructor){
+                        connection.query("INSERT INTO staff VALUES ("+s.Id+",'"+s.Name+"') ON DUPLICATE KEY UPDATE full_name = '"+s.Name+"'",(err) =>{
+                            if(err){
+                                console.log("Error when inserting the client data", err);
+                            }
+                        });
+                    }
+                })
+            });
+        }
+    });
+});
+
+router.post("/getClientTreatment/",(request,response)=>{
+    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'",(err,records,fields) =>{
+        if(err){
+            console.log("Error when retriving the data", err)
+        } else {
+            mindbodyAPI.getTreatments(records[0].accesstoken,function (treatments){
+                mindbodyAPI.getClient(records[0].accesstoken,treatments.Appointments,function (client){
+                    client.Clients.forEach(c => {
+                        connection.query("INSERT INTO client VALUES ("+c.Id+",'"+c.FirstName+"','"+c.MiddleName+"','"+c.LastName+"','"+c.MobilePhone+"','"+c.Email+"') ON DUPLICATE KEY UPDATE first_name = '"+c.FirstName+"', middle_name = '"+c.MiddleName+"',last_name = '"+c.LastName+"',mobile_phone ='"+c.MobilePhone+"',email = '"+c.Email+"'",(err) =>{
+                            if(err){
+                                console.log("Error when inserting the client data", err);
+                            }
+                        });
+                    })
+                });
+                treatments.Appointments.forEach(t => {
+                    connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES ("+t.Id+","+t.ClientId+","+t.StaffId+",'"+t.StartDateTime+"','"+t.EndDateTime+"') ON DUPLICATE KEY UPDATE client_id = "+t.ClientId+",staff_id = "+t.StaffId+",treatment_StartDateTime = '"+t.StartDateTime+"',treatment_EndDateTime = '"+t.EndDateTime+"'",(err) =>{
+                        if(err){
+                            console.log("Error when inserting the treatment data", err);
+                        }
+                    });
+                });
+            });
+        }
+    });
+});
+
+// Whitestone System
 router.get("/therapist/", (request, response) => {
     connection.query("SELECT * FROM therapist", (err, records, fields) => {
         if (err) {
