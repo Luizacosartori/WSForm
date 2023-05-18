@@ -47,3 +47,17 @@
     color: black;
     padding: 20px;
 }
+
+.forgot-password{
+    position: inherit;
+    width: 5vw;
+    display: block;
+    margin: auto;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.forgot-password:hover{
+    text-decoration: underline;
+}
