@@ -26,7 +26,7 @@ export class clientData{
 
 export class treatmentData{
     treatment_id: number;
-    therapist_id: number;
+    staff_id: number;
     client_id: number;
     treatment_StartDateTime: Date;
     treatment_notes: string;
@@ -35,9 +35,9 @@ export class treatmentData{
     front_of_body: string;
 
 
-    constructor(pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, therapist_id: number, treatment_StartDateTime: Date, treatment_notes: string){
+    constructor(pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, staff_id: number, treatment_StartDateTime: Date, treatment_notes: string){
         this.treatment_id = treatment_id;
-        this.therapist_id = therapist_id;
+        this.staff_id = staff_id;
         this.treatment_notes = treatment_notes;
         this.treatment_StartDateTime = treatment_StartDateTime;
         this.client_id = client_id;

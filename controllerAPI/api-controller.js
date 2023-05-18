@@ -91,7 +91,6 @@ router.get("/treatment/", (request, response) => {
         (err, records, fields) => {
             if (err) {
                 console.log(err);
-                console.log(newDate)
             } else {
                 response.send(records);
             }

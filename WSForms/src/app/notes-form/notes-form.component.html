@@ -33,20 +33,14 @@
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
             <h1>Search client's history</h1>
-    
-            <input  [formControl]="search_input" type="text"  matInput ngFor="let data of formsData">
-             <!-- <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Find a client</mat-label> -->
-            <!-- <input type="text" matInput required [matAutocomplete]="autoGroup"> -->
-            <!-- <mat-autocomplete #autoGroup="matAutocomplete">
-                    <mat-option *ngFor="let name of formsData" [value]="name.full_name">
-                        {{name.full_name}}
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field> -->
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Look-up Client ID</mat-label>
+                <input [formControl]="search_input" type="text" matInput onsubmit="onSubmit()">
+            </mat-form-field>
             <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+            <mat-card id="showInfo">
 
-
+            </mat-card>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

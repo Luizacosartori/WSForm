@@ -2,6 +2,10 @@
     background-color: #c9bba7;
 }
 
+h1{
+    padding: 40px 50px 0px 50px;
+
+}
 .content {
     line-height: 2rem;
     font-size: 1.2em;
@@ -30,8 +34,19 @@
 .side-nav-container {
     min-width: 150px;
 }
-.full-width{
+
+.full-width {
+    margin: 20px 0px 20px 80px;
     position: relative;
+    width: 20vw;
+}
+
+#showInfo {
+    display: block;
     width: 80vw;
     margin: auto;
+}
+
+.two-collum {
+    columns: 2;
 }

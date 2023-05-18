@@ -72,7 +72,7 @@ export class HomeComponent {
     let day = new Date(date).toLocaleDateString()
     let hours = String(new Date(date).getHours())
     let minutes = new Date(date).getMinutes()
-    return day + "  " + hours + ':' + minutes + '0 am' 
+    return day + "  " + hours + ':' + minutes 
     //Needs to add a 0 if does have 2
   }
 
@@ -165,6 +165,7 @@ export class NotesInfo {
       alert("All red fields must be filled out!");
     }
   }
+  
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
   }
