@@ -8,17 +8,17 @@
 
 .wrapper {
     position: relative;
-    width: 60vw;
-    height: 70vh;
+    width: 55vw;
+    height: 50vh;
     background-color: white;
-    margin: 100px auto;
+    margin: 20vh auto;
     border-radius: 5px;
 }
 
 .wrapper h1 {
     display: block;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
 .container {
@@ -48,16 +48,30 @@
     padding: 20px;
 }
 
-.forgot-password{
-    position: inherit;
-    width: 5vw;
-    display: block;
+.forgot-password {
+    display: flexbox;
     margin: auto;
-    padding: 20px;
+    width: 50%;
+    padding: 40px;
     text-decoration: none;
     color: black;
+    text-align: center;
 }
 
-.forgot-password:hover{
+.password-link:hover {
     text-decoration: underline;
 }
+
+/* Mobile View*/
+@media only screen and (max-width: 430px) {
+    .wrapper {
+        height: 60vh;
+    }
+
+    .wrapper h1 {
+        padding-top: 30px;
+    }
+}
+
+/* Tablet View */
+@media only screen and (max-width: 600px) {}
