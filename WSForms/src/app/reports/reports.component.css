@@ -5,6 +5,7 @@
 
 .link {
     padding-left: 20px;
+    text-decoration: none;
 }
 
 .link:hover {
@@ -17,9 +18,10 @@
     background-color: #F5F5F5 !important;
 }
 
-.side-nav-container{
+.side-nav-container {
     min-width: 300px;
 }
+
 .side-bar-content {
     flex: 1 1 auto;
 }
@@ -27,6 +29,7 @@
 .side-bar {
     flex: 0 1 auto;
 }
+
 .header {
     background-color: #c9bba7;
 }
@@ -40,4 +43,21 @@
     display: flex;
     flex-flow: column;
     height: 100vh;
+}
+
+.link-logout {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.logout:hover {
+    background-color: #F5F5F5 !important;
+}
+.logout {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px 12px;
+    margin-left: auto;
+    margin-right: 0;
 }

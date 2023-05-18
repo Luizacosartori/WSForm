@@ -2,7 +2,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
 import { therapistData, clientData, treatmentData, massageForm } from '../formsData';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import jsPDF from 'jspdf';
 
 
 @Component({
@@ -119,13 +118,6 @@ export class NotesFormComponent {
   @ViewChild('showInfo')content!: ElementRef;
 
   SavePDF() {
-    let content = this.content.nativeElement;
-    let doc = new jsPDF('p', 'pt', 'a4');
-    console.log(doc)
-    doc.html(content);
-    doc.save('test.pdf');
-    doc.output('dataurlnewwindow'); // just open it
-
   }
 
 }

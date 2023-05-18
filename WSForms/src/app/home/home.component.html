@@ -7,23 +7,20 @@
             <span>
                 Menu&nbsp;
             </span>
+            <div class="logout">
+                <a href="/login" class=" link-logout">Logout</a>
+                <i class="fa fad fa-sign-out"></i>
+            </div>
         </mat-toolbar-row>
     </mat-toolbar>
     <mat-sidenav-container class="side-bar-content">
         <mat-sidenav class="side-nav-container" #button mode="side" closed>
             <mat-nav-list>
                 <a mat-list-item href="/home" class="link active">
-                    <i class="fa fas fa-home"></i>
-                    Home
-                </a>
-                <a mat-list-item href="/login" class="link">
-                    Login
-                </a>
-                <a mat-list-item href='/massageForm' class="link">
-                    Massage Form
+                    Dashboard
                 </a>
                 <a mat-list-item href='/notes' class="link">
-                    Notes Form
+                    Client Search
                 </a>
                 <a mat-list-item href='/reports' class="link">
                     Reports
