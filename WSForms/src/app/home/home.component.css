@@ -1,33 +1,6 @@
-.header {
-    background-color: #c9bba7;
-}
-
-.content {
-    line-height: 2rem;
-    font-size: 1.2em;
-}
-
-.container {
-    display: flex;
-    flex-flow: column;
-    height: 100vh;
-    overflow: auto;
-}
-
-.side-bar {
-    flex: 0 1 auto;
-}
-
-.side-bar-content {
-    flex: 1 1 auto;
-}
-
-.main-content {
-    background-color: #F5F5F5;
-}
-
 .main-content h1 {
     padding: 40px 50px 20px 50px;
+    display: inline-block;
 }
 
 .cards {
@@ -43,31 +16,8 @@
     columns: 5;
 }
 
-.logout {
-    background-color: lightgray;
-    border-radius: 5px;
-    padding: 5px 12px;
-    margin-left: auto;
-    margin-right: 0;
-}
-
 .explanation-title h3 {
     color: #909090;
-}
-
-.link-logout {
-    margin-right: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-.logout:hover {
-    background-color: #F5F5F5 !important;
-}
-
-.link:hover {
-    border-left: solid 6px #c9bba7;
-    background-color: #F5F5F5 !important;
 }
 
 .active {
@@ -75,35 +25,9 @@
     background-color: #F5F5F5 !important;
 }
 
-.side-nav-container {
-    min-width: 150px;
-}
-
 .explanation {
     margin-bottom: -40px;
     margin-top: -10px;
-}
-
-/* Tablet View */
-@media only screen and (max-width: 600px) {
-    .side-nav-container {
-        min-width: 150px;
-
-    }
-
-}
-
-/* Mobile View */
-@media only screen and (max-width: 430px) {
-    .side-nav-container {
-        min-width: 150px;
-    }
-
-    .synch-button {
-        display: none !important;
-    }
-
-
 }
 
 .full-width {
@@ -113,4 +37,14 @@
 .synch-button {
     display: inline-block;
     background-color: #c9bba7;
+}
+
+/* Tablet View */
+@media only screen and (max-width: 600px) {}
+
+/* Mobile View */
+@media only screen and (max-width: 430px) {
+    .synch-button {
+        display: none !important;
+    }
 }
