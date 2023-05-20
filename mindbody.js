@@ -43,9 +43,14 @@ module.exports = {
     getTreatments:(AccessToken,callback) =>{
         const https = require('https');
 
+        const date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
         const options = {
             hostname: MB_hostname,
-            path: '/public/v6/appointment/staffappointments?limit=200&offset=0&startDate=2023-05-12T12%3A00%3A22Z',
+            path: '/public/v6/appointment/staffappointments?limit=200&offset=0&startDate='+year+'-'+month+'-'+day+'T12%3A00%3A22Z',
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
