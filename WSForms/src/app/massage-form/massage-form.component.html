@@ -896,22 +896,130 @@
 
             <h4>Please select any areas of discomfort</h4>
 
-            <section>
+            <section id="humanbody_checkbox">
+              <input
+                type="checkbox"
+                id="front_right_arm"
+                name="front_right_arm"
+                value="front_right_arm"
+                formControlName="front_right_arm"
+                [checked]="bodyIsChecked.get('front_right_arm')"
+              />
               <input
                 type="checkbox"
                 id="front_right_hand"
                 name="front_right_hand"
                 value="front_right_hand"
                 formControlName="front_right_hand"
+                [checked]="bodyIsChecked.get('front_right_hand')"
               />
               <input
                 type="checkbox"
-                id="front_right_arm"
-                name="front_right_arm"
-                value="front_right_arm"
+                id="front_right_foot"
+                name="front_right_foot"
+                value="front_right_foot"
+                formControlName="front_right_foot"
+                [checked]="bodyIsChecked.get('front_right_foot')"
               />
+              <input
+                type="checkbox"
+                id="front_right_calf"
+                name="front_right_calf"
+                value="front_right_calf"
+                formControlName="front_right_calf"
+                [checked]="bodyIsChecked.get('front_right_calf')"
+              />
+              <input
+                type="checkbox"
+                id="front_right_knee"
+                name="front_right_knee"
+                value="front_right_knee"
+                formControlName="front_right_knee"
+                [checked]="bodyIsChecked.get('front_right_knee')"
+              />
+              <input
+                type="checkbox"
+                id="front_right_thigh"
+                name="front_right_thigh"
+                value="front_right_thigh"
+                formControlName="front_right_thigh"
+                [checked]="bodyIsChecked.get('front_right_thigh')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_foot"
+                name="front_left_foot"
+                value="front_left_foot"
+                formControlName="front_left_foot"
+                [checked]="bodyIsChecked.get('front_left_foot')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_calf"
+                name="front_left_calf"
+                value="front_left_calf"
+                formControlName="front_left_calf"
+                [checked]="bodyIsChecked.get('front_left_calf')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_knee"
+                name="front_left_knee"
+                value="front_left_knee"
+                formControlName="front_left_knee"
+                [checked]="bodyIsChecked.get('front_left_knee')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_thigh"
+                name="front_left_thigh"
+                value="front_left_thigh"
+                formControlName="front_left_thigh"
+                [checked]="bodyIsChecked.get('front_left_thigh')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_hand"
+                name="front_left_hand"
+                value="front_left_hand"
+                formControlName="front_left_hand"
+                [checked]="bodyIsChecked.get('front_left_hand')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_arm"
+                name="front_left_arm"
+                value="front_left_arm"
+                formControlName="front_left_arm"
+                [checked]="bodyIsChecked.get('front_left_arm')"
+              />
+              <input
+                type="checkbox"
+                id="front_abdomen"
+                name="front_abdomen"
+                value="front_abdomen"
+                formControlName="front_abdomen"
+                [checked]="bodyIsChecked.get('front_abdomen')"
+              />
+              <input
+                type="checkbox"
+                id="front_chest"
+                name="front_chest"
+                value="front_chest"
+                formControlName="front_chest"
+                [checked]="bodyIsChecked.get('front_chest')"
+              />
+              <input
+                type="checkbox"
+                id="front_head"
+                name="front_head"
+                value="front_head"
+                formControlName="front_head"
+                [checked]="bodyIsChecked.get('front_head')"
+              />
+              <span>Front of the Body</span>
               <svg
-                class="human_body_front_checkbox"
+                class="human_body_checkbox"
                 width="160px"
                 height="400px"
                 viewBox="0 0 160 400"
@@ -1007,8 +1115,90 @@
                   d="M63.04 34.32c0.07,-3.76 0.35,-7.12 0.38,-9.96 0.25,-18.22 31.67,-16.51 32.42,0.27 0.01,3.21 0.02,6.43 0.03,9.65 3.67,-0.53 3.57,1.21 2.91,5.31 -0.5,3.12 -3.27,7.37 -6.36,9.61 3.59,19.75 -29.65,19.19 -25.66,0.7 -3.63,-1.39 -11.37,-17.82 -3.72,-15.58z"
                 />
               </svg>
+
+              <input
+                type="checkbox"
+                id="back_right_arm"
+                name="back_right_arm"
+                value="back_right_arm"
+                formControlName="back_right_arm"
+                [checked]="bodyIsChecked.get('back_right_arm')"
+              />
+              <input
+                type="checkbox"
+                id="back_right_leg"
+                name="back_right_leg"
+                value="back_right_leg"
+                formControlName="back_right_leg"
+                [checked]="bodyIsChecked.get('back_right_leg')"
+              />
+              <input
+                type="checkbox"
+                id="back_right_hip"
+                name="back_right_hip"
+                value="back_right_hip"
+                formControlName="back_right_hip"
+                [checked]="bodyIsChecked.get('back_right_hip')"
+              />
+              <input
+                type="checkbox"
+                id="back_right_shoulder"
+                name="back_right_shoulder"
+                value="back_right_shoulder"
+                formControlName="back_right_shoulder"
+                [checked]="bodyIsChecked.get('back_right_shoulder')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_leg"
+                name="back_left_leg"
+                value="back_left_leg"
+                formControlName="back_left_leg"
+                [checked]="bodyIsChecked.get('back_left_leg')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_arm"
+                name="back_left_arm"
+                value="back_left_arm"
+                formControlName="back_left_arm"
+                [checked]="bodyIsChecked.get('back_left_arm')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_hip"
+                name="back_left_hip"
+                value="back_left_hip"
+                formControlName="back_left_hip"
+                [checked]="bodyIsChecked.get('back_left_hip')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_shoulder"
+                name="back_left_shoulder"
+                value="back_left_shoulder"
+                formControlName="back_left_shoulder"
+                [checked]="bodyIsChecked.get('back_left_shoulder')"
+              />
+              <input
+                type="checkbox"
+                id="back_lower_back"
+                name="back_lower_back"
+                value="back_lower_back"
+                formControlName="back_lower_back"
+                [checked]="bodyIsChecked.get('back_lower_back')"
+              />
+              <input
+                type="checkbox"
+                id="back_head"
+                name="back_head"
+                value="back_head"
+                formControlName="back_head"
+                [checked]="bodyIsChecked.get('back_head')"
+              />
+              <span>Back of the Body</span>
               <svg
-                class="human_body_front_checkbox"
+                class="human_body_checkbox"
                 width="160px"
                 height="400px"
                 viewBox="0 0 160 400"
