@@ -2,23 +2,24 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-image: linear-gradient(to top, rgb(146, 213, 235), rgb(189, 2, 241));
+    background-image: linear-gradient(to right bottom, rgba(134, 215, 241, 0.986), rgba(218, 105, 249, 0.731));
 
 }
 
 .wrapper {
     position: relative;
-    width: 55vw;
+    width: 60vw;
     height: 50vh;
     background-color: white;
     margin: 20vh auto;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .wrapper h1 {
     display: block;
     text-align: center;
     padding-top: 40px;
+    font-weight: 900;
 }
 
 .container {

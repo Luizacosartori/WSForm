@@ -11,13 +11,8 @@
 
   <form [formGroup]="massageForm" (ngSubmit)="onSubmit()">
     <mat-accordion>
-      <mat-expansion-panel
-        [expanded]="step === 0"
-        (opened)="setStep(0)"
-        class="panel"
-        style="margin-top: 50px"
-        hideToggle
-      >
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" class="panel" style="margin-top: 50px"
+        hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title> Personal Information </mat-panel-title>
         </mat-expansion-panel-header>
@@ -28,27 +23,13 @@
               <div class="lines">
                 <mat-form-field id="myinput" appearance="fill">
                   <mat-label>Full Name</mat-label>
-                  <input
-                    matInput
-                    id="full_name"
-                    placeholder="Full Name"
-                    type="text"
-                    formControlName="full_name"
-                  />
+                  <input matInput id="full_name" placeholder="Full Name" type="text" formControlName="full_name" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>DOB</mat-label>
-                  <input
-                    formControlName="date_of_birth"
-                    matInput
-                    [matDatepicker]="picker"
-                    id="date_of_birth"
-                    placeholder="Date of Birth"
-                  />
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
+                  <input formControlName="date_of_birth" matInput [matDatepicker]="picker" id="date_of_birth"
+                    placeholder="Date of Birth" />
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
@@ -56,23 +37,11 @@
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Address</mat-label>
-                  <input
-                    matInput
-                    id="address"
-                    placeholder="Address"
-                    type="text"
-                    formControlName="address"
-                  />
+                  <input matInput id="address" placeholder="Address" type="text" formControlName="address" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Suburb</mat-label>
-                  <input
-                    matInput
-                    id="suburb"
-                    placeholder="Suburb"
-                    type="text"
-                    formControlName="suburb"
-                  />
+                  <input matInput id="suburb" placeholder="Suburb" type="text" formControlName="suburb" />
                 </mat-form-field>
               </div>
 
@@ -92,13 +61,8 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Postal Code</mat-label>
-                  <input
-                    matInput
-                    id="postal_code"
-                    placeholder="Postal Code"
-                    type="text"
-                    formControlName="postal_code"
-                  />
+                  <input matInput id="postal_code" placeholder="Postal Code" type="text"
+                    formControlName="postal_code" />
                 </mat-form-field>
               </div>
 
@@ -106,46 +70,25 @@
               <div>
                 <mat-form-field class="full-width" appearance="fill">
                   <mat-label>Ocuppation</mat-label>
-                  <input
-                    matInput
-                    id="occupation"
-                    placeholder="Occupation"
-                    type="text"
-                    formControlName="occupation"
-                  />
+                  <input matInput id="occupation" placeholder="Occupation" type="text" formControlName="occupation" />
                 </mat-form-field>
               </div>
 
               <div class="lines">
                 <mat-form-field appearance="fill">
                   <mat-label>Email</mat-label>
-                  <input
-                    matInput
-                    id="email"
-                    placeholder="Email"
-                    type="email"
-                    formControlName="email"
-                  />
+                  <input matInput id="email" placeholder="Email" type="email" formControlName="email" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Phone</mat-label>
-                  <input
-                    matInput
-                    id="phone"
-                    placeholder="Phone"
-                    type="text"
-                    formControlName="phone"
-                  />
+                  <input matInput id="phone" placeholder="Phone" type="text" formControlName="phone" />
                 </mat-form-field>
               </div>
 
               <div class="radiobox-lines">
-                <mat-radio-group
-                  aria-label="Select an option"
-                  formControlName="hasHealth_insurance"
-                >
+                <mat-radio-group aria-label="Select an option" formControlName="hasHealth_insurance">
                   <p>Do you have a health insurance?</p>
-
+                  <!-- TAKE "dO YOU HAVE HEALTH INSURANCE OUT"  -->
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
@@ -153,75 +96,43 @@
               <div class="lines">
                 <mat-form-field>
                   <mat-label>Do you have Health Insurance?</mat-label>
-                  <mat-select
-                    id="health_insurance"
-                    formControlName="health_insurance"
-                  >
-                    <mat-option value="No Insurance"
-                      >I don't have health insurance</mat-option
-                    >
+                  <mat-select id="health_insurance" formControlName="health_insurance">
+                    <mat-option value="No Insurance">I don't have health insurance</mat-option>
                     <mat-option value="Medibank">Medibank</mat-option>
                     <mat-option value="Bupa">Bupa</mat-option>
                     <mat-option value="HCF">HCF</mat-option>
                     <mat-option value="Nib">Nib</mat-option>
                     <mat-option value="HBF">HBF</mat-option>
-                    <mat-option value="Australian Unity"
-                      >Australian Unity</mat-option
-                    >
-                    <mat-option value="Teachers Health"
-                      >Teachers Health</mat-option
-                    >
-                    <mat-option value="Quantas Health"
-                      >Quantas Health</mat-option
-                    >
-                    <mat-option value="Defence Health"
-                      >Defence Health</mat-option
-                    >
+                    <mat-option value="Australian Unity">Australian Unity</mat-option>
+                    <mat-option value="Teachers Health">Teachers Health</mat-option>
+                    <mat-option value="Quantas Health">Quantas Health</mat-option>
+                    <mat-option value="Defence Health">Defence Health</mat-option>
                     <mat-option value="CBHS">CBHS</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
+                  <!-- MAKE OTHER NOT REQUIRED -->
                   <mat-label>Other</mat-label>
-                  <input
-                    matInput
-                    id="health_insurance_other"
-                    placeholder="Other"
-                    type="text"
-                    formControlName="health_insurance_other"
-                  />
+                  <input matInput id="health_insurance_other" placeholder="Other" type="text"
+                    formControlName="health_insurance_other" />
                 </mat-form-field>
               </div>
 
               <div class="three-collums">
                 <mat-form-field appearance="fill">
                   <mat-label>Emergency Contact Name</mat-label>
-                  <input
-                    matInput
-                    id="emergency_contact_name"
-                    placeholder="Emergency Contact Name"
-                    type="text"
-                    formControlName="emergency_contact_name"
-                  />
+                  <input matInput id="emergency_contact_name" placeholder="Emergency Contact Name" type="text"
+                    formControlName="emergency_contact_name" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Relationship</mat-label>
-                  <input
-                    matInput
-                    id="emergency_contact_relationship"
-                    placeholder="Relationship"
-                    type="text"
-                    formControlName="emergency_contact_relationship"
-                  />
+                  <input matInput id="emergency_contact_relationship" placeholder="Relationship" type="text"
+                    formControlName="emergency_contact_relationship" />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Phone</mat-label>
-                  <input
-                    matInput
-                    id="emergency_contact_phone"
-                    placeholder="Phone"
-                    type="text"
-                    formControlName="emergency_contact_phone"
-                  />
+                  <input matInput id="emergency_contact_phone" placeholder="Phone" type="text"
+                    formControlName="emergency_contact_phone" />
                 </mat-form-field>
               </div>
               <!-- Hear about us -->
@@ -229,95 +140,47 @@
               <div class="lines">
                 <div style="width: 50%">
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_online_search"
-                      name="hear_about_us_online_search"
-                      formControlName="hear_about_us_online_search"
-                      [ngModel]="notChecked"
-                    />
-                    <label for="hear_about_us_online_search"
-                      >Online Search</label
-                    >
+                    <mat-checkbox type="checkbox" id="hear_about_us_online_search" name="hear_about_us_online_search"
+                      formControlName="hear_about_us_online_search" [ngModel]="notChecked" />
+                    <label for="hear_about_us_online_search">Online Search</label>
                   </div>
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_facebook"
-                      name="hear_about_us_facebook"
-                      formControlName="hear_about_us_facebook"
-                      [ngModel]="notChecked"
-                    />
+                    <mat-checkbox type="checkbox" id="hear_about_us_facebook" name="hear_about_us_facebook"
+                      formControlName="hear_about_us_facebook" [ngModel]="notChecked" />
                     <label for="hear_about_us_facebook">Facebook</label>
                   </div>
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_instagram"
-                      name="hear_about_us_instagram"
-                      formControlName="hear_about_us_instagram"
-                      [ngModel]="notChecked"
-                    />
+                    <mat-checkbox type="checkbox" id="hear_about_us_instagram" name="hear_about_us_instagram"
+                      formControlName="hear_about_us_instagram" [ngModel]="notChecked" />
                     <label for="hear_about_us_instagram">Instagram</label>
                   </div>
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_online_advertisement"
-                      name="hear_about_us_online_advertisement"
-                      formControlName="hear_about_us_online_advertisement"
-                      [ngModel]="notChecked"
-                    />
-                    <label for="hear_about_us_online_advertisement"
-                      >Online Advertisement</label
-                    >
+                    <mat-checkbox type="checkbox" id="hear_about_us_online_advertisement"
+                      name="hear_about_us_online_advertisement" formControlName="hear_about_us_online_advertisement"
+                      [ngModel]="notChecked" />
+                    <label for="hear_about_us_online_advertisement">Online Advertisement</label>
                   </div>
                 </div>
                 <div style="width: 50%">
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_word_of_mouth"
-                      name="hear_about_us_word_of_mouth"
-                      formControlName="hear_about_us_word_of_mouth"
-                      [ngModel]="notChecked"
-                    />
-                    <label for="hear_about_us_word_of_mouth"
-                      >Word of Mouth</label
-                    >
+                    <mat-checkbox type="checkbox" id="hear_about_us_word_of_mouth" name="hear_about_us_word_of_mouth"
+                      formControlName="hear_about_us_word_of_mouth" [ngModel]="notChecked" />
+                    <label for="hear_about_us_word_of_mouth">Word of Mouth</label>
                   </div>
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_friend_family"
-                      name="hear_about_us_friend_family"
-                      formControlName="hear_about_us_friend_family"
-                      [ngModel]="notChecked"
-                    />
-                    <label for="hear_about_us_friend_family"
-                      >Friend/family</label
-                    >
+                    <mat-checkbox type="checkbox" id="hear_about_us_friend_family" name="hear_about_us_friend_family"
+                      formControlName="hear_about_us_friend_family" [ngModel]="notChecked" />
+                    <label for="hear_about_us_friend_family">Friend/family</label>
                   </div>
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_healthcare_provider"
-                      name="hear_about_us_healthcare_provider"
-                      formControlName="hear_about_us_healthcare_provider"
-                      [ngModel]="notChecked"
-                    />
-                    <label for="hear_about_us_healthcare_provider"
-                      >Healthcare Provider</label
-                    >
+                    <mat-checkbox type="checkbox" id="hear_about_us_healthcare_provider"
+                      name="hear_about_us_healthcare_provider" formControlName="hear_about_us_healthcare_provider"
+                      [ngModel]="notChecked" />
+                    <label for="hear_about_us_healthcare_provider">Healthcare Provider</label>
                   </div>
                   <div>
-                    <mat-checkbox
-                      type="checkbox"
-                      id="hear_about_us_walked_by"
-                      name="hear_about_us_walked_by"
-                      formControlName="hear_about_us_walked_by"
-                      [ngModel]="notChecked"
-                    />
+                    <mat-checkbox type="checkbox" id="hear_about_us_walked_by" name="hear_about_us_walked_by"
+                      formControlName="hear_about_us_walked_by" [ngModel]="notChecked" />
                     <label for="hear_about_us_walked_by">Walked by</label>
                   </div>
                 </div>
@@ -330,12 +193,7 @@
         </mat-action-row>
       </mat-expansion-panel>
 
-      <mat-expansion-panel
-        [expanded]="step === 1"
-        (opened)="setStep(1)"
-        class="panel"
-        hideToggle
-      >
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" class="panel" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title> Health Information </mat-panel-title>
         </mat-expansion-panel-header>
@@ -344,10 +202,7 @@
           <div class="form-container">
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group
-                  aria-label="Select an option"
-                  formControlName="taking_medication"
-                >
+                <mat-radio-group aria-label="Select an option" formControlName="taking_medication">
                   <p>Are you taking any medications?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
@@ -356,259 +211,141 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please list name and use</mat-label>
-                <input
-                  matInput
-                  id="medications"
-                  placeholder="Please type the name and use"
-                  type="text"
-                  formControlName="taking_medication_list"
-                />
+                <input matInput id="medications" placeholder="Please type the name and use" type="text"
+                  formControlName="taking_medication_list" />
               </mat-form-field>
             </div>
 
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group
-                  aria-label="Select an option"
-                  formControlName="pregnant"
-                >
+                <mat-radio-group aria-label="Select an option" formControlName="pregnant">
                   <p>Are you currently pregnant?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
               </div>
-
+              <!-- IF PREGGO = YES MAKE THE NEXT 2 FIELDS REQUIRED, IF NOT DISABLE THEM -->
               <mat-form-field appearance="fill">
                 <mat-label>If yes, how far along?</mat-label>
-                <input
-                  matInput
-                  id="pregnant_how_far"
-                  placeholder="How far"
-                  type="text"
-                  formControlName="pregnant_how_far"
-                />
+                <input matInput id="pregnant_how_far" placeholder="How far" type="text"
+                  formControlName="pregnant_how_far"  />
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Any high risk factors?</mat-label>
-                <input
-                  matInput
-                  id="risks-pregnant"
-                  placeholder="Any risk"
-                  type="text"
-                  formControlName="pregnant_high_risk"
-                />
+                <input matInput id="risks-pregnant" placeholder="Any risk" type="text"
+                  formControlName="pregnant_high_risk" />
               </mat-form-field>
             </div>
 
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group
-                  aria-label="Select an option"
-                  formControlName="chronic_pain"
-                >
+                <mat-radio-group aria-label="Select an option" formControlName="chronic_pain">
                   <p>Do you suffer from chronic pain?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
               </div>
-
+              <!-- IF NOT CRONIC PAIN DISABLE  -->
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please explain</mat-label>
-                <input
-                  matInput
-                  id="chronic_pain_explanation"
-                  placeholder="Please type the name and use"
-                  type="text"
-                  formControlName="chronic_pain_explanation"
-                />
+                <input matInput id="chronic_pain_explanation" placeholder="Please type the name and use" type="text"
+                  formControlName="chronic_pain_explanation" />
               </mat-form-field>
             </div>
 
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group
-                  aria-label="Select an option"
-                  formControlName="orthopedic_injuries"
-                >
+                <mat-radio-group aria-label="Select an option" formControlName="orthopedic_injuries">
                   <p>Have you had any orthopedic injuries?</p>
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
               </div>
+              <!-- IF NOT INJURIES DISABLE  -->
 
               <mat-form-field appearance="fill">
                 <mat-label>If yes, please list</mat-label>
-                <input
-                  matInput
-                  id="orthopedic_injuries"
-                  placeholder="Please type the name and use"
-                  type="text"
-                  formControlName="orthopedic_injuries_list"
-                />
+                <input matInput id="orthopedic_injuries" placeholder="Please type the name and use" type="text"
+                  formControlName="orthopedic_injuries_list" />
               </mat-form-field>
             </div>
 
             <h4>Please indicate any of the following that apply to you:</h4>
+            <!-- ADD A FALL BACK AND TO AVOID CONFUSIOIN
+            "None of the below" checkbox
+            -->
             <div class="lines">
               <div style="width: 50%">
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasCancer"
-                    name="hasCancer"
-                    formControlName="hasCancer"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasCancer" name="hasCancer"
+                    formControlName="hasCancer" [ngModel]="notChecked" />
                   <label for="hasCancer">Cancer</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasHeadaches_migraines"
-                    name="hasHeadaches_migraines"
-                    formControlName="hasHeadaches_migraines"
-                    [ngModel]="notChecked"
-                  />
-                  <label for="hasHeadaches_migraines"
-                    >Headaches / Migraines</label
-                  >
+                  <mat-checkbox color="primary" type="checkbox" id="hasHeadaches_migraines"
+                    name="hasHeadaches_migraines" formControlName="hasHeadaches_migraines" [ngModel]="notChecked" />
+                  <label for="hasHeadaches_migraines">Headaches / Migraines</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasArthritis"
-                    name="hasArthritis"
-                    formControlName="hasArthritis"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasArthritis" name="hasArthritis"
+                    formControlName="hasArthritis" [ngModel]="notChecked" />
                   <label for="hasArthritis">Arthritis</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasDiabetes"
-                    name="hasDiabetes"
-                    formControlName="hasDiabetes"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasDiabetes" name="hasDiabetes"
+                    formControlName="hasDiabetes" [ngModel]="notChecked" />
                   <label for="hasDiabetes">Diabetes</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasJoint_replacement"
-                    name="hasJoint_replacement"
-                    formControlName="hasJoint_replacement"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasJoint_replacement" name="hasJoint_replacement"
+                    formControlName="hasJoint_replacement" [ngModel]="notChecked" />
                   <label for="hasJoint_replacement">Joint Replacement(s)</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasHigh_low_pressure"
-                    name="hasHigh_low_pressure"
-                    formControlName="hasHigh_low_pressure"
-                    [ngModel]="notChecked"
-                  />
-                  <label for="hasHigh_low_pressure"
-                    >High / Low Blood Pressure</label
-                  >
+                  <mat-checkbox color="primary" type="checkbox" id="hasHigh_low_pressure" name="hasHigh_low_pressure"
+                    formControlName="hasHigh_low_pressure" [ngModel]="notChecked" />
+                  <label for="hasHigh_low_pressure">High / Low Blood Pressure</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasNeuropathy"
-                    name="hasNeuropathy"
-                    formControlName="hasNeuropathy"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasNeuropathy" name="hasNeuropathy"
+                    formControlName="hasNeuropathy" [ngModel]="notChecked" />
                   <label for="hasNeuropathy">Neuropathy</label>
                 </div>
               </div>
               <div style="width: 50%">
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasFibromyalgia"
-                    name="hasFibromyalgia"
-                    formControlName="hasFibromyalgia"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasFibromyalgia" name="hasFibromyalgia"
+                    formControlName="hasFibromyalgia" [ngModel]="notChecked" />
                   <label for="hasFibromyalgia">Fibromyalgia</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasStroke"
-                    name="hasStroke"
-                    formControlName="hasStroke"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasStroke" name="hasStroke"
+                    formControlName="hasStroke" [ngModel]="notChecked" />
                   <label for="hasStroke">Stroke</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasHeart_attack"
-                    name="hasHeart_attack"
-                    formControlName="hasHeart_attack"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasHeart_attack" name="hasHeart_attack"
+                    formControlName="hasHeart_attack" [ngModel]="notChecked" />
                   <label for="hasHeart_attack">Heart Attack</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasKidney_dysfunction"
-                    name="hasKidney_dysfunction"
-                    formControlName="hasKidney_dysfunction"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasKidney_dysfunction" name="hasKidney_dysfunction"
+                    formControlName="hasKidney_dysfunction" [ngModel]="notChecked" />
                   <label for="hasKidney_dysfunction">Kidney Dysfunction</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasBlood_clots"
-                    name="hasBlood_clots"
-                    formControlName="hasBlood_clots"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasBlood_clots" name="hasBlood_clots"
+                    formControlName="hasBlood_clots" [ngModel]="notChecked" />
                   <label for="hasBlood_clots">Blood Clots</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasNumbness"
-                    name="hasNumbness"
-                    formControlName="hasNumbness"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasNumbness" name="hasNumbness"
+                    formControlName="hasNumbness" [ngModel]="notChecked" />
                   <label for="hasNumbness">Numbness</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="hasSprains_strains"
-                    name="hasSprains_strains"
-                    formControlName="hasSprains_strains"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="hasSprains_strains" name="hasSprains_strains"
+                    formControlName="hasSprains_strains" [ngModel]="notChecked" />
                   <label for="hasSprains_strains">Sprains or Strains</label>
                 </div>
               </div>
@@ -616,14 +353,9 @@
             <br />
             <div class="lines">
               <mat-form-field>
-                <mat-label
-                  >Explain any conditions you have marked above</mat-label
-                >
-                <textarea
-                  matInput
-                  placeholder="Any conditions"
-                  formControlName="conditions_explanation"
-                ></textarea>
+                <!-- NOT REQUIRED IF NONE CONDITIONS WERE MARKET -->
+                <mat-label>Explain any conditions you have marked above</mat-label>
+                <textarea matInput placeholder="Any conditions" formControlName="conditions_explanation"></textarea>
               </mat-form-field>
             </div>
           </div>
@@ -635,13 +367,9 @@
         </mat-action-row>
       </mat-expansion-panel>
 
-      <mat-expansion-panel
-        [expanded]="step === 2"
-        (opened)="setStep(2)"
-        class="panel"
-        style="margin-bottom: 50px"
-        hideToggle
-      >
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" class="panel" style="margin-bottom: 50px"
+        hideToggle>
+        <!-- NEED TO FIX SUBMIT BUG -->
         <mat-expansion-panel-header>
           <mat-panel-title> Massage Information </mat-panel-title>
         </mat-expansion-panel-header>
@@ -650,11 +378,8 @@
           <div class="form-container">
             <div class="lines">
               <div class="radiobox-lines">
-                <mat-radio-group
-                  aria-label="Select an option"
-                  id="had_professional_massage"
-                  formControlName="had_professional_massage"
-                >
+                <mat-radio-group aria-label="Select an option" id="had_professional_massage"
+                  formControlName="had_professional_massage">
                   <p>Have you had a professional massage before?</p>
                   <mat-radio-button value="1">Yes</mat-radio-button>
                   <mat-radio-button value="2">No</mat-radio-button>
@@ -663,67 +388,35 @@
             </div>
             <div class="lines">
               <mat-form-field appearance="fill">
-                <mat-label
-                  >What type of massage are you interested in?</mat-label
-                >
-                <mat-select
-                  formControlName="professional_massage_type"
-                  multiple
-                >
-                  <mat-option value="Remedial Massage"
-                    >Remedial Massage</mat-option
-                  >
-                  <mat-option value="Deep Tissue/Sports Massage"
-                    >Deep Tissue/Sports Massage</mat-option
-                  >
+                <mat-label>What type of massage are you interested in?</mat-label>
+                <mat-select formControlName="professional_massage_type" multiple>
+                  <mat-option value="Remedial Massage">Remedial Massage</mat-option>
+                  <mat-option value="Deep Tissue/Sports Massage">Deep Tissue/Sports Massage</mat-option>
                   <mat-option value="Relaxation">Swedish/Relaxation</mat-option>
-                  <mat-option value="Lymphatic Drainage"
-                    >Lymphatic Drainage</mat-option
-                  >
-                  <mat-option value="Foot Reflexology"
-                    >Foot Reflexology</mat-option
-                  >
-                  <mat-option value="Indian Head Massage"
-                    >Indian Head Massage</mat-option
-                  >
+                  <mat-option value="Lymphatic Drainage">Lymphatic Drainage</mat-option>
+                  <mat-option value="Foot Reflexology">Foot Reflexology</mat-option>
+                  <mat-option value="Indian Head Massage">Indian Head Massage</mat-option>
                   <mat-option value="Dry Needling">Dry Needling</mat-option>
-                  <mat-option value="Cupping Treatment"
-                    >Cupping Treatment</mat-option
-                  >
-                  <mat-option value="Pregnancy Massage"
-                    >Pregnancy Massage</mat-option
-                  >
-                  <mat-option value="Post Natal Massage"
-                    >Post Natal Massage</mat-option
-                  >
-                  <mat-option value="Energy Healing Massage"
-                    >Energy Healing Massage</mat-option
-                  >
+                  <mat-option value="Cupping Treatment">Cupping Treatment</mat-option>
+                  <mat-option value="Pregnancy Massage">Pregnancy Massage</mat-option>
+                  <mat-option value="Post Natal Massage">Post Natal Massage</mat-option>
+                  <mat-option value="Energy Healing Massage">Energy Healing Massage</mat-option>
                   <mat-option value="Devine Shape">Devine Shape</mat-option>
                   <mat-option value="Lomi Lomi">Lomi Lomi</mat-option>
-                  <mat-option value="Recover and Disconnect"
-                    >Recover and Disconnect</mat-option
-                  >
+                  <mat-option value="Recover and Disconnect">Recover and Disconnect</mat-option>
                 </mat-select>
               </mat-form-field>
               <mat-form-field appearance="fill">
+                <!-- DO NOT MAKE THIS OTHER FIELD REQUIRED AT ANY TIME- NOT NECESSARY -->
                 <mat-label>Other</mat-label>
-                <input
-                  matInput
-                  id="professional_massage_other"
-                  placeholder="Other"
-                  type="text"
-                  formControlName="professional_massage_other"
-                />
+                <input matInput id="professional_massage_other" placeholder="Other" type="text"
+                  formControlName="professional_massage_other" />
               </mat-form-field>
             </div>
             <div>
               <div class="radiobox-lines">
-                <mat-radio-group
-                  id="pressure_preference"
-                  aria-label="Select an option"
-                  formControlName="pressure_preference"
-                >
+                <mat-radio-group id="pressure_preference" aria-label="Select an option"
+                  formControlName="pressure_preference">
                   <p>What pressure do you prefer?</p>
                   <mat-radio-button value="Light">Light</mat-radio-button>
                   <mat-radio-button value="Medium">Medium</mat-radio-button>
@@ -734,26 +427,19 @@
             </div>
 
             <div class="radiobox-lines">
-              <mat-radio-group
-                id="allergies_sensitivities"
-                aria-label="Select an option"
-                formControlName="allergies_sensitivities"
-              >
+              <mat-radio-group id="allergies_sensitivities" aria-label="Select an option"
+                formControlName="allergies_sensitivities">
                 <p>Do you have any allergies or sensitivities?</p>
                 <mat-radio-button value="1">Yes</mat-radio-button>
                 <mat-radio-button value="2">No</mat-radio-button>
               </mat-radio-group>
             </div>
             <div>
+              <!-- ONLY MAKE VISIBLE WHEN CHECKED YES FOR ALLERGIES -->
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Please Explain</mat-label>
-                <input
-                  matInput
-                  id="allergies_sensitivities_explanation"
-                  placeholder="Please Explain"
-                  type="text"
-                  formControlName="allergies_sensitivities_explanation"
-                />
+                <input matInput id="allergies_sensitivities_explanation" placeholder="Please Explain" type="text"
+                  formControlName="allergies_sensitivities_explanation" />
               </mat-form-field>
             </div>
 
@@ -761,85 +447,43 @@
             <div class="lines">
               <div style="width: 50%">
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation"
-                    formControlName="goal_pain_relief"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation"
+                    name="goal_injury_rehabilitation" formControlName="goal_pain_relief" [ngModel]="notChecked" />
                   <label for="goal_injury_rehabilitation">Pain Relief</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="goal_improve_sleep"
-                    name="goal_improve_sleep"
-                    formControlName="goal_stress_reduction"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="goal_improve_sleep" name="goal_improve_sleep"
+                    formControlName="goal_stress_reduction" [ngModel]="notChecked" />
                   <label for="goal_improve_sleep">Stress Reduction</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="goal_increase_energy"
-                    name="goal_increase_energy"
-                    formControlName="goal_increase_range_of_motion"
-                    [ngModel]="notChecked"
-                  />
-                  <label for="goal_increase_energy"
-                    >Increase Flexibility and Range of motion</label
-                  >
+                  <mat-checkbox color="primary" type="checkbox" id="goal_increase_energy" name="goal_increase_energy"
+                    formControlName="goal_increase_range_of_motion" [ngModel]="notChecked" />
+                  <label for="goal_increase_energy">Increase Flexibility and Range of motion</label>
                 </div>
               </div>
               <div style="width: 50%">
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation"
-                    formControlName="goal_injury_rehabilitation"
-                    [ngModel]="notChecked"
-                  />
-                  <label for="goal_injury_rehabilitation"
-                    >Injury Rehabilitation</label
-                  >
+                  <mat-checkbox color="primary" type="checkbox" id="goal_injury_rehabilitation"
+                    name="goal_injury_rehabilitation" formControlName="goal_injury_rehabilitation"
+                    [ngModel]="notChecked" />
+                  <label for="goal_injury_rehabilitation">Injury Rehabilitation</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="goals-sleep"
-                    name="goal_improve_sleep"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="goals-sleep" name="goal_improve_sleep" />
                   <label for="goals-sleep">Improve Sleep</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="goals-energy"
-                    name="goal_increase_energy"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="goals-energy" name="goal_increase_energy" />
                   <label for="goals-energy">Increase Energy</label>
                 </div>
               </div>
             </div>
             <div class="lines">
               <mat-form-field appearance="fill">
+                <!-- DO NOT MAKE THIS REQUUIRED ANY TIME  -->
                 <mat-label>Other</mat-label>
-                <input
-                  matInput
-                  id=""
-                  placeholder="Other goals"
-                  type="text"
-                  formControlName="goal_other"
-                />
+                <input matInput id="" placeholder="Other goals" type="text" formControlName="goal_other" />
               </mat-form-field>
             </div>
 
@@ -847,36 +491,19 @@
             <div class="lines">
               <div style="width: 50%">
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="massage_frequency_weekly"
-                    name="massage_frequency_weekly"
-                    formControlName="massage_frequency_weekly"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="massage_frequency_weekly"
+                    name="massage_frequency_weekly" formControlName="massage_frequency_weekly" [ngModel]="notChecked" />
                   <label for="massage_frequency_weekly">Weekly </label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="massage_frequency_monthly"
-                    name="massage_frequency_monthly"
-                    formControlName="massage_frequency_monthly"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="massage_frequency_monthly"
+                    name="massage_frequency_monthly" formControlName="massage_frequency_monthly"
+                    [ngModel]="notChecked" />
                   <label for="massage_frequency_monthly">Monthly</label>
                 </div>
                 <div>
-                  <mat-checkbox
-                    color="primary"
-                    type="checkbox"
-                    id="massage_frequency_random"
-                    name="massage_frequency_random"
-                    formControlName="massage_frequency_random"
-                    [ngModel]="notChecked"
-                  />
+                  <mat-checkbox color="primary" type="checkbox" id="massage_frequency_random"
+                    name="massage_frequency_random" formControlName="massage_frequency_random" [ngModel]="notChecked" />
                   <label for="massage_frequency_random">Random</label>
                 </div>
               </div>
@@ -884,34 +511,138 @@
             <div class="lines">
               <mat-form-field appearance="fill">
                 <mat-label>Other</mat-label>
-                <input
-                  matInput
-                  id=""
-                  placeholder="massage_frequency_other"
-                  type="massage_frequency_other"
-                  formControlName="massage_frequency_other"
-                />
+                    <!-- DO NOT MAKE THIS REQUUIRED ANY TIME  -->
+                <input matInput id="" placeholder="massage_frequency_other" type="massage_frequency_other"
+                  formControlName="massage_frequency_other" />
               </mat-form-field>
             </div>
 
             <h4>Please select any areas of discomfort</h4>
 
-            <section>
+            <section id="humanbody_checkbox">
+              <input
+                type="checkbox"
+                id="front_right_arm"
+                name="front_right_arm"
+                value="front_right_arm"
+                formControlName="front_right_arm"
+                [checked]="bodyIsChecked.get('front_right_arm')"
+              />
               <input
                 type="checkbox"
                 id="front_right_hand"
                 name="front_right_hand"
                 value="front_right_hand"
                 formControlName="front_right_hand"
+                [checked]="bodyIsChecked.get('front_right_hand')"
               />
               <input
                 type="checkbox"
-                id="front_right_arm"
-                name="front_right_arm"
-                value="front_right_arm"
+                id="front_right_foot"
+                name="front_right_foot"
+                value="front_right_foot"
+                formControlName="front_right_foot"
+                [checked]="bodyIsChecked.get('front_right_foot')"
               />
+              <input
+                type="checkbox"
+                id="front_right_calf"
+                name="front_right_calf"
+                value="front_right_calf"
+                formControlName="front_right_calf"
+                [checked]="bodyIsChecked.get('front_right_calf')"
+              />
+              <input
+                type="checkbox"
+                id="front_right_knee"
+                name="front_right_knee"
+                value="front_right_knee"
+                formControlName="front_right_knee"
+                [checked]="bodyIsChecked.get('front_right_knee')"
+              />
+              <input
+                type="checkbox"
+                id="front_right_thigh"
+                name="front_right_thigh"
+                value="front_right_thigh"
+                formControlName="front_right_thigh"
+                [checked]="bodyIsChecked.get('front_right_thigh')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_foot"
+                name="front_left_foot"
+                value="front_left_foot"
+                formControlName="front_left_foot"
+                [checked]="bodyIsChecked.get('front_left_foot')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_calf"
+                name="front_left_calf"
+                value="front_left_calf"
+                formControlName="front_left_calf"
+                [checked]="bodyIsChecked.get('front_left_calf')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_knee"
+                name="front_left_knee"
+                value="front_left_knee"
+                formControlName="front_left_knee"
+                [checked]="bodyIsChecked.get('front_left_knee')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_thigh"
+                name="front_left_thigh"
+                value="front_left_thigh"
+                formControlName="front_left_thigh"
+                [checked]="bodyIsChecked.get('front_left_thigh')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_hand"
+                name="front_left_hand"
+                value="front_left_hand"
+                formControlName="front_left_hand"
+                [checked]="bodyIsChecked.get('front_left_hand')"
+              />
+              <input
+                type="checkbox"
+                id="front_left_arm"
+                name="front_left_arm"
+                value="front_left_arm"
+                formControlName="front_left_arm"
+                [checked]="bodyIsChecked.get('front_left_arm')"
+              />
+              <input
+                type="checkbox"
+                id="front_abdomen"
+                name="front_abdomen"
+                value="front_abdomen"
+                formControlName="front_abdomen"
+                [checked]="bodyIsChecked.get('front_abdomen')"
+              />
+              <input
+                type="checkbox"
+                id="front_chest"
+                name="front_chest"
+                value="front_chest"
+                formControlName="front_chest"
+                [checked]="bodyIsChecked.get('front_chest')"
+              />
+              <input
+                type="checkbox"
+                id="front_head"
+                name="front_head"
+                value="front_head"
+                formControlName="front_head"
+                [checked]="bodyIsChecked.get('front_head')"
+              />
+              <span>Front of the Body</span>
               <svg
-                class="human_body_front_checkbox"
+                class="human_body_checkbox"
                 width="160px"
                 height="400px"
                 viewBox="0 0 160 400"
@@ -1007,8 +738,90 @@
                   d="M63.04 34.32c0.07,-3.76 0.35,-7.12 0.38,-9.96 0.25,-18.22 31.67,-16.51 32.42,0.27 0.01,3.21 0.02,6.43 0.03,9.65 3.67,-0.53 3.57,1.21 2.91,5.31 -0.5,3.12 -3.27,7.37 -6.36,9.61 3.59,19.75 -29.65,19.19 -25.66,0.7 -3.63,-1.39 -11.37,-17.82 -3.72,-15.58z"
                 />
               </svg>
+
+              <input
+                type="checkbox"
+                id="back_right_arm"
+                name="back_right_arm"
+                value="back_right_arm"
+                formControlName="back_right_arm"
+                [checked]="bodyIsChecked.get('back_right_arm')"
+              />
+              <input
+                type="checkbox"
+                id="back_right_leg"
+                name="back_right_leg"
+                value="back_right_leg"
+                formControlName="back_right_leg"
+                [checked]="bodyIsChecked.get('back_right_leg')"
+              />
+              <input
+                type="checkbox"
+                id="back_right_hip"
+                name="back_right_hip"
+                value="back_right_hip"
+                formControlName="back_right_hip"
+                [checked]="bodyIsChecked.get('back_right_hip')"
+              />
+              <input
+                type="checkbox"
+                id="back_right_shoulder"
+                name="back_right_shoulder"
+                value="back_right_shoulder"
+                formControlName="back_right_shoulder"
+                [checked]="bodyIsChecked.get('back_right_shoulder')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_leg"
+                name="back_left_leg"
+                value="back_left_leg"
+                formControlName="back_left_leg"
+                [checked]="bodyIsChecked.get('back_left_leg')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_arm"
+                name="back_left_arm"
+                value="back_left_arm"
+                formControlName="back_left_arm"
+                [checked]="bodyIsChecked.get('back_left_arm')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_hip"
+                name="back_left_hip"
+                value="back_left_hip"
+                formControlName="back_left_hip"
+                [checked]="bodyIsChecked.get('back_left_hip')"
+              />
+              <input
+                type="checkbox"
+                id="back_left_shoulder"
+                name="back_left_shoulder"
+                value="back_left_shoulder"
+                formControlName="back_left_shoulder"
+                [checked]="bodyIsChecked.get('back_left_shoulder')"
+              />
+              <input
+                type="checkbox"
+                id="back_lower_back"
+                name="back_lower_back"
+                value="back_lower_back"
+                formControlName="back_lower_back"
+                [checked]="bodyIsChecked.get('back_lower_back')"
+              />
+              <input
+                type="checkbox"
+                id="back_head"
+                name="back_head"
+                value="back_head"
+                formControlName="back_head"
+                [checked]="bodyIsChecked.get('back_head')"
+              />
+              <span>Back of the Body</span>
               <svg
-                class="human_body_front_checkbox"
+                class="human_body_checkbox"
                 width="160px"
                 height="400px"
                 viewBox="0 0 160 400"
@@ -1086,28 +899,15 @@
             <div class="lines">
               <mat-form-field appearance="fill">
                 <mat-label>Client Signature</mat-label>
-                <input
-                  matInput
-                  id="client_signature"
-                  placeholder="Client Signature"
-                  type="text"
-                  formControlName="client_signature"
-                />
+                <input matInput id="client_signature" placeholder="Client Signature" type="text"
+                  formControlName="client_signature" />
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Signature Date</mat-label>
-                <input
-                  formControlName="client_signature_date"
-                  matInput
-                  [matDatepicker]="picker_signature"
-                  id="client_signature_date"
-                  placeholder="Signature date"
-                />
-                <mat-datepicker-toggle
-                  matIconSuffix
-                  [for]="picker_signature"
-                ></mat-datepicker-toggle>
+                <input formControlName="client_signature_date" matInput [matDatepicker]="picker_signature"
+                  id="client_signature_date" placeholder="Signature date" />
+                <mat-datepicker-toggle matIconSuffix [for]="picker_signature"></mat-datepicker-toggle>
                 <mat-datepicker #picker_signature></mat-datepicker>
               </mat-form-field>
             </div>

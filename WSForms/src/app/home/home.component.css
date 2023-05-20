@@ -39,6 +39,10 @@
     background-color: #c9bba7;
 }
 
+.display {
+    display: block;
+}
+
 /* Tablet View */
 @media only screen and (max-width: 600px) {}
 

@@ -173,16 +173,16 @@ mat-radio-group {
 }
 /* SVG  */
 
-.human_body_front_checkbox {
+.human_body_checkbox {
   fill: #b3b3b3;
 }
-.human_body_front_checkbox path:hover {
+.human_body_checkbox path:hover {
   fill: #570000;
 }
 
 .human_body_part_selected {
   fill: rgb(200, 0, 0);
 }
-input[type="checkbox"] {
+#humanbody_checkbox input[type="checkbox"] {
   display: none;
 }

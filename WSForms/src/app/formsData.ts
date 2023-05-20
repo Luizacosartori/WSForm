@@ -8,14 +8,14 @@ export class therapistData {
     }
 }
 
-export class clientData{
+export class clientData {
     firstName: string;
     middleName: string;
     lastName: string;
     mobile_phone: string;
     email: string;
 
-    constructor(firstName: string, middleName: string, lastName: string, mobile_phone: string, email: string){
+    constructor(firstName: string, middleName: string, lastName: string, mobile_phone: string, email: string) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -24,7 +24,7 @@ export class clientData{
     }
 }
 
-export class treatmentData{
+export class treatmentData {
     treatment_id: number;
     staff_id: number;
     client_id: number;
@@ -33,9 +33,81 @@ export class treatmentData{
     pressure: string;
     back_of_body: string;
     front_of_body: string;
+    treatment_plan: string;
+    supraspinatus: string;
+    biceps_femoris: string;
+    gracialis: string;
+    tibialis_anterior: string;
+    quadriceps: string;
+    soleus: string;
+    gastrocnemius: string;
+    teres_major_minor: string;
+    adductor_magnus: string;
+    tfl: string;
+    iliopsoas: string;
+    sartorius: string;
+    glut_mid: string;
+    glut_max: string;
+    serratus: string;
+    triceps_brachii: string;
+    biceps_brachii: string;
+    pec_major: string;
+    deltoids: string;
+    trapezius: string;
+    rhomboids: string;
+    elavator_scapulae: string;
+    ect: string;
+    lat_dorsi: string;
+    erect_spinae: string;
 
-
-    constructor(pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, staff_id: number, treatment_StartDateTime: Date, treatment_notes: string){
+    constructor(treatment_plan: string,
+        supraspinatus: string,
+        biceps_femoris: string,
+        gracialis: string,
+        tibialis_anterior: string,
+        quadriceps: string,
+        soleus: string,
+        gastrocnemius: string,
+        teres_major_minor: string,
+        adductor_magnus: string,
+        tfl: string,
+        iliopsoas: string,
+        sartorius: string,
+        glut_mid: string,
+        glut_max: string,
+        serratus: string,
+        triceps_brachii: string,
+        biceps_brachii: string,
+        pec_major: string,
+        deltoids: string,
+        trapezius: string, rhomboids: string,
+        elavator_scapulae: string, ect: string, lat_dorsi: string, erect_spinae: string, pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, staff_id: number, treatment_StartDateTime: Date, treatment_notes: string) {
+        this.treatment_plan = treatment_plan;
+        this.supraspinatus = supraspinatus;
+        this.biceps_femoris = biceps_femoris;
+        this.gracialis = gracialis;
+        this.tibialis_anterior = tibialis_anterior;
+        this.quadriceps = quadriceps;
+        this.soleus = soleus;
+        this.gastrocnemius = gastrocnemius;
+        this.teres_major_minor = teres_major_minor;
+        this.adductor_magnus = adductor_magnus;
+        this.tfl = tfl;
+        this.iliopsoas = iliopsoas;
+        this.sartorius = sartorius;
+        this.glut_mid = glut_mid;
+        this.glut_max = glut_max;
+        this.serratus = serratus;
+        this.triceps_brachii = triceps_brachii;
+        this.biceps_brachii = biceps_brachii;
+        this.pec_major = pec_major;
+        this.deltoids = deltoids;
+        this.trapezius = trapezius;
+        this.rhomboids = rhomboids;
+        this.elavator_scapulae = elavator_scapulae;
+        this.ect = ect;
+        this.lat_dorsi = lat_dorsi;
+        this.erect_spinae = erect_spinae;
         this.treatment_id = treatment_id;
         this.staff_id = staff_id;
         this.treatment_notes = treatment_notes;
@@ -49,7 +121,7 @@ export class treatmentData{
 
 export class massageForm {
     toLowerCase() {
-      throw new Error('Method not implemented.');
+        throw new Error('Method not implemented.');
     }
     client_id: number;
     client_massage_form_id: number;

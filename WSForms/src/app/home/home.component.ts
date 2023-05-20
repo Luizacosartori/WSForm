@@ -1,14 +1,16 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
 import { therapistData, clientData, treatmentData, massageForm } from '../formsData';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
   formsData: massageForm[] = new Array();
   therapists: therapistData[] = new Array();
@@ -72,18 +74,22 @@ export class HomeComponent {
     let day = new Date(date).toLocaleDateString()
     let hours = String(new Date(date).getHours())
     let minutes = new Date(date).getMinutes()
-    return day + "  " + hours + ':' + minutes 
+    return day + "  " + hours + ':' + minutes
     //Needs to add a 0 if does have 2
   }
 
-    enableDisableButton(){
-      this.syncButton.disabled = "true";
-      setTimeout(() =>{
-        this.syncButton.disabled = "false";
-        window.location.reload();
-        //Not sure if we need to reload the page after calling the API
-      },3000);
-    }
+  enableDisableButton() {
+    this.syncButton.disabled = "true";
+
+    this.dataService.getClientTreatment({ username: localStorage.getItem('user') }).subscribe(
+      (err: any) => {
+        console.log(err)
+      });
+    // setTimeout(() => {
+    //   this.syncButton.disabled = "false";
+    //   window.location.reload();
+    // }, 3000);
+  }
 
   ngOnInit(): void {
     this.getData();
@@ -114,21 +120,20 @@ export class MassageFormInfo {
         console.log(err)
       });
 
-      this.dataService.getTreatmentDataById(this.clickedClientId).subscribe(
-        (d: any) => {
-          this.clientNotesById = d;
-        },
-        (err: any) => {
-          console.log(err)
-        });
+    this.dataService.getTreatmentDataById(this.clickedClientId).subscribe(
+      (d: any) => {
+        this.clientNotesById = d;
+      },
+      (err: any) => {
+        console.log(err)
+      });
   }
 
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
   }
-
-
 }
+
 
 @Component({
   selector: 'notes-info',
@@ -138,16 +143,47 @@ export class MassageFormInfo {
 })
 
 
-export class NotesInfo {
+export class NotesInfo implements OnInit {
   notChecked = false;
   clickedCTreatmentId = HomeComponent.storeTreatmentId;
+
+
 
   notesForm = new FormGroup({
     front_of_body: new FormControl('', Validators.required),
     back_of_body: new FormControl('', Validators.required),
     pressure: new FormControl('', Validators.required),
-    treatment_notes: new FormControl('', Validators.required)
+    treatment_notes: new FormControl('', Validators.required),
+    trapezius: new FormControl(''),
+    rhomboids: new FormControl(''),
+    elavator_scapulae: new FormControl(''),
+    ect: new FormControl(''),
+    lat_dorsi: new FormControl(''),
+    erect_spinae: new FormControl(''),
+    glut_mid: new FormControl(''),
+    glut_max: new FormControl(''),
+    serratus: new FormControl(''),
+    triceps_brachii: new FormControl(''),
+    biceps_brachii: new FormControl(''),
+    pec_major: new FormControl(''),
+    deltoids: new FormControl(''),
+    teres_major_minor: new FormControl(''),
+    adductor_magnus: new FormControl(''),
+    tfl: new FormControl(''),
+    iliopsoas: new FormControl(''),
+    sartorius: new FormControl(''),
+    gracialis: new FormControl(''),
+    tibialis_anterior: new FormControl(''),
+    quadriceps: new FormControl(''),
+    soleus: new FormControl(''),
+    gastrocnemius: new FormControl(''),
+    biceps_femoris: new FormControl(''),
+    supraspinatus: new FormControl(''),
+    treatment_plan: new FormControl('', Validators.required)
   });
+
+
+
 
   constructor(private dataService: dataService, public dialog: MatDialog) {
   }
@@ -156,20 +192,23 @@ export class NotesInfo {
     if (this.notesForm.valid) {
       this.dataService.setMassageNotes(this.clickedCTreatmentId, this.notesForm.value).subscribe((res) => {
         this.notesForm.reset();
-        alert("The  treatment note has been added.");
+        alert("The treatment note has been added!");
         const dialogRef = this.dialog.closeAll();
         window.location.reload();
-
       });
     } else {
       alert("All red fields must be filled out!");
     }
   }
-  
+
+  ngOnInit() {
+
+  }
+
+
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
   }
-
 
 }
 

@@ -20,6 +20,7 @@ export class MassageFormComponent implements OnInit {
   clients: clientData[] = new Array();
   treatments: treatmentData[] = new Array();
   step = 0;
+  bodyIsChecked = new Map();
 
   massageForm = new FormGroup({
     full_name: new FormControl('', Validators.required),
@@ -94,9 +95,37 @@ export class MassageFormComponent implements OnInit {
     massage_frequency_random: new FormControl(),
     massage_frequency_other: new FormControl(),
 
+    front_right_arm: new FormControl(),
+    front_right_hand: new FormControl(),
+    front_right_foot: new FormControl(),
+    front_right_calf: new FormControl(),
+    front_right_knee: new FormControl(),
+    front_right_thigh: new FormControl(),
+    front_left_foot: new FormControl(),
+    front_left_calf: new FormControl(),
+    front_left_knee: new FormControl(),
+    front_left_thigh: new FormControl(),
+    front_left_hand: new FormControl(),
+    front_left_arm: new FormControl(),
+    front_abdomen: new FormControl(),
+    front_chest: new FormControl(),
+    front_head: new FormControl(),
+
+    back_right_arm: new FormControl(),
+    back_right_leg: new FormControl(),
+    back_right_hip: new FormControl(),
+    back_right_shoulder: new FormControl(),
+    back_left_leg: new FormControl(),
+    back_left_arm: new FormControl(),
+    back_left_hip: new FormControl(),
+    back_left_shoulder: new FormControl(),
+    back_lower_back: new FormControl(),
+    back_head: new FormControl(),
+
     client_signature: new FormControl('', Validators.required),
     client_signature_date: new FormControl('', Validators.required),
   });
+  // Is this variable being used? 
   notChecked = false;
 
   constructor(private dataService: dataService, private render: Renderer2) {
@@ -159,10 +188,13 @@ export class MassageFormComponent implements OnInit {
   }
 
   selectBodyPart(event: any) {
+    var bodyPartId = event.target.id + '';
     if (event.target.classList.contains('human_body_part_selected')) {
       this.render.removeClass(event.target, 'human_body_part_selected');
+      this.bodyIsChecked.set(event.target.id, false);
     } else {
       this.render.addClass(event.target, 'human_body_part_selected');
+      this.bodyIsChecked.set(event.target.id, true);
     }
   }
 }

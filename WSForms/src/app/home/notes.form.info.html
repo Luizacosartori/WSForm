@@ -15,7 +15,7 @@
         </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Back of the body</mat-label>
-            <mat-select  formControlName="back_of_body" multiple>
+            <mat-select formControlName="back_of_body" multiple>
                 <mat-option value="Whole Back">Whole Back</mat-option>
                 <mat-option value="Right Shoulder">Right Shoulder</mat-option>
                 <mat-option value="Left Shoulder">Left Shoulder</mat-option>
@@ -28,22 +28,147 @@
                 <mat-option value="Feet">Feet</mat-option>
             </mat-select>
         </mat-form-field>
-        <h3>Pressure Used</h3>
+        <br>
 
+
+        <h4>Upper Body Muscles Worked</h4>
+    
+        <div>
+            <mat-checkbox type="checkbox" id="pec_major" name="pec_major" formControlName="pec_major" [ngModel]="notChecked" />
+            <label for="pec_major">Pectoralis Major/Minor</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="biceps_brachii" name="biceps_brachii" formControlName="biceps_brachii" [ngModel]="notChecked" />
+            <label for="biceps_brachii">Biceps Brachii</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="triceps_brachii" name="triceps_brachii" formControlName="triceps_brachii" [ngModel]="notChecked" />
+            <label for="triceps_brachii">Triceps Brachii</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="deltoids" name="deltoids" formControlName="deltoids" [ngModel]="notChecked" />
+            <label for="deltoids">Deltoids</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="trapezius" name="trapezius" formControlName="trapezius" [ngModel]="notChecked" />
+            <label for="trapezius">Trapezius</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="rhomboids" name="rhomboids" formControlName="rhomboids" [ngModel]="notChecked" />
+            <label for="rhomboids">Rhomboids</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="elavator_scapulae" name="elavator_scapulae" formControlName="elavator_scapulae"
+                [ngModel]="notChecked" />
+            <label for="elavator_scapulae">Lavator Scapulae</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="teres_major_minor" name="teres_major_minor" formControlName="teres_major_minor"
+                [ngModel]="notChecked" />
+            <label for="teres_major_minor">Teres Major and Minor</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="ect" name="ect" formControlName="ect"
+                [ngModel]="notChecked" />
+            <label for="ect">Sternocleidomastoid</label>
+        </div>
+
+        <div>
+            <mat-checkbox type="checkbox" id="supraspinatus" name="supraspinatus" formControlName="supraspinatus"
+                [ngModel]="notChecked" />
+            <label for="supraspinatus">Supraspinatus</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="serratus" name="serratus" formControlName="serratus" [ngModel]="notChecked" />
+            <label for="serratus">Serratus</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="lat_dorsi" name="lat_dorsi" formControlName="lat_dorsi" [ngModel]="notChecked" />
+            <label for="lat_dorsi">Latissimus Dorsi</label>
+        </div>
+
+        <div>
+            <mat-checkbox type="checkbox" id="erect_spinae" name="erect_spinae" formControlName="erect_spinae"
+                [ngModel]="notChecked" />
+            <label for="erect_spinae">Erector Spinae</label>
+        </div>
+
+        <div>
+            <mat-checkbox type="checkbox" id="glut_mid" name="glut_mid" formControlName="glut_mid" [ngModel]="notChecked" />
+            <label for="glut_mid">Gluteus Medius</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="glut-max" name="glut-max" formControlName="glut_max" [ngModel]="notChecked" />
+            <label for="glut_max">Gluteus Maximus</label>
+        </div>
+        <br>
+
+        <h4>Lower Body Muscles Worked</h4>
+        <div>
+            <mat-checkbox type="checkbox" id="gracialis" name="gracialis" formControlName="gracialis" [ngModel]="notChecked" />
+            <label for="gracialis">Gracialis</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="sartorius" name="sartorius" formControlName="sartorius" [ngModel]="notChecked" />
+            <label for="sartorius">Sartorius</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="iliopsoas" name="iliopsoas" formControlName="iliopsoas" [ngModel]="notChecked" />
+            <label for="iliopsoas">Iliopsoas</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="tfl" name="tfl" formControlName="tfl" [ngModel]="notChecked" />
+            <label for="tfl">Tensor Fasciae Latae</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="adductor_magnus" name="adductor_magnus" formControlName="adductor_magnus" [ngModel]="notChecked" />
+            <label for="adductor_magnus">Adductor Magnus</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="biceps_femoris" name="biceps_femoris" formControlName="biceps_femoris"
+                [ngModel]="notChecked" />
+            <label for="biceps_femoris">Biceps Femoris</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="gastrocnemius" name="gastrocnemius" formControlName="gastrocnemius"
+                [ngModel]="notChecked" />
+            <label for="gastrocnemius">Gastrocnemius</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="soleus" name="soleus" formControlName="soleus"
+                [ngModel]="notChecked" />
+            <label for="soleus">Soleus</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="quadriceps" name="quadriceps" formControlName="quadriceps"
+                [ngModel]="notChecked" />
+            <label for="quadriceps">Quadriceps</label>
+        </div>
+        <div>
+            <mat-checkbox type="checkbox" id="tibialis_anterior" name="tibialis_anterior" formControlName="tibialis_anterior"
+                [ngModel]="notChecked" />
+            <label for="tibialis_anterior">Tibialis Anterior</label>
+        </div>
+        <br>
+        <h3>Pressure Used</h3>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Pressure</mat-label>
-            <mat-select  formControlName="pressure">
+            <mat-select formControlName="pressure">
                 <mat-option value="Light">Light</mat-option>
                 <mat-option value="Medium">Medium</mat-option>
                 <mat-option value="Hard">Hard</mat-option>
                 <mat-option value="Deep Tissue">Deep Tissue</mat-option>
             </mat-select>
         </mat-form-field>
-
-
         <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Treatment Notes</mat-label>
-            <input matInput  placeholder="Treatment Notes" type="text"  formControlName="treatment_notes" />
+            <mat-label>Treatment Plan</mat-label>
+            <input matInput placeholder="e.g. Remedial massage ance a week" type="text"
+                formControlName="treatment_plan" />
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Extra Notes</mat-label>
+            <input matInput placeholder="e.g. Doesn't like oil on the hair" type="text"
+                formControlName="treatment_notes" />
         </mat-form-field>
         <button mat-button color="primary" (click)="onSubmit()">Submit</button>
 
