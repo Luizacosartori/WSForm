@@ -5,24 +5,21 @@
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <mat-form-field appearance="fill" class="email">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="username" type="email" formControlName="username" />
+                    <input matInput placeholder="username" type="email" formControlName="username"/>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="password">
                     <mat-label>Enter your password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
                 <button mat-fab extended class="button" type="submit">Submit</button>
                 <div class="forgot-password">
-                    <a class="password-link"
-                        href="https://signin.mindbodyonline.com/staffforgotpassword?customerAccountId=e4f4ad96-e3f7-4846-b5c9-a4ce6024fb31"
-                        target="_blank">Forgot your password?</a>
+                    <a class="password-link" href="https://signin.mindbodyonline.com/staffforgotpassword?customerAccountId=e4f4ad96-e3f7-4846-b5c9-a4ce6024fb31" target="_blank">Forgot your password?</a>
                 </div>
             </form>
-
+           
         </div>
     </div>
 </div>

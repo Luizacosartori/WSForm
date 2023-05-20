@@ -9,23 +9,23 @@ var router = express.Router();
 
 
 // Mindbody API
-router.post("/login/",(request, response) =>{
-    mindbodyAPI.login(request.body.username,request.body.password,function (AccessToken) {
-        connection.query("INSERT INTO currentuser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '"+AccessToken+"'");
+router.post("/login/", (request, response) => {
+    mindbodyAPI.login(request.body.username, request.body.password, function (AccessToken) {
+        connection.query("INSERT INTO currentuser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '" + AccessToken + "'");
         response.send(request.body);
     });
 });
 
-router.post("/getStaff/",(request,response)=>{
-    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'",(err,records,fields) =>{
-        if(err){
+router.post("/getStaff/", (request, response) => {
+    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
+        if (err) {
             console.log("Error when retriving the data", err)
         } else {
-            mindbodyAPI.getStaff(records[0].accesstoken,function (staff){
+            mindbodyAPI.getStaff(records[0].accesstoken, function (staff) {
                 staff.StaffMembers.forEach(s => {
-                    if(s.AppointmentInstructor){
-                        connection.query("INSERT INTO staff VALUES ("+s.Id+",'"+s.Name+"') ON DUPLICATE KEY UPDATE full_name = '"+s.Name+"'",(err) =>{
-                            if(err){
+                    if (s.AppointmentInstructor) {
+                        connection.query("INSERT INTO staff VALUES (" + s.Id + ",'" + s.Name + "') ON DUPLICATE KEY UPDATE full_name = '" + s.Name + "'", (err) => {
+                            if (err) {
                                 console.log("Error when inserting the client data", err);
                             }
                         });
@@ -36,24 +36,24 @@ router.post("/getStaff/",(request,response)=>{
     });
 });
 
-router.post("/getClientTreatment/",(request,response)=>{
-    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'",(err,records,fields) =>{
-        if(err){
+router.post("/getClientTreatment/", (request, response) => {
+    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
+        if (err) {
             console.log("Error when retriving the data", err)
         } else {
-            mindbodyAPI.getTreatments(records[0].accesstoken,function (treatments){
-                mindbodyAPI.getClient(records[0].accesstoken,treatments.Appointments,function (client){
+            mindbodyAPI.getTreatments(records[0].accesstoken, function (treatments) {
+                mindbodyAPI.getClient(records[0].accesstoken, treatments.Appointments, function (client) {
                     client.Clients.forEach(c => {
-                        connection.query("INSERT INTO client VALUES ("+c.Id+",'"+c.FirstName+"','"+c.MiddleName+"','"+c.LastName+"','"+c.MobilePhone+"','"+c.Email+"') ON DUPLICATE KEY UPDATE first_name = '"+c.FirstName+"', middle_name = '"+c.MiddleName+"',last_name = '"+c.LastName+"',mobile_phone ='"+c.MobilePhone+"',email = '"+c.Email+"'",(err) =>{
-                            if(err){
+                        connection.query("INSERT INTO client VALUES (" + c.Id + ",'" + c.FirstName + "','" + c.MiddleName + "','" + c.LastName + "','" + c.MobilePhone + "','" + c.Email + "') ON DUPLICATE KEY UPDATE first_name = '" + c.FirstName + "', middle_name = '" + c.MiddleName + "',last_name = '" + c.LastName + "',mobile_phone ='" + c.MobilePhone + "',email = '" + c.Email + "'", (err) => {
+                            if (err) {
                                 console.log("Error when inserting the client data", err);
                             }
                         });
                     })
                 });
                 treatments.Appointments.forEach(t => {
-                    connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES ("+t.Id+","+t.ClientId+","+t.StaffId+",'"+t.StartDateTime+"','"+t.EndDateTime+"') ON DUPLICATE KEY UPDATE client_id = "+t.ClientId+",staff_id = "+t.StaffId+",treatment_StartDateTime = '"+t.StartDateTime+"',treatment_EndDateTime = '"+t.EndDateTime+"'",(err) =>{
-                        if(err){
+                    connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
+                        if (err) {
                             console.log("Error when inserting the treatment data", err);
                         }
                     });
@@ -345,8 +345,35 @@ router.post("/NewNotesForm/:id", (req, res) => {
     var back_of_body = req.body.back_of_body;
     var pressure = req.body.pressure;
     var treatment_notes = req.body.treatment_notes;
+    var treatment_plan = req.body.treatment_plan;
+    var supraspinatus = req.body.supraspinatus;
+    var biceps_femoris = req.body.biceps_femoris;
+    var gracialis = req.body.gracialis;
+    var tibialis_anterior = req.body.tibialis_anterior;
+    var quadriceps = req.body.quadriceps;
+    var soleus = req.body.soleus;
+    var gastrocnemius = req.body.gastrocnemius;
+    var teres_major_minor = req.body.teres_major_minor;
+    var adductor_magnus = req.body.adductor_magnus;
+    var tfl = req.body.tfl;
+    var iliopsoas = req.body.iliopsoas;
+    var sartorius = req.body.sartorius;
+    var glut_mid = req.body.glut_mid;
+    var glut_max = req.body.glut_max;
+    var serratus = req.body.serratus;
+    var triceps_brachii = req.body.triceps_brachii;
+    var biceps_brachii = req.body.biceps_brachii;
+    var pec_major = req.body.pec_major;
+    var deltoids = req.body.deltoids;
+    var trapezius = req.body.trapezius;
+    var rhomboids = req.body.rhomboids;
+    var elavator_scapulae = req.body.elavator_scapulae;
+    var ect = req.body.ect;
+    var lat_dorsi = req.body.lat_dorsi;
+    var erect_spinae = req.body.erect_spinae;
 
-    connection.query("UPDATE treatment SET pressure='" + pressure + "', front_of_body='" + front_of_body + "', back_of_body='" + back_of_body + "',treatment_notes='" + treatment_notes + "' WHERE treatment_id=" + req.params.id,
+    connection.query("UPDATE treatment SET pressure='" + pressure + "', front_of_body='" + front_of_body + "', back_of_body='" + back_of_body + "',treatment_notes='" + treatment_notes + "',treatment_plan='" + treatment_plan + "', supraspinatus=" + supraspinatus + ",biceps_femoris=" + biceps_femoris + ",gracialis=" + gracialis + ",quadriceps=" + quadriceps + ",tibialis_anterior=" + tibialis_anterior + ",gastrocnemius=" + gastrocnemius + ",soleus=" + soleus + ",sartorius=" + sartorius + ",iliopsoas=" + iliopsoas + ",tfl=" + tfl + ",adductor_magnus=" + adductor_magnus + ",teres_major_minor=" + teres_major_minor + ",biceps_brachii=" + biceps_brachii + ",triceps_brachii=" + triceps_brachii + ",serratus=" + serratus + ",glut_max=" + glut_max + ",glut_mid=" + glut_mid + ",elavator_scapulae=" + elavator_scapulae +
+        ", trapezius=" + trapezius + ", pec_major=" + pec_major + ", deltoids=" + deltoids + ", rhomboids=" + rhomboids + ", erect_spinae=" + erect_spinae + ", lat_dorsi=" + lat_dorsi + ", ect=" + ect + " WHERE treatment_id=" + req.params.id,
         (err, result) => {
             if (err) {
                 console.error("Error while Updating the data" + err);

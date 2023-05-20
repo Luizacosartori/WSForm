@@ -125,6 +125,7 @@ export class MassageFormComponent implements OnInit {
     client_signature: new FormControl('', Validators.required),
     client_signature_date: new FormControl('', Validators.required),
   });
+  // Is this variable being used? 
   notChecked = false;
 
   constructor(private dataService: dataService, private render: Renderer2) {
