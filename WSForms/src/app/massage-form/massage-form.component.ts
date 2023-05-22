@@ -37,7 +37,7 @@ export class MassageFormComponent implements OnInit {
     phone: new FormControl('', Validators.required),
     hasHealth_insurance: new FormControl('', Validators.required),
     health_insurance: new FormControl('', Validators.required),
-    health_insurance_other: new FormControl(''),
+    health_insurance_other: new FormControl({ value: '', disabled: true }),
     emergency_contact_name: new FormControl('', Validators.required),
     emergency_contact_relationship: new FormControl('', Validators.required),
     emergency_contact_phone: new FormControl('', Validators.required),
@@ -50,14 +50,14 @@ export class MassageFormComponent implements OnInit {
     hear_about_us_healthcare_provider: new FormControl(),
     hear_about_us_walked_by: new FormControl(),
     taking_medication: new FormControl('', Validators.required),
-    taking_medication_list: new FormControl('', Validators.required),
+    taking_medication_list: new FormControl({ value: '', disabled: true }),
     pregnant: new FormControl('', Validators.required),
-    pregnant_how_far: new FormControl('', Validators.required),
-    pregnant_high_risk: new FormControl('', Validators.required),
+    pregnant_how_far: new FormControl({ value: '', disabled: true }),
+    pregnant_high_risk: new FormControl({ value: '', disabled: true }),
     chronic_pain: new FormControl('', Validators.required),
-    chronic_pain_explanation: new FormControl('', Validators.required),
+    chronic_pain_explanation: new FormControl({ value: '', disabled: true }),
     orthopedic_injuries: new FormControl('', Validators.required),
-    orthopedic_injuries_list: new FormControl('', Validators.required),
+    orthopedic_injuries_list: new FormControl({ value: '', disabled: true }),
     hasCancer: new FormControl(),
     hasHeadaches_migraines: new FormControl(),
     hasArthritis: new FormControl(),
@@ -72,16 +72,16 @@ export class MassageFormComponent implements OnInit {
     hasBlood_clots: new FormControl(),
     hasNumbness: new FormControl(),
     hasSprains_strains: new FormControl(),
-    conditions_explanation: new FormControl('', Validators.required),
+    conditions_explanation: new FormControl(),
     had_professional_massage: new FormControl('', Validators.required),
     professional_massage_type: new FormControl('', Validators.required),
-    professional_massage_other: new FormControl('', Validators.required),
+    professional_massage_other: new FormControl(),
     pressure_preference: new FormControl('', Validators.required),
     allergies_sensitivities: new FormControl('', Validators.required),
-    allergies_sensitivities_explanation: new FormControl(
-      '',
-      Validators.required
-    ),
+    allergies_sensitivities_explanation: new FormControl({
+      value: '',
+      disabled: true,
+    }),
     goal_pain_relief: new FormControl(),
     goal_stress_reduction: new FormControl(),
     goal_increase_range_of_motion: new FormControl(),
@@ -125,13 +125,127 @@ export class MassageFormComponent implements OnInit {
     client_signature: new FormControl('', Validators.required),
     client_signature_date: new FormControl('', Validators.required),
   });
-  // Is this variable being used? 
+  // Is this variable being used?
   notChecked = false;
+
+  // disableSelect: new FormControl(false),
+  //   health_insurance_none: new FormControl({
+  //     value: '',
+  //     disabled: this.disabled,
 
   constructor(private dataService: dataService, private render: Renderer2) {
     console.log(this.massageForm.value);
   }
   ngOnInit(): void {
+    this.massageForm.controls.health_insurance.valueChanges.subscribe(
+      (value) => {
+        if (value != 'Other') {
+          this.massageForm.controls.health_insurance_other.removeValidators(
+            Validators.required
+          );
+          this.massageForm.controls.health_insurance_other.disable();
+        } else {
+          this.massageForm.controls.health_insurance_other.addValidators(
+            Validators.required
+          );
+          this.massageForm.controls.health_insurance_other.enable();
+        }
+      }
+    );
+
+    this.massageForm.controls.taking_medication.valueChanges.subscribe(
+      (value) => {
+        if (value != 'Yes') {
+          this.massageForm.controls.taking_medication_list.removeValidators(
+            Validators.required
+          );
+          this.massageForm.controls.taking_medication_list.disable();
+          this.massageForm.controls.taking_medication_list.reset();
+        } else {
+          this.massageForm.controls.taking_medication_list.addValidators(
+            Validators.required
+          );
+          this.massageForm.controls.taking_medication_list.enable();
+        }
+      }
+    );
+
+    this.massageForm.controls.pregnant.valueChanges.subscribe((value) => {
+      if (value != 'Yes') {
+        this.massageForm.controls.pregnant_how_far.removeValidators(
+          Validators.required
+        );
+        this.massageForm.controls.pregnant_how_far.disable();
+        this.massageForm.controls.pregnant_how_far.reset();
+      } else {
+        this.massageForm.controls.pregnant_how_far.addValidators(
+          Validators.required
+        );
+        this.massageForm.controls.pregnant_how_far.enable();
+      }
+      if (value != 'Yes') {
+        this.massageForm.controls.pregnant_high_risk.removeValidators(
+          Validators.required
+        );
+        this.massageForm.controls.pregnant_high_risk.disable();
+        this.massageForm.controls.pregnant_high_risk.reset();
+      } else {
+        this.massageForm.controls.pregnant_high_risk.addValidators(
+          Validators.required
+        );
+        this.massageForm.controls.pregnant_high_risk.enable();
+      }
+    });
+
+    this.massageForm.controls.chronic_pain.valueChanges.subscribe((value) => {
+      if (value != 'Yes') {
+        this.massageForm.controls.chronic_pain_explanation.removeValidators(
+          Validators.required
+        );
+        this.massageForm.controls.chronic_pain_explanation.disable();
+        this.massageForm.controls.chronic_pain_explanation.reset();
+      } else {
+        this.massageForm.controls.chronic_pain_explanation.addValidators(
+          Validators.required
+        );
+        this.massageForm.controls.chronic_pain_explanation.enable();
+      }
+    });
+
+    this.massageForm.controls.orthopedic_injuries.valueChanges.subscribe(
+      (value) => {
+        if (value != 'Yes') {
+          this.massageForm.controls.orthopedic_injuries_list.removeValidators(
+            Validators.required
+          );
+          this.massageForm.controls.orthopedic_injuries_list.disable();
+          this.massageForm.controls.orthopedic_injuries_list.reset();
+        } else {
+          this.massageForm.controls.orthopedic_injuries_list.addValidators(
+            Validators.required
+          );
+          this.massageForm.controls.orthopedic_injuries_list.enable();
+        }
+      }
+    );
+
+    this.massageForm.controls.allergies_sensitivities.valueChanges.subscribe(
+      (value) => {
+        if (value != 'Yes') {
+          this.massageForm.controls.allergies_sensitivities_explanation.removeValidators(
+            Validators.required
+          );
+          this.massageForm.controls.allergies_sensitivities_explanation.disable();
+          this.massageForm.controls.allergies_sensitivities_explanation.reset();
+        } else {
+          this.massageForm.controls.allergies_sensitivities_explanation.addValidators(
+            Validators.required
+          );
+          this.massageForm.controls.allergies_sensitivities_explanation.enable();
+        }
+      }
+    );
+
     // this.setStep(0);
     // throw new Error('Method not implemented.');
   }
