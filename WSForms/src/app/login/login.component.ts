@@ -15,24 +15,24 @@ export class LoginComponent {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
+  login_fail = false;
 
   login() {
-   
+    this.login_fail = false;
     if (this.loginForm.valid) {
-      alert("Welcome!");
       this.dataService.getUserToken(this.loginForm.value).subscribe(
         (d: any) => {
           localStorage.setItem('user', d.username);
+          this.router.navigate(['/home']);
         },
         (err: any) => {
           console.log("Error retrieving the data.", err);
+          this.login_fail =true;
+
         }
       );
-      this.router.navigate(['/home']);
     } else {
       alert("All red fields must be filled out!");
     }
-
   }
-
 }
