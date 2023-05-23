@@ -35,6 +35,7 @@ export class MassageFormComponent implements OnInit {
     employer: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', Validators.required),
+    gender_identity: new FormControl('', Validators.required),
     hasHealth_insurance: new FormControl('', Validators.required),
     health_insurance: new FormControl('', Validators.required),
     health_insurance_other: new FormControl({ value: '', disabled: true }),
