@@ -10,7 +10,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
 /* Menu style */
 .container {
   display: flex;
@@ -33,7 +32,7 @@ body {
 }
 
 .main-content {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .link-logout {
@@ -43,7 +42,7 @@ body {
 }
 
 .logout:hover {
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
 }
 
 .logout {
@@ -61,5 +60,5 @@ body {
 
 .link:hover {
   border-left: solid 6px #c9bba7;
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
 }

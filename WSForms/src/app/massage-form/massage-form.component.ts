@@ -42,14 +42,14 @@ export class MassageFormComponent implements OnInit {
     emergency_contact_name: new FormControl('', Validators.required),
     emergency_contact_relationship: new FormControl('', Validators.required),
     emergency_contact_phone: new FormControl('', Validators.required),
-    hear_about_us_online_search: new FormControl(),
-    hear_about_us_facebook: new FormControl(),
-    hear_about_us_instagram: new FormControl(),
-    hear_about_us_online_advertisement: new FormControl(),
-    hear_about_us_word_of_mouth: new FormControl(),
-    hear_about_us_friend_family: new FormControl(),
-    hear_about_us_healthcare_provider: new FormControl(),
-    hear_about_us_walked_by: new FormControl(),
+    hear_about_us_online_search: new FormControl(''),
+    hear_about_us_facebook: new FormControl(''),
+    hear_about_us_instagram: new FormControl(''),
+    hear_about_us_online_advertisement: new FormControl(''),
+    hear_about_us_word_of_mouth: new FormControl(''),
+    hear_about_us_friend_family: new FormControl(''),
+    hear_about_us_healthcare_provider: new FormControl(''),
+    hear_about_us_walked_by: new FormControl(''),
     taking_medication: new FormControl('', Validators.required),
     taking_medication_list: new FormControl({ value: '', disabled: true }),
     pregnant: new FormControl('', Validators.required),
@@ -59,69 +59,69 @@ export class MassageFormComponent implements OnInit {
     chronic_pain_explanation: new FormControl({ value: '', disabled: true }),
     orthopedic_injuries: new FormControl('', Validators.required),
     orthopedic_injuries_list: new FormControl({ value: '', disabled: true }),
-    hasCancer: new FormControl(),
-    hasHeadaches_migraines: new FormControl(),
-    hasArthritis: new FormControl(),
-    hasDiabetes: new FormControl(),
-    hasJoint_replacement: new FormControl(),
-    hasHigh_low_pressure: new FormControl(),
-    hasNeuropathy: new FormControl(),
-    hasFibromyalgia: new FormControl(),
-    hasStroke: new FormControl(),
-    hasHeart_attack: new FormControl(),
-    hasKidney_dysfunction: new FormControl(),
-    hasBlood_clots: new FormControl(),
-    hasNumbness: new FormControl(),
-    hasSprains_strains: new FormControl(),
-    conditions_explanation: new FormControl(),
+    hasCancer: new FormControl(''),
+    hasHeadaches_migraines: new FormControl(''),
+    hasArthritis: new FormControl(''),
+    hasDiabetes: new FormControl(''),
+    hasJoint_replacement: new FormControl(''),
+    hasHigh_low_pressure: new FormControl(''),
+    hasNeuropathy: new FormControl(''),
+    hasFibromyalgia: new FormControl(''),
+    hasStroke: new FormControl(''),
+    hasHeart_attack: new FormControl(''),
+    hasKidney_dysfunction: new FormControl(''),
+    hasBlood_clots: new FormControl(''),
+    hasNumbness: new FormControl(''),
+    hasSprains_strains: new FormControl(''),
+    conditions_explanation: new FormControl(''),
     had_professional_massage: new FormControl('', Validators.required),
     professional_massage_type: new FormControl('', Validators.required),
-    professional_massage_other: new FormControl(),
+    professional_massage_other: new FormControl(''),
     pressure_preference: new FormControl('', Validators.required),
     allergies_sensitivities: new FormControl('', Validators.required),
     allergies_sensitivities_explanation: new FormControl({
       value: '',
       disabled: true,
     }),
-    goal_pain_relief: new FormControl(),
-    goal_stress_reduction: new FormControl(),
-    goal_increase_range_of_motion: new FormControl(),
-    goal_injury_rehabilitation: new FormControl(),
-    goal_improve_sleep: new FormControl(),
-    goal_increase_energy: new FormControl(),
-    goal_other: new FormControl(),
+    goal_pain_relief: new FormControl(''),
+    goal_stress_reduction: new FormControl(''),
+    goal_increase_range_of_motion: new FormControl(''),
+    goal_injury_rehabilitation: new FormControl(''),
+    goal_improve_sleep: new FormControl(''),
+    goal_increase_energy: new FormControl(''),
+    goal_other: new FormControl(''),
 
-    massage_frequency_weekly: new FormControl(),
-    massage_frequency_monthly: new FormControl(),
-    massage_frequency_random: new FormControl(),
-    massage_frequency_other: new FormControl(),
+    massage_frequency_weekly: new FormControl(''),
+    massage_frequency_monthly: new FormControl(''),
+    massage_frequency_random: new FormControl(''),
+    massage_frequency_other: new FormControl(''),
 
-    front_right_arm: new FormControl(),
-    front_right_hand: new FormControl(),
-    front_right_foot: new FormControl(),
-    front_right_calf: new FormControl(),
-    front_right_knee: new FormControl(),
-    front_right_thigh: new FormControl(),
-    front_left_foot: new FormControl(),
-    front_left_calf: new FormControl(),
-    front_left_knee: new FormControl(),
-    front_left_thigh: new FormControl(),
-    front_left_hand: new FormControl(),
-    front_left_arm: new FormControl(),
-    front_abdomen: new FormControl(),
-    front_chest: new FormControl(),
-    front_head: new FormControl(),
+    front_right_arm: new FormControl(false),
+    front_right_hand: new FormControl(false),
+    front_right_foot: new FormControl(false),
+    front_right_calf: new FormControl(false),
+    front_right_knee: new FormControl(false),
+    front_right_thigh: new FormControl(false),
+    front_left_foot: new FormControl(false),
+    front_left_calf: new FormControl(false),
+    front_left_knee: new FormControl(false),
+    front_left_thigh: new FormControl(false),
+    front_left_hand: new FormControl(false),
+    front_left_arm: new FormControl(false),
+    front_abdomen: new FormControl(false),
+    front_chest: new FormControl(false),
+    front_head: new FormControl(false),
 
-    back_right_arm: new FormControl(),
-    back_right_leg: new FormControl(),
-    back_right_hip: new FormControl(),
-    back_right_shoulder: new FormControl(),
-    back_left_leg: new FormControl(),
-    back_left_arm: new FormControl(),
-    back_left_hip: new FormControl(),
-    back_left_shoulder: new FormControl(),
-    back_lower_back: new FormControl(),
-    back_head: new FormControl(),
+    back_right_arm: new FormControl(false),
+    back_right_leg: new FormControl(false),
+    back_right_hip: new FormControl(false),
+    back_right_shoulder: new FormControl(false),
+    back_left_leg: new FormControl(false),
+    back_left_arm: new FormControl(false),
+    back_left_hip: new FormControl(false),
+    back_left_shoulder: new FormControl(false),
+    back_lower_back: new FormControl(false),
+    back_head: new FormControl(false),
 
     client_signature: new FormControl('', Validators.required),
     client_signature_date: new FormControl('', Validators.required),
@@ -274,15 +274,16 @@ export class MassageFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // if(this.massageForm.valid){
+    // if (this.massageForm.valid) {
+    console.log('Botao submit oi');
     this.dataService
       .setClientMassageForm(this.massageForm.value)
       .subscribe((res) => {
         this.massageForm.reset();
         alert('The Client Form has been added.');
       });
-    // }else{
-    //   alert("fix it");
+    // } else {
+    //   alert('Please fill all the required fields.');
     // }
   }
 
@@ -304,10 +305,17 @@ export class MassageFormComponent implements OnInit {
 
   selectBodyPart(event: any) {
     var bodyPartId = event.target.id + '';
+
     if (event.target.classList.contains('human_body_part_selected')) {
       this.render.removeClass(event.target, 'human_body_part_selected');
       this.bodyIsChecked.set(event.target.id, false);
     } else {
+      // event.target.getAttribute('formControlName').setValue(true);
+      // event.target.value = true;
+      // this.massageForm.controls[event.target.id];
+      // this.bodyIsChecked.set(event.target.value, true);
+      this.massageForm.get(event.target.id)?.setValue(true);
+
       this.render.addClass(event.target, 'human_body_part_selected');
       this.bodyIsChecked.set(event.target.id, true);
     }

@@ -8,7 +8,6 @@
       </nav>
     </div>
   </header>
-  <!-- <form [formGroup]="massageForm" (ngSubmit)="onSubmit()"> -->
   <form [formGroup]="massageForm">
     <mat-accordion>
       <mat-expansion-panel
@@ -776,19 +775,19 @@
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goal_injury_rehabilitation"
-                    name="goal_injury_rehabilitation"
+                    id="goal_pain_relief"
+                    name="goal_pain_relief"
                     formControlName="goal_pain_relief"
                     [ngModel]="notChecked"
                   />
-                  <label for="goal_injury_rehabilitation">Pain Relief</label>
+                  <label for="goal_pain_relief">Pain Relief</label>
                 </div>
                 <div>
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goal_improve_sleep"
-                    name="goal_improve_sleep"
+                    id="goal_stress_reduction"
+                    name="goal_stress_reduction"
                     formControlName="goal_stress_reduction"
                     [ngModel]="notChecked"
                   />
@@ -798,12 +797,12 @@
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goal_increase_energy"
-                    name="goal_increase_energy"
+                    id="goal_increase_range_of_motion"
+                    name="goal_increase_range_of_motion"
                     formControlName="goal_increase_range_of_motion"
                     [ngModel]="notChecked"
                   />
-                  <label for="goal_increase_energy"
+                  <label for="goal_increase_range_of_motion"
                     >Increase Flexibility and Range of motion</label
                   >
                 </div>
@@ -828,6 +827,8 @@
                     type="checkbox"
                     id="goals-sleep"
                     name="goal_improve_sleep"
+                    formControlName="goal_improve_sleep"
+                    [ngModel]="notChecked"
                   />
                   <label for="goals-sleep">Improve Sleep</label>
                 </div>
@@ -835,8 +836,10 @@
                   <mat-checkbox
                     color="primary"
                     type="checkbox"
-                    id="goals-energy"
+                    id="goal_increase_energy"
                     name="goal_increase_energy"
+                    formControlName="goal_increase_energy"
+                    [ngModel]="notChecked"
                   />
                   <label for="goals-energy">Increase Energy</label>
                 </div>
@@ -848,7 +851,8 @@
                 <mat-label>Other</mat-label>
                 <input
                   matInput
-                  id=""
+                  id="goal_other"
+                  name="goal_other"
                   placeholder="Other goals"
                   type="text"
                   formControlName="goal_other"
@@ -900,9 +904,8 @@
                 <!-- DO NOT MAKE THIS REQUUIRED ANY TIME  -->
                 <input
                   matInput
-                  id=""
-                  placeholder="massage_frequency_other"
-                  type="massage_frequency_other"
+                  id="massage_frequency_other"
+                  placeholder="Other"
                   formControlName="massage_frequency_other"
                 />
               </mat-form-field>
@@ -915,7 +918,6 @@
                 type="checkbox"
                 id="front_right_arm"
                 name="front_right_arm"
-                value="front_right_arm"
                 formControlName="front_right_arm"
                 [checked]="bodyIsChecked.get('front_right_arm')"
               />
@@ -1280,7 +1282,10 @@
               </svg>
             </section>
 
-            <h4>By signing below, you agree to the following.</h4>
+            <h4>
+              By typing your name on the field below, you agree to the
+              following.
+            </h4>
             <h4>
               I have completed this form to the best of my ability and knowledge
               and agree to inform my therapist if any of the above information
