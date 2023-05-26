@@ -7,7 +7,6 @@ connection.connect();
 var express = require("../WSForms/node_modules/express");
 var router = express.Router();
 
-
 // Mindbody API
 router.post("/login/", (request, response) => {
     mindbodyAPI.login(request.body.username, request.body.password, function (AccessToken) {
@@ -77,8 +76,8 @@ router.get("/therapist/", (request, response) => {
         } else {
             response.send(records);
         }
-    })
-})
+    });
+});
 
 router.get("/client/", (request, response) => {
     connection.query("SELECT * FROM client", (err, records, fields) => {
@@ -87,8 +86,8 @@ router.get("/client/", (request, response) => {
         } else {
             response.send(records);
         }
-    })
-})
+    });
+});
 
 router.get("/treatment/", (request, response) => {
     var newDate = new Date().toLocaleDateString('sv-SE');
@@ -100,20 +99,22 @@ router.get("/treatment/", (request, response) => {
             } else {
                 response.send(records);
             }
-        })
-})
+        }
+    );
+});
 
 router.get("/treatment/:id", (request, response) => {
     connection.query("SELECT * from `treatment` where client_id =" + request.params.id,
         (err, records, fields) => {
             if (err) {
                 console.log(err);
-                console.log(newDate)
+                console.log(newDate);
             } else {
                 response.send(records);
             }
-        })
-})
+        }
+    );
+});
 
 router.get("/massageForm/", (request, response) => {
     connection.query('SELECT * FROM client_massage_form ',
@@ -123,8 +124,9 @@ router.get("/massageForm/", (request, response) => {
             } else {
                 response.send(records);
             }
-        })
-})
+        }
+    );
+});
 
 router.get("/:id", (req, res) => {
     connection.query("SELECT * FROM client_massage_form  WHERE client_id=" + req.params.id, (err, records, fields) => {
@@ -147,8 +149,11 @@ router.post("/NewClientMassageForm/", (req, res) => {
     var occupation = req.body.occupation;
     var email = req.body.email;
     var phone = req.body.phone;
+    var gender_identity = req.body.health_insurance;
     var health_insurance = req.body.health_insurance;
-    var health_insurance_other = req.body.health_insurance_other;
+    var health_insurance_other = req.body.health_insurance_other
+        ? req.body.health_insurance_other
+        : "";
     var emergency_contact_name = req.body.emergency_contact_name;
     var emergency_contact_relationship = req.body.emergency_contact_relationship;
     var emergency_contact_phone = req.body.emergency_contact_phone;
@@ -161,14 +166,24 @@ router.post("/NewClientMassageForm/", (req, res) => {
     var hear_about_us_online_advertisement = req.body.hear_about_us_online_advertisement;
     var hear_about_us_walked_by = req.body.hear_about_us_walked_by;
     var taking_medication = req.body.taking_medication;
-    var taking_medication_list = req.body.taking_medication_list;
+    var taking_medication_list = req.body.taking_medication_list
+        ? req.body.taking_medication_list
+        : "";
     var pregnant = req.body.pregnant;
-    var pregnant_how_far = req.body.pregnant_how_far;
-    var pregnant_high_risk = req.body.pregnant_high_risk;
+    var pregnant_how_far = req.body.pregnant_how_far
+        ? req.body.pregnant_how_far
+        : null;
+    var pregnant_high_risk = req.body.pregnant_high_risk
+        ? req.body.pregnant_high_risk
+        : "";
     var chronic_pain = req.body.chronic_pain;
-    var chronic_pain_explanation = req.body.chronic_pain_explanation;
+    var chronic_pain_explanation = req.body.chronic_pain_explanation
+        ? req.body.chronic_pain_explanation
+        : "";
     var orthopedic_injuries = req.body.orthopedic_injuries;
-    var orthopedic_injuries_list = req.body.orthopedic_injuries_list;
+    var orthopedic_injuries_list = req.body.orthopedic_injuries_list
+        ? req.body.orthopedic_injuries_list
+        : "";
     var hasCancer = req.body.hasCancer;
     var hasFibromyalgia = req.body.hasFibromyalgia;
     var hasHeadaches_migraines = req.body.hasHeadaches_migraines;
@@ -189,17 +204,23 @@ router.post("/NewClientMassageForm/", (req, res) => {
     var professional_massage_other = req.body.professional_massage_other;
     var pressure_preference = req.body.pressure_preference;
     var allergies_sensitivities = req.body.allergies_sensitivities;
-    var allergies_sensitivities_explanation = req.body.allergies_sensitivities_explanation;
+    var allergies_sensitivities_explanation = req.body
+        .allergies_sensitivities_explanation
+        ? req.body.allergies_sensitivities_explanation
+        : "";
     var goal_pain_relief = req.body.goal_pain_relief;
     var goal_stress_reduction = req.body.goal_stress_reduction;
     var goal_increase_range_of_motion = req.body.goal_increase_range_of_motion;
     var goal_injury_rehabilitation = req.body.goal_injury_rehabilitation;
     var goal_improve_sleep = req.body.goal_improve_sleep;
     var goal_increase_energy = req.body.goal_increase_energy;
+    var goal_other = req.body.goal_other;
     var areas_of_disconfort = req.body.areas_of_disconfort;
     var client_signature = req.body.client_signature;
     var client_signature_date = req.body.client_signature_date;
     var expiry_date = req.body.expiry_date;
+
+    console;
 
     //Remove after areas get implemented:
     areas_of_disconfort = "1";
@@ -209,42 +230,281 @@ router.post("/NewClientMassageForm/", (req, res) => {
     expiry_date = date_of_birth;
     client_signature_date = date_of_birth;
 
-
     console.log(req.body);
 
-    console.log("INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,,email,phone,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,areas_of_disconfort,client_signature,client_signature_date,expiry_date)" +
+    console.log(
+        "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,areas_of_disconfort,client_signature,client_signature_date,expiry_date)" +
         " VALUES(1,'" +
-        full_name + "','" + date_of_birth + "','" + address + "','" + suburb + "','" + state + "','" + postal_code + "','" + occupation + "','" + email + "','" + phone + "','" +
-        health_insurance + "','" + health_insurance_other + "','" + emergency_contact_name + "','" + emergency_contact_relationship + "','" + emergency_contact_phone + "'," +
-        hear_about_us_online_search + "," + hear_about_us_word_of_mouth + "," + hear_about_us_facebook + "," + hear_about_us_friend_family + "," + hear_about_us_instagram + "," +
-        hear_about_us_healthcare_provider + "," + hear_about_us_online_advertisement + "," + hear_about_us_walked_by + ",'" + taking_medication + "','" + taking_medication_list + "','" + pregnant + "'," +
-        pregnant_how_far + ",'" + pregnant_high_risk + "','" + chronic_pain + "','" + chronic_pain_explanation + "','" + orthopedic_injuries + "','" + orthopedic_injuries_list + "'," + hasCancer + "," +
-        hasFibromyalgia + "," + hasHeadaches_migraines + "," + hasStroke + "," + hasArthritis + "," + hasHeart_attack + "," + hasDiabetes + "," + hasKidney_dysfunction + "," + hasJoint_replacement + "," +
-        hasBlood_clots + "," + hasHigh_low_pressure + "," + hasNumbness + "," + hasNeuropathy + "," + hasSprains_strains + ",'" + conditions_explanation + "','" + had_professional_massage + "','" +
-        professional_massage_type + "','" + professional_massage_other + "','" + pressure_preference + "','" + allergies_sensitivities + "','" +
-        allergies_sensitivities_explanation + "'," + goal_pain_relief + "," + goal_stress_reduction + "," + goal_increase_range_of_motion + "," + goal_injury_rehabilitation + "," +
-        goal_improve_sleep + "," + goal_increase_energy + ",'" + areas_of_disconfort + "','" + client_signature + "','" + client_signature_date + "','" + expiry_date + "')");
+        full_name +
+        "','" +
+        date_of_birth +
+        "','" +
+        address +
+        "','" +
+        suburb +
+        "','" +
+        state +
+        "','" +
+        postal_code +
+        "','" +
+        occupation +
+        "','" +
+        email +
+        "','" +
+        phone +
+        "','" +
+        gender_identity +
+        "','" +
+        health_insurance +
+        "','" +
+        health_insurance_other +
+        "','" +
+        emergency_contact_name +
+        "','" +
+        emergency_contact_relationship +
+        "','" +
+        emergency_contact_phone +
+        "'," +
+        hear_about_us_online_search +
+        "," +
+        hear_about_us_word_of_mouth +
+        "," +
+        hear_about_us_facebook +
+        "," +
+        hear_about_us_friend_family +
+        "," +
+        hear_about_us_instagram +
+        "," +
+        hear_about_us_healthcare_provider +
+        "," +
+        hear_about_us_online_advertisement +
+        "," +
+        hear_about_us_walked_by +
+        ",'" +
+        taking_medication +
+        "','" +
+        taking_medication_list +
+        "','" +
+        pregnant +
+        "'," +
+        pregnant_how_far +
+        ",'" +
+        pregnant_high_risk +
+        "','" +
+        chronic_pain +
+        "','" +
+        chronic_pain_explanation +
+        "','" +
+        orthopedic_injuries +
+        "','" +
+        orthopedic_injuries_list +
+        "'," +
+        hasCancer +
+        "," +
+        hasFibromyalgia +
+        "," +
+        hasHeadaches_migraines +
+        "," +
+        hasStroke +
+        "," +
+        hasArthritis +
+        "," +
+        hasHeart_attack +
+        "," +
+        hasDiabetes +
+        "," +
+        hasKidney_dysfunction +
+        "," +
+        hasJoint_replacement +
+        "," +
+        hasBlood_clots +
+        "," +
+        hasHigh_low_pressure +
+        "," +
+        hasNumbness +
+        "," +
+        hasNeuropathy +
+        "," +
+        hasSprains_strains +
+        ",'" +
+        conditions_explanation +
+        "','" +
+        had_professional_massage +
+        "','" +
+        professional_massage_type +
+        "','" +
+        professional_massage_other +
+        "','" +
+        pressure_preference +
+        "','" +
+        allergies_sensitivities +
+        "','" +
+        allergies_sensitivities_explanation +
+        "'," +
+        goal_pain_relief +
+        "," +
+        goal_stress_reduction +
+        "," +
+        goal_increase_range_of_motion +
+        "," +
+        goal_injury_rehabilitation +
+        "," +
+        goal_improve_sleep +
+        "," +
+        goal_increase_energy +
+        "," +
+        goal_other +
+        ",'" +
+        areas_of_disconfort +
+        "','" +
+        client_signature +
+        "','" +
+        client_signature_date +
+        "','" +
+        expiry_date +
+        "')"
+    );
 
-    connection.query("INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,areas_of_disconfort,client_signature,client_signature_date,expiry_date)" +
+    connection.query(
+        "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,areas_of_disconfort,client_signature,client_signature_date,expiry_date)" +
         " VALUES(1,'" +
-        full_name + "','" + date_of_birth + "','" + address + "','" + suburb + "','" + state + "','" + postal_code + "','" + occupation + "','" + email + "','" + phone + "','" +
-        health_insurance + "','" + health_insurance_other + "','" + emergency_contact_name + "','" + emergency_contact_relationship + "','" + emergency_contact_phone + "'," +
-        hear_about_us_online_search + "," + hear_about_us_word_of_mouth + "," + hear_about_us_facebook + "," + hear_about_us_friend_family + "," + hear_about_us_instagram + "," +
-        hear_about_us_healthcare_provider + "," + hear_about_us_online_advertisement + "," + hear_about_us_walked_by + ",'" + taking_medication + "','" + taking_medication_list + "','" + pregnant + "'," +
-        pregnant_how_far + ",'" + pregnant_high_risk + "','" + chronic_pain + "','" + chronic_pain_explanation + "','" + orthopedic_injuries + "','" + orthopedic_injuries_list + "'," + hasCancer + "," +
-        hasFibromyalgia + "," + hasHeadaches_migraines + "," + hasStroke + "," + hasArthritis + "," + hasHeart_attack + "," + hasDiabetes + "," + hasKidney_dysfunction + "," + hasJoint_replacement + "," +
-        hasBlood_clots + "," + hasHigh_low_pressure + "," + hasNumbness + "," + hasNeuropathy + "," + hasSprains_strains + ",'" + conditions_explanation + "','" + had_professional_massage + "','" +
-        professional_massage_type + "','" + professional_massage_other + "','" + pressure_preference + "','" + allergies_sensitivities + "','" +
-        allergies_sensitivities_explanation + "'," + goal_pain_relief + "," + goal_stress_reduction + "," + goal_increase_range_of_motion + "," + goal_injury_rehabilitation + "," +
-        goal_improve_sleep + "," + goal_increase_energy + ",'" + areas_of_disconfort + "','" + client_signature + "','" + client_signature_date + "','" + expiry_date + "')",
+        full_name +
+        "','" +
+        date_of_birth +
+        "','" +
+        address +
+        "','" +
+        suburb +
+        "','" +
+        state +
+        "','" +
+        postal_code +
+        "','" +
+        occupation +
+        "','" +
+        email +
+        "','" +
+        phone +
+        "','" +
+        gender_identity +
+        "','" +
+        health_insurance +
+        "','" +
+        health_insurance_other +
+        "','" +
+        emergency_contact_name +
+        "','" +
+        emergency_contact_relationship +
+        "','" +
+        emergency_contact_phone +
+        "'," +
+        hear_about_us_online_search +
+        "," +
+        hear_about_us_word_of_mouth +
+        "," +
+        hear_about_us_facebook +
+        "," +
+        hear_about_us_friend_family +
+        "," +
+        hear_about_us_instagram +
+        "," +
+        hear_about_us_healthcare_provider +
+        "," +
+        hear_about_us_online_advertisement +
+        "," +
+        hear_about_us_walked_by +
+        ",'" +
+        taking_medication +
+        "','" +
+        taking_medication_list +
+        "','" +
+        pregnant +
+        "'," +
+        pregnant_how_far +
+        ",'" +
+        pregnant_high_risk +
+        "','" +
+        chronic_pain +
+        "','" +
+        chronic_pain_explanation +
+        "','" +
+        orthopedic_injuries +
+        "','" +
+        orthopedic_injuries_list +
+        "'," +
+        hasCancer +
+        "," +
+        hasFibromyalgia +
+        "," +
+        hasHeadaches_migraines +
+        "," +
+        hasStroke +
+        "," +
+        hasArthritis +
+        "," +
+        hasHeart_attack +
+        "," +
+        hasDiabetes +
+        "," +
+        hasKidney_dysfunction +
+        "," +
+        hasJoint_replacement +
+        "," +
+        hasBlood_clots +
+        "," +
+        hasHigh_low_pressure +
+        "," +
+        hasNumbness +
+        "," +
+        hasNeuropathy +
+        "," +
+        hasSprains_strains +
+        ",'" +
+        conditions_explanation +
+        "','" +
+        had_professional_massage +
+        "','" +
+        professional_massage_type +
+        "','" +
+        professional_massage_other +
+        "','" +
+        pressure_preference +
+        "','" +
+        allergies_sensitivities +
+        "','" +
+        allergies_sensitivities_explanation +
+        "'," +
+        goal_pain_relief +
+        "," +
+        goal_stress_reduction +
+        "," +
+        goal_increase_range_of_motion +
+        "," +
+        goal_injury_rehabilitation +
+        "," +
+        goal_improve_sleep +
+        "," +
+        goal_increase_energy +
+        ",'" +
+        goal_other +
+        "','" +
+        areas_of_disconfort +
+        "','" +
+        client_signature +
+        "','" +
+        client_signature_date +
+        "','" +
+        expiry_date +
+        "')",
         (err, result) => {
             if (err) {
                 console.error("Error while Updating the data" + err);
             } else {
                 res.send({ update: "success" });
             }
-        })
-})
+        }
+    );
+});
 
 // router.put("/UpdateClientMassageForm/", (req, res)=>{
 // 	var client_id = req.body.client_id;
@@ -304,7 +564,6 @@ router.post("/NewClientMassageForm/", (req, res) => {
 //     var client_signature = req.body.client_signature;
 //     var client_signature_date = req.body.client_signature_date;
 //     var expiry_date = req.body.expiry_date;
-
 
 // 	connection.query("UPDATE book SET "+
 //         "',full_name='"+full_name+"',date_of_birth='"+date_of_birth+"',address='"+address+"',suburb='"+suburb+"',state='"+state+"',postal_code='"+postal_code+"',occupation='"+occupation+
@@ -379,15 +638,77 @@ router.post("/NewNotesForm/:id", (req, res) => {
     var lat_dorsi = req.body.lat_dorsi;
     var erect_spinae = req.body.erect_spinae;
 
-    connection.query("UPDATE treatment SET pressure='" + pressure + "', front_of_body='" + front_of_body + "', back_of_body='" + back_of_body + "',treatment_notes='" + treatment_notes + "',treatment_plan='" + treatment_plan + "', supraspinatus=" + supraspinatus + ",biceps_femoris=" + biceps_femoris + ",gracialis=" + gracialis + ",quadriceps=" + quadriceps + ",tibialis_anterior=" + tibialis_anterior + ",gastrocnemius=" + gastrocnemius + ",soleus=" + soleus + ",sartorius=" + sartorius + ",iliopsoas=" + iliopsoas + ",tfl=" + tfl + ",adductor_magnus=" + adductor_magnus + ",teres_major_minor=" + teres_major_minor + ",biceps_brachii=" + biceps_brachii + ",triceps_brachii=" + triceps_brachii + ",serratus=" + serratus + ",glut_max=" + glut_max + ",glut_mid=" + glut_mid + ",elavator_scapulae=" + elavator_scapulae +
-        ", trapezius=" + trapezius + ", pec_major=" + pec_major + ", deltoids=" + deltoids + ", rhomboids=" + rhomboids + ", erect_spinae=" + erect_spinae + ", lat_dorsi=" + lat_dorsi + ", ect=" + ect + " WHERE treatment_id=" + req.params.id,
+    connection.query(
+        "UPDATE treatment SET pressure='" +
+        pressure +
+        "', front_of_body='" +
+        front_of_body +
+        "', back_of_body='" +
+        back_of_body +
+        "',treatment_notes='" +
+        treatment_notes +
+        "',treatment_plan='" +
+        treatment_plan +
+        "', supraspinatus=" +
+        supraspinatus +
+        ",biceps_femoris=" +
+        biceps_femoris +
+        ",gracialis=" +
+        gracialis +
+        ",quadriceps=" +
+        quadriceps +
+        ",tibialis_anterior=" +
+        tibialis_anterior +
+        ",gastrocnemius=" +
+        gastrocnemius +
+        ",soleus=" +
+        soleus +
+        ",sartorius=" +
+        sartorius +
+        ",iliopsoas=" +
+        iliopsoas +
+        ",tfl=" +
+        tfl +
+        ",adductor_magnus=" +
+        adductor_magnus +
+        ",teres_major_minor=" +
+        teres_major_minor +
+        ",biceps_brachii=" +
+        biceps_brachii +
+        ",triceps_brachii=" +
+        triceps_brachii +
+        ",serratus=" +
+        serratus +
+        ",glut_max=" +
+        glut_max +
+        ",glut_mid=" +
+        glut_mid +
+        ",elavator_scapulae=" +
+        elavator_scapulae +
+        ", trapezius=" +
+        trapezius +
+        ", pec_major=" +
+        pec_major +
+        ", deltoids=" +
+        deltoids +
+        ", rhomboids=" +
+        rhomboids +
+        ", erect_spinae=" +
+        erect_spinae +
+        ", lat_dorsi=" +
+        lat_dorsi +
+        ", ect=" +
+        ect +
+        " WHERE treatment_id=" +
+        req.params.id,
         (err, result) => {
             if (err) {
                 console.error("Error while Updating the data" + err);
             } else {
                 res.send({ update: "success" });
             }
-        })
-})
+        }
+    );
+});
 
 module.exports = router;

@@ -1,52 +1,71 @@
 .body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-image: linear-gradient(to right bottom, rgba(134, 215, 241, 0.986), rgba(218, 105, 249, 0.731));
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  /* background-image: linear-gradient(
+    to right bottom,
+    rgba(134, 215, 241, 0.986),
+    rgba(218, 105, 249, 0.731)
+  ); */
+  /* background: linear-gradient(111.81deg, #c9bba7 0%, #ffe9ca 100%);
+   */
+  background: linear-gradient(297.8deg, #c9bba7 0%, #aa8b5e 84.23%);
+}
 
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  margin: auto;
+}
+
+.logo img {
+  width: 200px;
 }
 
 .wrapper {
-    position: relative;
-    width: 60vw;
-    height: 50vh;
-    background-color: white;
-    margin: 20vh auto;
-    border-radius: 8px;
+  position: relative;
+  width: 60vw;
+  height: 60vh;
+  background-color: white;
+  margin: 5vh auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .wrapper h1 {
-    display: block;
-    text-align: center;
-    padding-top: 40px;
-    font-weight: 900;
+  display: block;
+  text-align: center;
+  padding: 40px 0 0 0;
+  font-weight: 900;
 }
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 .container mat-form-field {
-    display: block;
-    width: 50vw;
-    margin: auto;
+  display: block;
+  width: 50vw;
+  margin: auto;
 }
 
 .button {
-    display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
 }
 
 .links {
-    position: relative;
-    display: inline;
-    margin: auto;
+  position: relative;
+  display: inline;
+  margin: auto;
 }
 
 .link {
-    text-decoration: none;
-    color: black;
-    padding: 20px;
+  text-decoration: none;
+  color: black;
+  padding: 20px;
 }
 
 .errormsg{
@@ -58,29 +77,49 @@
 }
 
 .forgot-password {
-    display: flexbox;
-    margin: auto;
-    width: 50%;
-    padding: 40px;
-    text-decoration: none;
-    color: black;
-    text-align: center;
+  display: flexbox;
+  margin: auto;
+  width: 50%;
+  padding-top: 20px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
 }
 
 .password-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Mobile View*/
 @media only screen and (max-width: 430px) {
-    .wrapper {
-        height: 60vh;
-    }
+  .wrapper {
+    width: 80vw;
+    height: 40vh;
+  }
 
-    .wrapper h1 {
-        padding-top: 30px;
-    }
+  .container mat-form-field {
+    display: block;
+    width: 60vw;
+    margin: auto;
+  }
+  .logo img {
+    width: 120px;
+  }
 }
 
 /* Tablet View */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    width: 80vw;
+    height: 60vh;
+  }
+
+  .container mat-form-field {
+    display: block;
+    width: 60vw;
+    margin: auto;
+  }
+  .logo img {
+    width: 150px;
+  }
+}

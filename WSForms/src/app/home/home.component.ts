@@ -71,15 +71,15 @@ export class HomeComponent {
   }
 
   formatDate(date: Date): string {
-    let day = new Date(date).toLocaleDateString()
+    let day = new Date(date).getDate();
+    let month = new Date(date).getMonth() + 1;
     let hours = String(new Date(date).getHours())
-    let minutes = new Date(date).getMinutes()
-    return day + "  " + hours + ':' + minutes
-    //Needs to add a 0 if does have 2
+    let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
+    return day + "/" + month + " "+ hours + ':' + minutes
   }
 
   enableDisableButton() {
-    this.syncButton.disabled = "true";
+    // this.syncButton.disabled = "true";
 
     this.dataService.getClientTreatment({ username: localStorage.getItem('user') }).subscribe(
       (err: any) => {
