@@ -1,5 +1,67 @@
 .active {
-    border-left: solid 6px #c9bba7;
-    background-color: #F5F5F5 !important;
+  border-left: solid 6px #c9bba7;
+  background-color: #f5f5f5 !important;
 }
 
+.main-content h1 {
+  padding: 40px 50px 20px 50px;
+  display: inline-block;
+}
+
+.cards {
+  margin: 20px 40px;
+}
+
+.card:hover {
+  border: solid 1px #c9bba7;
+}
+
+.card,
+.explanation-title {
+  columns: 5;
+}
+
+.explanation-title h3 {
+  color: #909090;
+}
+
+.active {
+  border-left: solid 6px #c9bba7;
+  background-color: #f5f5f5 !important;
+}
+
+.explanation {
+  margin-bottom: -40px;
+  margin-top: -10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.synch-button {
+  display: inline-block;
+  background-color: #c9bba7;
+}
+
+.display {
+  display: block;
+}
+.matCardContentText h3 {
+  padding-top: 8px;
+}
+mat-card-content {
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
+
+/* Tablet View */
+@media only screen and (max-width: 600px) {
+}
+
+/* Mobile View */
+@media only screen and (max-width: 430px) {
+  .synch-button {
+    display: none !important;
+  }
+}

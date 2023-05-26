@@ -115,7 +115,29 @@ nav {
   display: flex;
   align-content: center;
   gap: 16px;
+  width: 100%;
 }
+.lines-pregnancy {
+  columns: 2;
+  display: flex;
+  align-content: center;
+  gap: 16px;
+  width: 100%;
+}
+.checkbox-lines {
+  columns: 2;
+  display: flex;
+  align-content: center;
+  gap: 16px;
+  width: 100%;
+}
+.checkbox-lines-width {
+  width: 50%;
+}
+
+/* mat-form-field .details-pregnancy {
+  width: 50%;
+} */
 
 .radiobox-lines {
   display: flex;
@@ -126,8 +148,17 @@ nav {
   gap: 16px;
   width: 100%;
 }
+.radiobox-lines h4 {
+  width: 100%;
+}
 
-.radiobox-lines p {
+/* .radiobox-lines p {
+  margin: 0;
+  min-width: 50%;
+  display: flex;
+  align-items: center;
+} */
+.radiobox-lines h4 {
   margin: 0;
   min-width: 50%;
   display: flex;
@@ -154,8 +185,40 @@ mat-radio-group {
   margin: 0 12px;
 }
 
+/* Tablet - 912px */
+@media only screen and (max-width: 912px) {
+  .three-collums {
+    columns: 1;
+    display: block;
+    margin: auto;
+    gap: 16px;
+    align-items: center;
+  }
+  .lines {
+    columns: 1;
+    display: block;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .lines-pregnancy {
+    columns: 2;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .lines {
+    columns: 1;
+    display: block;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .lines-pregnancy {
     columns: 1;
     display: block;
     align-content: center;
@@ -170,8 +233,31 @@ mat-radio-group {
   mat-form-field {
     width: 100% !important;
   }
+
+  .checkbox-lines {
+    columns: 1;
+    display: block;
+    align-content: center;
+    gap: 16px;
+    width: 100%;
+  }
+  .checkbox-lines-width {
+    width: 100%;
+  }
+
+  .radiobox-lines {
+    display: block;
+    columns: 1;
+  }
 }
-/* SVG  */
+
+@media only screen and (max-width: 390px) {
+  .radiobox-lines mat-radio-group {
+    display: block;
+  }
+}
+
+/* SVG Human Body Image */
 
 .human_body_checkbox {
   fill: #b3b3b3;
@@ -185,4 +271,17 @@ mat-radio-group {
 }
 #humanbody_checkbox input[type="checkbox"] {
   display: none;
+}
+
+.human_body_container {
+  display: inline-block;
+  margin: 0 16px 16px 16px;
+  padding: 8px 16px 8px 16px;
+  border: 1px dotted #000000;
+  border-radius: 16px;
+}
+
+.human_body_container h4 {
+  display: block;
+  text-align: center;
 }
