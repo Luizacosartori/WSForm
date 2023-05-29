@@ -208,8 +208,13 @@ mat-radio-group {
     align-items: center;
     margin: auto;
   }
+  .radiobox-lines {
+    display: block;
+    columns: 1;
+  }
 }
 
+/* Mobile - 600px */
 @media only screen and (max-width: 600px) {
   .lines {
     columns: 1;
@@ -251,6 +256,7 @@ mat-radio-group {
   }
 }
 
+/* Mobile - 390px */
 @media only screen and (max-width: 390px) {
   .radiobox-lines mat-radio-group {
     display: block;

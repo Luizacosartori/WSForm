@@ -36,7 +36,7 @@ export class MassageFormComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', Validators.required),
     gender_identity: new FormControl('', Validators.required),
-    hasHealth_insurance: new FormControl('', Validators.required),
+    // hasHealth_insurance: new FormControl('', Validators.required),
     health_insurance: new FormControl('', Validators.required),
     health_insurance_other: new FormControl({ value: '', disabled: true }),
     emergency_contact_name: new FormControl('', Validators.required),
@@ -75,7 +75,7 @@ export class MassageFormComponent implements OnInit {
     hasSprains_strains: new FormControl(''),
     conditions_explanation: new FormControl(''),
     had_professional_massage: new FormControl('', Validators.required),
-    professional_massage_type: new FormControl('', Validators.required),
+    professional_massage_type: new FormControl(''),
     professional_massage_other: new FormControl(''),
     pressure_preference: new FormControl('', Validators.required),
     allergies_sensitivities: new FormControl('', Validators.required),
@@ -275,7 +275,7 @@ export class MassageFormComponent implements OnInit {
 
   onSubmit() {
     // if (this.massageForm.valid) {
-    console.log('Botao submit oi');
+    // console.log('Botao submit oi');
     this.dataService
       .setClientMassageForm(this.massageForm.value)
       .subscribe((res) => {
