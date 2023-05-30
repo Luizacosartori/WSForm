@@ -1,100 +1,186 @@
 <div class="container">
-    <mat-toolbar class="side-bar" class="header">
-        <mat-toolbar-row>
-            <button (click)="button.toggle()" mat-icon-button>
-                <mat-icon>menu</mat-icon>
-            </button>
-            <span>
-                Menu&nbsp;
-            </span>
-            <div class="logout">
-                <a href="/login" class="link-logout">Logout</a>
-                <i class="fa fad fa-sign-out"></i>
-            </div>
-        </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-sidenav-container class="side-bar-content">
-        <mat-sidenav class="side-nav-container" #button mode="side" closed>
-            <mat-nav-list>
-                <a mat-list-item href="/home" class="link">
-                    <!-- <i class="fa fas fa-home"></i> -->
-                    Dashboard
-                </a>
+  <mat-toolbar class="side-bar" class="header">
+    <mat-toolbar-row>
+      <button (click)="button.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span> Menu&nbsp; </span>
+      <div class="logout">
+        <a href="/login" class="link-logout">Logout</a>
+        <i class="fa fad fa-sign-out"></i>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="side-bar-content">
+    <mat-sidenav class="side-nav-container" #button mode="side" closed>
+      <mat-nav-list>
+        <a mat-list-item href="/home" class="link">
+          <!-- <i class="fa fas fa-home"></i> -->
+          Dashboard
+        </a>
 
-                <a mat-list-item href='/notes' class="link active">
-                    Client Search
-                </a>
-                <a mat-list-item href='/reports' class="link">
-                    Reports
-                </a>
-            </mat-nav-list>
-        </mat-sidenav>
-        <mat-sidenav-content class="main-content">
-            <h1>Search client's history</h1>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Look-up Client ID</mat-label>
-                <input [formControl]="search_input" type="text" matInput onsubmit="onSubmit()">
-            </mat-form-field>
-            <button mat-button color="primary" (click)="onSubmit()">Submit</button>
-            <mat-card id="showInfo">
-                <mat-card-content *ngFor="let d of massages">
-                    <div class="two-collum">
-                      <p>Full Name: {{d.full_name}} </p>
-                      <p>Date Of Birth: {{this.formatDate(d.date_of_birth)}}</p>
-                    </div>
-                    <div class="two-collum">
-                      <p>Address: {{d.address}}</p>
-                      <p>Suburb: {{d.suburb}}</p>
-                    </div>
-                    <div class="two-collum">
-                      <p>State: {{d.state}}</p>
-                      <p>Postal Code: {{d.postal_code}}</p>
-                    </div>
-                    <div class="two-collum">
-                      <p>Occupation: {{d.occupation}}</p>
-                      <p>Email: {{d.email}}</p>
-                    </div>
-                   <div class="two-collum">
-                    <p>Phone Number: {{d.phone}}</p>
-                    <p>Health Insurance: {{d.health_insurance}}</p>
-                   </div>
-                    <div class="two-collum">
-                      <p>Emergency Contact: {{d.emergency_contact_name}}</p>
-                      <p>Emergency Contact relationship: {{d.emergency_contact_relationship}}</p>
-                    </div>
-                   <div class="two-collum">
-                      <p>Emergency Contact Phone: {{d.emergency_contact_phone}}</p>
-                      <p>Taking Medication?  {{d.taking_medication}}</p>
-                   </div>
-                    <div class="two-collum">
-                      <p>Medication list:  {{d.taking_medication_list}}</p>
-                      <p>Pregnant?  {{d.pregnant}}</p>
-                    </div>
-                    <div class="two-collum">
-                      <p>How far?  {{d.pregnant_how_far}}</p>
-                      <p>High Risk?  {{d.pregnant_high_risk}}</p>
-                    </div>
-                    <div class="two-collum">
-                      <p>Suffer from Chronic Pain?  {{d.chronic_pain}}</p>
-                      <p>Chronic Pain Explained: {{d.chronic_pain_explanation}}</p>
-                    </div>
-                    <div class="two-collum">
-                        <p>Have you had any orthopedic Injuries? {{d.orthopedic_injuries}}</p>
-                        <p>Orthopedic Injuries list: {{d.orthopedic_injuries_list}}</p>
-                    </div>
-                   <div class="two-collum">
-                   <p>Emergency Contact Phone: {{d.emergency_contact_phone}}</p>
-                    <p>Emergency Contact Phone: {{d.emergency_contact_phone}}</p>
-                   </div>
-                    <div class="two-collum">
-                      <p>Emergency Contact Phone: {{d.emergency_contact_phone}}</p>
-                      <p>Emergency Contact Phone: {{d.emergency_contact_phone}}</p>
-                    </div>
-                    
-                    <button mat-button style="display: inline-block; background-color: lightpurple;"
-                    (click)="SavePDF()">Edit Massage Form</button>          
-                    </mat-card-content>
-            </mat-card>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+        <a mat-list-item href="/notes" class="link active"> Client Search </a>
+        <a mat-list-item href="/reports" class="link"> Reports </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-content">
+      <h1>Search client's history</h1>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Look-up Client ID</mat-label>
+        <input
+          [formControl]="search_input"
+          type="text"
+          matInput
+          onsubmit="onSubmit()"
+        />
+      </mat-form-field>
+      <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+      <mat-card class="cards" id="showInfo" *ngFor="let d of massages" #content>
+        <mat-card-content class="card">
+          <div class="one-collum">
+            <h2>
+              Client ID:
+              {{ d.client_massage_form_id }}
+              NEEDS TO BE UPTDATE
+            </h2>
+          </div>
+          <h3>Personal Information</h3>
+          <div class="two-collum">
+            <p>
+              <strong>Full Name: {{ d.full_name }} </strong>
+            </p>
+            <p>Date Of Birth: {{ this.formatDate(d.date_of_birth) }}</p>
+          </div>
+          <div class="two-collum">
+            <p>Address: {{ d.address }}</p>
+            <p>Suburb: {{ d.suburb }}</p>
+          </div>
+          <div class="two-collum">
+            <p>State: {{ d.state }}</p>
+            <p>Postal Code: {{ d.postal_code }}</p>
+          </div>
+          <div class="two-collum">
+            <p>Occupation: {{ d.occupation }}</p>
+            <p>Gender: {{ d.gender_identity }}</p>
+          </div>
+          <div class="two-collum">
+            <p>Email: {{ d.email }}</p>
+            <p>Phone Number: {{ d.phone }}</p>
+          </div>
+          <!-- <div class="one-collum">
+            <p>Gender: {{ d.gender_identity }}</p>
+          </div> -->
+          <div class="two-collum">
+            <p>Health Insurance: {{ d.health_insurance }}</p>
+            <p>Other Health Insurance: {{ d.health_insurance_other }}</p>
+          </div>
+          <div class="two-collum">
+            <p>
+              Emergency Contact: {{ d.emergency_contact_name }} (
+              {{ d.emergency_contact_relationship }} )
+            </p>
+            <p>
+              Emergency Contact Phone Number:
+              {{ d.emergency_contact_phone }}
+            </p>
+          </div>
+          <div class="one-collum">
+            <p>Heard about us from:</p>
+            <ul class="two-collum">
+              <li *ngIf="d.hear_about_us_online_search == '1'">
+                Online Search
+              </li>
+              <li *ngIf="d.hear_about_us_word_of_mouth == '1'">
+                Word of Mouth
+              </li>
+              <li *ngIf="d.hear_about_us_facebook == '1'">Facebook</li>
+              <li *ngIf="d.hear_about_us_instagram == '1'">Instagram</li>
+              <li *ngIf="d.hear_about_us_friend_family == '1'">
+                Friend / Family
+              </li>
+              <li *ngIf="d.hear_about_us_healthcare_provider == '1'">
+                Healthcare Provider
+              </li>
+              <li *ngIf="d.hear_about_us_online_advertisement == '1'">
+                Online Advertisement
+              </li>
+              <li *ngIf="d.hear_about_us_walked_by == '1'">Walked by</li>
+            </ul>
+          </div>
+          <mat-divider></mat-divider>
+
+          <h3>Health Information</h3>
+          <div class="two-collum">
+            <p>Taking any medications: {{ d.taking_medication }}</p>
+            <p>Medications name and use: {{ d.taking_medication_list }}</p>
+          </div>
+
+          <div class="one-collum">
+            <p>Currently pregnant: {{ d.pregnant }}</p>
+          </div>
+          <div class="two-collum">
+            <p>Pregnant for: {{ d.pregnant_how_far }} weeks</p>
+            <p>Pregnancy risk factors: {{ d.pregnant_high_risk }}</p>
+          </div>
+          <div class="two-collum">
+            <p>Suffer from Chronic Pain: {{ d.chronic_pain }}</p>
+            <p>Chronic Pain Explained: {{ d.chronic_pain_explanation }}</p>
+          </div>
+          <div class="two-collum">
+            <p>Any orthopedic Injuries: {{ d.orthopedic_injuries }}</p>
+            <p>
+              Orthopedic Injuries Explained: {{ d.orthopedic_injuries_list }}
+            </p>
+          </div>
+
+          <div class="one-collum">
+            <p>Client Conditions:</p>
+            <ul class="two-collum">
+              <li *ngIf="d.hasCancer">Cancer</li>
+              <li *ngIf="d.hasFibromyalgia">Fibromyalgia</li>
+              <li *ngIf="d.hasHeadaches_migraines">Headaches / Migraines</li>
+              <li *ngIf="d.hasStroke">Stroke</li>
+              <li *ngIf="d.hasArthritis">Arthritis</li>
+              <li *ngIf="d.hasHeart_attack">Heart attack</li>
+              <li *ngIf="d.hasDiabetes">Diabetes</li>
+              <li *ngIf="d.hasKidney_dysfunction">Kidney Dysfunction</li>
+              <li *ngIf="d.hasJoint_replacement">Joint Replacement(s)</li>
+              <li *ngIf="d.hasBlood_clots">Blood Clots</li>
+              <li *ngIf="d.hasHigh_low_pressure">High / Low Blood Pressure</li>
+              <li *ngIf="d.hasNumbness">Numbness</li>
+              <li *ngIf="d.hasNeuropathy">Neuropathy</li>
+              <li *ngIf="d.hasSprains_strains">Sprains / Strains</li>
+            </ul>
+          </div>
+          <div class="one-collum">
+            <p>Conditions Explained: {{ d.conditions_explanation }}</p>
+          </div>
+
+          <mat-divider></mat-divider>
+          <h3>Massage Information</h3>
+          <div class="one-collum">
+            <p>
+              Had a professional massage before:
+              {{ d.had_professional_massage }}
+            </p>
+          </div>
+          <div class="one-collum">
+            <p>
+              Massages interest:
+              {{ d.had_professional_massage }}
+            </p>
+          </div>
+          <!-- <button   mat-button color="primary" style="display: inline-block; background-color: lightpurple;"
+                    (click)="SavePDF()">Edit Massage Form</button> -->
+          <button mat-button color="primary" (click)="updateNotes()">
+            Edit Massage Form
+          </button>
+          <button mat-button color="accent" (click)="SavePDF()">
+            Export as PDF
+          </button>
+
+        </mat-card-content>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

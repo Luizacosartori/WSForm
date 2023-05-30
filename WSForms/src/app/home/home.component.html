@@ -21,13 +21,7 @@
     </mat-sidenav>
     <mat-sidenav-content class="main-content">
       <h1>Dashboard</h1>
-      <button
-        #syncbutton
-        class="synch-button"
-        mat-button
-        disabled="false"
-        (click)="enableDisableButton()"
-      >
+      <button #syncbutton class="synch-button" mat-button disabled="false" (click)="enableDisableButton()">
         Synch with Mindbody
       </button>
 
@@ -36,39 +30,33 @@
           <mat-card-content class="card">
             <div class="matCardContentText">
               <h3>{{ formatDate(data.treatment_StartDateTime) }}</h3>
-              <h3>{{ data.staff_id }}</h3>
+              <h3>{{ data.full_name }}</h3>
             </div>
             <div>
-              <button mat-button class="display" routerLink="/massageForm">
-                Massage Form
-              </button>
-              <button
-                mat-button
-                class="display"
-                (click)="openClientInfo(data.client_id)"
-              >
+              <div *ngIf="data.occupation == null; else elseBlock">
+                <button mat-button class="display" routerLink="/massageForm">
+                  New Client
+                </button>
+              </div>
+              <ng-template #elseBlock>
+                <button mat-button class="display" disabled="true">
+                  Massage Form Exists
+                </button>
+              </ng-template>
+
+              <button mat-button class="display" (click)="openClientInfo(data.client_id)">
                 Client Information
               </button>
-              <div
-                *ngIf="data.pressure == null; then thenBlock; else elseBlock"
-              ></div>
+              <div *ngIf="data.pressure == null; then thenBlock; else elseBlock"> </div>
+
               <ng-template #thenBlock>
-                <button
-                  mat-button
-                  class="display"
-                  style="background-color: rgb(244, 96, 96)"
-                  (click)="openNotesInfo(data.treatment_id)"
-                >
+                <button mat-button class="display" style="background-color: rgb(244, 96, 96)"
+                  (click)="openNotesInfo(data.treatment_id)">
                   Add Notes
                 </button>
               </ng-template>
               <ng-template #elseBlock>
-                <button
-                  mat-button
-                  class="display"
-                  style="background-color: rgb(116, 216, 116)"
-                  disabled="true"
-                >
+                <button mat-button class="display" style="background-color: rgb(116, 216, 116)" disabled="true">
                   Notes Done!
                 </button>
               </ng-template>

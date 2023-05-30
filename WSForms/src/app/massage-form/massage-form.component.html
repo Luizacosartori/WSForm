@@ -80,13 +80,13 @@
                   <mat-label>State</mat-label>
                   <mat-select formControlName="state">
                     <mat-option value="n/a">Not Australia</mat-option>
-                    <mat-option value="qld">QLD</mat-option>
-                    <mat-option value="nsw">NSW</mat-option>
-                    <mat-option value="vic">VIC</mat-option>
-                    <mat-option value="tas">TAS</mat-option>
-                    <mat-option value="act">ACT</mat-option>
-                    <mat-option value="nt">NT</mat-option>
-                    <mat-option value="ws">WA</mat-option>
+                    <mat-option value="QLD">QLD</mat-option>
+                    <mat-option value="NSW">NSW</mat-option>
+                    <mat-option value="VIC">VIC</mat-option>
+                    <mat-option value="TAS">TAS</mat-option>
+                    <mat-option value="ACT">ACT</mat-option>
+                    <mat-option value="NT">NT</mat-option>
+                    <mat-option value="WA">WA</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
@@ -383,11 +383,11 @@
               <!-- IF PREGGO = YES MAKE THE NEXT 2 FIELDS REQUIRED, IF NOT DISABLE THEM -> DONE Rodrigo-->
               <div class="lines-pregnancy">
                 <mat-form-field appearance="fill">
-                  <mat-label>How far along?</mat-label>
+                  <mat-label>How far along? (Weeks)</mat-label>
                   <input
                     matInput
                     id="pregnant_how_far"
-                    placeholder="How far"
+                    placeholder="How many weeks"
                     type="text"
                     formControlName="pregnant_how_far"
                   />
@@ -397,7 +397,7 @@
                   <input
                     matInput
                     id="risks-pregnant"
-                    placeholder="Any risk"
+                    placeholder="Type the risk factors"
                     type="text"
                     formControlName="pregnant_high_risk"
                   />
@@ -618,7 +618,7 @@
                     formControlName="hasSprains_strains"
                     [ngModel]="notChecked"
                   />
-                  <label for="hasSprains_strains">Sprains or Strains</label>
+                  <label for="hasSprains_strains">Sprains / Strains</label>
                 </div>
               </div>
             </div>
@@ -667,8 +667,8 @@
                   id="had_professional_massage"
                   formControlName="had_professional_massage"
                 >
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
+                  <mat-radio-button value="Yes">Yes</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
               </div>
             </div>

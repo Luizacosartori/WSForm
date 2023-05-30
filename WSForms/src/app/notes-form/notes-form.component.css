@@ -1,5 +1,6 @@
-h1 {
-    padding: 40px 50px 0px 50px;
+.main-content h1 {
+  padding: 40px 50px 20px 50px;
+  display: flex;
 }
 
 .active {
@@ -8,18 +9,38 @@ h1 {
 }
 
 .full-width {
-    margin: 20px 0px 20px 80px;
+    margin: 20px 16px 20px 80px;
     position: relative;
     width: 20vw;
 }
-
-#showInfo {
-    display: block;
-    width: 80vw;
-    margin: auto;
+.one-collum {
+  columns: 1;
 }
-
 .two-collum {
     columns: 2;
 }
+.three-collum {
+  columns: 3;
+}
 
+
+button{
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.cards {
+  margin: 20px 40px;
+}
+
+.card:hover {
+  border: solid 1px #c9bba7;
+}
+
+.matCardContentText h3 {
+  padding-top: 8px;
+}
+mat-card-content {
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
