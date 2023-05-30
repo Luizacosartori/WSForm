@@ -9,12 +9,16 @@ var router = express.Router();
 
 // Mindbody API
 router.post("/login/", (request, response) => {
-    mindbodyAPI.login(request.body.username, request.body.password, function (AccessToken) {
-        connection.query("INSERT INTO currentuser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '" + AccessToken + "'");
-        if(AccessToken){
-            response.send({username: request.body.username});
+    mindbodyAPI.login(request.body.username, request.body.password, function (AccessToken, err) {
+        if (err) {
+            console.log("Error when Login", err);
         }else{
-            response.send("Failed to Login");
+            connection.query("INSERT INTO currentuser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '" + AccessToken + "'");
+            if(AccessToken){
+                response.send({username: request.body.username});
+            }else{
+                response.send("Failed to Login");
+            }
         }
     });
 });
@@ -24,48 +28,77 @@ router.post("/getStaff/", (request, response) => {
         if (err) {
             console.log("Error when retriving the data", err)
         } else {
-            mindbodyAPI.getStaff(records[0].accesstoken, function (staff) {
-                staff.StaffMembers.forEach(s => {
-                    if (s.AppointmentInstructor) {
-                        connection.query("INSERT INTO staff VALUES (" + s.Id + ",'" + s.Name + "') ON DUPLICATE KEY UPDATE full_name = '" + s.Name + "'", (err) => {
-                            if (err) {
-                                console.log("Error when inserting the client data", err);
-                            }
-                        });
-                    }
-                })
+            mindbodyAPI.getStaff(records[0].accesstoken, function (staff,err) {
+                if (err) {
+                    console.log("Error when inserting the client data", err);
+                }else{
+                    staff.StaffMembers.forEach(s => {
+                        if (s.AppointmentInstructor) {
+                            connection.query("INSERT INTO staff VALUES (" + s.Id + ",'" + s.Name + "') ON DUPLICATE KEY UPDATE full_name = '" + s.Name + "'", (err) => {
+                                if (err) {
+                                    console.log("Error when inserting the client data", err);
+                                }
+                            });
+                        }
+                    })
+                }
             });
         }
     });
 });
 
 router.post("/getClientTreatment/", (request, response) => {
-    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
-        if (err) {
-            console.log("Error when retriving the data", err);
-        } else {
-            mindbodyAPI.getTreatments(records[0].accesstoken, function (treatments) {
-                for (let index = 0; index < (treatments.Appointments.length/20); index++) {
-                    mindbodyAPI.getClient(records[0].accesstoken, treatments.Appointments.slice((index*20),(((index*20)+20))), function (client) {
-                        client.Clients.forEach(c => {
-                            connection.query((`INSERT INTO client VALUES (` + c.Id + `,"` + c.FirstName + `","` + c.MiddleName + `","` + c.LastName + `","` + c.MobilePhone + `","` + c.Email + `") ON DUPLICATE KEY UPDATE first_name = "` + c.FirstName + `", middle_name = "` + c.MiddleName + `",last_name = "` + c.LastName + `",mobile_phone ="` + c.MobilePhone + `",email = "` + c.Email + `"`).replace("'","''"), (err) => {
-                                if (err) {
-                                    console.log("Error when inserting the client data", err);
-                                }
+    try{
+        
+        connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
+            if (err) {
+                console.log("Error when retriving the data", err);
+            } else {
+                mindbodyAPI.getTreatments(records[0].accesstoken, function (treatments,err) {
+                    if (err) {
+                        console.log("Error when getting treatment data", err);
+                    }else{
+                        var insertClients = new Promise((resolve, reject) =>{
+                            var waitForClients = 1
+                            for (let index = 0; index < (treatments.Appointments.length/20); index++) {
+                                mindbodyAPI.getClient(records[0].accesstoken, treatments.Appointments.slice((index*20),(((index*20)+20))), function (client, err) {
+                                    if (err) {
+                                        console.log("Error when getting the client data", err);
+                                    }else{
+                                        client.Clients.forEach(c => {
+                                            console.log("Client" + waitForClients + "/"+treatments.Appointments.length);
+                                            connection.query((`INSERT INTO client VALUES (` + c.Id + `,"` + c.FirstName + `","` + c.MiddleName + `","` + c.LastName + `","` + c.MobilePhone + `","` + c.Email + `") ON DUPLICATE KEY UPDATE first_name = "` + c.FirstName + `", middle_name = "` + c.MiddleName + `",last_name = "` + c.LastName + `",mobile_phone ="` + c.MobilePhone + `",email = "` + c.Email + `"`).replace("'","''"), (err) => {
+                                                if (err) {
+                                                    console.log("Error when inserting the client data", err);
+                                                }
+                                            });
+                                            waitForClients++;
+                                            if (waitForClients == treatments.Appointments.length)
+                                                resolve();
+                                        });
+                                    }
+                                });
+                            };
+                            
+                        })
+                        insertClients.then(()=>{
+                            treatments.Appointments.forEach(t => {
+                                console.log("treatment");
+                                connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
+                                    if (err) {
+                                        console.log("Error when inserting the treatment data", err);
+                                    }
+                                });
                             });
                         });
-                    });
-                };
-                treatments.Appointments.forEach(t => {
-                    connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
-                        if (err) {
-                            console.log("Error when inserting the treatment data", err);
-                        }
-                    });
+                    }
                 });
-            });
-        }
-    });
+            }
+        });
+    }
+    catch(e){
+        console.log('Error',e);
+    }
 });
 
 // Whitestone System
