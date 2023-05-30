@@ -65,9 +65,10 @@ export class treatmentData {
   ect: string;
   lat_dorsi: string;
   erect_spinae: string;
+  full_name: string;
+  occupation: string;
 
-  constructor(
-    treatment_plan: string,
+  constructor(full_name: string, occupation: string, treatment_plan: string,
     supraspinatus: string,
     biceps_femoris: string,
     gracialis: string,
@@ -87,21 +88,8 @@ export class treatmentData {
     biceps_brachii: string,
     pec_major: string,
     deltoids: string,
-    trapezius: string,
-    rhomboids: string,
-    elavator_scapulae: string,
-    ect: string,
-    lat_dorsi: string,
-    erect_spinae: string,
-    pressure: string,
-    back_of_body: string,
-    front_of_body: string,
-    treatment_id: number,
-    client_id: number,
-    staff_id: number,
-    treatment_StartDateTime: Date,
-    treatment_notes: string
-  ) {
+    trapezius: string, rhomboids: string,
+    elavator_scapulae: string, ect: string, lat_dorsi: string, erect_spinae: string, pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, staff_id: number, treatment_StartDateTime: Date, treatment_notes: string) {
     this.treatment_plan = treatment_plan;
     this.supraspinatus = supraspinatus;
     this.biceps_femoris = biceps_femoris;
@@ -136,6 +124,8 @@ export class treatmentData {
     this.pressure = pressure;
     this.back_of_body = back_of_body;
     this.front_of_body = front_of_body;
+    this.full_name = full_name;
+    this.occupation = occupation;
   }
 }
 
@@ -205,6 +195,7 @@ export class massageForm {
   client_signature: string;
   client_signature_date: Date;
   expiry_date: Date;
+
 
   constructor(
     full_name: string,

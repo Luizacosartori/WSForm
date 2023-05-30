@@ -136,24 +136,31 @@ router.get("/client/", (request, response) => {
 router.get("/treatment/", (request, response) => {
   var newDate = new Date().toLocaleDateString("sv-SE");
   //This sv-SE is to return the correct date format YYYY-MM-DD, it might be changed in the future
-  connection.query('SELECT * from `treatment` where date(`treatment_StartDateTime`) ="' + newDate + '" ORDER BY treatment_StartDateTime ASC', (err, records, fields) => {
-    if (err) {
-      console.log(err);
-    } else {
-      response.send(records);
-    }
-  });
+  connection.query(
+      'SELECT s.full_name, t.*, cmf.occupation FROM treatment t  JOIN staff s ON s.staff_id=t.staff_id JOIN client_massage_form cmf ON cmf.client_id=t.client_id where date(treatment_StartDateTime) ="' + newDate +
+      '" ORDER BY treatment_StartDateTime ASC',
+      (err, records, fields) => {
+          if (err) {
+              console.log(err);
+          } else {
+              response.send(records);
+          }
+      }
+  );
 });
 
 router.get("/treatment/:id", (request, response) => {
-  connection.query("SELECT * from `treatment` where client_id =" + request.params.id, (err, records, fields) => {
-    if (err) {
-      console.log(err);
-      console.log(newDate);
-    } else {
-      response.send(records);
-    }
-  });
+  connection.query(
+      "SELECT * from `treatment` where client_id =" + request.params.id,
+      (err, records, fields) => {
+          if (err) {
+              console.log(err);
+              console.log(newDate);
+          } else {
+              response.send(records);
+          }
+      }
+  );
 });
 
 router.get("/massageForm/", (request, response) => {
