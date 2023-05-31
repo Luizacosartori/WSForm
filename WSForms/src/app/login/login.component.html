@@ -1,50 +1,28 @@
 <div class="body">
   <div class="logo">
     <img src="./assets/logo.png" alt="White Stone logo" />
-  </div>
+  </div>  
   <div class="wrapper">
-    <h1>Welcome to WSForms</h1>
-    <div class="container">
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <mat-form-field appearance="fill" class="email">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            placeholder="Please type your email"
-            type="email"
-            formControlName="username"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="password">
-          <mat-label>Password</mat-label>
-          <input
-            matInput
-            placeholder="Please type your password"
-            [type]="hide ? 'password' : 'text'"
-            formControlName="password"
-          />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        </mat-form-field>
-        <button mat-fab extended class="button" type="submit" color="primary">
-          Submit
-        </button>
-        <div class="forgot-password">
-          <a
-            class="password-link"
-            href="https://signin.mindbodyonline.com/staffforgotpassword?customerAccountId=e4f4ad96-e3f7-4846-b5c9-a4ce6024fb31"
-            target="_blank"
-            >Forgot your password?</a
-          >
+        <h1>Welcome to WSForms</h1>
+        <div class="container">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <mat-form-field appearance="fill" class="email">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Please type your email" type="email" formControlName="username"/>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="password">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput placeholder="Please type your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button mat-fab extended class="button" type="submit" color="primary">Submit</button>
+                <div class="forgot-password">
+                    <a class="password-link" href="https://signin.mindbodyonline.com/staffforgotpassword?customerAccountId=e4f4ad96-e3f7-4846-b5c9-a4ce6024fb31" target="_blank">Forgot your password?</a>
+                </div>
+            </form>
+           
         </div>
-      </form>
     </div>
-  </div>
 </div>

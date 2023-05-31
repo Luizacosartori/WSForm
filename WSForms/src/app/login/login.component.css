@@ -68,6 +68,14 @@
   padding: 20px;
 }
 
+.errormsg{
+    text-align: center;
+    padding: 10px 0;
+    margin: 10px 0;
+    background-color: rgba(250, 190, 190, 1);
+    color: darkred;
+}
+
 .forgot-password {
   display: flexbox;
   margin: auto;

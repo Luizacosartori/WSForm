@@ -38,6 +38,7 @@ module.exports = {
         
         }).on('error', err => {
             console.log('Error: ', err.message);
+            callback('Error when login to Mindbody','Err');
         }).end(body);
     },
     getTreatments:(AccessToken,callback) =>{
@@ -77,6 +78,7 @@ module.exports = {
             });
         }).on('error', err => {
             console.log('Error: ', err.message);
+            callback('Error getting treatment data from Mindbody','Err');
         }).end();
     },
     getStaff:(AccessToken,callback) =>{
@@ -111,6 +113,7 @@ module.exports = {
             });
         }).on('error', err => {
             console.log('Error: ', err.message);
+            callback('Error getting staff data from Mindbody','Err');
         }).end();
     },
     getClient:(AccessToken,clients,callback) =>{
@@ -152,6 +155,7 @@ module.exports = {
             });
         }).on('error', err => {
             console.log('Error: ', err.message);
+            callback('Error getting client data from Mindbody','Err');
         }).end();
     }
 }

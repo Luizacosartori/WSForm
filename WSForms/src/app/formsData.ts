@@ -68,7 +68,10 @@ export class treatmentData {
   full_name: string;
   occupation: string;
 
-  constructor(full_name: string, occupation: string, treatment_plan: string,
+  constructor(
+    full_name: string,
+    occupation: string,
+    treatment_plan: string,
     supraspinatus: string,
     biceps_femoris: string,
     gracialis: string,
@@ -88,8 +91,21 @@ export class treatmentData {
     biceps_brachii: string,
     pec_major: string,
     deltoids: string,
-    trapezius: string, rhomboids: string,
-    elavator_scapulae: string, ect: string, lat_dorsi: string, erect_spinae: string, pressure: string, back_of_body: string, front_of_body: string, treatment_id: number, client_id: number, staff_id: number, treatment_StartDateTime: Date, treatment_notes: string) {
+    trapezius: string,
+    rhomboids: string,
+    elavator_scapulae: string,
+    ect: string,
+    lat_dorsi: string,
+    erect_spinae: string,
+    pressure: string,
+    back_of_body: string,
+    front_of_body: string,
+    treatment_id: number,
+    client_id: number,
+    staff_id: number,
+    treatment_StartDateTime: Date,
+    treatment_notes: string
+  ) {
     this.treatment_plan = treatment_plan;
     this.supraspinatus = supraspinatus;
     this.biceps_femoris = biceps_femoris;
@@ -191,11 +207,29 @@ export class massageForm {
   goal_injury_rehabilitation: string;
   goal_improve_sleep: string;
   goal_increase_energy: string;
-  areas_of_disconfort: string;
+  goal_other: string;
+  massage_frequency_weekly: string;
+  massage_frequency_monthly: string;
+  massage_frequency_random: string;
+  massage_frequency_other: string;
+  front_right_arm: string;
+  front_right_hand: string;
+  front_right_foot: string;
+  front_right_calf: string;
+  front_right_knee: string;
+  front_right_thigh: string;
+  front_left_foot: string;
+  front_left_calf: string;
+  front_left_knee: string;
+  front_left_thigh: string;
+  front_left_hand: string;
+  front_left_arm: string;
+  front_abdomen: string;
+  front_chest: string;
+  front_head: string;
   client_signature: string;
   client_signature_date: Date;
   expiry_date: Date;
-
 
   constructor(
     full_name: string,
@@ -257,10 +291,30 @@ export class massageForm {
     goal_improve_sleep: string,
     goal_injury_rehabilitation: string,
     goal_increase_range_of_motion: string,
+    goal_other: string,
+    massage_frequency_weekly: string,
+    massage_frequency_monthly: string,
+    massage_frequency_random: string,
+    massage_frequency_other: string,
+    front_right_arm: string,
+    front_right_hand: string,
+    front_right_foot: string,
+    front_right_calf: string,
+    front_right_knee: string,
+    front_right_thigh: string,
+    front_left_foot: string,
+    front_left_calf: string,
+    front_left_knee: string,
+    front_left_thigh: string,
+    front_left_hand: string,
+    front_left_arm: string,
+    front_abdomen: string,
+    front_chest: string,
+    front_head: string,
+
     expiry_date: Date,
     client_signature_date: Date,
     client_signature: string,
-    areas_of_disconfort: string,
     client_massage_form_id: number,
     client_id: number
   ) {
@@ -328,13 +382,32 @@ export class massageForm {
     this.goal_injury_rehabilitation = goal_injury_rehabilitation;
     this.goal_improve_sleep = goal_improve_sleep;
     this.goal_increase_energy = goal_increase_energy;
-    this.areas_of_disconfort = areas_of_disconfort;
+    this.goal_other = goal_other;
+    this.massage_frequency_weekly = massage_frequency_weekly;
+    this.massage_frequency_monthly = massage_frequency_monthly;
+    this.massage_frequency_random = massage_frequency_random;
+    this.massage_frequency_other = massage_frequency_other;
+    this.front_right_arm = front_right_arm;
+    this.front_right_hand = front_right_hand;
+    this.front_right_foot = front_right_foot;
+    this.front_right_calf = front_right_calf;
+    this.front_right_knee = front_right_knee;
+    this.front_right_thigh = front_right_thigh;
+    this.front_left_foot = front_left_foot;
+    this.front_left_calf = front_left_calf;
+    this.front_left_knee = front_left_knee;
+    this.front_left_thigh = front_left_thigh;
+    this.front_left_hand = front_left_hand;
+    this.front_left_arm = front_left_arm;
+    this.front_abdomen = front_abdomen;
+    this.front_chest = front_chest;
+    this.front_head = front_head;
     this.client_signature = client_signature;
     this.client_signature_date = client_signature_date;
     this.expiry_date = expiry_date;
 
     //Remove after areas get implemented:
-    this.areas_of_disconfort = '1';
+    // this.areas_of_disconfort = '1';
 
     // //remove after calculating expiry date:
     // this.date_of_birth = "2023-04-14";
