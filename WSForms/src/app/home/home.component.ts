@@ -75,20 +75,20 @@ export class HomeComponent {
     let month = new Date(date).getMonth() + 1;
     let hours = String(new Date(date).getHours())
     let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
-    return day + "/" + month + " "+ hours + ':' + minutes
+    return day + "/" + month + " " + hours + ':' + minutes
   }
 
   enableDisableButton() {
-    // this.syncButton.disabled = "true";
+    this.syncButton.disabled = "true";
 
-    this.dataService.getClientTreatment({ username: localStorage.getItem('user') }).subscribe(
-      (err: any) => {
-        console.log(err)
-      });
-    // setTimeout(() => {
-    //   this.syncButton.disabled = "false";
-    //   window.location.reload();
-    // }, 3000);
+    setTimeout(() => {
+      this.dataService.getClientTreatment({ username: localStorage.getItem('user') }).subscribe(
+        (err: any) => {
+          console.log(err)
+        });
+      this.syncButton.disabled = "false";
+      window.location.reload();
+    }, 1500);
   }
 
   ngOnInit(): void {
@@ -130,7 +130,12 @@ export class MassageFormInfo {
   }
 
   formatDate(date: Date): string {
-    return new Date(date).toLocaleDateString();
+    let day = new Date(date).getDate();
+    let month = new Date(date).getMonth() + 1;
+    let hours = String(new Date(date).getHours())
+    let year = new Date(date).getFullYear();
+    let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
+    return day + "/" + month + "/" + year + " " + hours + ':' + minutes
   }
 }
 

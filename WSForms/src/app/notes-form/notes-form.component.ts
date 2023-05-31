@@ -7,6 +7,7 @@ import {
   massageForm,
 } from '../formsData';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as jspdf from 'jspdf';
 
 @Component({
   selector: 'app-notes-form',
@@ -29,14 +30,14 @@ export class NotesFormComponent {
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => {}
+      (err: any) => { }
     );
 
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatment = d;
       },
-      (err: any) => {}
+      (err: any) => { }
     );
   }
   formatDate(date: Date): string {
@@ -44,8 +45,6 @@ export class NotesFormComponent {
   }
 
   onSubmit() {
-    let myDiv = <HTMLElement>document.getElementById('showInfo');
-    console.log(this.search_input.value);
     this.dataService
       .getMassageFormById(Number(this.search_input.value))
       .subscribe(
@@ -64,7 +63,20 @@ export class NotesFormComponent {
     alert('Open Massage Form to Edit');
   }
 
-  savePDF() {
-    alert('Save as PDF');
+  @ViewChild('content')
+  toPDF!: ElementRef;
+
+  public async SavePDF(): Promise<void> {
+    let content = this.toPDF.nativeElement;
+    let doc = new jspdf.jsPDF();
+    await doc.html(content, {
+      margin: [0, 0, 20, 0], //Add top and bottom margin on the doc
+      x: 15,
+      y: 15,
+      width: 170, //target width in the PDF document
+      windowWidth: 650, //window width in CSS pixels
+    });
+    //Make the file name the client name
+    doc.save('client ID ' +this.search_input.value + '.pdf');
   }
 }
