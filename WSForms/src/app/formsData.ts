@@ -227,6 +227,17 @@ export class massageForm {
   front_abdomen: string;
   front_chest: string;
   front_head: string;
+  back_right_arm: string;
+  back_right_leg: string;
+  back_right_hip: string;
+  back_right_shoulder: string;
+  back_left_leg: string;
+  back_left_arm: string;
+  back_left_hip: string;
+  back_left_shoulder: string;
+  back_lower_back: string;
+  back_head: string;
+
   client_signature: string;
   client_signature_date: Date;
   expiry_date: Date;
@@ -311,6 +322,16 @@ export class massageForm {
     front_abdomen: string,
     front_chest: string,
     front_head: string,
+    back_right_arm: string,
+    back_right_leg: string,
+    back_right_hip: string,
+    back_right_shoulder: string,
+    back_left_leg: string,
+    back_left_arm: string,
+    back_left_hip: string,
+    back_left_shoulder: string,
+    back_lower_back: string,
+    back_head: string,
 
     expiry_date: Date,
     client_signature_date: Date,
@@ -402,6 +423,16 @@ export class massageForm {
     this.front_abdomen = front_abdomen;
     this.front_chest = front_chest;
     this.front_head = front_head;
+    this.back_right_arm = back_right_arm;
+    this.back_right_leg = back_right_leg;
+    this.back_right_hip = back_right_hip;
+    this.back_right_shoulder = back_right_shoulder;
+    this.back_left_leg = back_left_leg;
+    this.back_left_arm = back_left_arm;
+    this.back_left_hip = back_left_hip;
+    this.back_left_shoulder = back_left_shoulder;
+    this.back_lower_back = back_lower_back;
+    this.back_head = back_head;
     this.client_signature = client_signature;
     this.client_signature_date = client_signature_date;
     this.expiry_date = expiry_date;

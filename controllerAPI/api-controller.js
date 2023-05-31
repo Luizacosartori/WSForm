@@ -244,30 +244,28 @@ router.get("/treatment/", (request, response) => {
   var newDate = new Date().toLocaleDateString("sv-SE");
   //This sv-SE is to return the correct date format YYYY-MM-DD, it might be changed in the future
   connection.query(
-      'SELECT s.full_name, t.*, cmf.occupation FROM treatment t  JOIN staff s ON s.staff_id=t.staff_id LEFT JOIN client_massage_form cmf ON cmf.client_id=t.client_id where date(treatment_StartDateTime) ="' + newDate +
+    'SELECT s.full_name, t.*, cmf.occupation FROM treatment t  JOIN staff s ON s.staff_id=t.staff_id LEFT JOIN client_massage_form cmf ON cmf.client_id=t.client_id where date(treatment_StartDateTime) ="' +
+      newDate +
       '" ORDER BY treatment_StartDateTime ASC',
-      (err, records, fields) => {
-          if (err) {
-              console.log(err);
-          } else {
-              response.send(records);
-          }
+    (err, records, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.send(records);
       }
+    }
   );
 });
 
 router.get("/treatment/:id", (request, response) => {
-  connection.query(
-      "SELECT * from `treatment` where client_id =" + request.params.id,
-      (err, records, fields) => {
-          if (err) {
-              console.log(err);
-              console.log(newDate);
-          } else {
-              response.send(records);
-          }
-      }
-  );
+  connection.query("SELECT * from `treatment` where client_id =" + request.params.id, (err, records, fields) => {
+    if (err) {
+      console.log(err);
+      console.log(newDate);
+    } else {
+      response.send(records);
+    }
+  });
 });
 
 router.get("/massageForm/", (request, response) => {
@@ -384,6 +382,17 @@ router.post("/NewClientMassageForm/", (req, res) => {
   var front_abdomen = req.body.front_abdomen;
   var front_chest = req.body.front_chest;
   var front_head = req.body.front_head;
+  var back_right_arm = req.body.back_right_arm;
+  var back_right_leg = req.body.back_right_leg;
+  var back_right_hip = req.body.back_right_hip;
+  var back_right_shoulder = req.body.back_right_shoulder;
+  var back_left_leg = req.body.back_left_leg;
+  var back_left_arm = req.body.back_left_arm;
+  var back_left_hip = req.body.back_left_hip;
+  var back_left_shoulder = req.body.back_left_shoulder;
+  var back_lower_back = req.body.back_lower_back;
+  var back_head = req.body.back_head;
+
   var client_signature = req.body.client_signature;
   var client_signature_date = req.body.client_signature_date;
   var expiry_date = req.body.expiry_date;
@@ -402,7 +411,7 @@ router.post("/NewClientMassageForm/", (req, res) => {
   //   console.log("Req Gender: " + req.body.gender_identity);
 
   console.log(
-    "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,massage_frequency_weekly, massage_frequency_monthly,massage_frequency_random,massage_frequency_other,front_right_arm,front_right_hand, front_right_foot, front_right_calf, front_right_knee, front_right_thigh, front_left_foot, front_left_calf, front_left_knee, front_left_thigh, front_left_hand, front_left_arm, front_abdomen, front_chest, front_head, client_signature,client_signature_date,expiry_date)" +
+    "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,massage_frequency_weekly, massage_frequency_monthly,massage_frequency_random,massage_frequency_other,front_right_arm,front_right_hand, front_right_foot, front_right_calf, front_right_knee, front_right_thigh, front_left_foot, front_left_calf, front_left_knee, front_left_thigh, front_left_hand, front_left_arm, front_abdomen, front_chest, front_head,back_right_arm, back_right_leg, back_right_hip, back_right_shoulder, back_left_leg, back_left_arm, back_left_hip, back_left_shoulder, back_lower_back, back_head, client_signature,client_signature_date,expiry_date)" +
       " VALUES(1,'" +
       full_name +
       "','" +
@@ -561,6 +570,26 @@ router.post("/NewClientMassageForm/", (req, res) => {
       front_chest +
       "," +
       front_head +
+      "," +
+      back_right_arm +
+      "," +
+      back_right_leg +
+      "," +
+      back_right_hip +
+      "," +
+      back_right_shoulder +
+      "," +
+      back_left_leg +
+      "," +
+      back_left_arm +
+      "," +
+      back_left_hip +
+      "," +
+      back_left_shoulder +
+      "," +
+      back_lower_back +
+      "," +
+      back_head +
       ",'" +
       client_signature +
       "','" +
@@ -571,7 +600,7 @@ router.post("/NewClientMassageForm/", (req, res) => {
   );
 
   connection.query(
-    "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,massage_frequency_weekly, massage_frequency_monthly,massage_frequency_random,massage_frequency_other,front_right_arm,front_right_hand, front_right_foot, front_right_calf, front_right_knee, front_right_thigh, front_left_foot, front_left_calf, front_left_knee, front_left_thigh, front_left_hand, front_left_arm, front_abdomen, front_chest, front_head, client_signature,client_signature_date,expiry_date)" +
+    "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,massage_frequency_weekly, massage_frequency_monthly,massage_frequency_random,massage_frequency_other,front_right_arm,front_right_hand, front_right_foot, front_right_calf, front_right_knee, front_right_thigh, front_left_foot, front_left_calf, front_left_knee, front_left_thigh, front_left_hand, front_left_arm, front_abdomen, front_chest, front_head,back_right_arm, back_right_leg, back_right_hip, back_right_shoulder, back_left_leg, back_left_arm, back_left_hip, back_left_shoulder, back_lower_back, back_head, client_signature,client_signature_date,expiry_date)" +
       " VALUES(1,'" +
       full_name +
       "','" +
@@ -730,6 +759,26 @@ router.post("/NewClientMassageForm/", (req, res) => {
       front_chest +
       "," +
       front_head +
+      "," +
+      back_right_arm +
+      "," +
+      back_right_leg +
+      "," +
+      back_right_hip +
+      "," +
+      back_right_shoulder +
+      "," +
+      back_left_leg +
+      "," +
+      back_left_arm +
+      "," +
+      back_left_hip +
+      "," +
+      back_left_shoulder +
+      "," +
+      back_lower_back +
+      "," +
+      back_head +
       ",'" +
       client_signature +
       "','" +

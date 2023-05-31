@@ -30,14 +30,14 @@ export class NotesFormComponent {
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
 
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatment = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
   }
   formatDate(date: Date): string {
@@ -77,6 +77,6 @@ export class NotesFormComponent {
       windowWidth: 650, //window width in CSS pixels
     });
     //Make the file name the client name
-    doc.save('client ID ' +this.search_input.value + '.pdf');
+    doc.save('client ID ' + this.search_input.value + '.pdf');
   }
 }
