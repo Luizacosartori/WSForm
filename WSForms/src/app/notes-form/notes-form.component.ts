@@ -66,11 +66,11 @@ export class NotesFormComponent {
   @ViewChild('content')
   toPDF!: ElementRef;
 
-  public async SavePDF(): Promise<void> {
+  public async savePDF(): Promise<void> {
     let content = this.toPDF.nativeElement;
     let doc = new jspdf.jsPDF();
     await doc.html(content, {
-      margin: [0, 0, 20, 0], //Add top and bottom margin on the doc
+      margin: [10, 0, 20, 0], //Add top and bottom margin on the doc
       x: 15,
       y: 15,
       width: 170, //target width in the PDF document
