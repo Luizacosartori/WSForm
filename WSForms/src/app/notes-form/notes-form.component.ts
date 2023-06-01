@@ -66,7 +66,7 @@ export class NotesFormComponent {
   @ViewChild('content')
   toPDF!: ElementRef;
 
-  public async SavePDF(): Promise<void> {
+  public async savePDF(): Promise<void> {
     let content = this.toPDF.nativeElement;
     let doc = new jspdf.jsPDF();
     await doc.html(content, {
