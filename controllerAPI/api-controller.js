@@ -48,80 +48,6 @@ router.post("/getStaff/", (request, response) => {
 });
 
 router.post("/getClientTreatment/", (request, response) => {
-  connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
-    if (err) {
-      console.log("Error when retriving the data", err);
-    } else {
-      mindbodyAPI.getTreatments(records[0].accesstoken, function (treatments) {
-        for (let index = 0; index < treatments.Appointments.length / 20; index++) {
-          mindbodyAPI.getClient(records[0].accesstoken, treatments.Appointments.slice(index * 20, index * 20 + 20), function (client) {
-            client.Clients.forEach((c) => {
-              connection.query(
-                (
-                  `INSERT INTO client VALUES (` +
-                  c.Id +
-                  `,"` +
-                  c.FirstName +
-                  `","` +
-                  c.MiddleName +
-                  `","` +
-                  c.LastName +
-                  `","` +
-                  c.MobilePhone +
-                  `","` +
-                  c.Email +
-                  `") ON DUPLICATE KEY UPDATE first_name = "` +
-                  c.FirstName +
-                  `", middle_name = "` +
-                  c.MiddleName +
-                  `",last_name = "` +
-                  c.LastName +
-                  `",mobile_phone ="` +
-                  c.MobilePhone +
-                  `",email = "` +
-                  c.Email +
-                  `"`
-                ).replace("'", "''"),
-                (err) => {
-                  if (err) {
-                    console.log("Error when inserting the client data", err);
-                  }
-                }
-              );
-            });
-          });
-        }
-        treatments.Appointments.forEach((t) => {
-          connection.query(
-            "INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" +
-              t.Id +
-              "," +
-              t.ClientId +
-              "," +
-              t.StaffId +
-              ",'" +
-              t.StartDateTime +
-              "','" +
-              t.EndDateTime +
-              "') ON DUPLICATE KEY UPDATE client_id = " +
-              t.ClientId +
-              ",staff_id = " +
-              t.StaffId +
-              ",treatment_StartDateTime = '" +
-              t.StartDateTime +
-              "',treatment_EndDateTime = '" +
-              t.EndDateTime +
-              "'",
-            (err) => {
-              if (err) {
-                console.log("Error when inserting the treatment data", err);
-              }
-            }
-          );
-        });
-      });
-    }
-  });
   try {
     connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
       if (err) {
@@ -140,33 +66,7 @@ router.post("/getClientTreatment/", (request, response) => {
                   } else {
                     client.Clients.forEach((c) => {
                       console.log("Client" + waitForClients + "/" + treatments.Appointments.length);
-                      connection.query(
-                        (
-                          `INSERT INTO client VALUES (` +
-                          c.Id +
-                          `,"` +
-                          c.FirstName +
-                          `","` +
-                          c.MiddleName +
-                          `","` +
-                          c.LastName +
-                          `","` +
-                          c.MobilePhone +
-                          `","` +
-                          c.Email +
-                          `") ON DUPLICATE KEY UPDATE first_name = "` +
-                          c.FirstName +
-                          `", middle_name = "` +
-                          c.MiddleName +
-                          `",last_name = "` +
-                          c.LastName +
-                          `",mobile_phone ="` +
-                          c.MobilePhone +
-                          `",email = "` +
-                          c.Email +
-                          `"`
-                        ).replace("'", "''"),
-                        (err) => {
+                      connection.query(( `INSERT INTO client VALUES (` + c.Id + `,"` + c.FirstName + `","` + c.MiddleName + `","` + c.LastName + `","` + c.MobilePhone + `","` + c.Email + `") ON DUPLICATE KEY UPDATE first_name = "` + c.FirstName + `", middle_name = "` + c.MiddleName + `",last_name = "` + c.LastName + `",mobile_phone ="` + c.MobilePhone + `",email = "` + c.Email + `"`).replace("'", "''"),(err) => {
                           if (err) {
                             console.log("Error when inserting the client data", err);
                           }
@@ -182,27 +82,7 @@ router.post("/getClientTreatment/", (request, response) => {
             insertClients.then(() => {
               treatments.Appointments.forEach((t) => {
                 console.log("treatment");
-                connection.query(
-                  "INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" +
-                    t.Id +
-                    "," +
-                    t.ClientId +
-                    "," +
-                    t.StaffId +
-                    ",'" +
-                    t.StartDateTime +
-                    "','" +
-                    t.EndDateTime +
-                    "') ON DUPLICATE KEY UPDATE client_id = " +
-                    t.ClientId +
-                    ",staff_id = " +
-                    t.StaffId +
-                    ",treatment_StartDateTime = '" +
-                    t.StartDateTime +
-                    "',treatment_EndDateTime = '" +
-                    t.EndDateTime +
-                    "'",
-                  (err) => {
+                connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
                     if (err) {
                       console.log("Error when inserting the treatment data", err);
                     }
