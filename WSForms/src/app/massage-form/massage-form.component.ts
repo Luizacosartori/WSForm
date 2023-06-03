@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { therapistData, clientData, treatmentData } from '../formsData';
 import { dataService } from '../dataService';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-massage-form',
@@ -18,12 +19,14 @@ export class MassageFormComponent implements OnInit {
   title = 'WSForms';
   therapists: therapistData[] = new Array();
   clients: clientData[] = new Array();
+  formClient: any;
   treatments: treatmentData[] = new Array();
   step = 0;
   bodyIsChecked = new Map();
 
   massageForm = new FormGroup({
-    full_name: new FormControl('', Validators.required),
+    client_id: new FormControl(),
+    full_name: new FormControl(''),
     address: new FormControl('', Validators.required),
     date_of_birth: new FormControl('', Validators.required),
     suburb: new FormControl('', Validators.required),
@@ -33,10 +36,9 @@ export class MassageFormComponent implements OnInit {
     occupation: new FormControl('', Validators.required),
     medications: new FormControl('', Validators.required),
     employer: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('', Validators.required),
+    email: new FormControl(''),
+    phone: new FormControl(''),
     gender_identity: new FormControl('', Validators.required),
-    // hasHealth_insurance: new FormControl('', Validators.required),
     health_insurance: new FormControl('', Validators.required),
     health_insurance_other: new FormControl({ value: '', disabled: true }),
     emergency_contact_name: new FormControl('', Validators.required),
@@ -126,18 +128,35 @@ export class MassageFormComponent implements OnInit {
     client_signature: new FormControl('', Validators.required),
     client_signature_date: new FormControl('', Validators.required),
   });
-  // Is this variable being used?
+
+  // Default checkbox values
   notChecked = false;
 
-  // disableSelect: new FormControl(false),
-  //   health_insurance_none: new FormControl({
-  //     value: '',
-  //     disabled: this.disabled,
+  paramID: any;
 
-  constructor(private dataService: dataService, private render: Renderer2) {
-    console.log(this.massageForm.value);
-  }
+  constructor(
+    private dataService: dataService,
+    private render: Renderer2,
+    private route: ActivatedRoute
+  ) {}
+
   ngOnInit(): void {
+    this.paramID = this.route.snapshot.paramMap.get('id');
+    this.dataService.getClientDataById(this.paramID).subscribe((c: any) => {
+      console.log('id', this.paramID);
+      console.log('formclient', c);
+      let _c = c[0];
+      this.massageForm.controls.client_id.setValue(this.paramID);
+      this.massageForm.controls.full_name.setValue(
+        _c.first_name +
+          ' ' +
+          (_c.middle_name != 'null' ? _c.middle_name + ' ' : '') +
+          _c.last_name
+      );
+      this.massageForm.controls.email.setValue(_c.email);
+      this.massageForm.controls.phone.setValue(_c.mobile_phone);
+    });
+
     this.massageForm.controls.health_insurance.valueChanges.subscribe(
       (value) => {
         if (value != 'Other') {

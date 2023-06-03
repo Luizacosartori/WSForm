@@ -13,13 +13,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'notes', component: NotesFormComponent },
   { path: 'massageForm', component: MassageFormComponent },
-  { path: 'reports', component: ReportsComponent }
-
+  { path: 'massageForm/:id', component: MassageFormComponent },
+  { path: 'reports', component: ReportsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}

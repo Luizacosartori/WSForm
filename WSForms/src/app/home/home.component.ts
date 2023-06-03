@@ -1,47 +1,49 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
-import { therapistData, clientData, treatmentData, massageForm } from '../formsData';
+import {
+  therapistData,
+  clientData,
+  treatmentData,
+  massageForm,
+} from '../formsData';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-
 export class HomeComponent {
   formsData: massageForm[] = new Array();
   therapists: therapistData[] = new Array();
   clients: clientData[] = new Array();
   treatment: treatmentData[] = new Array();
   public now: Date = new Date();
-  popup = false
+  popup = false;
   static storeClientId: any;
   static storeTreatmentId: any;
   @ViewChild('syncbutton') syncButton: any;
+  loading: boolean = false;
 
-
-  constructor(private dataService: dataService, public dialog: MatDialog) {
-  }
+  constructor(private dataService: dataService, public dialog: MatDialog) {}
 
   openClientInfo(data: any) {
-    HomeComponent.storeClientId = data
+    HomeComponent.storeClientId = data;
     const dialogRef = this.dialog.open(MassageFormInfo);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
     return data;
   }
 
   openNotesInfo(data: any) {
-    HomeComponent.storeTreatmentId = data
+    HomeComponent.storeTreatmentId = data;
 
     const dialogRef = this.dialog.open(NotesInfo);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -52,43 +54,45 @@ export class HomeComponent {
         this.formsData = d;
       },
       (err: any) => {
-        console.log(err)
-      });
+        console.log(err);
+      }
+    );
 
     this.dataService.getClientData().subscribe(
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
 
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatment = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
   }
 
   formatDate(date: Date): string {
     let day = new Date(date).getDate();
     let month = new Date(date).getMonth() + 1;
-    let hours = String(new Date(date).getHours())
+    let hours = String(new Date(date).getHours());
     let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
-    return day + "/" + month + " " + hours + ':' + minutes
+    return day + '/' + month + ' ' + hours + ':' + minutes;
   }
 
   enableDisableButton() {
-    this.syncButton.disabled = "true";
+    this.loading = true;
+    this.syncButton.disabled = 'true';
+    this.dataService
+      .getClientTreatment({ username: localStorage.getItem('user') })
+      .subscribe((err: any) => {
+        console.log(err);
+      });
 
     setTimeout(() => {
-      this.dataService.getClientTreatment({ username: localStorage.getItem('user') }).subscribe(
-        (err: any) => {
-          console.log(err)
-        });
-      this.syncButton.disabled = "false";
       window.location.reload();
-    }, 1500);
+    }, 2000);
   }
 
   ngOnInit(): void {
@@ -99,9 +103,8 @@ export class HomeComponent {
 @Component({
   selector: 'dialog-content-example-dialog',
   templateUrl: 'massage.form.info.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-
 export class MassageFormInfo {
   clickedClientId = HomeComponent.storeClientId;
   clientById: massageForm[] = new Array();
@@ -117,42 +120,38 @@ export class MassageFormInfo {
         this.clientById = d;
       },
       (err: any) => {
-        console.log(err)
-      });
+        console.log(err);
+      }
+    );
 
     this.dataService.getTreatmentDataById(this.clickedClientId).subscribe(
       (d: any) => {
         this.clientNotesById = d;
       },
       (err: any) => {
-        console.log(err)
-      });
+        console.log(err);
+      }
+    );
   }
 
   formatDate(date: Date): string {
     let day = new Date(date).getDate();
     let month = new Date(date).getMonth() + 1;
-    let hours = String(new Date(date).getHours())
+    let hours = String(new Date(date).getHours());
     let year = new Date(date).getFullYear();
     let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
-    return day + "/" + month + "/" + year + " " + hours + ':' + minutes
+    return day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
   }
 }
-
 
 @Component({
   selector: 'notes-info',
   templateUrl: 'notes.form.info.html',
-  styleUrls: ['./home.component.css']
-
+  styleUrls: ['./home.component.css'],
 })
-
-
 export class NotesInfo implements OnInit {
   notChecked = false;
   clickedCTreatmentId = HomeComponent.storeTreatmentId;
-
-
 
   notesForm = new FormGroup({
     front_of_body: new FormControl('', Validators.required),
@@ -184,36 +183,29 @@ export class NotesInfo implements OnInit {
     gastrocnemius: new FormControl(''),
     biceps_femoris: new FormControl(''),
     supraspinatus: new FormControl(''),
-    treatment_plan: new FormControl('', Validators.required)
+    treatment_plan: new FormControl('', Validators.required),
   });
 
-
-
-
-  constructor(private dataService: dataService, public dialog: MatDialog) {
-  }
+  constructor(private dataService: dataService, public dialog: MatDialog) {}
 
   onSubmit() {
     if (this.notesForm.valid) {
-      this.dataService.setMassageNotes(this.clickedCTreatmentId, this.notesForm.value).subscribe((res) => {
-        this.notesForm.reset();
-        alert("The treatment note has been added!");
-        const dialogRef = this.dialog.closeAll();
-        window.location.reload();
-      });
+      this.dataService
+        .setMassageNotes(this.clickedCTreatmentId, this.notesForm.value)
+        .subscribe((res) => {
+          this.notesForm.reset();
+          alert('The treatment note has been added!');
+          const dialogRef = this.dialog.closeAll();
+          window.location.reload();
+        });
     } else {
-      alert("All red fields must be filled out!");
+      alert('All red fields must be filled out!');
     }
   }
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
   }
-
 }
-
