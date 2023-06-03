@@ -66,37 +66,11 @@ router.post("/getClientTreatment/", (request, response) => {
                   } else {
                     client.Clients.forEach((c) => {
                       console.log("Client" + waitForClients + "/" + treatments.Appointments.length);
-                      connection.query(
-                        (
-                          `INSERT INTO client VALUES (` +
-                          c.Id +
-                          `,"` +
-                          c.FirstName +
-                          `","` +
-                          c.MiddleName +
-                          `","` +
-                          c.LastName +
-                          `","` +
-                          c.MobilePhone +
-                          `","` +
-                          c.Email +
-                          `") ON DUPLICATE KEY UPDATE first_name = "` +
-                          c.FirstName +
-                          `", middle_name = "` +
-                          c.MiddleName +
-                          `",last_name = "` +
-                          c.LastName +
-                          `",mobile_phone ="` +
-                          c.MobilePhone +
-                          `",email = "` +
-                          c.Email +
-                          `"`
-                        ).replace("'", "''"),
-                        (err) => {
-                          if (err) {
-                            console.log("Error when inserting the client data", err);
-                          }
+                      connection.query((`INSERT INTO client VALUES (` + c.Id + `,"` + c.FirstName + `","` + c.MiddleName + `","` + c.LastName + `","` + c.MobilePhone + `","` + c.Email + `") ON DUPLICATE KEY UPDATE first_name = "` + c.FirstName + `", middle_name = "` + c.MiddleName + `",last_name = "` + c.LastName + `",mobile_phone ="` + c.MobilePhone + `",email = "` + c.Email + `"`).replace("'", "''"), (err) => {
+                        if (err) {
+                          console.log("Error when inserting the client data", err);
                         }
+                      }
                       );
                       waitForClients++;
                       if (waitForClients == treatments.Appointments.length) resolve();
@@ -108,31 +82,11 @@ router.post("/getClientTreatment/", (request, response) => {
             insertClients.then(() => {
               treatments.Appointments.forEach((t) => {
                 console.log("treatment");
-                connection.query(
-                  "INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" +
-                    t.Id +
-                    "," +
-                    t.ClientId +
-                    "," +
-                    t.StaffId +
-                    ",'" +
-                    t.StartDateTime +
-                    "','" +
-                    t.EndDateTime +
-                    "') ON DUPLICATE KEY UPDATE client_id = " +
-                    t.ClientId +
-                    ",staff_id = " +
-                    t.StaffId +
-                    ",treatment_StartDateTime = '" +
-                    t.StartDateTime +
-                    "',treatment_EndDateTime = '" +
-                    t.EndDateTime +
-                    "'",
-                  (err) => {
-                    if (err) {
-                      console.log("Error when inserting the treatment data", err);
-                    }
+                connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
+                  if (err) {
+                    console.log("Error when inserting the treatment data", err);
                   }
+                }
                 );
               });
             });
@@ -180,12 +134,12 @@ router.get("/treatment/", (request, response) => {
   var newDate = new Date().toLocaleDateString("sv-SE");
   //This sv-SE is to return the correct date format YYYY-MM-DD, it might be changed in the future
   connection.query(
-    'SELECT s.full_name, t.*, cmf.occupation FROM treatment t  JOIN staff s ON s.staff_id=t.staff_id LEFT JOIN client_massage_form cmf ON cmf.client_id=t.client_id where date(treatment_StartDateTime) ="' +
-      newDate +
-      '" ORDER BY treatment_StartDateTime ASC',
+    'SELECT s.full_name, t.*, cmf.occupation, client.first_name, client.middle_name, client.last_name FROM treatment t JOIN staff s ON s.staff_id=t.staff_id LEFT JOIN client ON client.client_id=t.client_id LEFT JOIN client_massage_form cmf ON cmf.client_id=t.client_id where Date(treatment_StartDateTime) ="' +
+    newDate + '" ORDER BY treatment_StartDateTime ASC',
     (err, records, fields) => {
       if (err) {
         console.log(err);
+        console.log(newDate)
       } else {
         response.send(records);
       }
@@ -197,7 +151,16 @@ router.get("/treatment/:id", (request, response) => {
   connection.query("SELECT * from `treatment` where client_id =" + request.params.id, (err, records, fields) => {
     if (err) {
       console.log(err);
-      console.log(newDate);
+    } else {
+      response.send(records);
+    }
+  });
+});
+
+router.get("/healthInsuranceReport/:client_name", (request, response) => {
+  connection.query("SELECT t.*, c.* FROM treatment t LEFT JOIN  client c ON t.client_id=c.client_id WHERE first_name LIKE'" + request.params.client_name + "%'", (err, records, fields) => {
+    if (err) {
+      console.log(err);
     } else {
       response.send(records);
     }
@@ -214,15 +177,15 @@ router.get("/massageForm/", (request, response) => {
   });
 });
 
-router.get("/:id", (req, res) => {
-  connection.query("SELECT * FROM client_massage_form  WHERE client_id=" + req.params.id, (err, records, fields) => {
-    if (err) {
-      console.error("Error while retrieve the data");
-    } else {
-      console.log("records: ", records);
-      res.send(records);
-    }
-  });
+router.get("/:string", (req, res) => {
+  connection.query("SELECT * from client_massage_form WHERE full_name LIKE '" + req.params.string + "%'",
+    (err, records, fields) => {
+      if (err) {
+        console.error("Error while retrieve the data");
+      } else {
+        res.send(records);
+      }
+    });
 });
 
 router.get("/staff/:id", (request, response) => {
@@ -871,67 +834,67 @@ router.post("/NewNotesForm/:id", (req, res) => {
 
   connection.query(
     "UPDATE treatment SET pressure='" +
-      pressure +
-      "', front_of_body='" +
-      front_of_body +
-      "', back_of_body='" +
-      back_of_body +
-      "',treatment_notes='" +
-      treatment_notes +
-      "',treatment_plan='" +
-      treatment_plan +
-      "', supraspinatus=" +
-      supraspinatus +
-      ",biceps_femoris=" +
-      biceps_femoris +
-      ",gracialis=" +
-      gracialis +
-      ",quadriceps=" +
-      quadriceps +
-      ",tibialis_anterior=" +
-      tibialis_anterior +
-      ",gastrocnemius=" +
-      gastrocnemius +
-      ",soleus=" +
-      soleus +
-      ",sartorius=" +
-      sartorius +
-      ",iliopsoas=" +
-      iliopsoas +
-      ",tfl=" +
-      tfl +
-      ",adductor_magnus=" +
-      adductor_magnus +
-      ",teres_major_minor=" +
-      teres_major_minor +
-      ",biceps_brachii=" +
-      biceps_brachii +
-      ",triceps_brachii=" +
-      triceps_brachii +
-      ",serratus=" +
-      serratus +
-      ",glut_max=" +
-      glut_max +
-      ",glut_mid=" +
-      glut_mid +
-      ",elavator_scapulae=" +
-      elavator_scapulae +
-      ", trapezius=" +
-      trapezius +
-      ", pec_major=" +
-      pec_major +
-      ", deltoids=" +
-      deltoids +
-      ", rhomboids=" +
-      rhomboids +
-      ", erect_spinae=" +
-      erect_spinae +
-      ", lat_dorsi=" +
-      lat_dorsi +
-      ", ect=" +
-      ect +
-      " WHERE treatment_id=" +
-      req.params.id,
+    pressure +
+    "', front_of_body='" +
+    front_of_body +
+    "', back_of_body='" +
+    back_of_body +
+    "',treatment_notes='" +
+    treatment_notes +
+    "',treatment_plan='" +
+    treatment_plan +
+    "', supraspinatus=" +
+    supraspinatus +
+    ",biceps_femoris=" +
+    biceps_femoris +
+    ",gracialis=" +
+    gracialis +
+    ",quadriceps=" +
+    quadriceps +
+    ",tibialis_anterior=" +
+    tibialis_anterior +
+    ",gastrocnemius=" +
+    gastrocnemius +
+    ",soleus=" +
+    soleus +
+    ",sartorius=" +
+    sartorius +
+    ",iliopsoas=" +
+    iliopsoas +
+    ",tfl=" +
+    tfl +
+    ",adductor_magnus=" +
+    adductor_magnus +
+    ",teres_major_minor=" +
+    teres_major_minor +
+    ",biceps_brachii=" +
+    biceps_brachii +
+    ",triceps_brachii=" +
+    triceps_brachii +
+    ",serratus=" +
+    serratus +
+    ",glut_max=" +
+    glut_max +
+    ",glut_mid=" +
+    glut_mid +
+    ",elavator_scapulae=" +
+    elavator_scapulae +
+    ", trapezius=" +
+    trapezius +
+    ", pec_major=" +
+    pec_major +
+    ", deltoids=" +
+    deltoids +
+    ", rhomboids=" +
+    rhomboids +
+    ", erect_spinae=" +
+    erect_spinae +
+    ", lat_dorsi=" +
+    lat_dorsi +
+    ", ect=" +
+    ect +
+    " WHERE treatment_id=" +
+    req.params.id,
     (err, result) => {
       if (err) {
         console.error("Error while Updating the data" + err);

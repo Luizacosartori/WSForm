@@ -15,56 +15,45 @@ import * as jspdf from 'jspdf';
   styleUrls: ['./notes-form.component.css'],
 })
 export class NotesFormComponent {
-  massages: massageForm[] = new Array();
-  clients: clientData[] = new Array();
-  treatment: treatmentData[] = new Array();
-
+  fullReportInfo: any;
+  test: any;
   search_input = new FormControl('', Validators.required);
+  @ViewChild('showInfo') content!: ElementRef;
+  @ViewChild('content') toPDF!: ElementRef;
 
   constructor(private dataService: dataService) {
-    this.getData();
   }
 
-  getData() {
-    this.dataService.getClientData().subscribe(
-      (d: any) => {
-        this.clients = d;
-      },
-      (err: any) => {}
-    );
-
-    this.dataService.getTreatmentData().subscribe(
-      (d: any) => {
-        this.treatment = d;
-      },
-      (err: any) => {}
-    );
-  }
   formatDate(date: Date): string {
-    return new Date(date).toLocaleDateString();
+    let day = new Date(date).getDate();
+    let month = new Date(date).getMonth() + 1;
+    let year = new Date(date).getFullYear();
+
+    return day + "/" + month + "/" + year
   }
 
   onSubmit() {
-    this.dataService
-      .getMassageFormById(Number(this.search_input.value))
-      .subscribe(
-        (d: any) => {
-          this.massages = d;
-          console.log('d: ', d);
-        },
-        (err: any) => {
-          console.log(err);
-        }
-      );
+    this.dataService.healthInsuranceReportNotesAndTreatments(String(this.search_input.value)).subscribe(
+      (d: any) => {
+        this.fullReportInfo = d;
+        console.log(this.fullReportInfo)
+      },
+
+      (err: any) => { }
+    );
+    this.dataService.getMassageFormById(String(this.search_input.value)).subscribe(
+      (d: any) => {
+        this.test = d;
+
+      },
+      (err: any) => { }
+    );
   }
-  @ViewChild('showInfo') content!: ElementRef;
 
   updateNotes() {
     alert('Open Massage Form to Edit');
   }
 
-  @ViewChild('content')
-  toPDF!: ElementRef;
 
   public async savePDF(): Promise<void> {
     let content = this.toPDF.nativeElement;

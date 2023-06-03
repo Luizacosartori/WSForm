@@ -66,10 +66,17 @@ export class treatmentData {
   lat_dorsi: string;
   erect_spinae: string;
   full_name: string;
+  
   occupation: string;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
 
   constructor(
     full_name: string,
+    first_name: string,
+    middle_name: string,
+    last_name: string,
     occupation: string,
     treatment_plan: string,
     supraspinatus: string,
@@ -106,6 +113,9 @@ export class treatmentData {
     treatment_StartDateTime: Date,
     treatment_notes: string
   ) {
+    this.first_name = first_name;
+    this.middle_name = middle_name;
+    this.last_name = last_name;
     this.treatment_plan = treatment_plan;
     this.supraspinatus = supraspinatus;
     this.biceps_femoris = biceps_femoris;
@@ -395,8 +405,7 @@ export class massageForm {
     this.professional_massage_other = professional_massage_other;
     this.pressure_preference = pressure_preference;
     this.allergies_sensitivities = allergies_sensitivities;
-    this.allergies_sensitivities_explanation =
-      allergies_sensitivities_explanation;
+    this.allergies_sensitivities_explanation = allergies_sensitivities_explanation;
     this.goal_pain_relief = goal_pain_relief;
     this.goal_stress_reduction = goal_stress_reduction;
     this.goal_increase_range_of_motion = goal_increase_range_of_motion;
