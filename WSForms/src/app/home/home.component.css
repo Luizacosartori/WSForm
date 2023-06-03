@@ -2,6 +2,17 @@
   padding: 40px 50px 20px 50px;
   display: inline-block;
 }
+mat-toolbar {
+  padding: 0 40px;
+}
+mat-toolbar-row {
+  padding: 0;
+}
+
+.menuIconButton:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
 
 .cards {
   margin: 20px 40px;
@@ -41,9 +52,32 @@
   width: 100%;
 }
 
-.synch-button {
+.sync-button {
   display: inline-block;
-  background-color: #c9bba7;
+  /* background-color: #c9bba7; */
+  background: linear-gradient(180deg, #7b61cb 0%, #59abde 100%);
+  align-items: end;
+}
+.loadingSync {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+.loadingSyncRight {
+  margin-left: auto;
+  padding: 0 40px;
+  display: inline-flex;
+  align-items: center;
+}
+.loadingSyncRight mat-spinner {
+  padding-right: 16px;
+}
+.loadingSyncRight button {
+  color: #fff;
+}
+
+.sync-button:hover {
+  background: #7b61cb;
 }
 
 .display {
@@ -54,17 +88,26 @@
   padding-top: 8px;
 }
 
+.logoutButton {
+  margin-left: auto;
+}
+.logoutButton:hover {
+  color: #fff;
+  background-color: #a22020;
+}
+
 mat-card-content {
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
 }
 
 /* Tablet View */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+}
 
 /* Mobile View */
 @media only screen and (max-width: 430px) {
-  .synch-button {
+  .sync-button {
     display: none !important;
   }
 }

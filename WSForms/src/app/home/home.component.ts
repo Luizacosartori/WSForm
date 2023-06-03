@@ -8,6 +8,8 @@ import {
 } from '../formsData';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +28,11 @@ export class HomeComponent {
   @ViewChild('syncbutton') syncButton: any;
   loading: boolean = false;
 
-  constructor(private dataService: dataService, public dialog: MatDialog) { }
+  constructor(
+    private dataService: dataService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   openClientInfo(data: any) {
     HomeComponent.storeClientId = data;
@@ -62,7 +68,7 @@ export class HomeComponent {
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => { }
+      (err: any) => {}
     );
 
     this.dataService.getTreatmentData().subscribe(
@@ -70,7 +76,7 @@ export class HomeComponent {
         this.treatment = d;
         console.log(d);
       },
-      (err: any) => { }
+      (err: any) => {}
     );
   }
 
@@ -99,8 +105,11 @@ export class HomeComponent {
   ngOnInit(): void {
     this.getData();
   }
+  Logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/']);
+  }
 }
-
 @Component({
   selector: 'dialog-content-example-dialog',
   templateUrl: 'massage.form.info.html',
@@ -141,7 +150,7 @@ export class MassageFormInfo {
     let hours = String(new Date(date).getHours());
     let year = new Date(date).getFullYear();
     let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
-    return day + '/' + month + '/' + year 
+    return day + '/' + month + '/' + year;
   }
 }
 
@@ -187,7 +196,7 @@ export class NotesInfo implements OnInit {
     treatment_plan: new FormControl('', Validators.required),
   });
 
-  constructor(private dataService: dataService, public dialog: MatDialog) { }
+  constructor(private dataService: dataService, public dialog: MatDialog) {}
 
   onSubmit() {
     if (this.notesForm.valid) {
@@ -204,7 +213,7 @@ export class NotesInfo implements OnInit {
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   formatDate(date: Date): string {
     let day = new Date(date).getDate();

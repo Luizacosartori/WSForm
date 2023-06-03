@@ -1,14 +1,22 @@
 <div class="container">
   <mat-toolbar class="side-bar header">
     <mat-toolbar-row>
-      <button (click)="button.toggle()" mat-icon-button>
-        <mat-icon>menu</mat-icon>
+      <!-- <button (click)="button.toggle()" mat-icon-button>
+        <mat-icon class="menuIcon">menu</mat-icon>
       </button>
-      <span> Menu&nbsp; </span>
-      <div class="logout">
-        <a href="/login" class="link-logout">Logout</a>
-        <i class="fa fad fa-sign-out"></i>
-      </div>
+      <span> Menu&nbsp; </span> -->
+      <button
+        mat-stroked-button
+        class="menuIconButton"
+        (click)="button.toggle()"
+      >
+        Menu
+        <mat-icon class="menuIcon">menu</mat-icon>
+      </button>
+
+      <a class="logoutButton" mat-raised-button href="" (click)="Logout()">
+        <mat-icon>exit_to_app</mat-icon> Logout</a
+      >
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="side-bar-content">
@@ -22,10 +30,18 @@
     <mat-sidenav-content class="main-content">
       <div class="loadingSync">
         <h1>Dashboard</h1>
-        <button #syncbutton class="synch-button" mat-button disabled="false" (click)="enableDisableButton()">
-          Sync with Mindbody
-        </button>
-        <mat-spinner *ngIf="loading"></mat-spinner>
+        <div class="loadingSyncRight">
+          <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+          <button
+            #syncbutton
+            class="sync-button"
+            mat-button
+            disabled="false"
+            (click)="enableDisableButton()"
+          >
+            Sync with Mindbody
+          </button>
+        </div>
       </div>
       <div class="legend">
         <p>Appt time- Client Name</p>
@@ -37,33 +53,55 @@
         <mat-card class="cards">
           <mat-card-content class="card">
             <div class="matCardContentText">
-              <h3>{{ formatDate(data.treatment_StartDateTime) }} - {{data.first_name}} {{data.last_name}}</h3>
+              <h3>
+                {{ formatDate(data.treatment_StartDateTime) }} -
+                {{ data.first_name }} {{ data.last_name }}
+              </h3>
               <h3>{{ data.full_name }}</h3>
             </div>
             <div>
               <div *ngIf="data.occupation == null; else elseBlockTwo">
-                <button mat-button class="display" style="background-color: #ffff99 "
-                  routerLink="/massageForm/{{ data.client_id }}">
+                <button
+                  mat-button
+                  class="display"
+                  style="background-color: #ffff99"
+                  routerLink="/massageForm/{{ data.client_id }}"
+                >
                   Add New Form
                 </button>
               </div>
               <ng-template #elseBlockTwo>
-                <button mat-button class="display" style="background-color: lightgray;"
-                  (click)="openClientInfo(data.client_id)">
+                <button
+                  mat-button
+                  class="display"
+                  style="background-color: lightgray"
+                  (click)="openClientInfo(data.client_id)"
+                >
                   Client Information
                 </button>
               </ng-template>
 
-              <div *ngIf="data.pressure == null; then thenBlock; else elseBlock"></div>
+              <div
+                *ngIf="data.pressure == null; then thenBlock; else elseBlock"
+              ></div>
 
               <ng-template #thenBlock>
-                <button mat-button class="display" style="background-color: rgb(246, 112, 112)"
-                  (click)="openNotesInfo(data.treatment_id)">
+                <button
+                  mat-button
+                  class="display"
+                  style="background-color: rgb(246, 112, 112)"
+                  (click)="openNotesInfo(data.treatment_id)"
+                >
                   Add Notes
                 </button>
               </ng-template>
               <ng-template #elseBlock>
-                <button mat-button class="display" style="background-color: rgb(116, 216, 116)" disabled="true">
+                <button
+                  mat-button
+                  class="display"
+                  style="background-color: rgb(116, 216, 116)"
+                  disabled="true"
+                >
                   Notes Done!
                 </button>
               </ng-template>

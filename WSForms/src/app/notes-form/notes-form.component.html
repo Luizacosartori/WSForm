@@ -1,14 +1,22 @@
 <div class="container">
   <mat-toolbar class="side-bar" class="header">
     <mat-toolbar-row>
-      <button (click)="button.toggle()" mat-icon-button>
-        <mat-icon>menu</mat-icon>
+      <button
+        mat-stroked-button
+        class="menuIconButton"
+        (click)="button.toggle()"
+      >
+        Menu
+        <mat-icon class="menuIcon">menu</mat-icon>
       </button>
-      <span> Menu&nbsp; </span>
-      <div class="logout">
+
+      <!-- <div class="logout">
         <a href="/login" class="link-logout">Logout</a>
         <i class="fa fad fa-sign-out"></i>
-      </div>
+      </div> -->
+      <a class="logoutButton" mat-raised-button href="" (click)="Logout()">
+        <mat-icon>exit_to_app</mat-icon> Logout</a
+      >
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="side-bar-content">
@@ -225,13 +233,17 @@
               <p>Date: {{ formatDate(d.client_signature_date) }}</p>
             </div>
             <div *ngFor="let data of fullReportInfo">
-              <h3>Treatment Notes: {{formatDate(data.treatment_StartDateTime)}} </h3>
-              <p>Pressure used: {{data.pressure}}</p>
-              <p>Areas Massaged: {{data.front_of_body}}, {{data.back_of_body}}</p>
-              <p>Pressure used: {{data.pressure}}</p>
+              <h3>
+                Treatment Notes: {{ formatDate(data.treatment_StartDateTime) }}
+              </h3>
+              <p>Pressure used: {{ data.pressure }}</p>
+              <p>
+                Areas Massaged: {{ data.front_of_body }},
+                {{ data.back_of_body }}
+              </p>
+              <p>Pressure used: {{ data.pressure }}</p>
             </div>
           </div>
-
 
           <button mat-button color="primary" (click)="updateNotes()">
             Update Massage Form
@@ -239,7 +251,6 @@
           <button mat-button color="accent" (click)="savePDF()">
             Export as PDF
           </button>
-
         </mat-card-content>
       </mat-card>
     </mat-sidenav-content>

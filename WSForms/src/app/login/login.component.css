@@ -2,13 +2,6 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  /* background-image: linear-gradient(
-    to right bottom,
-    rgba(134, 215, 241, 0.986),
-    rgba(218, 105, 249, 0.731)
-  ); */
-  /* background: linear-gradient(111.81deg, #c9bba7 0%, #ffe9ca 100%);
-   */
   background: linear-gradient(313.85deg, #4bc7e5 14.25%, #7b60cb 84.5%);
 }
 
@@ -16,20 +9,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 32px;
   margin: auto;
 }
 
 .logo img {
-  width: 200px;
+  width: 176px;
 }
 
 .wrapper {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 480px;
+  height: 480px;
   background-color: white;
-  margin: 64px auto;
+  margin: 32px auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -39,6 +32,7 @@
   text-align: center;
   padding: 40px 0 0 0;
   font-weight: 900;
+  color: #7b60cb;
 }
 
 .screenLoginContainer {
@@ -84,12 +78,14 @@
   margin: auto;
   width: 50%;
   padding-top: 20px;
-  text-decoration: none;
-  color: black;
   text-align: center;
 }
+.forgot-password a {
+  text-decoration: none;
+  color: #202020;
+}
 
-.password-link:hover {
+.forgot-password:hover {
   text-decoration: underline;
 }
 

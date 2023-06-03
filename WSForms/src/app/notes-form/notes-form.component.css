@@ -3,6 +3,13 @@
   display: flex;
 }
 
+mat-toolbar {
+  padding: 0 40px;
+}
+mat-toolbar-row {
+  padding: 0;
+}
+
 .active {
   border-left: solid 6px #c9bba7;
   background-color: #f5f5f5 !important;
@@ -23,9 +30,20 @@
   columns: 3;
 }
 
-button {
-  display: inline-block;
-  margin-right: 16px;
+.logoutButton {
+  margin-left: auto;
+}
+.logoutButton:hover {
+  color: #fff;
+  background-color: #a22020;
+}
+mat-icon {
+  display: flex;
+  justify-content: center;
+}
+.menuIconButton:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .cards {

@@ -8,6 +8,7 @@ import {
 } from '../formsData';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as jspdf from 'jspdf';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes-form',
@@ -21,39 +22,45 @@ export class NotesFormComponent {
   @ViewChild('showInfo') content!: ElementRef;
   @ViewChild('content') toPDF!: ElementRef;
 
-  constructor(private dataService: dataService) {
-  }
+  constructor(private dataService: dataService, private router: Router) {}
 
   formatDate(date: Date): string {
     let day = new Date(date).getDate();
     let month = new Date(date).getMonth() + 1;
     let year = new Date(date).getFullYear();
 
-    return day + "/" + month + "/" + year
+    return day + '/' + month + '/' + year;
   }
 
   onSubmit() {
-    this.dataService.healthInsuranceReportNotesAndTreatments(String(this.search_input.value)).subscribe(
-      (d: any) => {
-        this.fullReportInfo = d;
-        console.log(this.fullReportInfo)
-      },
+    this.dataService
+      .healthInsuranceReportNotesAndTreatments(String(this.search_input.value))
+      .subscribe(
+        (d: any) => {
+          this.fullReportInfo = d;
+          console.log(this.fullReportInfo);
+        },
 
-      (err: any) => { }
-    );
-    this.dataService.getMassageFormByName(String(this.search_input.value)).subscribe(
-      (d: any) => {
-        this.test = d;
-
-      },
-      (err: any) => { }
-    );
+        (err: any) => {}
+      );
+    this.dataService
+      .getMassageFormByName(String(this.search_input.value))
+      .subscribe(
+        (d: any) => {
+          this.test = d;
+        },
+        (err: any) => {}
+      );
   }
 
   updateNotes() {
     alert('Open Massage Form to Edit');
   }
 
+  Logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/']);
+  }
 
   public async savePDF(): Promise<void> {
     let content = this.toPDF.nativeElement;
