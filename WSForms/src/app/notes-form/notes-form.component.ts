@@ -41,7 +41,7 @@ export class NotesFormComponent {
 
       (err: any) => { }
     );
-    this.dataService.getMassageFormById(String(this.search_input.value)).subscribe(
+    this.dataService.getMassageFormByName(String(this.search_input.value)).subscribe(
       (d: any) => {
         this.test = d;
 

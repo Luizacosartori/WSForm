@@ -8,7 +8,7 @@
         <p>Occupation: {{data.occupation}}</p>
       </mat-card-content>
     </mat-card>
-    <mat-card style="margin-bottom: 15px" class="">
+    <mat-card style="margin-bottom: 15px">
       <mat-card-content class="">
         <h2>Health Information</h2>
         <p>Taking Medication: {{data.taking_medication}}</p>
@@ -69,12 +69,15 @@
   </div>
 
   <h1>Past Treatments Notes</h1>
-  <div *ngFor="let data of clientNotesById">
-    <h2>{{formatDate(data.treatment_StartDateTime)}}</h2>
-    <p>Concentrated areas {{data.front_of_body}}, {{data.back_of_body}}</p>
-    <p>Pressure: {{data.pressure}}</p>
-    <p>Extra Notes: {{data.treatment_notes}}</p>
-  </div>
+  <mat-card style="margin-bottom: 15px" *ngFor="let data of clientNotesById">
+    <mat-card-content>
+      <h2>{{formatDate(data.treatment_StartDateTime)}}</h2>
+      <p>Concentrated areas {{data.front_of_body}}, {{data.back_of_body}}</p>
+      <p>Pressure: {{data.pressure}}</p>
+      <p>Extra Notes: {{data.treatment_notes}}</p>
+    </mat-card-content>
+  </mat-card>
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>

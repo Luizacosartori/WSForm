@@ -26,7 +26,7 @@ export class HomeComponent {
   @ViewChild('syncbutton') syncButton: any;
   loading: boolean = false;
 
-  constructor(private dataService: dataService, public dialog: MatDialog) {}
+  constructor(private dataService: dataService, public dialog: MatDialog) { }
 
   openClientInfo(data: any) {
     HomeComponent.storeClientId = data;
@@ -62,7 +62,7 @@ export class HomeComponent {
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => {}
+      (err: any) => { }
     );
 
     this.dataService.getTreatmentData().subscribe(
@@ -70,7 +70,7 @@ export class HomeComponent {
         this.treatment = d;
         console.log(d);
       },
-      (err: any) => {}
+      (err: any) => { }
     );
   }
 
@@ -108,7 +108,7 @@ export class HomeComponent {
 })
 export class MassageFormInfo {
   clickedClientId = HomeComponent.storeClientId;
-  clientById: massageForm[] = new Array();
+  clientById: any;
   clientNotesById: treatmentData[] = new Array();
   public now: Date = new Date();
 
@@ -141,7 +141,7 @@ export class MassageFormInfo {
     let hours = String(new Date(date).getHours());
     let year = new Date(date).getFullYear();
     let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
-    return day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
+    return day + '/' + month + '/' + year 
   }
 }
 
@@ -187,7 +187,7 @@ export class NotesInfo implements OnInit {
     treatment_plan: new FormControl('', Validators.required),
   });
 
-  constructor(private dataService: dataService, public dialog: MatDialog) {}
+  constructor(private dataService: dataService, public dialog: MatDialog) { }
 
   onSubmit() {
     if (this.notesForm.valid) {
@@ -204,9 +204,14 @@ export class NotesInfo implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   formatDate(date: Date): string {
-    return new Date(date).toLocaleDateString();
+    let day = new Date(date).getDate();
+    let month = new Date(date).getMonth() + 1;
+    let hours = String(new Date(date).getHours());
+    let year = new Date(date).getFullYear();
+    let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
+    return day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
   }
 }

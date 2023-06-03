@@ -22,13 +22,7 @@
     <mat-sidenav-content class="main-content">
       <div class="loadingSync">
         <h1>Dashboard</h1>
-        <button
-          #syncbutton
-          class="synch-button"
-          mat-button
-          disabled="false"
-          (click)="enableDisableButton()"
-        >
+        <button #syncbutton class="synch-button" mat-button disabled="false" (click)="enableDisableButton()">
           Sync with Mindbody
         </button>
         <mat-spinner *ngIf="loading"></mat-spinner>
@@ -36,8 +30,7 @@
       <div class="legend">
         <p>Appt time- Client Name</p>
         <p>Therapist</p>
-        <p>Massage form</p>
-        <p>Client info</p>
+        <p>Client form</p>
         <p>Notes form</p>
       </div>
       <div *ngFor="let data of treatment">
@@ -49,27 +42,19 @@
             </div>
             <div>
               <div *ngIf="data.occupation == null; else elseBlockTwo">
-                <button
-                  mat-button
-                  class="display"
-                  style="background-color: #ffff99 " routerLink="/massageForm/{{ data.client_id }}"
-                >
-                   New Client (Add Form)
+                <button mat-button class="display" style="background-color: #ffff99 "
+                  routerLink="/massageForm/{{ data.client_id }}">
+                  Add New Form
                 </button>
               </div>
               <ng-template #elseBlockTwo>
-                <button mat-button class="display" style="background-color: rgb(116, 216, 116) " disabled="true">
-                  Massage Form Exists
+                <button mat-button class="display" style="background-color: lightgray;"
+                  (click)="openClientInfo(data.client_id)">
+                  Client Information
                 </button>
               </ng-template>
 
-              <button mat-button class="display" style="background-color: lightgray;"
-                (click)="openClientInfo(data.client_id)">
-                Client Information
-              </button>
-              <div
-                *ngIf="data.pressure == null; then thenBlock; else elseBlock"
-              ></div>
+              <div *ngIf="data.pressure == null; then thenBlock; else elseBlock"></div>
 
               <ng-template #thenBlock>
                 <button mat-button class="display" style="background-color: rgb(246, 112, 112)"
@@ -78,12 +63,7 @@
                 </button>
               </ng-template>
               <ng-template #elseBlock>
-                <button
-                  mat-button
-                  class="display"
-                  style="background-color: rgb(116, 216, 116)"
-                  disabled="true"
-                >
+                <button mat-button class="display" style="background-color: rgb(116, 216, 116)" disabled="true">
                   Notes Done!
                 </button>
               </ng-template>
