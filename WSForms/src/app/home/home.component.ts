@@ -68,6 +68,7 @@ export class HomeComponent {
     this.dataService.getTreatmentData().subscribe(
       (d: any) => {
         this.treatment = d;
+        console.log(d);
       },
       (err: any) => {}
     );

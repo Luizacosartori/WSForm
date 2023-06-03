@@ -4,7 +4,7 @@
   </div>
   <div class="wrapper">
     <h1>Welcome to WSForms</h1>
-    <div class="container">
+    <div class="screenLoginContainer">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <mat-form-field appearance="fill" class="email">
           <mat-label>Email</mat-label>
@@ -33,7 +33,9 @@
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
         </mat-form-field>
-        <div class="errormsg" *ngIf="login_fail">Fail to login</div>
+        <div class="errormsg" *ngIf="login_fail">
+          Incorrect Email or password
+        </div>
         <button mat-fab extended class="button" type="submit" color="primary">
           Submit
         </button>

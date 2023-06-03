@@ -9,7 +9,7 @@
   ); */
   /* background: linear-gradient(111.81deg, #c9bba7 0%, #ffe9ca 100%);
    */
-  background: linear-gradient(297.8deg, #c9bba7 0%, #aa8b5e 84.23%);
+  background: linear-gradient(313.85deg, #4bc7e5 14.25%, #7b60cb 84.5%);
 }
 
 .logo {
@@ -26,10 +26,10 @@
 
 .wrapper {
   position: relative;
-  width: 60vw;
-  height: 60vh;
+  width: 500px;
+  height: 500px;
   background-color: white;
-  margin: 5vh auto;
+  margin: 64px auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -41,19 +41,22 @@
   font-weight: 900;
 }
 
-.container {
+.screenLoginContainer {
   position: relative;
+  margin: 40px 0 40px 0;
 }
 
-.container mat-form-field {
+.screenLoginContainer mat-form-field {
   display: block;
-  width: 50vw;
+  width: 400px;
   margin: auto;
+  padding: 8px 0 8px 0;
 }
 
 .button {
   display: block;
   margin: auto;
+  width: 128px;
 }
 
 .links {
@@ -68,12 +71,12 @@
   padding: 20px;
 }
 
-.errormsg{
-    text-align: center;
-    padding: 10px 0;
-    margin: 10px 0;
-    background-color: rgba(250, 190, 190, 1);
-    color: darkred;
+.errormsg {
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  background-color: rgba(250, 190, 190, 1);
+  color: darkred;
 }
 
 .forgot-password {
@@ -90,36 +93,51 @@
   text-decoration: underline;
 }
 
-/* Mobile View*/
-@media only screen and (max-width: 430px) {
-  .wrapper {
-    width: 80vw;
-    height: 40vh;
-  }
-
-  .container mat-form-field {
-    display: block;
-    width: 60vw;
-    margin: auto;
-  }
-  .logo img {
-    width: 120px;
-  }
-}
-
 /* Tablet View */
 @media only screen and (max-width: 600px) {
   .wrapper {
-    width: 80vw;
-    height: 60vh;
+    width: 360px;
+    height: 440px;
+    margin: 32px auto;
   }
 
-  .container mat-form-field {
-    display: block;
-    width: 60vw;
-    margin: auto;
+  .screenLoginContainer {
+    position: relative;
+    margin: 40px 0 40px 0;
   }
+
+  .screenLoginContainer mat-form-field {
+    display: block;
+    width: 304px;
+    margin: auto;
+    padding: 8px 0 8px 0;
+  }
+
   .logo img {
     width: 150px;
+  }
+}
+
+/* Mobile View*/
+@media only screen and (max-width: 430px) {
+  .wrapper {
+    width: 320px;
+    height: 400px;
+    margin: 16px auto;
+  }
+
+  .screenLoginContainer {
+    position: relative;
+    margin: 16px 0 16px 0;
+  }
+
+  .screenLoginContainer mat-form-field {
+    display: block;
+    width: 280px;
+    margin: auto;
+    padding: 8px 0 8px 0;
+  }
+  .logo img {
+    width: 120px;
   }
 }
