@@ -44,27 +44,24 @@
         </div>
       </div>
       <div class="legend">
-        <p>Appt time- Client Name</p>
-        <p>Therapist</p>
-        <p>Client form</p>
-        <p>Notes form</p>
+        <h2>Appt time - Client Name</h2>
+        <h2>Therapist</h2>
+        <h2>Client form</h2>
+        <h2>Notes form</h2>
       </div>
       <div *ngFor="let data of treatment">
         <mat-card class="cards">
           <mat-card-content class="card">
-            <div class="matCardContentText">
-              <h3>
-                {{ formatDate(data.treatment_StartDateTime) }} -
-                {{ data.first_name }} {{ data.last_name }}
-              </h3>
-              <h3>{{ data.full_name }}</h3>
-            </div>
+            <h3>
+              {{ formatDate(data.treatment_StartDateTime) }} -
+              {{ data.first_name }} {{ data.last_name }}
+            </h3>
+            <h3>{{ data.full_name }}</h3>
             <div>
               <div *ngIf="data.occupation == null; else elseBlockTwo">
                 <button
                   mat-button
-                  class="display"
-                  style="background-color: #ffff99"
+                  class="addFormButton"
                   routerLink="/massageForm/{{ data.client_id }}"
                 >
                   Add New Form
@@ -73,14 +70,15 @@
               <ng-template #elseBlockTwo>
                 <button
                   mat-button
-                  class="display"
-                  style="background-color: lightgray"
+                  class="clientInformationButton"
                   (click)="openClientInfo(data.client_id)"
                 >
                   Client Information
                 </button>
               </ng-template>
+            </div>
 
+            <div>
               <div
                 *ngIf="data.pressure == null; then thenBlock; else elseBlock"
               ></div>
@@ -88,20 +86,14 @@
               <ng-template #thenBlock>
                 <button
                   mat-button
-                  class="display"
-                  style="background-color: rgb(246, 112, 112)"
+                  class="addNotesButton"
                   (click)="openNotesInfo(data.treatment_id)"
                 >
                   Add Notes
                 </button>
               </ng-template>
               <ng-template #elseBlock>
-                <button
-                  mat-button
-                  class="display"
-                  style="background-color: rgb(116, 216, 116)"
-                  disabled="true"
-                >
+                <button mat-button class="notesDoneButton" disabled="true">
                   Notes Done!
                 </button>
               </ng-template>

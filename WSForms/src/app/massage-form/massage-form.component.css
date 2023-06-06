@@ -106,10 +106,6 @@ nav {
   width: 100%;
 }
 
-/* .form-container mat-form-field + mat-form-field {
-    margin-left: 16px;
-  } */
-
 .lines {
   columns: 2;
   display: flex;
@@ -135,10 +131,6 @@ nav {
   width: 50%;
 }
 
-/* mat-form-field .details-pregnancy {
-  width: 50%;
-} */
-
 .radiobox-lines {
   display: flex;
   columns: 2;
@@ -152,12 +144,6 @@ nav {
   width: 100%;
 }
 
-/* .radiobox-lines p {
-  margin: 0;
-  min-width: 50%;
-  display: flex;
-  align-items: center;
-} */
 .radiobox-lines h4 {
   margin: 0;
   min-width: 50%;

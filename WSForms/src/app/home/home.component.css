@@ -14,6 +14,18 @@ mat-toolbar-row {
   color: #000000;
 }
 
+.legend {
+  columns: 4;
+  /* margin: 22px 40px -20px 50px; */
+  margin: 20px 54px;
+  color: gray;
+}
+
+.legend h2 {
+  margin: 0;
+  height: auto;
+}
+
 .cards {
   margin: 20px 40px;
 }
@@ -22,9 +34,16 @@ mat-toolbar-row {
   border: solid 1px #c9bba7;
 }
 
-.card,
-.explanation-title {
+.card {
   columns: 4;
+}
+.card h3 {
+  margin: 0;
+  padding: 4px 0 4px;
+}
+
+.matCardContentText h3 {
+  margin: 0;
 }
 
 .explanation-title h3 {
@@ -34,13 +53,6 @@ mat-toolbar-row {
 .active {
   border-left: solid 6px #c9bba7;
   background-color: #f5f5f5 !important;
-}
-
-.legend {
-  columns: 4;
-  margin: 22px 40px -20px 50px;
-  color: gray;
-  font-size: large;
 }
 
 .explanation {
@@ -80,14 +92,6 @@ mat-toolbar-row {
   background: #7b61cb;
 }
 
-.display {
-  display: block;
-}
-
-.matCardContentText h3 {
-  padding-top: 8px;
-}
-
 .logoutButton {
   margin-left: auto;
 }
@@ -96,18 +100,42 @@ mat-toolbar-row {
   background-color: #a22020;
 }
 
+.addFormButton {
+  display: inline-block;
+  background-color: #ffff99;
+}
+.clientInformationButton {
+  display: inline-block;
+  background-color: #eeeeee;
+}
+.addNotesButton {
+  display: inline-block;
+  background-color: rgb(246, 112, 112);
+}
+.notesDoneButton {
+  display: inline-block;
+  background-color: rgb(116, 216, 116);
+}
+
 mat-card-content {
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
 }
 
-/* Tablet View */
+/* Tablet - 1029px */
+@media only screen and (max-width: 1029px) {
+  .legend h2 {
+    height: 64px;
+  }
+}
+/* Tablet - 912px */
+@media only screen and (max-width: 912px) {
+}
+
+/* Mobile - 600px */
 @media only screen and (max-width: 600px) {
 }
 
-/* Mobile View */
-@media only screen and (max-width: 430px) {
-  .sync-button {
-    display: none !important;
-  }
+/* Mobile - 390px */
+@media only screen and (max-width: 390px) {
 }

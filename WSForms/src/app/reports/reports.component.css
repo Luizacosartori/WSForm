@@ -8,6 +8,13 @@
   display: inline-block;
 }
 
+mat-toolbar {
+  padding: 0 40px;
+}
+mat-toolbar-row {
+  padding: 0;
+}
+
 .cards {
   margin: 20px 40px;
 }
@@ -39,17 +46,21 @@
   width: 100%;
 }
 
-.synch-button {
-  display: inline-block;
-  background-color: #c9bba7;
-}
-
 .display {
   display: block;
 }
 .matCardContentText h3 {
   padding-top: 8px;
 }
+
+.logoutButton {
+  margin-left: auto;
+}
+.logoutButton:hover {
+  color: #fff;
+  background-color: #a22020;
+}
+
 mat-card-content {
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
