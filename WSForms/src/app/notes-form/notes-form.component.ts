@@ -16,8 +16,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./notes-form.component.css'],
 })
 export class NotesFormComponent {
-  fullReportInfo: any;
-  test: any;
+  treatmentNotes: any;
+  massageForm: any;
   search_input = new FormControl('', Validators.required);
   @ViewChild('showInfo') content!: ElementRef;
   @ViewChild('content') toPDF!: ElementRef;
@@ -34,20 +34,19 @@ export class NotesFormComponent {
 
   onSubmit() {
     this.dataService
-      .healthInsuranceReportNotesAndTreatments(String(this.search_input.value))
-      .subscribe(
-        (d: any) => {
-          this.fullReportInfo = d;
-          console.log(this.fullReportInfo);
-        },
-
-        (err: any) => {}
-      );
-    this.dataService
       .getMassageFormByName(String(this.search_input.value))
       .subscribe(
         (d: any) => {
-          this.test = d;
+          this.massageForm = d;
+        },
+        (err: any) => {}
+      );
+
+      this.dataService
+      .getTreatmentNotes(String(this.search_input.value))
+      .subscribe(
+        (d: any) => {
+          this.treatmentNotes = d;
         },
         (err: any) => {}
       );
@@ -73,6 +72,6 @@ export class NotesFormComponent {
       windowWidth: 650, //window width in CSS pixels
     });
     //Make the file name the client name
-    doc.save('client ID ' + this.search_input.value + '.pdf');
+    doc.save(this.search_input.value + '.pdf');
   }
 }

@@ -157,15 +157,7 @@ router.get("/treatment/:id", (request, response) => {
   });
 });
 
-router.get("/healthInsuranceReport/:client_name", (request, response) => {
-  connection.query("SELECT t.*, c.* FROM treatment t LEFT JOIN  client c ON t.client_id=c.client_id WHERE first_name LIKE'" + request.params.client_name + "%'", (err, records, fields) => {
-    if (err) {
-      console.log(err);
-    } else {
-      response.send(records);
-    }
-  });
-});
+
 
 router.get("/massageForm/", (request, response) => {
   connection.query("SELECT * FROM client_massage_form ", (err, records, fields) => {
@@ -202,6 +194,19 @@ router.get("/massageForm/:id", (req, res) => {
 router.get("/staff/:id", (request, response) => {
   connection.query(
     "SELECT staff.full_name, treatment.treatment_id FROM staff INNER JOIN treatment ON treatment.staff_id = staff.staff_id WHERE treatment_id =" + request.params.id,
+    (err, records, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.send(records);
+      }
+    }
+  );
+});
+
+router.get("/treatmentNotes/:full_name", (request, response) => {
+  connection.query(
+    "SELECT t.*, c.* FROM treatment t LEFT JOIN  client c ON t.client_id=c.client_id WHERE first_name LIKE  '" + request.params.full_name+ "%'",
     (err, records, fields) => {
       if (err) {
         console.log(err);

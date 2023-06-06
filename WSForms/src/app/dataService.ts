@@ -31,7 +31,7 @@ export class dataService {
     return this.http.get<clientData>(this.url + '/client/');
   }
 
-  //WHY
+  //WHY 
   public getClientDataById(client_id: any): Observable<clientData> {
     return this.http.get<clientData>(this.url + '/client/' + client_id);
   }
@@ -46,6 +46,11 @@ export class dataService {
     return this.http.get<any>(this.url + '/massageForm/' + id);
   }
 
+   //Get treatment notes to every tretament
+   public getTreatmentNotes(full_name: string): Observable<any> {
+    return this.http.get<any>(this.url + '/treatmentNotes/' + full_name);
+  }
+
   public getMassageFormData(): Observable<massageForm> {
     return this.http.get<massageForm>(this.url + "/massageForm/");
   }
@@ -58,11 +63,6 @@ export class dataService {
   //Send a GET request to the server
   public getTreatmentDataById(client_id: any): Observable<treatmentData> {
     return this.http.get<treatmentData>(this.url + "/treatment/" + client_id);
-  }
-
-  //Send a GET request to the server and returns all information necessary for the health insurance report
-  public healthInsuranceReportNotesAndTreatments(client_full_name: any): Observable<treatmentData> {
-    return this.http.get<treatmentData>(this.url + "/healthInsuranceReport/" + client_full_name);
   }
 
   //Send a GET request to the server
