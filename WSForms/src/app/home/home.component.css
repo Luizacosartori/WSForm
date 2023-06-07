@@ -15,7 +15,7 @@ mat-toolbar-row {
 }
 
 .legend {
-  columns: 4;
+  columns: 5;
   /* margin: 22px 40px -20px 50px; */
   margin: 20px 54px;
   color: gray;
@@ -23,7 +23,8 @@ mat-toolbar-row {
 
 .legend h2 {
   margin: 0;
-  height: auto;
+  /* height: 100%;
+  word-break: break-word; */
 }
 
 .cards {
@@ -35,19 +36,11 @@ mat-toolbar-row {
 }
 
 .card {
-  columns: 4;
+  columns: 5;
 }
 .card h3 {
   margin: 0;
   padding: 4px 0 4px;
-}
-
-.matCardContentText h3 {
-  margin: 0;
-}
-
-.explanation-title h3 {
-  color: #909090;
 }
 
 .active {
@@ -103,18 +96,26 @@ mat-toolbar-row {
 .addFormButton {
   display: inline-block;
   background-color: #ffff99;
+  /* padding: 8px 8px;
+  height: auto; */
 }
 .clientInformationButton {
   display: inline-block;
   background-color: #eeeeee;
+  /* padding: 8px 8px;
+  height: auto; */
 }
 .addNotesButton {
   display: inline-block;
   background-color: rgb(246, 112, 112);
+  /* padding: 8px 8px;
+  height: auto; */
 }
 .notesDoneButton {
   display: inline-block;
   background-color: rgb(116, 216, 116);
+  /* padding: 8px 8px;
+  height: auto; */
 }
 
 mat-card-content {
@@ -122,20 +123,173 @@ mat-card-content {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
 }
 
-/* Tablet - 1029px */
-@media only screen and (max-width: 1029px) {
-  .legend h2 {
-    height: 64px;
-  }
-}
 /* Tablet - 912px */
 @media only screen and (max-width: 912px) {
+  .legend {
+    margin: 20px auto;
+    padding-left: 24px;
+    padding-right: 20px;
+    width: 100vw;
+  }
+
+  .legend h2 {
+    font-size: medium;
+  }
+
+  .cards {
+    margin: 20px 20px;
+  }
+
+  mat-card-content:last-child {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 16px;
+    padding-left: 16px;
+    gap: 16px;
+  }
+  .card h3 {
+    margin: 0px 0px;
+  }
+
+  .addFormButton {
+    margin: 16px 0 16px 0;
+    padding: 8px 8px;
+    height: auto;
+  }
+  .clientInformationButton {
+    margin: 16px 0 16px 0;
+    padding: 8px 8px;
+    height: auto;
+  }
+  .addNotesButton {
+    margin: 16px 0 16px 0;
+    padding: 8px 8px;
+    height: auto;
+  }
+  .notesDoneButton {
+    margin: 16px 0 16px 0;
+    padding: 8px 8px;
+    height: auto;
+  }
 }
 
 /* Mobile - 600px */
 @media only screen and (max-width: 600px) {
+  .sync-button {
+    display: none;
+  }
+
+  .legend {
+    margin: 20px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 96vw;
+  }
+
+  .card h3 {
+    font-size: 1.1em;
+  }
+  .addFormButton {
+    font-size: 1em;
+  }
+  .clientInformationButton {
+    font-size: 1em;
+  }
+  .addNotesButton {
+    font-size: 1em;
+  }
+  .notesDoneButton {
+    font-size: 1em;
+  }
+}
+/* Mobile - 500px */
+@media only screen and (max-width: 500px) {
+  .main-content h1 {
+    padding: 40px 50px 0 50px;
+    display: inline-block;
+  }
+  .legend {
+    display: none;
+  }
+  .card {
+    display: grid;
+    gap: 8px;
+    margin: auto 0;
+    font-size: initial;
+    padding: 0 16px;
+    justify-content: center;
+  }
+  .addFormButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  .clientInformationButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  .addNotesButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  .notesDoneButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  mat-card-content:last-child {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 
-/* Mobile - 390px */
+/* Mobile - iPhone 12 Pro - 390px */
 @media only screen and (max-width: 390px) {
+  .main-content h1 {
+    padding: 40px 50px 0 50px;
+    display: inline-block;
+  }
+  .legend {
+    display: none;
+  }
+  .card {
+    display: grid;
+    gap: 8px;
+    margin: auto 0;
+    font-size: initial;
+    padding: 0 16px;
+    justify-content: center;
+  }
+  .addFormButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  .clientInformationButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  .addNotesButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  .notesDoneButton {
+    min-width: 180px;
+    margin: auto;
+    padding: 8px;
+  }
+  mat-card-content:last-child {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }

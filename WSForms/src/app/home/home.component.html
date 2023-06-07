@@ -44,7 +44,8 @@
         </div>
       </div>
       <div class="legend">
-        <h2>Appt time - Client Name</h2>
+        <h2>Appt time</h2>
+        <h2>Client Name</h2>
         <h2>Therapist</h2>
         <h2>Client form</h2>
         <h2>Notes form</h2>
@@ -52,10 +53,8 @@
       <div *ngFor="let data of treatment">
         <mat-card class="cards">
           <mat-card-content class="card">
-            <h3>
-              {{ formatDate(data.treatment_StartDateTime) }} -
-              {{ data.first_name }} {{ data.last_name }}
-            </h3>
+            <h3>{{ formatDate(data.treatment_StartDateTime) }}</h3>
+            <h3>{{ data.first_name }} {{ data.last_name }}</h3>
             <h3>{{ data.full_name }}</h3>
             <div>
               <div *ngIf="data.occupation == null; else elseBlockTwo">

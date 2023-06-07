@@ -220,7 +220,10 @@ mat-radio-group {
   .personal-information-card-header {
     padding: 24px 0;
   }
-
+  .personal-information-card-content {
+    padding: 0;
+    margin: 0px;
+  }
   mat-form-field {
     width: 100% !important;
   }
@@ -277,3 +280,7 @@ mat-radio-group {
   display: block;
   text-align: center;
 }
+
+/* Mobile - iPhone 12 Pro - 390px */
+/* @media only screen and (max-width: 390px) {
+} */
