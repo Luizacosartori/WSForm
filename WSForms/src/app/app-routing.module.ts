@@ -6,15 +6,17 @@ import { NotesFormComponent } from './notes-form/notes-form.component';
 import { MassageFormComponent } from './massage-form/massage-form.component';
 import { LoginComponent } from './login/login.component';
 import { ReportsComponent } from './reports/reports.component';
+import { AuthGuard } from './auth-guard.guard';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'notes', component: NotesFormComponent },
-  { path: 'massageForm', component: MassageFormComponent },
-  { path: 'massageForm/:id', component: MassageFormComponent },
-  { path: 'reports', component: ReportsComponent },
+  { path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
+  { path: 'notes', component: NotesFormComponent, canActivate:[AuthGuard] },
+  { path: 'massageForm', component: MassageFormComponent, canActivate:[AuthGuard] },
+  { path: 'massageForm/:id', component: MassageFormComponent, canActivate:[AuthGuard] },
+  { path: 'reports', component: ReportsComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({

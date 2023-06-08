@@ -16,17 +16,26 @@ export class LoginComponent {
     password: new FormControl('', Validators.required),
   });
   login_fail = false;
+  loading = false;
 
   login() {
     this.login_fail = false;
+    
     if (this.loginForm.valid) {
+      this.loading = true;
       this.dataService.getUserToken(this.loginForm.value).subscribe(
         (d: any) => {
           localStorage.setItem('user', d.username);
-          this.router.navigate(['/home']);
+          this.dataService.getClientTreatment({ username: localStorage.getItem('user') }).subscribe((err: any) => {
+            console.log(err);
+          });
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 1850);
         },
         (err: any) => {
           console.log('Error retrieving the data.', err);
+          this.loading = false;
           this.login_fail = true;
         }
       );

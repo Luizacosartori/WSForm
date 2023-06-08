@@ -36,6 +36,7 @@
         <div class="errormsg" *ngIf="login_fail">
           Incorrect Email or Password
         </div>
+        <mat-spinner style="margin: 0 auto 20px;" *ngIf="loading" [diameter]="30"></mat-spinner>
         <button mat-fab extended class="button" type="submit" color="primary">
           Submit
         </button>
