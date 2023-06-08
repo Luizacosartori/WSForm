@@ -34,7 +34,10 @@ mat-toolbar-row {
 .card:hover {
   border: solid 1px #c9bba7;
 }
-
+.data-description {
+  color: black;
+  font-weight: 400;
+}
 .card {
   columns: 5;
 }

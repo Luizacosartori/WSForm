@@ -2,23 +2,25 @@
   <div *ngFor="let data of clientById">
     <mat-card style="margin-bottom: 15px" class="">
       <mat-card-content class="">
-        <h1><b>{{data.full_name}} </b></h1>
+        <h1 class="data-description"><b>{{data.full_name}} </b></h1>
 
-        <p>DOB: {{formatDate(data.date_of_birth)}}</p>
-        <p>Occupation: {{data.occupation}}</p>
+        <p><span class="data-description">Date of Birth:
+          </span>{{formatDate(data.date_of_birth)}}
+        </p>
+        <p><span class="data-description">Occupation:</span> {{data.occupation}}</p>
       </mat-card-content>
     </mat-card>
     <mat-card style="margin-bottom: 15px">
       <mat-card-content class="">
-        <h2>Health Information</h2>
-        <p>Taking Medication: {{data.taking_medication}}</p>
-        <p>Medciation List: {{data.taking_medication_list}}</p>
-        <p>
-          Pregnancy: {{data.pregnant}} {{data.pregnant_how_far}} weeks
+        <h2 class="data-description">Health Information</h2>
+        <p><span class="data-description">Taking Medication:</span> {{data.taking_medication}}</p>
+        <p><span class="data-description">Medciation List:</span> {{data.taking_medication_list}}</p>
+        <p><span class="data-description">Pregnancy:</span>
+          {{data.pregnant}} {{data.pregnant_how_far}} weeks
           {{data.pregnant_high_risk}}
         </p>
-        <p>Chronic Pain: {{data.chronic_pain}}</p>
-        <p>Injuries: {{data.orthopedic_injuries}}</p>
+        <p><span class="data-description">Chronic Pain: </span>{{data.chronic_pain}}</p>
+        <p><span class="data-description">Injuries:</span> {{data.orthopedic_injuries}}</p>
         <ul>
           <li *ngIf="data.hasCancer == '1'">Cancer: Yes</li>
           <li *ngIf="data.hasHeadaches_migraines == '1'">Migranaines: Yes</li>
@@ -42,16 +44,16 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card style="margin-bottom: 15px" class="">
-      <mat-card-content class="">
-        <h2>Massage Information</h2>
-        <p *ngIf="data.had_professional_massage == '1'">
+    <mat-card style="margin-bottom: 15px">
+      <mat-card-content>
+        <h2 class="data-description">Massage Information</h2>
+        <p *ngIf="data.had_professional_massage == '1'"> <span class="data-description"></span>
           This is the client's first massage ever!
         </p>
-        <p>Pressure: {{data.pressure_preference}}</p>
-        <p>Allergies: {{data.allergies_sensitivities}}</p>
-        <p>Explanation {{data.allergies_sensitivities_explanation}}</p>
-        <p>Treatment Goals</p>
+        <p><span class="data-description">Pressure: </span>{{data.pressure_preference}}</p>
+        <p><span class="data-description">Allergies: </span>{{data.allergies_sensitivities}}</p>
+        <p><span class="data-description">Explanation: </span> {{data.allergies_sensitivities_explanation}}</p>
+        <p><span class="data-description">Treatment Goals: </span></p>
         <ul>
           <li *ngIf="data.goal_stress_reduction == '1'">Stress Reduction</li>
           <li *ngIf="data.goal_pain_relief == '1'">Pain relief</li>
@@ -68,13 +70,13 @@
     </mat-card>
   </div>
 
-  <h1>Past Treatments Notes</h1>
+  <h1 class="data-description">Past Treatments Notes</h1>
   <mat-card style="margin-bottom: 15px" *ngFor="let data of clientNotesById">
     <mat-card-content>
-      <h2>{{formatDate(data.treatment_StartDateTime)}}</h2>
-      <p>Concentrated areas {{data.front_of_body}}, {{data.back_of_body}}</p>
-      <p>Pressure: {{data.pressure}}</p>
-      <p>Extra Notes: {{data.treatment_notes}}</p>
+      <h2> <span class="data-description">{{formatDate(data.treatment_StartDateTime)}} - {{data.full_name}}</span></h2>
+      <p><span class="data-description">Concentrated areas:</span> {{data.front_of_body}}, {{data.back_of_body}}</p>
+      <p><span class="data-description">Pressure:</span> {{data.pressure}}</p>
+      <p><span class="data-description">Extra Notes: </span>{{data.treatment_notes}}</p>
     </mat-card-content>
   </mat-card>
 

@@ -147,7 +147,7 @@ router.get("/treatment/", (request, response) => {
 });
 
 router.get("/treatment/:id", (request, response) => {
-  connection.query("SELECT * from `treatment` where client_id =" + request.params.id, (err, records, fields) => {
+  connection.query("SELECT treatment.*, staff.full_name FROM treatment LEFT JOIN staff ON staff.staff_id=treatment.staff_id where client_id =" + request.params.id, (err, records, fields) => {
     if (err) {
       console.log(err);
     } else {
@@ -205,7 +205,7 @@ router.get("/staff/:id", (request, response) => {
 
 router.get("/treatmentNotes/:full_name", (request, response) => {
   connection.query(
-    "SELECT t.*, c.* FROM treatment t LEFT JOIN  client c ON t.client_id=c.client_id WHERE first_name LIKE  '" + request.params.full_name+ "%'",
+    "SELECT t.*, c.*, s.full_name FROM treatment t LEFT JOIN  client c ON t.client_id=c.client_id LEFT JOIN staff s ON s.staff_id=t.staff_id WHERE first_name LIKE  '" + request.params.full_name + "%'",
     (err, records, fields) => {
       if (err) {
         console.log(err);

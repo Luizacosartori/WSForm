@@ -32,7 +32,7 @@ export class HomeComponent {
     private dataService: dataService,
     public dialog: MatDialog,
     private router: Router
-  ) {}
+  ) { }
 
   openClientInfo(data: any) {
     HomeComponent.storeClientId = data;
@@ -68,7 +68,7 @@ export class HomeComponent {
       (d: any) => {
         this.clients = d;
       },
-      (err: any) => {}
+      (err: any) => { }
     );
 
     this.dataService.getTreatmentData().subscribe(
@@ -76,7 +76,7 @@ export class HomeComponent {
         this.treatment = d;
         console.log(d);
       },
-      (err: any) => {}
+      (err: any) => { }
     );
   }
 
@@ -124,10 +124,13 @@ export class MassageFormInfo {
   constructor(private dataService: dataService) {
     this.getData();
   }
+
   getData() {
     this.dataService.getMassageFormById(this.clickedClientId).subscribe(
       (d: any) => {
         this.clientById = d;
+        console.log(d)
+
       },
       (err: any) => {
         console.log(err);
@@ -147,9 +150,8 @@ export class MassageFormInfo {
   formatDate(date: Date): string {
     let day = new Date(date).getDate();
     let month = new Date(date).getMonth() + 1;
-    let hours = String(new Date(date).getHours());
     let year = new Date(date).getFullYear();
-    let minutes = String(new Date(date).getMinutes()).padEnd(2, '0');
+
     return day + '/' + month + '/' + year;
   }
 }
@@ -196,7 +198,7 @@ export class NotesInfo implements OnInit {
     treatment_plan: new FormControl('', Validators.required),
   });
 
-  constructor(private dataService: dataService, public dialog: MatDialog) {}
+  constructor(private dataService: dataService, public dialog: MatDialog) { }
 
   onSubmit() {
     if (this.notesForm.valid) {
@@ -213,7 +215,7 @@ export class NotesInfo implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   formatDate(date: Date): string {
     let day = new Date(date).getDate();

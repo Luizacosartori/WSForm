@@ -1,18 +1,13 @@
 <div class="container">
   <mat-toolbar class="side-bar" class="header">
     <mat-toolbar-row>
-      <button
-        mat-stroked-button
-        class="menuIconButton"
-        (click)="button.toggle()"
-      >
+      <button mat-stroked-button class="menuIconButton" (click)="button.toggle()">
         Menu
         <mat-icon class="menuIcon">menu</mat-icon>
       </button>
 
       <a class="logoutButton" mat-raised-button href="" (click)="Logout()">
-        <mat-icon>exit_to_app</mat-icon> Logout</a
-      >
+        <mat-icon>exit_to_app</mat-icon> Logout</a>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="side-bar-content">
@@ -30,19 +25,9 @@
       <div class="searchLine">
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Look-up Client Name</mat-label>
-          <input
-            [formControl]="search_input"
-            type="text"
-            matInput
-            (keydown.enter)="onSubmit()"
-          />
+          <input [formControl]="search_input" type="text" matInput (keydown.enter)="onSubmit()" />
         </mat-form-field>
-        <button
-          class="seachButton"
-          mat-raised-button
-          color="accent"
-          (click)="onSubmit()"
-        >
+        <button class="seachButton" mat-raised-button color="accent" (click)="onSubmit()">
           Submit
         </button>
       </div>
@@ -246,7 +231,7 @@
             <mat-card-content class="card" *ngFor="let data of treatmentNotes" style="border-radius: 5px;">
               <div>
                 <h3>
-                  <b>Treatment Notes: {{ formatDate(data.treatment_StartDateTime) }} - Remedial Massage</b>
+                  <b>Treatment Notes: {{ formatDate(data.treatment_StartDateTime) }} - Therapist: {{data.full_name}}</b>
                 </h3>
                 <p>Pressure used: {{ data.pressure }}</p>
                 <p>
