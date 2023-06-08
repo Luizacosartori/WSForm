@@ -21,7 +21,8 @@
         <a mat-list-item href="/home" class="link"> Dashboard </a>
 
         <a mat-list-item href="/notes" class="link active"> Client Search </a>
-        <a mat-list-item href="/reports" class="link"> Reports </a>
+        <!-- Reports page might be added in the future -->
+        <!-- <a mat-list-item href="/reports" class="link"> Reports </a> -->
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="main-content">
@@ -48,197 +49,204 @@
       <mat-card class="cards" id="showInfo" *ngFor="let d of massageForm">
         <mat-card-content class="card">
           <div #content>
-            <div class="one-collum">
+            <div class="two-collum">
               <h2>
-                <strong>Full Name: {{ d.full_name }} </strong>
+                <strong>Client Full Name: {{ d.full_name }} </strong>
+                <p><b>Date Of Birth: </b> {{ this.formatDate(d.date_of_birth) }}</p>
               </h2>
             </div>
-            <h3>Personal Information</h3>
-            <div class="two-collum">
-              <p>Date Of Birth: {{ this.formatDate(d.date_of_birth) }}</p>
-            </div>
-            <div class="two-collum">
-              <p>Address: {{ d.address }}</p>
-              <p>Suburb: {{ d.suburb }}</p>
-            </div>
-            <div class="two-collum">
-              <p>State: {{ d.state }}</p>
-              <p>Postal Code: {{ d.postal_code }}</p>
-            </div>
-            <div class="two-collum">
-              <p>Occupation: {{ d.occupation }}</p>
-              <p>Gender: {{ d.gender_identity }}</p>
-            </div>
-            <div class="two-collum">
-              <p>Email: {{ d.email }}</p>
-              <p>Phone Number: {{ d.phone }}</p>
-            </div>
+            <fieldset class="personal-info">
+              <legend class="field-legend">Personal Information</legend>
 
-            <div class="two-collum">
-              <p>Health Insurance: {{ d.health_insurance }}</p>
-              <p>Other Health Insurance: {{ d.health_insurance_other }}</p>
-            </div>
-            <div class="two-collum">
-              <p>
-                Emergency Contact: {{ d.emergency_contact_name }} (
-                {{ d.emergency_contact_relationship }} )
-              </p>
-              <p>
-                Emergency Contact Phone Number:
-                {{ d.emergency_contact_phone }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>Heard about us from:</p>
-              <ul class="two-collum">
-                <li *ngIf="d.hear_about_us_online_search">Online Search</li>
-                <li *ngIf="d.hear_about_us_word_of_mouth">Word of Mouth</li>
-                <li *ngIf="d.hear_about_us_facebook">Facebook</li>
-                <li *ngIf="d.hear_about_us_instagram">Instagram</li>
-                <li *ngIf="d.hear_about_us_friend_family">Friend / Family</li>
-                <li *ngIf="d.hear_about_us_healthcare_provider">
-                  Healthcare Provider
-                </li>
-                <li *ngIf="d.hear_about_us_online_advertisement">
-                  Online Advertisement
-                </li>
-                <li *ngIf="d.hear_about_us_walked_by">Walked by</li>
-              </ul>
-            </div>
-            <mat-divider></mat-divider>
+              <div class="two-collum">
+                <p><span class="data-description">Address: </span>{{ d.address }}</p>
+                <p><span class="data-description">Suburb:</span> {{ d.suburb }}</p>
+              </div>
+              <div class="two-collum">
+                <p><span class="data-description">State:</span> {{ d.state }}</p>
+                <p><span class="data-description">Postal Code:</span> {{ d.postal_code }}</p>
+              </div>
+              <div class="two-collum">
+                <p><span class="data-description">Occupation:</span> {{ d.occupation }}</p>
+                <p><span class="data-description">Gender:</span> {{ d.gender_identity }}</p>
+              </div>
+              <div class="two-collum">
+                <p><span class="data-description">Email:</span> {{ d.email }}</p>
+                <p><span class="data-description">Phone Number: </span>{{ d.phone }}</p>
+              </div>
 
-            <h3>Health Information</h3>
-            <div class="two-collum">
-              <p>Taking any medications: {{ d.taking_medication }}</p>
-              <p>Medications name and use: {{ d.taking_medication_list }}</p>
-            </div>
+              <div class="two-collum">
+                <p><span class="data-description">Health Insurance: </span>{{ d.health_insurance }}</p>
+                <p><span class="data-description">Other Health Insurance: </span>{{ d.health_insurance_other }}</p>
+              </div>
+              <div class="two-collum">
+                <p>
+                  <span class="data-description">Emergency Contact:</span> {{ d.emergency_contact_name }} (
+                  {{ d.emergency_contact_relationship }} )
+                </p>
+                <p>
+                  <span class="data-description"> Emergency Contact Phone Number:</span>
+                  {{ d.emergency_contact_phone }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Heard about us from:</span></p>
+                <ul class="two-collum">
+                  <li *ngIf="d.hear_about_us_online_search">Online Search</li>
+                  <li *ngIf="d.hear_about_us_word_of_mouth">Word of Mouth</li>
+                  <li *ngIf="d.hear_about_us_facebook">Facebook</li>
+                  <li *ngIf="d.hear_about_us_instagram">Instagram</li>
+                  <li *ngIf="d.hear_about_us_friend_family">Friend / Family</li>
+                  <li *ngIf="d.hear_about_us_healthcare_provider">
+                    Healthcare Provider
+                  </li>
+                  <li *ngIf="d.hear_about_us_online_advertisement">
+                    Online Advertisement
+                  </li>
+                  <li *ngIf="d.hear_about_us_walked_by">Walked by</li>
+                </ul>
+              </div>
+            </fieldset>
 
-            <div class="one-collum">
-              <p>Currently pregnant: {{ d.pregnant }}</p>
-            </div>
-            <div class="two-collum">
-              <p>Pregnant for: {{ d.pregnant_how_far }} weeks</p>
-              <p>Pregnancy risk factors: {{ d.pregnant_high_risk }}</p>
-            </div>
-            <div class="two-collum">
-              <p>Suffer from Chronic Pain: {{ d.chronic_pain }}</p>
-              <p>Chronic Pain Explained: {{ d.chronic_pain_explanation }}</p>
-            </div>
-            <div class="two-collum">
-              <p>Any orthopedic Injuries: {{ d.orthopedic_injuries }}</p>
-              <p>
-                Orthopedic Injuries Explained: {{ d.orthopedic_injuries_list }}
-              </p>
-            </div>
+            <br>
+            <fieldset class="personal-info">
 
-            <div class="one-collum">
-              <p>Client Conditions:</p>
-              <ul class="two-collum">
-                <li *ngIf="d.hasCancer">Cancer</li>
-                <li *ngIf="d.hasFibromyalgia">Fibromyalgia</li>
-                <li *ngIf="d.hasHeadaches_migraines">Headaches / Migraines</li>
-                <li *ngIf="d.hasStroke">Stroke</li>
-                <li *ngIf="d.hasArthritis">Arthritis</li>
-                <li *ngIf="d.hasHeart_attack">Heart attack</li>
-                <li *ngIf="d.hasDiabetes">Diabetes</li>
-                <li *ngIf="d.hasKidney_dysfunction">Kidney Dysfunction</li>
-                <li *ngIf="d.hasJoint_replacement">Joint Replacement(s)</li>
-                <li *ngIf="d.hasBlood_clots">Blood Clots</li>
-                <li *ngIf="d.hasHigh_low_pressure">
-                  High / Low Blood Pressure
-                </li>
-                <li *ngIf="d.hasNumbness">Numbness</li>
-                <li *ngIf="d.hasNeuropathy">Neuropathy</li>
-                <li *ngIf="d.hasSprains_strains">Sprains / Strains</li>
-              </ul>
-            </div>
-            <div class="one-collum">
-              <p>Conditions Explained: {{ d.conditions_explanation }}</p>
-            </div>
+              <legend class="field-legend"> Health Information</legend>
+              <div class="two-collum">
+                <p><span class="data-description">TakinFg any medications:</span> {{ d.taking_medication }}</p>
+                <p><span class="data-description">Medications name and use:</span> {{ d.taking_medication_list }}</p>
+              </div>
 
-            <mat-divider></mat-divider>
-            <h3>Massage Information</h3>
-            <div class="one-collum">
-              <p>
-                Had a professional massage before:
-                {{ d.had_professional_massage }}
-              </p>
-            </div>
+              <div class="one-collum">
+                <p><span class="data-description">Currently pregnant: </span>{{ d.pregnant }}</p>
+              </div>
+              <div class="two-collum">
+                <p><span class="data-description">Pregnant for: </span>{{ d.pregnant_how_far }} weeks</p>
+                <p><span class="data-description">Pregnancy risk factors:</span> {{ d.pregnant_high_risk }}</p>
+              </div>
+              <div class="two-collum">
+                <p><span class="data-description">Suffer from Chronic Pain:</span> {{ d.chronic_pain }}</p>
+                <p><span class="data-description">Chronic Pain Explained:</span> {{ d.chronic_pain_explanation }}</p>
+              </div>
+              <div class="two-collum">
+                <p><span class="data-description">Any orthopedic Injuries: </span>{{ d.orthopedic_injuries }}</p>
+                <p>
+                  <span class="data-description">Orthopedic Injuries Explained: </span>{{ d.orthopedic_injuries_list }}
+                </p>
+              </div>
 
-            <div class="one-collum">
-              <p>
-                Massages interest:
-                {{ d.professional_massage_type }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>
-                Other massages interest:
-                {{ d.professional_massage_other }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>
-                Pressure preference:
-                {{ d.pressure_preference }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>
-                Has any allergies or sensitivities:
-                {{ d.allergies_sensitivities }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>
-                Allergies or sensitivities explanation:
-                {{ d.allergies_sensitivities_explanation }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>Treatment Goals:</p>
-              <ul class="two-collum">
-                <li *ngIf="d.goal_pain_relief">Pain Relief</li>
-                <li *ngIf="d.goal_injury_rehabilitation">
-                  Injury Rehabilitation
-                </li>
-                <li *ngIf="d.goal_stress_reduction">Stress Reduction</li>
-                <li *ngIf="d.goal_improve_sleep">Improve Sleep</li>
-                <li *ngIf="d.goal_increase_range_of_motion">
-                  Increase Flexibility and Range of motion
-                </li>
-                <li *ngIf="d.goal_increase_energy">Increase Energy</li>
-              </ul>
-            </div>
-            <div class="one-collum">
-              <p>
-                Other treatment goals:
-                {{ d.goal_other }}
-              </p>
-            </div>
-            <div class="one-collum">
-              <p>Massage frequency:</p>
-              <ul class="two-collum">
-                <li *ngIf="d.massage_frequency_weekly">Weekly</li>
-                <li *ngIf="d.massage_frequency_monthly">Monthly</li>
-                <li *ngIf="d.massage_frequency_random">Random</li>
-              </ul>
-            </div>
-            <div class="one-collum">
-              <p>
-                Other Massage frequency:
-                {{ d.massage_frequency_other }}
-              </p>
-            </div>
-            <div class="two-collum">
-              <p>Signed by: {{ d.client_signature }}</p>
-              <p>Date: {{ formatDate(d.client_signature_date) }}</p>
-            </div>
-            <mat-card-content class="card" *ngFor="let data of treatmentNotes">
+              <div class="one-collum">
+                <p><span class="data-description">Client Conditions:</span></p>
+                <ul class="two-collum">
+                  <li *ngIf="d.hasCancer">Cancer</li>
+                  <li *ngIf="d.hasFibromyalgia">Fibromyalgia</li>
+                  <li *ngIf="d.hasHeadaches_migraines">Headaches / Migraines</li>
+                  <li *ngIf="d.hasStroke">Stroke</li>
+                  <li *ngIf="d.hasArthritis">Arthritis</li>
+                  <li *ngIf="d.hasHeart_attack">Heart attack</li>
+                  <li *ngIf="d.hasDiabetes">Diabetes</li>
+                  <li *ngIf="d.hasKidney_dysfunction">Kidney Dysfunction</li>
+                  <li *ngIf="d.hasJoint_replacement">Joint Replacement(s)</li>
+                  <li *ngIf="d.hasBlood_clots">Blood Clots</li>
+                  <li *ngIf="d.hasHigh_low_pressure">
+                    High / Low Blood Pressure
+                  </li>
+                  <li *ngIf="d.hasNumbness">Numbness</li>
+                  <li *ngIf="d.hasNeuropathy">Neuropathy</li>
+                  <li *ngIf="d.hasSprains_strains">Sprains / Strains</li>
+                </ul>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Conditions Explained:</span> {{ d.conditions_explanation }}</p>
+              </div>
+            </fieldset>
+            <br>
+            <fieldset class="personal-info">
+              <legend class="field-legend">Massage Information</legend>
+              <div class="one-collum">
+                <p><span class="data-description">Had a professional massage before:</span>
+
+                  {{ d.had_professional_massage }}
+                </p>
+              </div>
+
+              <div class="one-collum">
+                <p><span class="data-description"> Massages interest:</span>
+
+                  {{ d.professional_massage_type }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description"> Other massages interest:</span>
+
+                  {{ d.professional_massage_other }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Pressure preference:</span>
+
+                  {{ d.pressure_preference }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Has any allergies or sensitivities:</span>
+
+                  {{ d.allergies_sensitivities }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Allergies or sensitivities explanation:</span>
+
+                  {{ d.allergies_sensitivities_explanation }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Treatment Goals:</span></p>
+                <ul class="two-collum">
+                  <li *ngIf="d.goal_pain_relief">Pain Relief</li>
+                  <li *ngIf="d.goal_injury_rehabilitation">
+                    Injury Rehabilitation
+                  </li>
+                  <li *ngIf="d.goal_stress_reduction">Stress Reduction</li>
+                  <li *ngIf="d.goal_improve_sleep">Improve Sleep</li>
+                  <li *ngIf="d.goal_increase_range_of_motion">
+                    Increase Flexibility and Range of motion
+                  </li>
+                  <li *ngIf="d.goal_increase_energy">Increase Energy</li>
+                </ul>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Other treatment goals:</span>
+
+                  {{ d.goal_other }}
+                </p>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Massage frequency:</span></p>
+                <ul class="two-collum">
+                  <li *ngIf="d.massage_frequency_weekly">Weekly</li>
+                  <li *ngIf="d.massage_frequency_monthly">Monthly</li>
+                  <li *ngIf="d.massage_frequency_random">Random</li>
+                </ul>
+              </div>
+              <div class="one-collum">
+                <p><span class="data-description">Other Massage frequency:</span>
+
+                  {{ d.massage_frequency_other }}
+                </p>
+              </div>
+              <br>
+
+              <div class="signature">
+                <p style="display:inline-block; margin-right: 10px;"><b> Signed by:</b> {{ d.client_signature }} </p>
+                <p style="display:inline-block"><b>Date: </b> {{ formatDate(d.client_signature_date) }}</p>
+              </div>
+            </fieldset>
+            <br>
+            <mat-card-content class="card" *ngFor="let data of treatmentNotes" style="border-radius: 5px;">
               <div>
                 <h3>
-                  Treatment Notes:
-                  {{ formatDate(data.treatment_StartDateTime) }}
+                  <b>Treatment Notes: {{ formatDate(data.treatment_StartDateTime) }} - Remedial Massage</b>
                 </h3>
                 <p>Pressure used: {{ data.pressure }}</p>
                 <p>

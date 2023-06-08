@@ -1,12 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { dataService } from '../dataService';
-import {
-  therapistData,
-  clientData,
-  treatmentData,
-  massageForm,
-} from '../formsData';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import * as jspdf from 'jspdf';
 import { Router } from '@angular/router';
 
@@ -22,7 +16,7 @@ export class NotesFormComponent {
   @ViewChild('showInfo') content!: ElementRef;
   @ViewChild('content') toPDF!: ElementRef;
 
-  constructor(private dataService: dataService, private router: Router) {}
+  constructor(private dataService: dataService, private router: Router) { }
 
   formatDate(date: Date): string {
     let day = new Date(date).getDate();
@@ -39,16 +33,17 @@ export class NotesFormComponent {
         (d: any) => {
           this.massageForm = d;
         },
-        (err: any) => {}
+        (err: any) => { }
       );
 
-      this.dataService
+    this.dataService
       .getTreatmentNotes(String(this.search_input.value))
       .subscribe(
         (d: any) => {
           this.treatmentNotes = d;
+          console.log(d)
         },
-        (err: any) => {}
+        (err: any) => { }
       );
   }
 
@@ -65,12 +60,17 @@ export class NotesFormComponent {
     let content = this.toPDF.nativeElement;
     let doc = new jspdf.jsPDF();
     await doc.html(content, {
+
       margin: [10, 0, 20, 0], //Add top and bottom margin on the doc
       x: 15,
       y: 15,
       width: 170, //target width in the PDF document
       windowWidth: 650, //window width in CSS pixels
     });
+
+    doc.html(content,{
+      
+    })
     //Make the file name the client name
     doc.save(this.search_input.value + '.pdf');
   }

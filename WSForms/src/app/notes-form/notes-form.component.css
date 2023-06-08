@@ -6,6 +6,7 @@
 mat-toolbar {
   padding: 0 40px;
 }
+
 mat-toolbar-row {
   padding: 0;
 }
@@ -30,12 +31,19 @@ mat-toolbar-row {
   padding: 16px;
 }
 
+
 .one-collum {
   columns: 1;
 }
+
 .two-collum {
   columns: 2;
 }
+
+.signature {
+  text-align: center;
+}
+
 .three-collum {
   columns: 3;
 }
@@ -43,14 +51,17 @@ mat-toolbar-row {
 .logoutButton {
   margin-left: auto;
 }
+
 .logoutButton:hover {
   color: #fff;
   background-color: #a22020;
 }
+
 mat-icon {
   display: flex;
   justify-content: center;
 }
+
 .menuIconButton:hover {
   background-color: #ffffff;
   color: #000000;
@@ -67,38 +78,25 @@ mat-icon {
 .matCardContentText h3 {
   padding-top: 8px;
 }
+
 mat-card-content {
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
 }
 
-/* SVG Human Body Image */
-
-.human_body_checkbox {
-  fill: #b3b3b3;
-}
-/* .human_body_checkbox path:hover {
-  fill: #570000;
-} */
-
-.human_body_part_selected {
-  fill: rgb(200, 0, 0);
-}
-#humanbody_checkbox input[type="checkbox"] {
-  display: none;
+.personal-info {
+  border: 1px solid rgb(22, 50, 166);
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.human_body_container {
-  display: inline-block;
-  margin: 0 16px 16px 16px;
-  padding: 8px 16px 8px 16px;
-  border: 1px dotted #000000;
-  border-radius: 16px;
+.field-legend {
+  font-size: larger;
 }
 
-.human_body_container p {
-  display: block;
-  text-align: center;
+.data-description {
+  color: rgb(22, 50, 166);
+  font-weight: 500;
 }
 /* Tablet - 912px */
 @media only screen and (max-width: 912px) {
