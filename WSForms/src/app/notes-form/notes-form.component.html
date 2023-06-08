@@ -1,21 +1,24 @@
 <div class="container">
   <mat-toolbar class="side-bar" class="header">
     <mat-toolbar-row>
-      <button mat-stroked-button class="menuIconButton" (click)="button.toggle()">
+      <button
+        mat-stroked-button
+        class="menuIconButton"
+        (click)="button.toggle()"
+      >
         Menu
         <mat-icon class="menuIcon">menu</mat-icon>
       </button>
 
       <a class="logoutButton" mat-raised-button href="" (click)="Logout()">
-        <mat-icon>exit_to_app</mat-icon> Logout</a>
+        <mat-icon>exit_to_app</mat-icon> Logout</a
+      >
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="side-bar-content">
     <mat-sidenav class="side-nav-container" #button mode="side" closed>
       <mat-nav-list>
-        <a mat-list-item href="/home" class="link">
-          Dashboard
-        </a>
+        <a mat-list-item href="/home" class="link"> Dashboard </a>
 
         <a mat-list-item href="/notes" class="link active"> Client Search </a>
         <a mat-list-item href="/reports" class="link"> Reports </a>
@@ -23,11 +26,25 @@
     </mat-sidenav>
     <mat-sidenav-content class="main-content">
       <h1>Search client's history</h1>
-      <mat-form-field class="full-width" appearance="fill">
-        <mat-label>Look-up Client Name</mat-label>
-        <input [formControl]="search_input" type="text" matInput />
-      </mat-form-field>
-      <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+      <div class="searchLine">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Look-up Client Name</mat-label>
+          <input
+            [formControl]="search_input"
+            type="text"
+            matInput
+            (keydown.enter)="onSubmit()"
+          />
+        </mat-form-field>
+        <button
+          class="seachButton"
+          mat-raised-button
+          color="accent"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </div>
       <mat-card class="cards" id="showInfo" *ngFor="let d of massageForm">
         <mat-card-content class="card">
           <div #content>
@@ -217,21 +234,21 @@
               <p>Signed by: {{ d.client_signature }}</p>
               <p>Date: {{ formatDate(d.client_signature_date) }}</p>
             </div>
-              <mat-card-content class="card" *ngFor="let data of treatmentNotes">
-                <div>
-                  <h3>
-                    Treatment Notes: {{ formatDate(data.treatment_StartDateTime) }}
-                  </h3>
-                  <p>Pressure used: {{ data.pressure }}</p>
-                  <p>
-                    Areas Massaged: {{ data.front_of_body }},
-                    {{ data.back_of_body }}
-                  </p>
-                  <p>Pressure used: {{ data.pressure }}</p>
-                </div>
-              </mat-card-content>
+            <mat-card-content class="card" *ngFor="let data of treatmentNotes">
+              <div>
+                <h3>
+                  Treatment Notes:
+                  {{ formatDate(data.treatment_StartDateTime) }}
+                </h3>
+                <p>Pressure used: {{ data.pressure }}</p>
+                <p>
+                  Areas Massaged: {{ data.front_of_body }},
+                  {{ data.back_of_body }}
+                </p>
+                <p>Pressure used: {{ data.pressure }}</p>
+              </div>
+            </mat-card-content>
           </div>
-
 
           <button mat-button color="primary" (click)="updateNotes()">
             Update Massage Form

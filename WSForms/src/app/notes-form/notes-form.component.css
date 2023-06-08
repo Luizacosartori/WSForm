@@ -14,12 +14,22 @@ mat-toolbar-row {
   border-left: solid 6px #c9bba7;
   background-color: #f5f5f5 !important;
 }
-
-.full-width {
-  margin: 20px 16px 20px 80px;
-  position: relative;
-  width: 20vw;
+.searchLine {
+  margin: 20px 80px 20px 80px;
+  columns: 2;
+  display: inline-flex;
+  align-items: center;
+  /* width: 100%; */
 }
+.full-width {
+  margin: 0 16px;
+  width: auto;
+}
+
+.searchButton {
+  padding: 16px;
+}
+
 .one-collum {
   columns: 1;
 }
@@ -89,4 +99,83 @@ mat-card-content {
 .human_body_container p {
   display: block;
   text-align: center;
+}
+/* Tablet - 912px */
+@media only screen and (max-width: 912px) {
+}
+
+/* Mobile - 600px */
+@media only screen and (max-width: 600px) {
+  .main-content h1 {
+    padding: 40px 50px 0 50px;
+    display: inline-block;
+  }
+  .searchLine {
+    margin: 20px 32px 20px 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .full-width {
+    width: 90%;
+    margin: 0 16px 0 16px;
+  }
+  .two-collum {
+    columns: 1;
+  }
+  .three-collum {
+    columns: 1;
+  }
+}
+
+/* Mobile - iPhone 12 Pro - 390px */
+@media only screen and (max-width: 390px) {
+  .main-content h1 {
+    padding: 40px 50px 0 50px;
+    display: inline-block;
+  }
+  .searchLine {
+    margin: 20px 32px 20px 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .searchButton {
+    margin: 0 16px;
+  }
+  .full-width {
+    width: 90%;
+    margin: 0 16px 0 16px;
+  }
+  .two-collum {
+    columns: 1;
+  }
+  .three-collum {
+    columns: 1;
+  }
+}
+
+/* Mobile - iPhone SE - 375px */
+@media only screen and (max-width: 375px) {
+  .main-content h1 {
+    padding: 40px 50px 0 50px;
+    display: inline-block;
+  }
+  .searchLine {
+    margin: 16px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .searchButton {
+    margin: 0 16px;
+  }
+  .full-width {
+    width: 90%;
+    margin: 0 16px 0 16px;
+  }
+  .two-collum {
+    columns: 1;
+  }
+  .three-collum {
+    columns: 1;
+  }
 }
