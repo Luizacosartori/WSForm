@@ -129,6 +129,10 @@ mat-card-content {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
 }
 
+.MobileVersion {
+  display: none;
+}
+
 @media only screen and (max-width: 1115px) {
   .addFormButton {
     height: 48px;
@@ -244,27 +248,45 @@ mat-card-content {
 }
 /* Mobile - 500px */
 @media only screen and (max-width: 500px) {
+  .tabletVersion {
+    display: none;
+  }
+  .MobileVersion {
+    display: block;
+  }
+
   .legend {
     display: none;
   }
-  .cardButtonContent {
-    display: none;
-  }
-  .card {
-    display: grid;
-    gap: 8px;
-    margin: auto 0;
-    font-size: initial;
-    padding: 0 16px;
-    justify-content: center;
+  .clientDetails {
+    display: block;
+    width: 40vw;
   }
 
-  .card h3 {
+  .detailsButtons {
+    display: block;
+    width: 40vw;
+    margin: 0;
+    height: auto;
+  }
+  .addFormButton {
+    margin: 8px 0;
+  }
+  .clientInformationButton {
+    margin: 8px 0;
+  }
+  .addNotesButton {
+    margin: 8px 0;
+  }
+  .notesDoneButton {
+    margin: 8px 0;
+  }
+  /* .card h3 {
     min-width: 40vw;
   }
   .card button {
     min-width: 40vw;
-  }
+  } */
   /* .main-content h1 {
     padding: 40px 50px 0 50px;
     display: inline-block;
@@ -316,7 +338,7 @@ mat-card-content {
     padding: 40px 50px 0 50px;
     display: inline-block;
   } */
-  .legend {
+  /* .legend {
     display: none;
   }
   .cardButtonContent {
@@ -336,7 +358,7 @@ mat-card-content {
   }
   .card button {
     min-width: 40vw;
-  }
+  } */
 
   /* .cardTextContent {
     columns: 3;
