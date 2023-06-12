@@ -5,13 +5,18 @@
         <mat-icon class="menuIcon">menu</mat-icon>
       </button>
       <span> Menu&nbsp; </span> -->
-      <button mat-stroked-button class="menuIconButton" (click)="button.toggle()">
+      <button
+        mat-stroked-button
+        class="menuIconButton"
+        (click)="button.toggle()"
+      >
         Menu
         <mat-icon class="menuIcon">menu</mat-icon>
       </button>
 
       <a class="logoutButton" mat-raised-button href="" (click)="Logout()">
-        <mat-icon>exit_to_app</mat-icon> Logout</a>
+        <mat-icon>exit_to_app</mat-icon> Logout</a
+      >
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="side-bar-content">
@@ -19,9 +24,6 @@
       <mat-nav-list>
         <a mat-list-item href="/home" class="link active"> Dashboard </a>
         <a mat-list-item href="/notes" class="link"> Client Search </a>
-
-        <!-- Reports page might be added in the future -->
-        <!-- <a mat-list-item href="/reports" class="link"> Reports </a> -->
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="main-content">
@@ -29,7 +31,13 @@
         <h1>Dashboard</h1>
         <div class="loadingSyncRight">
           <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
-          <button #syncbutton class="sync-button" mat-button disabled="false" (click)="enableDisableButton()">
+          <button
+            #syncbutton
+            class="sync-button"
+            mat-button
+            disabled="false"
+            (click)="enableDisableButton()"
+          >
             Sync with Mindbody
           </button>
         </div>
@@ -41,41 +49,117 @@
         <h2>Client form</h2>
         <h2>Notes form</h2>
       </div>
-      <div *ngFor="let data of treatment">
-        <mat-card class="cards">
-          <mat-card-content class="card">
-            <h3>{{ formatDate(data.treatment_StartDateTime) }}</h3>
-            <h3>{{ data.first_name }} {{ data.last_name }}</h3>
-            <h3>{{ data.full_name }}</h3>
-            <div>
-              <div *ngIf="data.occupation == null; else elseBlockTwo">
-                <button mat-button class="addFormButton" routerLink="/massageForm/{{ data.client_id }}">
-                  Add New Form
-                </button>
+      <div class="tabletVersion">
+        <div *ngFor="let data of treatment">
+          <mat-card class="cards">
+            <mat-card-content class="card">
+              <h3>{{ formatDate(data.treatment_StartDateTime) }}</h3>
+              <h3>{{ data.first_name }} {{ data.last_name }}</h3>
+              <h3>{{ data.full_name }}</h3>
+              <div>
+                <div *ngIf="data.occupation == null; else elseBlockTwo">
+                  <button
+                    mat-button
+                    class="addFormButton"
+                    routerLink="/massageForm/{{ data.client_id }}"
+                  >
+                    Add New Form
+                  </button>
+                </div>
+                <ng-template #elseBlockTwo>
+                  <button
+                    mat-button
+                    class="clientInformationButton"
+                    (click)="openClientInfo(data.client_id)"
+                  >
+                    Client Information
+                  </button>
+                </ng-template>
               </div>
-              <ng-template #elseBlockTwo>
-                <button mat-button class="clientInformationButton" (click)="openClientInfo(data.client_id)">
-                  Client Information
-                </button>
-              </ng-template>
-            </div>
 
-            <div>
-              <div *ngIf="data.pressure == null || data.pressure == ' '; then thenBlock; else elseBlock"></div>
+              <div>
+                <div
+                  *ngIf="data.pressure == null; then thenBlock; else elseBlock"
+                ></div>
 
-              <ng-template #thenBlock>
-                <button mat-button class="addNotesButton" (click)="openNotesInfo(data.treatment_id)">
-                  Add Notes
-                </button>
-              </ng-template>
-              <ng-template #elseBlock>
-                <button mat-button class="notesDoneButton" disabled="true">
-                  Notes Done!
-                </button>
-              </ng-template>
-            </div>
-          </mat-card-content>
-        </mat-card>
+                <ng-template #thenBlock>
+                  <button
+                    mat-button
+                    class="addNotesButton"
+                    (click)="openNotesInfo(data.treatment_id)"
+                  >
+                    Add Notes
+                  </button>
+                </ng-template>
+                <ng-template #elseBlock>
+                  <button mat-button class="notesDoneButton" disabled="true">
+                    Notes Done!
+                  </button>
+                </ng-template>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div class="MobileVersion">
+        <div *ngFor="let data of treatment">
+          <mat-card class="cards">
+            <mat-card-content class="card">
+              <div class="clientDetails">
+                <h3>{{ formatDate(data.treatment_StartDateTime) }}</h3>
+                <h3>{{ data.first_name }} {{ data.last_name }}</h3>
+                <h3>{{ data.full_name }}</h3>
+              </div>
+              <div class="detailsButtons">
+                <div>
+                  <div *ngIf="data.occupation == null; else elseBlockTwo">
+                    <button
+                      mat-button
+                      class="addFormButton"
+                      routerLink="/massageForm/{{ data.client_id }}"
+                    >
+                      Add New Form
+                    </button>
+                  </div>
+                  <ng-template #elseBlockTwo>
+                    <button
+                      mat-button
+                      class="clientInformationButton"
+                      (click)="openClientInfo(data.client_id)"
+                    >
+                      Client Information
+                    </button>
+                  </ng-template>
+                </div>
+
+                <div>
+                  <div
+                    *ngIf="
+                      data.pressure == null;
+                      then thenBlock;
+                      else elseBlock
+                    "
+                  ></div>
+
+                  <ng-template #thenBlock>
+                    <button
+                      mat-button
+                      class="addNotesButton"
+                      (click)="openNotesInfo(data.treatment_id)"
+                    >
+                      Add Notes
+                    </button>
+                  </ng-template>
+                  <ng-template #elseBlock>
+                    <button mat-button class="notesDoneButton" disabled="true">
+                      Notes Done!
+                    </button>
+                  </ng-template>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

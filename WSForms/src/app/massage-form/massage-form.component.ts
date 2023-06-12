@@ -32,10 +32,7 @@ export class MassageFormComponent implements OnInit {
     suburb: new FormControl('', Validators.required),
     postal_code: new FormControl('', Validators.required),
     state: new FormControl('', Validators.required),
-    postCode: new FormControl('', Validators.required),
     occupation: new FormControl('', Validators.required),
-    medications: new FormControl('', Validators.required),
-    employer: new FormControl('', Validators.required),
     email: new FormControl(''),
     phone: new FormControl(''),
     gender_identity: new FormControl('', Validators.required),
@@ -293,17 +290,16 @@ export class MassageFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // if (this.massageForm.valid) {
-    // console.log('Botao submit oi');
-    this.dataService
-      .setClientMassageForm(this.massageForm.value)
-      .subscribe((res) => {
-        this.massageForm.reset();
-        alert('The Client Form has been added.');
-      });
-    // } else {
-    //   alert('Please fill all the required fields.');
-    // }
+    if (this.massageForm.valid) {
+      this.dataService
+        .setClientMassageForm(this.massageForm.value)
+        .subscribe((res) => {
+          this.massageForm.reset();
+          alert('The Client Form has been added.');
+        });
+    } else {
+      alert('Please fill all the required fields.');
+    }
   }
 
   formatDate(date: Date): string {
