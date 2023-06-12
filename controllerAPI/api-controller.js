@@ -13,7 +13,7 @@ router.post("/login/", (request, response) => {
     if (err) {
       console.log("Error when Login", err);
     } else {
-      connection.query("INSERT INTO currentuser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '" + AccessToken + "'");
+      connection.query("INSERT INTO CurrentUser VALUES('" + request.body.username + "','" + AccessToken + "') ON DUPLICATE KEY UPDATE AccessToken = '" + AccessToken + "'");
       if (AccessToken) {
         response.send({ username: request.body.username });
       } else {
@@ -24,7 +24,7 @@ router.post("/login/", (request, response) => {
 });
 
 router.post("/getStaff/", (request, response) => {
-  connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
+  connection.query("SELECT accesstoken FROM CurrentUser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
     if (err) {
       console.log("Error when retriving the data", err);
     } else {
@@ -34,7 +34,7 @@ router.post("/getStaff/", (request, response) => {
         } else {
           staff.StaffMembers.forEach((s) => {
             if (s.AppointmentInstructor) {
-              connection.query("INSERT INTO staff VALUES (" + s.Id + ",'" + s.Name + "') ON DUPLICATE KEY UPDATE full_name = '" + s.Name + "'", (err) => {
+              connection.query("INSERT INTO Staff VALUES (" + s.Id + ",'" + s.Name + "') ON DUPLICATE KEY UPDATE full_name = '" + s.Name + "'", (err) => {
                 if (err) {
                   console.log("Error when inserting the client data", err);
                 }
@@ -49,7 +49,7 @@ router.post("/getStaff/", (request, response) => {
 
 router.post("/getClientTreatment/", (request, response) => {
   try {
-    connection.query("SELECT accesstoken FROM currentuser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
+    connection.query("SELECT accesstoken FROM CurrentUser WHERE username = '" + request.body.username + "'", (err, records, fields) => {
       if (err) {
         console.log("Error when retriving the data", err);
       } else {
@@ -66,7 +66,7 @@ router.post("/getClientTreatment/", (request, response) => {
                     console.log("Error when getting the client data", err);
                   } else {
                     client.Clients.forEach((c) => {
-                      connection.query((`INSERT INTO client VALUES (` + c.Id + `,"` + c.FirstName + `","` + c.MiddleName + `","` + c.LastName + `","` + c.MobilePhone + `","` + c.Email + `") ON DUPLICATE KEY UPDATE first_name = "` + c.FirstName + `", middle_name = "` + c.MiddleName + `",last_name = "` + c.LastName + `",mobile_phone ="` + c.MobilePhone + `",email = "` + c.Email + `"`).replace("'", "''"), (err) => {
+                      connection.query((`INSERT INTO Client VALUES (` + c.Id + `,"` + c.FirstName + `","` + c.MiddleName + `","` + c.LastName + `","` + c.MobilePhone + `","` + c.Email + `") ON DUPLICATE KEY UPDATE first_name = "` + c.FirstName + `", middle_name = "` + c.MiddleName + `",last_name = "` + c.LastName + `",mobile_phone ="` + c.MobilePhone + `",email = "` + c.Email + `"`).replace("'", "''"), (err) => {
                         if (err) {
                           console.log("Error when inserting the client data", err);
                         }
@@ -81,7 +81,7 @@ router.post("/getClientTreatment/", (request, response) => {
             });
             insertClients.then(() => {
               treatments.Appointments.forEach((t) => {
-                connection.query("INSERT INTO treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
+                connection.query("INSERT INTO Treatment(treatment_id,client_id,staff_id,treatment_StartDateTime,treatment_EndDateTime) VALUES (" + t.Id + "," + t.ClientId + "," + t.StaffId + ",'" + t.StartDateTime + "','" + t.EndDateTime + "') ON DUPLICATE KEY UPDATE client_id = " + t.ClientId + ",staff_id = " + t.StaffId + ",treatment_StartDateTime = '" + t.StartDateTime + "',treatment_EndDateTime = '" + t.EndDateTime + "'", (err) => {
                   if (err) {
                     console.log("Error when inserting the treatment data", err);
                   }
@@ -100,7 +100,7 @@ router.post("/getClientTreatment/", (request, response) => {
 
 // Whitestone System
 router.get("/therapist/", (request, response) => {
-  connection.query("SELECT * FROM therapist", (err, records, fields) => {
+  connection.query("SELECT * FROM Therapist", (err, records, fields) => {
     if (err) {
       console.log("Error when retriving the data");
     } else {
@@ -110,7 +110,7 @@ router.get("/therapist/", (request, response) => {
 });
 
 router.get("/client/", (request, response) => {
-  connection.query("SELECT * FROM client", (err, records, fields) => {
+  connection.query("SELECT * FROM Client", (err, records, fields) => {
     if (err) {
       console.log("Error when retriving the data");
     } else {
@@ -120,7 +120,7 @@ router.get("/client/", (request, response) => {
 });
 
 router.get("/client/:id", (request, response) => {
-  connection.query("SELECT * FROM client where client_id =" + request.params.id, (err, records, fields) => {
+  connection.query("SELECT * FROM Client where client_id =" + request.params.id, (err, records, fields) => {
     if (err) {
       console.log("Error when retriving the data");
     } else {
@@ -133,7 +133,7 @@ router.get("/treatment/", (request, response) => {
   var newDate = new Date().toLocaleDateString("sv-SE");
   //This sv-SE is to return the correct date format YYYY-MM-DD, it might be changed in the future
   connection.query(
-    'SELECT s.full_name, t.*, cmf.occupation, client.first_name, client.middle_name, client.last_name FROM treatment t JOIN staff s ON s.staff_id=t.staff_id LEFT JOIN client ON client.client_id=t.client_id LEFT JOIN client_massage_form cmf ON cmf.client_id=t.client_id where Date(treatment_StartDateTime) ="' +
+    'SELECT s.full_name, t.*, cmf.occupation, c.first_name, c.middle_name, c.last_name FROM Treatment t JOIN Staff s ON s.staff_id=t.staff_id LEFT JOIN Client c ON c.client_id=t.client_id LEFT JOIN Client_Massage_Form cmf ON cmf.client_id=t.client_id where Date(treatment_StartDateTime) ="' +
     newDate + '" ORDER BY treatment_StartDateTime ASC',
     (err, records, fields) => {
       if (err) {
@@ -147,7 +147,7 @@ router.get("/treatment/", (request, response) => {
 });
 
 router.get("/treatment/:id", (request, response) => {
-  connection.query("SELECT treatment.*, staff.full_name FROM treatment LEFT JOIN staff ON staff.staff_id=treatment.staff_id where client_id =" + request.params.id, (err, records, fields) => {
+  connection.query("SELECT t.*, s.full_name FROM Treatment t LEFT JOIN Staff s ON s.staff_id = t.staff_id where t.client_id =" + request.params.id, (err, records, fields) => {
     if (err) {
       console.log(err);
     } else {
@@ -159,7 +159,7 @@ router.get("/treatment/:id", (request, response) => {
 
 
 router.get("/massageForm/", (request, response) => {
-  connection.query("SELECT * FROM client_massage_form ", (err, records, fields) => {
+  connection.query("SELECT * FROM Client_Massage_Form ", (err, records, fields) => {
     if (err) {
       console.log("Error when retriving the data");
     } else {
@@ -169,7 +169,7 @@ router.get("/massageForm/", (request, response) => {
 });
 
 router.get("/:string", (req, res) => {
-  connection.query("SELECT * from client_massage_form WHERE full_name LIKE '" + req.params.string + "%'",
+  connection.query("SELECT * from Client_Massage_Form WHERE full_name LIKE '" + req.params.string + "%'",
     (err, records, fields) => {
       if (err) {
         console.error("Error while retrieve the data");
@@ -180,7 +180,7 @@ router.get("/:string", (req, res) => {
 });
 
 router.get("/massageForm/:id", (req, res) => {
-  connection.query("SELECT * from client_massage_form WHERE client_id=" + req.params.id,
+  connection.query("SELECT * from Client_Massage_Form WHERE client_id=" + req.params.id,
     (err, records, fields) => {
       if (err) {
         console.error("Error while retrieve the data");
@@ -192,7 +192,7 @@ router.get("/massageForm/:id", (req, res) => {
 
 router.get("/staff/:id", (request, response) => {
   connection.query(
-    "SELECT staff.full_name, treatment.treatment_id FROM staff INNER JOIN treatment ON treatment.staff_id = staff.staff_id WHERE treatment_id =" + request.params.id,
+    "SELECT s.full_name, t.treatment_id FROM Staff s INNER JOIN Treatment t ON t.staff_id = s.staff_id WHERE t.treatment_id =" + request.params.id,
     (err, records, fields) => {
       if (err) {
         console.log(err);
@@ -205,7 +205,7 @@ router.get("/staff/:id", (request, response) => {
 
 router.get("/treatmentNotes/:full_name", (request, response) => {
   connection.query(
-    "SELECT t.*, c.*, s.full_name FROM treatment t LEFT JOIN  client c ON t.client_id=c.client_id LEFT JOIN staff s ON s.staff_id=t.staff_id WHERE first_name LIKE  '" + request.params.full_name + "%'",
+    "SELECT t.*, c.*, s.full_name FROM Treatment t LEFT JOIN Client c ON t.client_id=c.client_id LEFT JOIN Staff s ON s.staff_id=t.staff_id WHERE c.first_name LIKE '" + request.params.full_name + "%'",
     (err, records, fields) => {
       if (err) {
         console.log(err);
@@ -314,16 +314,10 @@ router.post("/NewClientMassageForm/", (req, res) => {
 
   console;
 
-  //Remove after areas get implemented:
-  //   areas_of_disconfort = "1";
-
   //remove after calculating expiry date:
-  date_of_birth = "2023-04-14";
-  expiry_date = date_of_birth;
-  client_signature_date = date_of_birth;
-
-  console.log("Req Body: " + req.body);
-  //   console.log("Req Gender: " + req.body.gender_identity);
+  var newDate = new Date().toLocaleDateString("sv-SE");
+  client_signature_date = newDate;
+  expiry_date = newDate.setDate(newDate.getDate() + 2555);
 
   console.log(
     "INSERT INTO Client_Massage_Form(client_id,full_name,date_of_birth,address,suburb,state,postal_code,occupation,email,phone,gender_identity,health_insurance,health_insurance_other,emergency_contact_name,emergency_contact_relationship,emergency_contact_phone,hear_about_us_online_search,hear_about_us_word_of_mouth,hear_about_us_facebook,hear_about_us_friend_family,hear_about_us_instagram,hear_about_us_healthcare_provider,hear_about_us_online_advertisement,hear_about_us_walked_by,taking_medication,taking_medication_list,pregnant,pregnant_how_far,pregnant_high_risk,chronic_pain,chronic_pain_explanation,orthopedic_injuries,orthopedic_injuries_list,hasCancer,hasFibromyalgia,hasHeadaches_migraines,hasStroke,hasArthritis,hasHeart_attack,hasDiabetes,hasKidney_dysfunction,hasJoint_replacement,hasBlood_clots,hasHigh_low_pressure,hasNumbness,hasNeuropathy,hasSprains_strains,conditions_explanation,had_professional_massage,professional_massage_type,professional_massage_other,pressure_preference,allergies_sensitivities,allergies_sensitivities_explanation,goal_pain_relief,goal_stress_reduction,goal_increase_range_of_motion,goal_injury_rehabilitation,goal_improve_sleep,goal_increase_energy,goal_other,massage_frequency_weekly, massage_frequency_monthly,massage_frequency_random,massage_frequency_other,front_right_arm,front_right_hand, front_right_foot, front_right_calf, front_right_knee, front_right_thigh, front_left_foot, front_left_calf, front_left_knee, front_left_thigh, front_left_hand, front_left_arm, front_abdomen, front_chest, front_head,back_right_arm, back_right_leg, back_right_hip, back_right_shoulder, back_left_leg, back_left_arm, back_left_hip, back_left_shoulder, back_lower_back, back_head, client_signature,client_signature_date,expiry_date)" +
@@ -848,7 +842,7 @@ router.post("/NewNotesForm/:id", (req, res) => {
   var erect_spinae = req.body.erect_spinae;
 
   connection.query(
-    "UPDATE treatment SET pressure='" +
+    "UPDATE Treatment SET pressure='" +
     pressure +
     "', front_of_body='" +
     front_of_body +

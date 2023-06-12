@@ -96,7 +96,10 @@ export class HomeComponent {
       .subscribe((err: any) => {
         console.log(err);
       });
-
+    this.dataService.getStaff({ username: localStorage.getItem('user') })
+      .subscribe((err: any) => {
+        console.log(err);
+      });
     setTimeout(() => {
       window.location.reload();
     }, 2000);
